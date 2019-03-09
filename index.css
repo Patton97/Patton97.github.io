@@ -21,7 +21,8 @@ nav p
 
 nav img
 {
-  height: 50%;
+  width: 25%;
+  height: auto;
   background-color: #464F59;
 }
 
