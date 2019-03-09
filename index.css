@@ -29,7 +29,9 @@ nav
   order: 2;
   flex-grow: 1;
   text-align: center;
-  
+}
+
+#home img{
   width: 30px;
   height: auto;
   
