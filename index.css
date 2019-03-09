@@ -28,13 +28,14 @@ nav
   flex-grow: 1;
 }
 
-nav img
+#home img
 {
   width: 30px;
   height: auto;
   background-color: #464F59;
   padding: 5px;
-  border-radius: 30px;  
+  border-radius: 30px; 
+  margin: auto;
 }
 
 nav ul
