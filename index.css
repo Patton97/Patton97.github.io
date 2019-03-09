@@ -25,6 +25,7 @@ nav p
 #home
 {
   order: 2;
+  flex-grow: 1;
 }
 
 nav img
