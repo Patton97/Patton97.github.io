@@ -1,4 +1,6 @@
 body{
   background-color: #24292e;
-  color:            #ffffff;
+  //Text
+  color: #ffffff;
+  font-family: "Maison Neue Regular", Maison Neue, sans-serif;
 }
