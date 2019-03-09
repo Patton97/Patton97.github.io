@@ -6,6 +6,10 @@ body
   margin:0;
 }
 
+/****************/
+/* START OF NAV */
+/****************/
+
 nav
 {
   background-color: #0E1011;
@@ -33,7 +37,7 @@ nav
   flex-grow: 1;
   text-align: center;
   
-  transition: width, height .5s ease-in-out;
+  transition: transform .5s ease-in-out;
 }
 
 #home:hover
@@ -89,5 +93,8 @@ main
   display: flex;
   flex-direction: column;
   
-  margin: auto;
+  margin: 25%;
 }
+/***************/
+/* END OF MAIN */
+/***************/
