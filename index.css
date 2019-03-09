@@ -27,6 +27,7 @@ p
 nav li
 {
   font-size: 1.5em;
+  text-align: center;
   list-style-type: none;
   float: left;
   padding: 15px;   
@@ -36,7 +37,6 @@ nav li
 
 nav li a {
   display: block;
-  text-align: center;   
   text-decoration: none;
   color: #FFFFFF;
 }
