@@ -34,11 +34,11 @@ nav
   text-align: center;
   
   transition: all .2s ease-in-out;
+}
 
-  &:hover
-  {
-    transform: scale(1.1);
-  }
+#home:hover
+{
+  transform: scale(1.1);
 }
 
 #home img{
@@ -69,11 +69,11 @@ nav li a {
   text-decoration: none;
   color: #FFFFFF;
   padding: 10px;
-  
-  &:hover 
-  {
-    background-color: #464F59;
-    border-radius: 10px;
-    color: #FFFFFF;
-  }
+}
+
+nav li a:hover 
+{
+  background-color: #464F59;
+  border-radius: 10px;
+  color: #FFFFFF;
 }
