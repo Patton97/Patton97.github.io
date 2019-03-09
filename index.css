@@ -37,4 +37,5 @@ nav li a {
 nav li a:hover {
   background-color: #919496;
   border-radius: 10px;
+  color: #FFFFFF;
 }
