@@ -13,15 +13,9 @@ nav
   vertical-align: middle;
 }
 
-nav h1
-{
-  font-size: 2em;
-  display: inline;
-}
-
 nav p
 {
-  font-size: 1em; 
+  font-size: 2em; 
   display: inline;
 }
 
