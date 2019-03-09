@@ -18,9 +18,10 @@ p
 
 nav li
 {
+  font-size: 1.5em;
   list-style-type: none;
   float: left;
-  padding: 5px;
+  padding: 20px;
 }
 
 nav li a {
