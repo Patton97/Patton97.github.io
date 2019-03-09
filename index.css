@@ -32,6 +32,10 @@ nav
   order: 2;
   flex-grow: 1;
   text-align: center;
+  
+  transition: all .2s ease-in-out;
+
+  &:hover { transform: scale(1.1);
 }
 
 #home img{
