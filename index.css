@@ -15,7 +15,6 @@ nav
   flex-direction: row;
   align-items: baseline;
   justify-content: space-between;
-  align-content: center;
 }
 
 #name
