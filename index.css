@@ -49,6 +49,10 @@ nav ul
   flex-grow: 1;
   
   list-style-type: none;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 nav li
