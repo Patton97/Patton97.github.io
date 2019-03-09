@@ -49,10 +49,9 @@ nav
 nav ul
 {
   order: 3;
-  flex-grow: 1;
-  
+  flex-grow: 1;  
   list-style-type: none;
-  
+  /*This list owns a separate, nested flexbox*/
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -76,4 +75,19 @@ nav li a:hover
   background-color: #464F59;
   border-radius: 10px;
   color: #FFFFFF;
+}
+/**************/
+/* END OF NAV */
+/**************/
+
+/*****************/
+/* START OF MAIN */
+/*****************/
+
+main
+{
+  display: flex;
+  flex-direction: column;
+  
+  margin: 50%;
 }
