@@ -11,12 +11,15 @@ nav
   background-color: #0E1011;
   padding: 20px;
   vertical-align: middle;
+  display: flex;
+  flex-direction: row;
 }
 
 nav p
 {
   font-size: 2em; 
-  display: inline;
+  /*display: inline;*/
+  order: 1
 }
 
 nav img
@@ -26,13 +29,14 @@ nav img
   background-color: #464F59;
   padding: 5px;
   border-radius: 30px;
-  margin: auto;
+  order: 2;
 }
 
 nav ul
 {
   display: inline; 
   float: right;
+  order: 3;
 }
 
 nav li
