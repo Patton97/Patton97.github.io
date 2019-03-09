@@ -1,30 +1,23 @@
 body
 {
+  background-color: #24292E;
   color: #FFFFFF;
   font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-header
-{
-  background-color: #24292E;
-}
-
-main
-{
-  background-color: #65696C;
 }
 
 h1
 {
-  font-size: 2em;
-  
+  font-size: 2em;  
 }
 
 p
 {
   font-size: 1em; 
+}
+
+nav
+{
+  background-color: #65696C;
 }
 
 nav li
