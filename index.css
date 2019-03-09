@@ -103,7 +103,7 @@ main
 /* PORTRAIT */
 /************/
 
-@media (orientation: landscape) 
+@media (orientation: portrait) 
 {
   main
   {
