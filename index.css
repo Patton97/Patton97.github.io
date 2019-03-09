@@ -23,7 +23,7 @@ nav li
   float: left;
   padding: 10px;   
   background-color: #65696C;
-  border-radius: 10px;  
+  border-radius: 15px;  
 }
 
 nav li a {
@@ -31,7 +31,6 @@ nav li a {
   text-align: center;   
   text-decoration: none;
   color: #FFFFFF;
-  padding: 10px;
 }
 
 nav li a:hover {
