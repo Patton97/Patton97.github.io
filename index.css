@@ -26,6 +26,7 @@ nav p
 nav ul
 {
   display: inline; 
+  float: right;
 }
 
 nav li
@@ -33,7 +34,7 @@ nav li
   font-size: 1.5em;
   text-align: center;
   list-style-type: none;
-  float: right;
+  float: left;
   border-radius: 10px;  
 }
 
