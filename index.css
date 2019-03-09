@@ -13,7 +13,7 @@ nav
   vertical-align: middle;
   display: flex;
   flex-direction: row;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -39,7 +39,7 @@ nav
   height: auto;
   
   background-color: #464F59;
-  padding: 5px;
+  padding: 10px;
   border-radius: 30px; 
 }
 
