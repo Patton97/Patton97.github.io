@@ -10,7 +10,9 @@ nav
   background-color: #0E1011;
   padding: 20px;
   vertical-align: middle;
-  position: relative;
+  margin: 0;
+  top: 0;
+  left: 0;
 }
 
 nav h1
