@@ -21,11 +21,12 @@ nav p
 
 nav img
 {
-  width: 20px;
+  width: 30px;
   height: auto;
   background-color: #464F59;
   padding: 5px;
   border-radius: 30px;
+  margin: auto;
 }
 
 nav ul
