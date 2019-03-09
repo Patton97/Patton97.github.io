@@ -22,11 +22,11 @@ nav
 
 nav li
 {
+  background-color: #65696C;
   font-size: 1.5em;
   text-align: center;
   list-style-type: none;
   float: left;
-  padding: 15px;
   border-radius: 10px;  
 }
 
