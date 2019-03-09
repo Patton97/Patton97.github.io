@@ -98,3 +98,15 @@ main
 /***************/
 /* END OF MAIN */
 /***************/
+
+/************/
+/* PORTRAIT */
+/************/
+
+@media (orientation: landscape) 
+{
+  main
+  {
+    margin: 0 5%;
+  }
+}
