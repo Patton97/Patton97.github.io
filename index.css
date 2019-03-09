@@ -13,7 +13,9 @@ nav
   vertical-align: middle;
   display: flex;
   flex-direction: row;
-  justify-content: space-between
+  align-items: baseline;
+  justify-content: space-between;
+  align-content: center;
 }
 
 #name
@@ -27,16 +29,13 @@ nav
   order: 2;
   flex-grow: 1;
   text-align: center;
-}
-
-#home img
-{
+  
   width: 30px;
   height: auto;
+  
   background-color: #464F59;
   padding: 5px;
   border-radius: 30px; 
-  margin: auto;
 }
 
 nav ul
