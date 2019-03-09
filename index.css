@@ -5,21 +5,26 @@ body
   font-family: "Poppins", sans-serif;
 }
 
-h1
+nav
+{
+  background-color: #0E1011;
+}
+
+nav h1
 {
   font-size: 2em;
   display: inline;
 }
 
-p
+nav p
 {
   font-size: 1em; 
   display: inline;
 }
 
-nav
+nav ul
 {
-  background-color: #0E1011;
+  display: inline; 
 }
 
 nav li
