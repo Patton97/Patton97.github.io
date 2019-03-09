@@ -35,7 +35,10 @@ nav
   
   transition: all .2s ease-in-out;
 
-  &:hover { transform: scale(1.1);}
+  &:hover
+  {
+    transform: scale(1.1);
+  }
 }
 
 #home img{
@@ -66,10 +69,11 @@ nav li a {
   text-decoration: none;
   color: #FFFFFF;
   padding: 10px;
-}
-
-nav li a:hover {
-  background-color: #464F59;
-  border-radius: 10px;
-  color: #FFFFFF;
+  
+  &:hover 
+  {
+    background-color: #464F59;
+    border-radius: 10px;
+    color: #FFFFFF;
+  }
 }
