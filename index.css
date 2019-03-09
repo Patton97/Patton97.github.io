@@ -19,7 +19,8 @@ p
 nav li
 {
   list-style-type: none;
-  display: inline;
+  float: left;
+  border-radius: 5px;
 }
 
 nav li a {
