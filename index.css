@@ -27,7 +27,7 @@ nav ul
 {
   display: inline; 
   float: right;
-  margin: 0;
+  margin: auto;
 }
 
 nav li
