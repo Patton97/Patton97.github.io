@@ -2,5 +2,5 @@ body{
   background-color: #24292e;
   //Text
   color: #ffffff;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
 }
