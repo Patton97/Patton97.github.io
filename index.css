@@ -21,6 +21,7 @@ nav
 {
   font-size: 2em;
   order: 1;
+  flex-grow: 0;
   
   text-decoration: none;
   color: #FFFFFF;
@@ -29,6 +30,7 @@ nav
 #home
 {
   order: 2;
+  flex-grow: 0;
   text-align: center;
 }
 
@@ -44,6 +46,7 @@ nav
 nav ul
 {
   order: 3;
+  flex-grow: 0;
 }
 
 nav li
