@@ -33,12 +33,12 @@ nav
   flex-grow: 1;
   text-align: center;
   
-  transition: all .2s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 
 #home:hover
 {
-  transform: scale(1.1);
+  transform: scale(1.5);
 }
 
 #home img{
