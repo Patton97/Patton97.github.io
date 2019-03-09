@@ -10,6 +10,7 @@ nav
   background-color: #0E1011;
   padding: 20px;
   vertical-align: middle;
+  margin: 0;
 }
 
 nav h1
@@ -28,7 +29,6 @@ nav ul
 {
   display: inline; 
   float: right;
-  margin: auto;
 }
 
 nav li
