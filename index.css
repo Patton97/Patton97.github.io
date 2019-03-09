@@ -19,6 +19,12 @@ nav p
   display: inline;
 }
 
+nav img
+{
+  height: 50%;
+  background-color: #464F59;
+}
+
 nav ul
 {
   display: inline; 
