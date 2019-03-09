@@ -22,13 +22,13 @@ nav li
   list-style-type: none;
   float: left;
   padding: 10px;
+  text-decoration: none;
 }
 
 nav li a {
   display: block;
   text-align: center;
-  padding: 10px;
-  text-decoration: none;
+  
 }
 
 nav li a:hover {
