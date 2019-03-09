@@ -17,9 +17,8 @@ nav
 
 #name
 {
-  font-size: 2em; 
-  /*display: inline;*/
-  order: 1
+  font-size: 2em;
+  order: 1;
 }
 
 #home
@@ -41,8 +40,6 @@ nav
 
 nav ul
 {
-  display: inline; 
-  float: right;
   order: 3;
 }
 
@@ -51,9 +48,8 @@ nav li
   font-size: 1.5em;
   text-align: center;
   list-style-type: none;
-  float: left;
   border-radius: 10px;  
-  /*margin: 0 20px 0 0;*/
+  margin-left: 20px;
 }
 
 nav li a {
