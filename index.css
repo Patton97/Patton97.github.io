@@ -21,14 +21,14 @@ nav li
   font-size: 1.5em;
   list-style-type: none;
   float: left;
-  padding: 10px;
-  text-decoration: none;
-  color: #FFFFFF;
+  padding: 10px;  
 }
 
 nav li a {
   display: block;
   text-align: center;  
+  text-decoration: none;
+  color: #FFFFFF;
 }
 
 nav li a:hover {
