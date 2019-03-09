@@ -22,6 +22,9 @@ nav
 {
   font-size: 2em;
   order: 1;
+  
+  text-decoration: none;
+  color: #FFFFFF;
 }
 
 #home
