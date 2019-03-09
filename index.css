@@ -23,12 +23,12 @@ nav li
   float: left;
   padding: 10px;
   text-decoration: none;
+  color: #FFFFFF;
 }
 
 nav li a {
   display: block;
-  text-align: center;
-  
+  text-align: center;  
 }
 
 nav li a:hover {
