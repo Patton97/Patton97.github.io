@@ -40,7 +40,7 @@ nav
                   respectively, allows the #home to center correctly*/
 }
 
-#name a:hover
+#name:hover
 {
   color: #24292E;
 }
