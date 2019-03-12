@@ -27,14 +27,16 @@ nav
 
 #name
 {
-  font-size: 1.5em;
-  order: 1;
-  flex-grow: 1;
-  
+  /*Common styling*/
+  font-size: 1.5em;  
+  margin: 0;
+  padding: 0 25px 0 0;
   text-decoration: none;
   color: #FFFFFF;
   
-  padding-left: 25px;
+  /*Flex item styling*/
+  order: 1;
+  flex-grow: 1;
 }
 
 #home
@@ -58,10 +60,16 @@ nav
 
 nav ul
 {
+  /*Common styling*/
+  margin: 0;
+  padding: 0 0 0 25px;
+  
+  /*Flex item styling*/
   order: 3;
   flex-grow: 1;  
   list-style-type: none;
-  /*This list owns a separate, nested flexbox*/
+  
+  /*Flex container styling (This list owns a separate, nested flexbox)*/
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
