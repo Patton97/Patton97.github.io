@@ -17,7 +17,7 @@ body
 nav
 {
   background-color: #0E1011;
-  padding: 20px;
+  padding: 10px;
   vertical-align: middle;
   display: flex;
   flex-direction: row;
@@ -46,7 +46,7 @@ nav
 
 #home:hover
 {
-  transform: scale(1.5);
+  transform: scale(1.25);
 }
 
 #home img{
