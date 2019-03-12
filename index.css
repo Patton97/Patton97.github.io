@@ -36,7 +36,8 @@ nav
   
   /*Flex item styling*/
   order: 1;
-  flex-grow: 1;
+  flex-grow: 2; /*Setting #name, #home and menu to flex-grow: 2, 0, 1
+                  respectively, allows the #home to center correctly*/
 }
 
 #home
