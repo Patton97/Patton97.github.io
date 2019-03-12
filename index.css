@@ -27,7 +27,7 @@ nav
 
 #name
 {
-  /*Common styling*/
+  /*General styling*/
   font-size: 1.5em;  
   margin: 0;
   padding: 0 25px 0 0;
@@ -42,11 +42,14 @@ nav
 
 #home
 {
-  order: 2;
-  flex-grow: 1;
+  /*General styling*/
   text-align: center;
-  
   transition: transform .5s ease-in-out;
+  
+  /*Flex item styling*/
+  order: 2;
+  flex-grow: 0; /*Setting #name, #home and menu to flex-grow: 2, 0, 1
+                  respectively, allows the #home to center correctly*/
 }
 
 #home:hover
@@ -61,14 +64,15 @@ nav
 
 nav ul
 {
-  /*Common styling*/
+  /*General styling*/
   margin: 0;
   padding: 0 0 0 25px;
+  list-style-type: none;
   
   /*Flex item styling*/
   order: 3;
-  flex-grow: 1;  
-  list-style-type: none;
+  flex-grow: 1; /*Setting #name, #home and menu to flex-grow: 2, 0, 1
+                  respectively, allows the #home to center correctly*/  
   
   /*Flex container styling (This list owns a separate, nested flexbox)*/
   display: flex;
