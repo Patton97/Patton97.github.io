@@ -138,7 +138,8 @@ main p
 /* START OF FOOTER */
 /*****************/
 
-footer {
+footer 
+{
   position:fixed;
   left:0px;
   bottom:0px;
@@ -147,13 +148,45 @@ footer {
   background-color: #0E1011;
   padding: 10px;
   vertical-align: middle;
+  
+  /*Flex container stline*/
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
-/*****************/
+footer #email
+{
+  /*Flex item stlying*/
+  order: 1;
+}
+
+footer #email:before {
+    content: "";
+    display: block;
+    background: url("email.png") no-repeat;
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin: 0 6px 0 0;
+}
+
+footer #twitter
+{
+  /*Flex item stlying*/
+  order: 2;
+}
+
+footer #twitter:before {
+    content: "";
+    display: block;
+    background: url("twitter.png") no-repeat;
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin: 0 6px 0 0;
+}/*****************/
 /* END OF FOOTER */
 /*****************/
 
