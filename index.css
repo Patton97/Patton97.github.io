@@ -144,6 +144,7 @@ footer
   left:0px;
   bottom:0px;
   width: 100vw;
+  padding: 5px 0 5px 0;
    
   background-color: #0E1011;
   vertical-align: middle;
@@ -155,12 +156,6 @@ footer
   justify-content: space-evenly;
 }
 
-footer #email
-{
-  /*Flex item stlying*/
-  order: 1;
-}
-
 footer #email:before {
     content: "";
     display: block;
@@ -168,13 +163,38 @@ footer #email:before {
     width: 25px;
     height: 25px;
     float: left;
-    margin: 0 6px 0 0;
+    margin: 0 5px 0 0;
+}
+
+footer #email
+{
+  /*General styling*/
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #FFFFFF;
+  
+  /*Flex item stlying*/
+  order: 1;
+  text-direction: none;
+}
+
+footer #email:hover {
+    color: #464F59;
 }
 
 footer #twitter
 {
+  /*General styling*/
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #FFFFFF;
+  
   /*Flex item stlying*/
   order: 2;
+}
+
+footer #twitter:hover {
+    color: #464F59;
 }
 
 footer #twitter:before {
@@ -184,7 +204,7 @@ footer #twitter:before {
     width: 25px;
     height: 25px;
     float: left;
-    margin: 0 6px 0 0;
+    margin: 0 10px 0 0;
 }/*****************/
 /* END OF FOOTER */
 /*****************/
