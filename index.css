@@ -90,7 +90,7 @@ nav li
   font-size: 1.5em;
   text-align: center;
   border-radius: 10px;
-  padding: 0 0 0 10vw;
+  padding: 0 0 0 1vw;
 }
 
 nav li a {
@@ -134,10 +134,10 @@ main p
 /* START OF FOOTER */
 /*****************/
 
-#footer {
-   position:fixed;
-   left:0px;
-   bottom:0px;
+footer {
+  position:fixed;
+  left:0px;
+  bottom:0px;
    
   background-color: #0E1011;
   padding: 10px;
