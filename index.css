@@ -146,7 +146,6 @@ footer
   width: 100vw;
    
   background-color: #0E1011;
-  padding: 10px;
   vertical-align: middle;
   
   /*Flex container stline*/
@@ -165,7 +164,7 @@ footer #email
 footer #email:before {
     content: "";
     display: block;
-    background: url("email.png") no-repeat;
+    background: url("email25px.png") no-repeat;
     width: 25px;
     height: 25px;
     float: left;
@@ -181,7 +180,7 @@ footer #twitter
 footer #twitter:before {
     content: "";
     display: block;
-    background: url("twitter.png") no-repeat;
+    background: url("twitter25px.png") no-repeat;
     width: 25px;
     height: 25px;
     float: left;
