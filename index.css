@@ -130,6 +130,28 @@ main p
 /* END OF MAIN */
 /***************/
 
+/*****************/
+/* START OF FOOTER */
+/*****************/
+
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   
+  background-color: #0E1011;
+  padding: 10px;
+  vertical-align: middle;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*****************/
+/* END OF FOOTER */
+/*****************/
+
 /************/
 /* PORTRAIT */
 /************/
