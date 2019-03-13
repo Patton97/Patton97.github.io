@@ -156,56 +156,37 @@ footer
   justify-content: space-evenly;
 }
 
-footer #email:before {
-    content: "";
-    display: block;
-    background: url("email25px.png") no-repeat;
-    width: 25px;
-    height: 25px;
-    float: left;
-    margin: 0 5px 0 0;
+footer a:before
+{
+  content: "";
+  display: block;
+  width: 25px;
+  height: 25px;
+  float: left;
+  margin: 0 5px 0 0;
 }
+footer #email:before   {background: url("email25px.png") no-repeat;}
+footer #twitter:before {background: url("twitter25px.png") no-repeat;}
 
-footer #email
+footer a
 {
   /*General styling*/
-  font-size: 1.5em;
+  font-size: 1em;
   text-decoration: none;
   color: #FFFFFF;
   
   /*Flex item stlying*/
-  order: 1;
   text-direction: none;
 }
+footer #email  {order: 1;} /*Flex item order*/
+footer #twitter{order: 2;} /*Flex item order*/
 
-footer #email:hover {
-    color: #464F59;
-}
-
-footer #twitter
+footer a:hover 
 {
-  /*General styling*/
-  font-size: 1.5em;
-  text-decoration: none;
-  color: #FFFFFF;
-  
-  /*Flex item stlying*/
-  order: 2;
-}
-
-footer #twitter:hover {
     color: #464F59;
 }
 
-footer #twitter:before {
-    content: "";
-    display: block;
-    background: url("twitter25px.png") no-repeat;
-    width: 25px;
-    height: 25px;
-    float: left;
-    margin: 0 10px 0 0;
-}/*****************/
+/*****************/
 /* END OF FOOTER */
 /*****************/
 
