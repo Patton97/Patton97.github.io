@@ -28,11 +28,8 @@ nav
 #name
 {
   /*General styling*/
-  font-size: 1.5em;  
   margin: 0;
-  padding: 0 10vw 0 0;
-  text-decoration: none;
-  color: #FFFFFF;
+  padding: 0 10vw 0 0;  
   
   /*Flex item styling*/
   order: 1;
@@ -40,7 +37,14 @@ nav
                   respectively, allows the #home to center correctly*/
 }
 
-#name:hover
+#name a
+{
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #FFFFFF; 
+}
+
+#name a:hover
 {
   color: #464F59;
 }
@@ -138,6 +142,7 @@ footer {
   position:fixed;
   left:0px;
   bottom:0px;
+  width: 100vw;
    
   background-color: #0E1011;
   padding: 10px;
