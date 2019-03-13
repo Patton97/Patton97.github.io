@@ -29,7 +29,7 @@ nav
 {
   /*General styling*/
   margin: 0;
-  padding: 0 0 0 10vw;  
+  padding: 0 0 0 5vw;  
   
   /*Flex item styling*/
   order: 1;
@@ -75,7 +75,7 @@ nav ul
 {
   /*General styling*/
   margin: 0;
-  padding: 0 10 0 0;
+  padding: 0 5vw 0 0;
   list-style-type: none;
   
   /*Flex item styling*/
