@@ -128,7 +128,7 @@ main
 }
 
 /*IMAGE GALLERY*/
-main .gallery
+.gallery
 {
   position:relative;
   height:100%;
