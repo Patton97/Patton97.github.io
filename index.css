@@ -135,7 +135,7 @@ main .gallery
   width:100%;
 }
 
-main .gallery img
+#clipped
 {
   width:  100%;
   height: 100%;
