@@ -117,28 +117,20 @@ nav li a:hover
 /* END OF NAV */
 /**************/
 
-/*****************/
-/* START OF MAIN */
-/*****************/
-main
-{
-  display: flex;
-  flex-direction: column;
-  margin: 0 30%;
-}
-
 /*IMAGE GALLERY*/
 .gallery
 {
   position:relative;
-  height:100%;
-  width:100%;
+  height:auto;
+  width: 200px;
 }
 
 #clipped
 {
   width:  100%;
   height: 100%;
+  -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
 }
 
 .clipped-border{
@@ -146,12 +138,8 @@ main
    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
    padding:5px;
    background:linear-gradient(grey,lightgrey);
-   width:  200px;
-   height: 200px;
-   max-height:250px;
-   max-width:250px;
-   height: 100%;
-   width:  100%;
+   width:  100px;
+   height: 100px;
    transition:transform 0.2s;
    position:absolute;
 }
@@ -161,12 +149,6 @@ main
 .clipped-border:nth-child(4){top:196px; left:353px;}
 .clipped-border:nth-child(5){top:0;     left:470px;}
 
-#clipped 
-{
--webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
-}
-
 .clipped-border:hover
 {
   transform:scale(1.2);
@@ -174,6 +156,16 @@ clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
 }
 /*END OF GALLERY*/
 
+
+/*****************/
+/* START OF MAIN */
+/*****************/
+main
+{
+  display: flex;
+  flex-direction: column;
+  margin: 0 30%;
+}
 main p
 {
   font-family: "Lato", sans-serif;
