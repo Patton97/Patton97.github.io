@@ -116,14 +116,59 @@ nav li a:hover
 /*****************/
 /* START OF MAIN */
 /*****************/
-
 main
 {
   display: flex;
   flex-direction: column;
-  
   margin: 0 30%;
 }
+
+/*IMAGE GALLERY*/
+main .gallery
+{
+  position:relative;
+  height:100%;
+  width:100%;
+}
+
+main .gallery img
+{
+  width:  100%;
+  height: 100%;
+}
+
+.clipped-border{
+  -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+   clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+   padding:5px;
+   background:linear-gradient(grey,lightgrey);
+   width:  200px;
+   height: 200px;
+   max-height:250px;
+   max-width:250px;
+   height: 100%;
+   width:  100%;
+   transition:transform 0.2s;
+   position:absolute;
+}
+
+.clipped-border:nth-child(2){top:196px; left:118px;}
+.clipped-border:nth-child(3){top:0;     left:235px;}
+.clipped-border:nth-child(4){top:196px; left:353px;}
+.clipped-border:nth-child(5){top:0;     left:470px;}
+
+#clipped 
+{
+-webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+}
+
+.clipped-border:hover
+{
+  transform:scale(1.2);
+  transition:transform 0.2s;
+}
+/*END OF GALLERY*/
 
 main p
 {
