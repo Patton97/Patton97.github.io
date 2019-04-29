@@ -143,10 +143,10 @@ nav li a:hover
    position:absolute;
 }
 
-.clipped-border:nth-child(2){top:75px; left:50px;}
-.clipped-border:nth-child(3){top:0;     left:100px;}
-.clipped-border:nth-child(4){top:75px; left:150px;}
-.clipped-border:nth-child(5){top:0;     left:200px;}
+.clipped-border:nth-child(2){top:80px; left:50px;}
+.clipped-border:nth-child(3){top:0;    left:100px;}
+.clipped-border:nth-child(4){top:80px; left:150px;}
+.clipped-border:nth-child(5){top:0;    left:200px;}
 
 .clipped-border:hover
 {
