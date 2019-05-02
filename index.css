@@ -209,6 +209,7 @@ main p
   position:relative; /*or absolute*/
   width: 25px;
   height: 25px;
+  object-fit: contain; 
   float: left;
   margin: 0 5px 0 0;
 }
