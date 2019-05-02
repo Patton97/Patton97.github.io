@@ -186,11 +186,6 @@ main p
   padding: 0 5vw 0 0;
   list-style-type: none;
   
-  /*Flex item styling*/
-  order: 3;
-  flex-grow: 1; /*Setting #name, #home and menu to flex-grow: 2, 0, 1
-                  respectively, allows the #home to center correctly*/  
-  
   /*Flex container styling (This list owns a separate, nested flexbox)*/
   display: flex;
   flex-direction: row;
