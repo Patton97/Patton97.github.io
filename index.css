@@ -203,7 +203,7 @@ main p
   text-decoration: underline
 }
 
-.links li a #github:before
+.github:before
 {
   content:url('Images/githubwhite.png'); /* with class ModalCarrot ??*/
   position:relative; /*or absolute*/
