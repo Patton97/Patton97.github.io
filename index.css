@@ -172,6 +172,13 @@ main p
   font-family: "Lato", sans-serif;
 }
 
+/*Portfolio listings*/
+.links 
+{
+  border-radius: 5px;
+  background-color: #0E1011;
+}
+
 /***************/
 /* END OF MAIN */
 /***************/
