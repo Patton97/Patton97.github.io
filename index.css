@@ -175,16 +175,12 @@ main p
 /*Portfolio listings*/
 .links 
 {
-  border-radius: 5px;
-  background-color: #0E1011;
-}
-
-.links ul
-{
   /*General styling*/
   margin: 0;
   padding: 0 5vw 0 0;
   list-style-type: none;
+  border-radius: 5px;
+  background-color: #0E1011;
   
   /*Flex container styling (This list owns a separate, nested flexbox)*/
   display: flex;
@@ -194,7 +190,6 @@ main p
 
 .links li
 {
-  font-size: 1.5em;
   text-align: center;
   border-radius: 10px;
   padding: 0 0 0 1vw;
