@@ -193,17 +193,23 @@ main p
 }
 
 .links li a {
-  text-decoration: none;
   color: #FFFFFF;
+  text-decoration: none;
 }
 
 .links li a:hover 
 {
-  background-color: #464F59;
-  border-radius: 10px;
   color: #FFFFFF;
   text-decoration: underline
 }
+
+.links li a #github:before
+{
+  content:url('Images/githubwhite.png'); /* with class ModalCarrot ??*/
+  position:relative; /*or absolute*/
+  left:-50px;
+}
+
 
 /***************/
 /* END OF MAIN */
