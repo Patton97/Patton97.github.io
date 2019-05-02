@@ -184,8 +184,6 @@ main p
   
   /*Flex container styling (This list owns a separate, nested flexbox)*/
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
 }
 
 .links li
