@@ -214,6 +214,16 @@ main p
   margin: 5px 0 5px 0;
 }
 
+.download:before
+{
+  content:url('Images/download.png'); 
+  position:relative; 
+  width: 25px;
+  height: 25px;
+  float: left;
+  margin: 5px 0 5px 0;
+}
+
 
 /***************/
 /* END OF MAIN */
