@@ -197,6 +197,13 @@ main p
 }
 
 /*Portfolio listings*/
+.projectCard
+{
+    background-color: #464F59;
+    border-radius: 10px;
+    padding: 10px;
+}
+
 .links 
 {
   /*General styling*/
