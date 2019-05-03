@@ -132,7 +132,7 @@ nav li a:hover
    width:  100px;
    height: 100px;
    transition:transform 0.2s;
-   position:absolute;
+   position:relative;
 }
 
 .clipped-border:nth-child(2){top:85px; left:50px;}
