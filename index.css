@@ -189,7 +189,7 @@ main
 {
   display: flex;
   flex-direction: column;
-  margin: 0 30%;
+  margin: 0 30% 50px;
 }
 main p
 {
@@ -262,12 +262,11 @@ main p
 
 footer 
 {
-  position:fixed;
-  left:0px;
-  bottom:0px;
-  width: 100vw;
-  padding: 5px 0 5px 0;
-  margin: 25px 0 0 0;
+  position: fixed;
+  left:     0px;
+  bottom:   0px;
+  width:    100vw;
+  padding:  5px 0 5px 0;
    
   background-color: #0E1011;
   vertical-align: middle;
