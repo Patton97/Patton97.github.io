@@ -257,8 +257,8 @@ footer a:before
   float: left;
   margin: 0 5px 0 0;
 }
-footer #email:before   {background: url("Images/email25px.png")   no-repeat;}
-footer #twitter:before {background: url("Images/twitter25px.png") no-repeat;}
+footer #email:before   {background: url("Images/email25px.png");}
+footer #twitter:before {background: url("Images/twitter25px.png");}
 
 footer a
 {
@@ -273,10 +273,9 @@ footer a
 footer #email  {order: 1;} /*Flex item order*/
 footer #twitter{order: 2;} /*Flex item order*/
 
-footer a:hover 
-{
-    color: #464F59;
-}
+footer a:hover{color: #464F59;}
+footer #email:hover:before  {background: url("Images/email-yellow.png");}
+footer #twitter:hover:before{background: url("Images/twitter-blue.png");}
 
 /*****************/
 /* END OF FOOTER */
