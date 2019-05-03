@@ -140,8 +140,7 @@ nav li a:hover
 .clipped-border:nth-child(4){top:85px; left:150px;}
 .clipped-border:nth-child(5){top:0;    left:200px;}
 
-.clipped-border .hexThumb, 
-.clipped-border .hexText
+.clipped-border .hexThumb
 {
   width:  100%;
   height: 100%;
