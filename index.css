@@ -160,6 +160,7 @@ nav li a:hover
   text-align: center;
   color: #FFFFFF;
   opacity:0;
+  font-size: 100%;
 }
 
 .clipped-border:nth-of-type(2) .hexText,
