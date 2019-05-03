@@ -150,7 +150,12 @@ nav li a:hover
   transition: opacity 0.5s ease-in-out;
 }
 
-.clipped-border .hexText {position:absolute; top:0; left:0; opacity:0;}
+.clipped-border .hexText 
+{
+  font-family: "Lato", sans-serif;
+  color: #FFFFFF;    
+  opacity:0;
+}
 
 .clipped-border:hover
 {
