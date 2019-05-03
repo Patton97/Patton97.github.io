@@ -155,12 +155,15 @@ nav li a:hover
   position: absolute;
   top:  0;
   left: 0;
+  bottom: 0;
+  right: 0;
   text-align: center;
   color: #FFFFFF;
   opacity:0;
 }
 
-.clipped-border .hexText{}
+.clipped-border .hexText:nth-of-type(2){top:25px;}
+.clipped-border .hexText:nth-of-type(4){top:25px;}
 
 .clipped-border:hover
 {
