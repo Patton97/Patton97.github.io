@@ -166,6 +166,9 @@ nav li a:hover
 .clipped-border:nth-of-type(2) .hexText,
 .clipped-border:nth-of-type(4) .hexText {top:25px;}
 
+/*TODO: Replace with responsive text scaling*/
+.clipped-border:nth-of-type(3) .hexText{font-size: 75%;}
+
 .clipped-border:hover
 {
   transform:scale(1.2);
