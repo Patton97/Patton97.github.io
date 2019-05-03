@@ -220,6 +220,11 @@ main p
 .links li a {
   color: #FFFFFF;
   text-decoration: none;
+  position:relative; 
+  width: 25px;
+  height: 25px;
+  float: left;
+  margin: 5px 0 5px 0;
 }
 
 .links li a:hover 
@@ -228,25 +233,10 @@ main p
   text-decoration: underline
 }
 
-.github:before
-{
-  content:url('Images/githubwhite.png'); 
-  position:relative; 
-  width: 25px;
-  height: 25px;
-  float: left;
-  margin: 5px 0 5px 0;
-}
+.github:before  {content:url('Images/githubwhite.png');}
+.download:before{content:url('Images/download.png');}
+.vr:before      {content:url('Images/vr.png');}
 
-.download:before
-{
-  content:url('Images/download.png'); 
-  position:relative; 
-  width: 25px;
-  height: 25px;
-  float: left;
-  margin: 5px 0 5px 0;
-}
 
 
 /***************/
