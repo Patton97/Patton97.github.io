@@ -152,8 +152,11 @@ nav li a:hover
 
 .clipped-border .hexText 
 {
+  position: relative;
+  top: 0px;
+  left: 0px;
   font-family: "Lato", sans-serif;
-  color: #FFFFFF;    
+  color: #FFFFFF;
   opacity:0;
 }
 
