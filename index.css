@@ -215,7 +215,8 @@ main p
   margin: 0 5px 0 0;
 }
 
-.github:before  {content:url('Images/githubwhite.png');}
+.github:before       {content:url('Images/github-white.png');}
+.github:hover:before {content:url('Images/github-purple.png');}
 .download:before{content:url('Images/download.png');}
 .vr:before      {content:url('Images/vr.png');}
 .website:before {content:url('Images/website.png');}
