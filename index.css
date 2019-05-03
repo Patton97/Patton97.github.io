@@ -145,7 +145,6 @@ nav li a:hover
   transform:scale(1.2);
   transition:transform 0.2s, content 1s;
   z-index: 10;
-  content: "Caravan Carnage Club";
 }
 
 #clipped
@@ -154,6 +153,11 @@ nav li a:hover
   height: 100%;
   -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
   clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+}
+
+#clipped:hover
+{
+  content: "Caravan Carnage Club";
 }
 
 /*END OF GALLERY*/
