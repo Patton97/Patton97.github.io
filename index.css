@@ -150,7 +150,7 @@ nav li a:hover
   transition: opacity 0.5s ease-in-out;
 }
 
-#clipped-border .hexText {position:absolute; top:0; left:0; opacity:0;}
+.clipped-border .hexText {position:absolute; top:0; left:0; opacity:0;}
 
 .clipped-border:hover
 {
@@ -159,8 +159,8 @@ nav li a:hover
   z-index: 10;
 }
 
-#clipped-border:hover .hexThumb {opacity:0;}
-#clipped-border:hover .hexText  {opacity:1;}
+.clipped-border:hover .hexThumb {opacity:0;}
+.clipped-border:hover .hexText  {opacity:1;}
 
 /*END OF GALLERY*/
 
