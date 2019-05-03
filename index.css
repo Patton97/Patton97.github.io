@@ -156,10 +156,8 @@ nav li a:hover
   top:  0;
   left: 0;
   text-align: center;
-  font-family: "Lato", sans-serif;
   color: #FFFFFF;
   opacity:0;
-  vertical-align: middle;
 }
 
 .clipped-border:hover
