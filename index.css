@@ -220,6 +220,7 @@ main p
 .links li a {
   color: #FFFFFF;
   text-decoration: none;
+  margin: 5px 0 5px 0;
 }
 
 .links li a:hover 
@@ -234,7 +235,6 @@ main p
   width: 25px;
   height: 25px;
   float: left;
-  margin: 5px 0 5px 0;
 }
 
 .github:before  {content:url('Images/githubwhite.png');}
