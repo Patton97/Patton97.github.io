@@ -189,7 +189,7 @@ main
 {
   display: flex;
   flex-direction: column;
-  margin: 0 30% 50px;
+  margin: 0 30% 25px;
 }
 main p
 {
@@ -288,8 +288,8 @@ footer a:before
   float: left;
   margin: 0 5px 0 0;
 }
-footer #email:before   {background: url("email25px.png") no-repeat;}
-footer #twitter:before {background: url("twitter25px.png") no-repeat;}
+footer #email:before   {background: url("Images/email25px.png")   no-repeat;}
+footer #twitter:before {background: url("Images/twitter25px.png") no-repeat;}
 
 footer a
 {
