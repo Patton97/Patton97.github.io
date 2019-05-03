@@ -162,8 +162,8 @@ nav li a:hover
   opacity:0;
 }
 
-.clipped-border .hexText:nth-of-type(2){top:25px;}
-.clipped-border .hexText:nth-of-type(4){top:25px;}
+.clipped-border:nth-of-type(2) .hexText,
+.clipped-border:nth-of-type(4) .hexText {top:25px;}
 
 .clipped-border:hover
 {
