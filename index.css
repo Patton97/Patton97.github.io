@@ -163,10 +163,10 @@ nav li a:hover
   font-size: 100%;
 }
 
-.clipped-border:nth-of-type(2) .hexText,
-.clipped-border:nth-of-type(4) .hexText {top:25px;}
+/*TODO: Replace with responsive text scaling+positioning*/
+.clipped-border:nth-of-type(2) .hexText {top:25px;}
+.clipped-border:nth-of-type(4) .hexText {top:12.5px;}
 
-/*TODO: Replace with responsive text scaling*/
 .clipped-border:nth-of-type(3) .hexText{font-size: 75%;}
 
 .clipped-border:hover
