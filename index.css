@@ -128,7 +128,7 @@ nav li a:hover
   -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
    padding:5px;
-   background:linear-gradient(grey,lightgrey);
+   background-color: #464F59;;
    width:  100px;
    height: 100px;
    transition:transform 0.2s;
