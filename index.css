@@ -143,8 +143,9 @@ nav li a:hover
 .clipped-border:hover
 {
   transform:scale(1.2);
-  transition:transform 0.2s;
+  transition:transform 0.2s, content 1s;
   z-index: 10;
+  content: "Caravan Carnage Club";
 }
 
 #clipped
