@@ -28,30 +28,6 @@ nav
   justify-content: space-between;
 }
 
-#name
-{
-  /*General styling*/
-  margin: 0;
-  padding: 0 0 0 5vw;  
-  
-  /*Flex item styling*/
-  order: 1;
-  flex-grow: 2; /*Setting #name, #home and menu to flex-grow: 2, 0, 1
-                  respectively, allows the #home to center correctly*/
-}
-
-#name a
-{
-  font-size: 1.5em;
-  text-decoration: none;
-  color: #FFFFFF; 
-}
-
-#name a:hover
-{
-  color: #464F59;
-}
-
 #home
 {
   /*General styling*/
@@ -59,20 +35,13 @@ nav
   transition: transform .5s ease-in-out;
   
   /*Flex item styling*/
-  order: 2;
+  order: 1;
   flex-grow: 0; /*Setting #name, #home and menu to flex-grow: 2, 0, 1
                   respectively, allows the #home to center correctly*/
 }
 
-#home:hover
-{
-  transform: scale(1.25);
-}
-
-#home img{
-  width: 3em;
-  height: auto;
-}
+#home img{width: 3em; height: auto;}
+#home:hover{transform: scale(1.25);}
 
 nav ul
 {
@@ -82,7 +51,7 @@ nav ul
   list-style-type: none;
   
   /*Flex item styling*/
-  order: 3;
+  order: 2;
   flex-grow: 1; /*Setting #name, #home and menu to flex-grow: 2, 0, 1
                   respectively, allows the #home to center correctly*/  
   
