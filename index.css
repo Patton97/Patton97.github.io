@@ -220,17 +220,21 @@ main p
 .links li a {
   color: #FFFFFF;
   text-decoration: none;
-  position:relative; 
-  width: 25px;
-  height: 25px;
-  float: left;
-  margin: 5px 0 5px 0;
 }
 
 .links li a:hover 
 {
   color: #FFFFFF;
   text-decoration: underline
+}
+
+.links li a:before
+{
+  position:relative; 
+  width: 25px;
+  height: 25px;
+  float: left;
+  margin: 5px 0 5px 0;
 }
 
 .github:before  {content:url('Images/githubwhite.png');}
