@@ -257,8 +257,8 @@ footer a:before
   float: left;
   margin: 0 5px 0 0;
 }
-footer #email:before   {background: url("Images/email25px.png");}
-footer #twitter:before {background: url("Images/twitter25px.png");}
+footer #email:before   {background: url("Images/email-grey.png");}
+footer #twitter:before {background: url("Images/twitter-grey.png");}
 
 footer a
 {
