@@ -164,9 +164,10 @@ nav li a:hover
 }
 
 /*TODO: Replace with responsive text scaling+positioning*/
-.clipped-border:nth-of-type(2) .hexText {top:25%;}
-.clipped-border:nth-of-type(3) .hexText {top:25%;  font-size: 75%;}
-.clipped-border:nth-of-type(4) .hexText {top:12.5%;}
+.clipped-border:nth-of-type(2) .hexText {top: 25.0%;} 
+.clipped-border:nth-of-type(3) .hexText {top: 25.0%;  font-size: 75%;}
+.clipped-border:nth-of-type(4) .hexText {top: 12.5%;}
+.clipped-border:nth-of-type(5) .hexText {top: 25.0%;}
 
 .clipped-border:hover
 {
