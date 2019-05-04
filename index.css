@@ -229,8 +229,8 @@ video
 .github:hover:before    {content:url('Images/github-purple.png');}
 .vr:before              {content:url('Images/vr.png');}
 /*vr:hover:before       {}*/
-.website:before         {content:url('Images/website.png');}
-/*website:hover:before  {}*/
+.website:before         {content:url('Images/website-white.png');}
+.website:hover:before  {content:url('Images/website-blue.png');}
 .youtube:before         {content:url('Images/youtube-white.png');}
 .youtube:hover:before   {content:url('Images/youtube-red.png');}
 
