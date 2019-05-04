@@ -215,6 +215,8 @@ video
 .links li a:before
 {
   position:relative; 
+  min-width: 25px;
+  min-height:25px;
   width: 25px; 
   height: 25px;
   max-width: 25px;
