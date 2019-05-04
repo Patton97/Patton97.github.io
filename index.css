@@ -215,13 +215,15 @@ video
 .links li a:before
 {
   position:relative; 
-  width: 25px;
+  width: 25px; 
   height: 25px;
+  max-width: 25px;
+  max-height:25px;
   float: left;
   margin: 0 5px 0 0;
 }
 
-.download:before        {content:url('Images/download.png'); background-position: 0 0;}
+.download:before        {content:url('Images/download.png') 0 0 no-repeat;}
 .download:hover:before  {background-position: -25px 0;}
 .ggj:before             {content:url('Images/ggj-white.png');}
 .ggj:hover:before       {content:url('Images/ggj-color.png');}
