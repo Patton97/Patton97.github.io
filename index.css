@@ -221,12 +221,16 @@ video
   margin: 0 5px 0 0;
 }
 
+.download:before{content:url('Images/download.png');}
+/*download:hover:before{}*/
 .github:before       {content:url('Images/github-white.png');}
 .github:hover:before {content:url('Images/github-purple.png');}
-.download:before{content:url('Images/download.png');}
 .vr:before      {content:url('Images/vr.png');}
+/*vr:hover:before{}*/
 .website:before {content:url('Images/website.png');}
-
+/*website:hover:before{}*/
+youtube:before       {content:url('Images/youtube-white.png');}
+youtube:hover:before {content:url('Images/youtube-red.png');}
 
 
 /***************/
