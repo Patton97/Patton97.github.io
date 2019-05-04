@@ -221,8 +221,8 @@ video
   margin: 0 5px 0 0;
 }
 
-.download:before        {content:url('Images/download-white.png');}
-.download:hover:before  {content:url('Images/download-green.png');}
+.download:before        {content:url('Images/download.png');}
+.download:hover:before  {background-position: -25px 0;}
 .ggj:before             {content:url('Images/ggj-white.png');}
 .ggj:hover:before       {content:url('Images/ggj-color.png');}
 .github:before          {content:url('Images/github-white.png');}
