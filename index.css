@@ -223,7 +223,7 @@ video
   margin: 0 5px 0 0;
 }
 
-.download:before        {content:url('Images/download.png') 0 0 no-repeat;}
+.download:before        {background:url('Images/download.png') 0 0 no-repeat;}
 .download:hover:before  {background-position: -25px 0;}
 .ggj:before             {content:url('Images/ggj-white.png');}
 .ggj:hover:before       {content:url('Images/ggj-color.png');}
