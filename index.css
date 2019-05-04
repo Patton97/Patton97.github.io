@@ -207,11 +207,6 @@ video
   margin: 5px 0 5px 0;
 }
 
-.links li a:hover 
-{
-  color: #464F59;
-}
-
 .links li a:before
 {
   position:relative; 
@@ -223,22 +218,19 @@ video
   max-height:25px;
   float: left;
   margin: 0 5px 0 0;
-  outline: solid red;
+  content:"";
 }
 
-.download:before        {conent:""; padding:12.5px; background:url('Images/download.png') 0 0 no-repeat;}
-.download:hover:before  {background-position: -25px 0;}
-.ggj:before             {content:url('Images/ggj-white.png');}
-.ggj:hover:before       {content:url('Images/ggj-color.png');}
-.github:before          {content:url('Images/github-white.png');}
-.github:hover:before    {content:url('Images/github-purple.png');}
-.vr:before              {content:url('Images/vr.png');}
-/*vr:hover:before       {}*/
-.website:before         {content:url('Images/website-white.png');}
-.website:hover:before  {content:url('Images/website-blue.png');}
-.youtube:before         {content:url('Images/youtube-white.png');}
-.youtube:hover:before   {content:url('Images/youtube-red.png');}
+/*Spritesheets will preload hover images and help clean css*/
+.download:before {background:url('Images/download.png') 0 0 no-repeat;}
+.ggj:before      {background:url('Images/ggj.png')      0 0 no-repeat;}
+.github:before   {background:url('Images/github.png')   0 0 no-repeat;}
+.vr:before       {background:url('Images/vr.png')       0 0 no-repeat;}
+.website:before  {background:url('Images/website.png')  0 0 no-repeat;}
+.youtube:before  {background:url('Images/youtube.png')  0 0 no-repeat;}
 
+.links li a:hover{color: #464F59;}
+.links li a:hover:before{background-position: -25px 0;}
 
 /***************/
 /* END OF MAIN */
