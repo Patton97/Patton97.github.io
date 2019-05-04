@@ -226,7 +226,7 @@ video
   outline: solid red;
 }
 
-.download:before        {conent:""; padding:12.5px; background:url('Images/download.png') 0 0 no-repeat;}
+.download:before        {content:""; padding:12.5px; background:url('Images/download.png') 0 0 no-repeat;}
 .download:hover:before  {background-position: -25px 0;}
 .ggj:before             {content:url('Images/ggj-white.png');}
 .ggj:hover:before       {content:url('Images/ggj-color.png');}
