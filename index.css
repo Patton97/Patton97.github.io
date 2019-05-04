@@ -223,8 +223,8 @@ video
 
 .download:before        {content:url('Images/download-white.png');}
 .download:hover:before  {content:url('Images/download-green.png');}*/
-.ggj:before             {content:url('Images/ggj-white.png');}
-.ggj:hover:before       {content:url('Images/ggj-color2.png');}
+.ggj:before             {content:url('Images/ggj-white2.png');}
+.ggj:hover:before       {content:url('Images/ggj-color.png');}
 .github:before          {content:url('Images/github-white.png');}
 .github:hover:before    {content:url('Images/github-purple.png');}
 .vr:before              {content:url('Images/vr.png');}
