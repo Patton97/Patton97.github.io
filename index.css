@@ -174,9 +174,12 @@ main section p a
 {
   font-weight: bold;
   color: #fff;
-  background-color: #6e2f9e;
+  text-decoration: none;
+  border-bottom: 1px dotted #fff;
+  padding-bottom: 2px;
 }
-/*Inline lists sohuld display as two columns*/
+
+/*TO-DO, FIX: Inline lists should display as two columns...should*/
 main section p ul
 {
   columns:         25% 2!important;  
