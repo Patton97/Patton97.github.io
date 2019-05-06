@@ -165,6 +165,9 @@ main p
   font-family: "Lato", sans-serif;
 }
 
+/*Inline lists sohuld display as two columns*/
+main p ul{columns: 2;  -webkit-columns: 2; -moz-columns: 2;}
+
 /*Portfolio listings*/
 main section
 {
