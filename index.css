@@ -173,7 +173,7 @@ main section p{font-family: "Lato", sans-serif;}
 main section p a
 {
   font-weight: bold;
-  color: #6e2f9e;
+  background-color: #6e2f9e;
 }
 /*Inline lists sohuld display as two columns*/
 main section p ul
