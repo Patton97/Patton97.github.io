@@ -285,7 +285,7 @@ footer #email:before   {background: url("Images/email.png")   0 0 no-repeat;}
 footer #twitter:before {background: url("Images/twitter.png") 0 0 no-repeat;}
 
 footer a:hover{color: #464F59;}
-footer a:hover:before{background-position: -25px 0;}
+footer a:hover:before{background-position:  25px 0;}
 
 /*****************/
 /* END OF FOOTER */
