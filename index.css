@@ -161,7 +161,6 @@ main
   margin: 0 30% 2.5%;
 }
 
-/*Portfolio listings*/
 main section
 {
     background-color: #464F59;
@@ -171,8 +170,18 @@ main section
 }
 
 main section p{font-family: "Lato", sans-serif;}
+main section p a
+{
+  font-weight: bold;
+  color: #6e2f9e;
+}
 /*Inline lists sohuld display as two columns*/
-main section p ul{columns: 2;  -webkit-columns: 2; -moz-columns: 2;}
+main section p ul
+{
+  columns:         25% 2!important;  
+  -webkit-columns: 25% 2!important; 
+  -moz-columns:    25% 2!important;
+}
 
 video
 {
