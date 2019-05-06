@@ -149,13 +149,11 @@ function animate()
 	requestAnimationFrame(animate);
 
 	//Get json
-    if (jsonFrm>0) {
-      getBodies(jsonMotion[iFrame]);
-      iFrame ++;
-      iFrame = iFrame % jsonFrm;   //Keep looping the frame
-    }
-
-   
+	if (jsonFrm>0) {
+		getBodies(jsonMotion[iFrame]);
+		iFrame ++;
+		iFrame = iFrame % jsonFrm;   //Keep looping the frame
+	}
 	
 	//Check slingRing contact
 	slingRing.contact(meshRH);
@@ -167,10 +165,24 @@ function animate()
 	//Check shoulder contact
 	if(collision(meshRH, rightShoulder_msh))
 	{
-		//meshRH.add(arrow_msh);
+		//if(equipped)
+		//{
+				//fire arrow
+		//}
+		//else
+		//{
+				//meshRH.add(new Arrow());
+				//equipped = true;
+		//}
+	}
+	
+	//Check hand contact
+	if(collision(meshRH, meshLH))
+	{
+		//Attach arrow to both hands?
 	}
 
-   	renderer.render(scene, camera);
+	renderer.render(scene, camera);
 }
 animate();
 
@@ -241,8 +253,8 @@ var eye_mat = new THREE.MeshPhongMaterial( { color: 0x000000 } );
 var eyeL_msh = new THREE.Mesh(eye_geo, eye_mat);
 head_msh.add(eyeL_msh);
 eyeL_msh.position.x -= 0.05;
-eyeL_msh.position.z -= 0.075;
 eyeL_msh.position.y += 0.025;
+eyeL_msh.position.z -= 0.075;
 
 //Right Eye
 var eyeR_msh = new THREE.Mesh(eye_geo, eye_mat);
