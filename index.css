@@ -160,18 +160,27 @@ main
   flex-direction: column;
   margin: 0 30% 2.5%;
 }
-main p
-{
-  font-family: "Lato", sans-serif;
-}
 
-/*Portfolio listings*/
 main section
 {
     background-color: #464F59;
     border-radius: 10px;
     padding: 10px;
     margin: 0 0 25px 0;
+}
+
+main section p{font-family: "Lato", sans-serif;}
+main section p a
+{
+  font-weight: bold;
+  color: #6e2f9e;
+}
+/*Inline lists sohuld display as two columns*/
+main section p ul
+{
+  columns:         25% 2!important;  
+  -webkit-columns: 25% 2!important; 
+  -moz-columns:    25% 2!important;
 }
 
 video
@@ -281,11 +290,11 @@ footer a:before
   float: left;
   margin: 0 5px 0 0;
 }
-footer #email:before   {background: url("Images/email.png")   0 0 no-repeat;}
-footer #twitter:before {background: url("Images/twitter.png") 0 0 no-repeat;}
+#email:before   {background: url('Images/email.png')   0 0 no-repeat;}
+#twitter:before {background: url('Images/twitter.png') 0 0 no-repeat;}
 
 footer a:hover{color: #464F59;}
-footer a:hover:before{background-position: -25px 0;}
+footer a:hover:before{background-position:  -25px 0;}
 
 /*****************/
 /* END OF FOOTER */
