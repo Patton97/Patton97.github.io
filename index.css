@@ -258,18 +258,6 @@ footer
   justify-content: space-around;
 }
 
-footer a:before
-{
-  content: "";
-  display: block;
-  width: 25px;
-  height: 25px;
-  float: left;
-  margin: 0 5px 0 0;
-}
-footer #email:before   {background: url("Images/email-grey.png");}
-footer #twitter:before {background: url("Images/twitter-grey.png");}
-
 footer a
 {
   /*General styling*/
@@ -283,9 +271,21 @@ footer a
 footer #email  {order: 1;} /*Flex item order*/
 footer #twitter{order: 2;} /*Flex item order*/
 
+/*Preceeding icons*/
+footer a:before
+{
+  content: "";
+  display: block;
+  width: 25px;
+  height: 25px;
+  float: left;
+  margin: 0 5px 0 0;
+}
+footer #email:before   {background: url("Images/email.png")   0 0 no-repeat;}
+footer #twitter:before {background: url("Images/twitter.png") 0 0 no-repeat;}
+
 footer a:hover{color: #464F59;}
-footer #email:hover:before  {background: url("Images/email-yellow.png");}
-footer #twitter:hover:before{background: url("Images/twitter-blue.png");}
+footer a:before:hover{background-position: -25px 0;}
 
 /*****************/
 /* END OF FOOTER */
