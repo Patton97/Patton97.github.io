@@ -172,7 +172,6 @@ main section
 main section p{font-family: "Lato", sans-serif;}
 main section p a
 {
-  font-weight: bold;
   color: #fff;
   text-decoration: none;
   border-bottom: 1px dotted #fff;
