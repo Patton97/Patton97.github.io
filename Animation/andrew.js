@@ -149,14 +149,14 @@ var rightShoulder_msh = new THREE.Mesh(gLH, mLH);
 scene.add(rightShoulder_msh);
 
 //Add arrow to scene for viewing
-scene.add(new Arrow);
+var arrow = new Arrow;
+scene.add(arrow);
 
 // The animate function: called every frame
 var iFrame = 0;
 function animate()
 {
 	requestAnimationFrame(animate);
-
 	//Get json
 	if (jsonFrm>0) {
 		getBodies(jsonMotion[iFrame]);
