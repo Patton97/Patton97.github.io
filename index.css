@@ -102,15 +102,13 @@ nav li a:hover
    height: 100px;
    transition:transform 0.2s;
    position:relative;
-  
-  top: -50px;
-  left: 100px;
 }
 
-.clipped-border:nth-of-type(2){top:  -25px; left:  50px;}
-.clipped-border:nth-of-type(3){top: -220px; left: 100px;}
-.clipped-border:nth-of-type(4){top: -245px; left: 150px;}
-.clipped-border:nth-of-type(5){top: -440px; left: 200px;}
+.clipped-border:nth-of-type(1){top:  -50px; left:  50px;}
+.clipped-border:nth-of-type(2){top:  -75px; left: 100px;}
+.clipped-border:nth-of-type(3){top: -270px; left: 150px;}
+.clipped-border:nth-of-type(4){top: -295px; left: 200px;}
+.clipped-border:nth-of-type(5){top: -490px; left: 250px;}
 
 .clipped-border .hexThumb
 {
