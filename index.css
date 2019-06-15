@@ -104,11 +104,11 @@ nav li a:hover
    position:relative;
 }
 
-.clipped-border:nth-of-type(1){top:  -50px; left:  50px;}
-.clipped-border:nth-of-type(2){top:  -75px; left: 100px;}
-.clipped-border:nth-of-type(3){top: -270px; left: 150px;}
-.clipped-border:nth-of-type(4){top: -295px; left: 200px;}
-.clipped-border:nth-of-type(5){top: -490px; left: 250px;}
+.clipped-border:nth-of-type(1){top:   50px; left: 100px;}
+.clipped-border:nth-of-type(2){top:   25px; left: 150px;}
+.clipped-border:nth-of-type(3){top: -170px; left: 200px;}
+.clipped-border:nth-of-type(4){top: -195px; left: 250px;}
+.clipped-border:nth-of-type(5){top: -390px; left: 300px;}
 
 .clipped-border .hexThumb
 {
