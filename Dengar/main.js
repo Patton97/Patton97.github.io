@@ -103,6 +103,7 @@ var controller = {
     {
       case 32://Space
         controller.up = key_state;
+        event.preventDefault(); //Prevent scrolling
         break;
       case 37://L-arrow
       case 65://A
