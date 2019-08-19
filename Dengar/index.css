@@ -1,22 +1,318 @@
-* {
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+/* IMPORT FONTS */
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
-html, body {
+html, body
+{
+  background-color: #24292E;
+  color: #FFFFFF;
+  font-family: "Poppins", sans-serif;
+  margin:0;
+  
   height:100%;
   width:100%;
 }
 
-body {
-  align-content:space-around;
-  background-color:#202830;
-  color:#ffffff;
-  display:grid;
-  justify-content:center;
+/****************/
+/* START OF NAV */
+/****************/
+
+nav
+{
+  background-color: #0E1011;
+  padding: 10px;
+  vertical-align: middle;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
-canvas {
-  background-color:#ffffff;
+#home
+{
+  /*General styling*/
+  text-align: center;
+  transition: transform .5s ease-in-out;
+  
+  /*Flex item styling*/
+  order: 1;
+  flex-grow: 0; /*Setting #name, #home and menu to flex-grow: 2, 0, 1
+                  respectively, allows the #home to center correctly*/
+}
+
+#home img{width: 3em; height: auto;}
+#home:hover{transform: scale(1.25);}
+
+nav ul
+{
+  /*General styling*/
+  margin: 0;
+  padding: 0 5vw 0 0;
+  list-style-type: none;
+  
+  /*Flex item styling*/
+  order: 2;
+  flex-grow: 1; /*Setting #name, #home and menu to flex-grow: 2, 0, 1
+                  respectively, allows the #home to center correctly*/  
+  
+  /*Flex container styling (This list owns a separate, nested flexbox)*/
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+nav li
+{
+  font-size: 1.5em;
+  text-align: center;
+  border-radius: 10px;
+  padding: 0 0 0 1vw;
+}
+
+nav li a {
+  text-decoration: none;
+  color: #FFFFFF;
+  padding: 10px;
+}
+
+nav li a:hover 
+{
+  background-color: #464F59;
+  border-radius: 10px;
+  color: #FFFFFF;
+}
+/**************/
+/* END OF NAV */
+/**************/
+
+/*IMAGE GALLERY*/
+.gallery
+{
+  position:relative;
+  height: 250px;
+  width: 250px;
+}
+
+.clipped-border{
+  -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+   clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+   padding:5px;
+   background-color: #464F59;;
+   width:  100px;
+   height: 100px;
+   transition:transform 0.2s;
+   position:relative;
+}
+
+.clipped-border:nth-of-type(1){top:   50px; left: 100px;}
+.clipped-border:nth-of-type(2){top:   25px; left: 150px;}
+.clipped-border:nth-of-type(3){top: -170px; left: 200px;}
+.clipped-border:nth-of-type(4){top: -195px; left: 250px;}
+.clipped-border:nth-of-type(5){top: -390px; left: 300px;}
+
+.clipped-border .hexThumb
+{
+  width:  100%;
+  height: 100%;
+  -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  
+  transition: opacity 0.5s ease-in-out;
+}
+
+.clipped-border .hexText 
+{
+  position: absolute;
+  top:  0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  color: #FFFFFF;
+  opacity:0;
+  font-size: 100%;
+}
+
+/*TODO: Replace with responsive text scaling+positioning*/
+.clipped-border:nth-of-type(2) .hexText {top: 25.0%;} 
+.clipped-border:nth-of-type(3) .hexText {top: 25.0%;  font-size: 75%;}
+.clipped-border:nth-of-type(4) .hexText {top: 12.5%;}
+.clipped-border:nth-of-type(5) .hexText {top: 25.0%;}
+
+.clipped-border:hover
+{
+  transform:scale(1.2);
+  transition:transform 0.2s;
+  z-index: 10;
+}
+
+.clipped-border:hover .hexThumb {opacity:0; transition: opacity 0.5s ease-in-out;}
+.clipped-border:hover .hexText  {opacity:1; transition: opacity 0.5s ease-in-out;}
+
+/*END OF GALLERY*/
+
+
+/*****************/
+/* START OF MAIN */
+/*****************/
+main
+{
+  display: flex;
+  flex-direction: column;
+  margin: 0 30% 2.5%;
+}
+
+main section
+{
+    background-color: #464F59;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 0 25px 0;
+}
+
+main section p{font-family: "Lato", sans-serif;}
+main section p a
+{
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px dotted #fff;
+  padding-bottom: 2px;
+}
+main section p a:hover{border-bottom: 1px solid #fff;}
+
+/*TO-DO, FIX: Inline lists should display as two columns...should*/
+main section p ul
+{
+  columns:         25% 2!important;  
+  -webkit-columns: 25% 2!important; 
+  -moz-columns:    25% 2!important;
+}
+
+video
+{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.links 
+{
+  /*General styling*/
+  margin: 0;
+  padding: 5px 0 5px 0;
+  list-style-type: none;
+  border-radius: 5px;
+  background-color: #0E1011;
+  vertical-align: middle;
+  
+  /*Flex container styling (This list owns a separate, nested flexbox)*/
+  display: flex;
+}
+
+.links li
+{
+  text-align: center;
+  padding: 0 0 0 1vw;
+}
+
+.links li a {
+  color: #FFFFFF;
+  text-decoration: none;
+  margin: 5px 0 5px 0;
+}
+
+.links li a:before
+{
+  position:relative; 
+  min-width: 25px;
+  min-height:25px;
+  width: 25px; 
+  height: 25px;
+  max-width: 25px;
+  max-height:25px;
+  float: left;
+  margin: 0 5px 0 0;
+  content:"";
+}
+
+/*Spritesheets will preload hover images and help clean css*/
+.download:before {background:url('Images/download.png') 0 0 no-repeat;}
+.ggj:before      {background:url('Images/ggj.png')      0 0 no-repeat;}
+.github:before   {background:url('Images/github.png')   0 0 no-repeat;}
+.vr:before       {background:url('Images/vr.png')       0 0 no-repeat;}
+.website:before  {background:url('Images/website.png')  0 0 no-repeat;}
+.youtube:before  {background:url('Images/youtube.png')  0 0 no-repeat;}
+
+.links li a:hover{color: #464F59;}
+.links li a:hover:before{background-position: -25px 0;}
+
+/***************/
+/* END OF MAIN */
+/***************/
+
+/*****************/
+/* START OF FOOTER */
+/*****************/
+
+footer 
+{
+  position: fixed;
+  left:     0px;
+  bottom:   0px;
+  width:    100vw;
+  padding:  5px 0 5px 0;
+   
+  background-color: #0E1011;
+  vertical-align: middle;
+  
+  /*Flex container stline*/
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+footer a
+{
+  /*General styling*/
+  font-size: 1em;
+  text-decoration: none;
+  color: #FFFFFF;
+  
+  /*Flex item stlying*/
+  text-direction: none;
+}
+footer #email  {order: 1;} /*Flex item order*/
+footer #twitter{order: 2;} /*Flex item order*/
+
+/*Preceeding icons*/
+footer a:before
+{
+  content: "";
+  display: block;
+  width: 25px;
+  height: 25px;
+  float: left;
+  margin: 0 5px 0 0;
+}
+#email:before   {background: url('Images/email.png')   0 0 no-repeat;}
+#twitter:before {background: url('Images/twitter.png') 0 0 no-repeat;}
+
+footer a:hover{color: #464F59;}
+footer a:hover:before{background-position:  -25px 0;}
+
+/*****************/
+/* END OF FOOTER */
+/*****************/
+
+/************/
+/* PORTRAIT */
+/************/
+
+@media screen and (orientation: portrait) 
+{
+  main
+  {
+    margin: 0 5vw;
+  }
 }
