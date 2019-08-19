@@ -188,7 +188,7 @@ main section p ul
   -moz-columns:    25% 2!important;
 }
 
-video
+video, canvas
 {
   position: relative;
   left: 50%;
