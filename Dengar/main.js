@@ -4,24 +4,22 @@
 // Animate dengar movement (pulse)
 // Fix star twinkle, maybe rng spawn on black sky?
 
-//Autozoom test
 /************************/
-//https://benjymous.gitlab.io/post/2019-08-25-js13k-tips/
-//zoom the page to fit the window
+//Autozoom | https://benjymous.gitlab.io/post/2019-08-25-js13k-tips/
 onresize=e=>{
-  // zoom the page to maximise your content within the window.
-  // This assumes a 640x480 canvas - change the numbers to match your canvas size
-  document.body.style.zoom=Math.min(window.innerWidth/640, window.innerHeight/480);
+  // Zoom the page to maximise content
+  // 640x480 canvas + 640x240 gamepad
+  document.body.style.zoom=Math.min(window.innerWidth/640, window.innerHeight/720);
   // Add padding at the top of the page, to centre the content vertically
-  document.body.style.paddingTop=((window.innerHeight/document.body.style.zoom)-480)/2;
+  document.body.style.paddingTop=((window.innerHeight/document.body.style.zoom)-720)/2;
 };
 
 onresize(); // manually call the onresize handler, to make sure it's the right
 //size from the start
 
 // Set the left and right margins, to centre the content horizontally
-document.body.style.maxWidth=640;
-document.body.style.margin="auto";
+/*document.body.style.maxWidth=640;
+document.body.style.margin="auto";*/
 /************************/
 
 var context = document.querySelector("canvas").getContext("2d");
@@ -155,7 +153,7 @@ cancelEvent=e=>{
   e.cancelBubble = true;
   e.returnValue = false
 };
-dpad.ontouchstart = dpad.ontouchmove = dpad.ontouchend = dpad.ontouchcancel = cancelEvent;
+gamepad.ontouchstart = gamepad.ontouchmove = gamepad.ontouchend = gamepad.ontouchcancel = cancelEvent;
 
 //On Android and iOS, use touchstart/end
 if( /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) )

@@ -1,22 +1,16 @@
-* {
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
 html, body {
-  height:100%;
-  width:100%;
+  background-color:#3f3f3f;
+  color:#000000;
+
+  max-width:640px;
+  margin: auto;
 }
 
-body {
-  align-content:space-around;
-  background-color:#202830;
-  color:#ffffff;
-  display:grid;
-  justify-content:center;
+#gamepad {
+  position:fixed;
+  bottom:0px;
 }
 
 canvas {
-  background-color:#ffffff;
+  background-color:#000000;
 }
