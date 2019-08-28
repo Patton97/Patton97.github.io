@@ -2,24 +2,22 @@
 // Spawn cacti
 // Figure out collisions
 // Animate dengar movement (pulse)
-// Fix star twinkle, maybe rng spawn on black sky?
+// Add star twinkle: rng spawn on black sky?  alt sprites?
 
 /************************/
 //Autozoom | https://benjymous.gitlab.io/post/2019-08-25-js13k-tips/
 onresize=e=>{
-  // Zoom the page to maximise content
-  // 640x480 canvas + 640x240 gamepad
+  // Zoom the page to maximise content (Assume 640x480 canvas + 640x240 gamepad)
   document.body.style.zoom=Math.min(window.innerWidth/640, window.innerHeight/720);
+  //document.body.style.zoom=1;
   // Add padding at the top of the page, to centre the content vertically
   document.body.style.paddingTop=((window.innerHeight/document.body.style.zoom)-720)/2;
 };
-
-onresize(); // manually call the onresize handler, to make sure it's the right
-//size from the start
+onresize(); //Force resize
 
 // Set the left and right margins, to centre the content horizontally
-/*document.body.style.maxWidth=640;
-document.body.style.margin="auto";*/
+document.body.style.maxWidth=640;
+document.body.style.margin="auto";
 /************************/
 
 var context = document.querySelector("canvas").getContext("2d");
@@ -261,9 +259,6 @@ var gameLoop = function()
 
   //Update iframe (yes ugly ew)
   if(iFrame < 60){iFrame++;}else{iFrame = 0;}
-
-
-
 
   //Update
   window.requestAnimationFrame(gameLoop);

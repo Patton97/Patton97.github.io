@@ -1,6 +1,7 @@
 html, body {
   background-color:#3f3f3f;
   color:#000000;
+
   max-width:640px;
   margin: auto;
 }
@@ -11,5 +12,5 @@ html, body {
 }
 
 canvas {
-  background-color:#000000;
+  background-color:#3f3f3f;
 }
