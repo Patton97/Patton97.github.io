@@ -173,14 +173,12 @@ if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))
 {
   d = "touchstart";
   u = "touchend";
-  document.title = "Mobile!!!";
 }
 //On PC, use mousedown/up
 else
 {
   d = "mousedown";
   u = "mouseup";
-  document.title = "PC!!!";
 };
 
 //Event Handlers
