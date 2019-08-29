@@ -169,7 +169,7 @@ gamepad.ontouchstart = gamepad.ontouchmove = gamepad.ontouchend = gamepad.ontouc
 
 //On Android and iOS, use touchstart/end
 if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
-|| navigator.userAgent.toLowerCase().indexOf('android') > -1)
+|| navigator.platform.toLowerCase().indexOf('android') > -1)
 {
   d = "touchstart";
   u = "touchend";
