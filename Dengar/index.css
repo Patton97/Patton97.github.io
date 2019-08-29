@@ -18,7 +18,7 @@ canvas
 }
 
 #gamepad {
-  position:relative;
+  position:fixed;
   bottom:0px;
 }
 
@@ -29,4 +29,8 @@ canvas
     margin:0;
     overflow-x: hidden;
   }
+}
+/*Firefox is an arsehole*/
+@-moz-document url-prefix() {
+  #gamepad{position:relative}
 }

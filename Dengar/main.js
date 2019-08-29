@@ -168,7 +168,7 @@ cancelEvent=e=>{
 gamepad.ontouchstart = gamepad.ontouchmove = gamepad.ontouchend = gamepad.ontouchcancel = cancelEvent;
 
 //On Android and iOS, use touchstart/end
-if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+/*if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
 || navigator.platform.toLowerCase().indexOf('android') > -1)
 {
   d = "touchstart";
@@ -179,10 +179,12 @@ else
 {
   d = "mousedown";
   u = "mouseup";
-};
+};*/
 
 //Event Handlers
 //Jump
+d = "touchstart";
+u = "touchend";
 touchJ.addEventListener(d,e=>{
   cancelEvent(e);
   controller.up=true;
@@ -191,7 +193,16 @@ touchJ.addEventListener(u,e=>{
   cancelEvent(e);
   controller.up=false;
 }, {passive:false});
-
+d = "mousedown";
+u = "mouseup";
+touchJ.addEventListener(d,e=>{
+  cancelEvent(e);
+  controller.up=true;
+}, {passive:false});
+touchJ.addEventListener(u,e=>{
+  cancelEvent(e);
+  controller.up=false;
+}, {passive:false});
 //left
 touchL.addEventListener(d,e=>{
   cancelEvent(e);
