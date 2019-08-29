@@ -168,8 +168,8 @@ cancelEvent=e=>{
 gamepad.ontouchstart = gamepad.ontouchmove = gamepad.ontouchend = gamepad.ontouchcancel = cancelEvent;
 
 //On Android and iOS, use touchstart/end
-if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
-|| navigator.userAgent.toLowerCase().indexOf('android') > -1;)
+if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent
+|| navigator.userAgent.toLowerCase().indexOf('android') > -1)
 {
   d = "touchstart";
   u = "touchend";
