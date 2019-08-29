@@ -182,15 +182,15 @@ else
 };
 
 //Event Handlers
-//Jump
-touchJ.addEventListener(d,e=>{cancelEvent(e); controller.up=true; }, false);
-touchJ.addEventListener(u,e=>{cancelEvent(e); controller.up=false;}, false);
 //left
 touchL.addEventListener(d,e=>{cancelEvent(e); controller.left=true; }, false);
 touchL.addEventListener(u,e=>{cancelEvent(e); controller.left=false;}, false);
 //Right
 touchR.addEventListener(d,e=>{cancelEvent(e); controller.right=true; }, false);
 touchR.addEventListener(u,e=>{cancelEvent(e); controller.right=false;}, false);
+//Jump
+touchJ.addEventListener(d,e=>{cancelEvent(e); controller.up=true; }, false);
+touchJ.addEventListener(u,e=>{cancelEvent(e); controller.up=false;}, false);
 //End of Gamepad stuff
 
 var ObjectManager =
