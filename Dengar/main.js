@@ -9,8 +9,10 @@
 onresize=e=>{
   // Zoom the page to maximise content
   // Height = canvas=480 + gamepad=240 + gap= . Gap is bug fix.
-  document.body.style.zoom=Math.min(window.innerWidth/640, window.innerHeight/900);
-  //document.body.style.zoom=1;
+  //document.body.style.zoom=Math.min(window.innerWidth/640, window.innerHeight/900);
+  let zoom=Math.min(window.innerWidth/640, window.innerHeight/900);
+  document.body.style.MozTransform = "scale("+zoom+")";
+  document.body.style.MozTransformOrigin = "0 0";
   // Add padding at the top of the page, to centre the content vertically
   document.body.style.paddingTop=((window.innerHeight/document.body.style.zoom)-900)/2;
 };
