@@ -168,63 +168,32 @@ cancelEvent=e=>{
 gamepad.ontouchstart = gamepad.ontouchmove = gamepad.ontouchend = gamepad.ontouchcancel = cancelEvent;
 
 //On Android and iOS, use touchstart/end
-/*if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
-|| navigator.platform.toLowerCase().indexOf('android') > -1)
+//Of course, firefox mobile doesn't work, because it sucks.
+if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))
 {
   d = "touchstart";
   u = "touchend";
+  document.title = "Mobile!!!";
 }
 //On PC, use mousedown/up
 else
 {
   d = "mousedown";
   u = "mouseup";
-};*/
+  document.title = "PC!!!";
+};
 
 //Event Handlers
 //Jump
-d = "touchstart";
-u = "touchend";
-touchJ.addEventListener(d,e=>{
-  cancelEvent(e);
-  controller.up=true;
-}, {passive:false});
-touchJ.addEventListener(u,e=>{
-  cancelEvent(e);
-  controller.up=false;
-}, {passive:false});
-d = "mousedown";
-u = "mouseup";
-touchJ.addEventListener(d,e=>{
-  cancelEvent(e);
-  controller.up=true;
-}, {passive:false});
-touchJ.addEventListener(u,e=>{
-  cancelEvent(e);
-  controller.up=false;
-}, {passive:false});
+touchJ.addEventListener(d,e=>{cancelEvent(e); controller.up=true; }, false);
+touchJ.addEventListener(u,e=>{cancelEvent(e); controller.up=false;}, false);
 //left
-touchL.addEventListener(d,e=>{
-  cancelEvent(e);
-  controller.left=true;
-}, {passive:false});
-touchL.addEventListener(u,e=>{
-  cancelEvent(e);
-  controller.left=false;
-}, {passive:false});
-
+touchL.addEventListener(d,e=>{cancelEvent(e); controller.left=true; }, false);
+touchL.addEventListener(u,e=>{cancelEvent(e); controller.left=false;}, false);
 //Right
-touchR.addEventListener(d,e=>{
-  cancelEvent(e);
-  controller.right=true;
-}, {passive:false});
-touchR.addEventListener(u,e=>{
-  cancelEvent(e);
-  controller.right=false;
-}, {passive:false});
-
-//End of Gamepad
-
+touchR.addEventListener(d,e=>{cancelEvent(e); controller.right=true; }, false);
+touchR.addEventListener(u,e=>{cancelEvent(e); controller.right=false;}, false);
+//End of Gamepad stuff
 
 var ObjectManager =
 {
