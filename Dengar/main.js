@@ -382,6 +382,11 @@ var gameLoop = function()
   window.requestAnimationFrame(gameLoop);
 }
 
+var test = function()
+{
+  controller.up = true;
+}
+
 //Keyboard controls
 window.addEventListener("keydown", controller.keyListener);
 window.addEventListener("keyup",   controller.keyListener);
