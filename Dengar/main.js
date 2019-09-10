@@ -177,11 +177,10 @@ cancelEvent=e=>{
   e.cancelBubble = true;
   e.returnValue = false
 };
-//gamepad.ontouchstart = gamepad.ontouchmove = gamepad.ontouchend = gamepad.ontouchcancel = cancelEvent;
+gamepad.ontouchstart = gamepad.ontouchmove = gamepad.ontouchend = gamepad.ontouchcancel = cancelEvent;
 
 //On Android and iOS, use touchstart/end
 //Of course, firefox mobile doesn't work, because it sucks.
-//Instead, firefox uses touchhandler
 if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))
 {
   d = "touchstart";
@@ -382,16 +381,8 @@ var gameLoop = function()
   window.requestAnimationFrame(gameLoop);
 }
 
-var test = function()
-{
-  controller.up = true;
-}
-
 //Keyboard controls
 window.addEventListener("keydown", controller.keyListener);
 window.addEventListener("keyup",   controller.keyListener);
-//Mobile controls (required by Firefox)
-document.addEventListener("touchstart", controller.touchHandler);
-document.addEventListener("touchmove",  controller.touchHandler);
 //Instigate gameLoop
 window.requestAnimationFrame(gameLoop);
