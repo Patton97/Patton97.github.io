@@ -156,11 +156,16 @@ var controller = {
     }
   },
   touchHandler:function(e)
-  {
+  {/*
+    //Page height is assumed to be the largest of the following
+    var pageHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight));
+    //If jump is touched
     if(e.touches)
     {
-      console.log(e.touches[0].pageY)
-    }
+      console.log("Touch-Y: " + e.touches[0].pageY);
+      var body = document.body, html = document.documentElement;
+
+    }*/
   }
 };
 
@@ -172,7 +177,7 @@ cancelEvent=e=>{
   e.cancelBubble = true;
   e.returnValue = false
 };
-gamepad.ontouchstart = gamepad.ontouchmove = gamepad.ontouchend = gamepad.ontouchcancel = cancelEvent;
+//gamepad.ontouchstart = gamepad.ontouchmove = gamepad.ontouchend = gamepad.ontouchcancel = cancelEvent;
 
 //On Android and iOS, use touchstart/end
 //Of course, firefox mobile doesn't work, because it sucks.
