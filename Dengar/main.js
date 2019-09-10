@@ -154,6 +154,13 @@ var controller = {
         console.log("Key #" + event.keyCode + " pressed");
         break;
     }
+  },
+  touchHandler:function(e)
+  {
+    if(e.touches)
+    {
+      console.log(e.touches[0].pageY)
+    }
   }
 };
 
@@ -169,6 +176,7 @@ gamepad.ontouchstart = gamepad.ontouchmove = gamepad.ontouchend = gamepad.ontouc
 
 //On Android and iOS, use touchstart/end
 //Of course, firefox mobile doesn't work, because it sucks.
+//Instead, firefox uses touchhandler
 if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))
 {
   d = "touchstart";
@@ -357,7 +365,7 @@ var gameLoop = function()
   sky.draw();
   character.draw();
   ObjectManager.update();
-  console.log(ObjectManager.gameObjects.length);
+  //console.log(ObjectManager.gameObjects.length);
 
   //DEBUG ONLY
   drawFPS(iFrame);
@@ -369,6 +377,11 @@ var gameLoop = function()
   window.requestAnimationFrame(gameLoop);
 }
 
+//Keyboard controls
 window.addEventListener("keydown", controller.keyListener);
 window.addEventListener("keyup",   controller.keyListener);
+//Mobile controls (required by Firefox)
+document.addEventListener("touchstart", controller.touchHandler);
+document.addEventListener("touchmove",  controller.touchHandler);
+//Instigate gameLoop
 window.requestAnimationFrame(gameLoop);
