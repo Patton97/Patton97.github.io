@@ -279,16 +279,17 @@ cancelEvent=function(e){
 //Hacky fix to solve firefox not liking img hitmaps
 touchHandler=function(e, firefox){
   //Allows button coords to change for firefox
-  let lx1 = 420; let lx2 = 620; let ly1 = 920; let ly2 = 1120;
-  let rx1 = 420; let rx2 = 620; let ry1 = 920; let ry2 = 1120;
-  let jx1 = 420; let jx2 = 620; let jy1 = 920; let jy2 = 1120;
+  let  y1 = 920; let  y2 = 1120;
+  let lx1 =  20; let lx2 =  120;
+  let rx1 = 160; let rx2 =  260;
+  let jx1 = 420; let jx2 =  620;
+
   if(firefox)
   {
-    lx1 = 20; lx2 = 80;
-    rx1= 120;rx2=   180;
-    jx1 = 300;
-    jx2 = 440;
-    jy1 = 0;
+    y1  = 350; y1  = 500;
+    lx1 =  20; lx2 =  80;
+    rx1 = 120; rx2 = 180;
+    jx1 = 300; jx2 = 440;
   }
   else
   {
@@ -297,8 +298,8 @@ touchHandler=function(e, firefox){
     if(e.touches)
     {
       //Jump
-      if(e.touches[0].pageX >= jx1 && e.touches[0].pageX <=  jx2
-      && e.touches[0].pageY >= 920 && e.touches[0].pageY <= 1120)
+      if(e.touches[0].pageX >= jx1 && e.touches[0].pageX <= jx2
+      && e.touches[0].pageY >=  y1 && e.touches[0].pageY <=  y2)
       {
         controller.up = true;
       }
@@ -331,8 +332,8 @@ if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))
   touchR.addEventListener(d,e=>{touchHandler(e,false); controller.right=true; }, false);
   touchR.addEventListener(u,e=>{touchHandler(e,false); controller.right=false;}, false);
   //Jump
-  gamepad.addEventListener(d,e=>{touchHandler(e,false); FFchecker = e.touches[0].pageY;}, false);
-  touchJ.addEventListener(u,e=>{cancelEvent(e); controller.up = false}, false);
+  gamepad.addEventListener(d,e=>{touchHandler(e,true); FFchecker = e.touches[0].pageY;}, false);
+  gamepad.addEventListener(u,e=>{cancelEvent(e); controller.up = false;FFchecker = "TEST!";}, false);
 }
 //On PC, use mousedown/up
 else
