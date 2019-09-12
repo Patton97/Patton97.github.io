@@ -276,9 +276,11 @@ cancelEvent=function(e){
   e.returnValue = false;
 };
 
-firefoxSimulation=function(e, state){
-  //Hacky fix?
-  if(e.touches)
+//Hacky fix to solve firefox not liking img hitmaps
+touchHandler=function(e, state){
+  //If button state is active (keydown,touchstart,mosuedown,etc)
+  //and there are more than 0 touches in list
+  if(state && e.touches)
   {
     //Jump
     if(e.touches[0].pageX >= 420 && e.touches[0].pageX <=  620
@@ -288,9 +290,8 @@ firefoxSimulation=function(e, state){
     }
 
     //left
-    //Jump
-    if(e.touches[0].pageX >= 420 && e.touches[0].pageX <= 620
-    && e.touches[0].pageY >=  20 && e.touches[0].pageY <= 220)
+    if(e.touches[0].pageX >=  20 && e.touches[0].pageX <=  120
+    && e.touches[0].pageY >= 920 && e.touches[0].pageY <= 1120)
     {
       console.log("LEFT");
     }
@@ -307,25 +308,35 @@ if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))
 {
   d = 'touchstart';
   u = 'touchend';
-
+  //Event Handlers
+  //left
+  touchL.addEventListener(d,e=>{touchHandler(e,true); controller.left=true; }, false);
+  touchL.addEventListener(u,e=>{touchHandler(e,false); controller.left=false;}, false);
+  //Right
+  touchR.addEventListener(d,e=>{touchHandler(e,false); controller.right=true; }, false);
+  touchR.addEventListener(u,e=>{touchHandler(e,false); controller.right=false;}, false);
+  //Jump
+  touchJ.addEventListener(d,e=>{touchHandler(e,true);}, false);
+  touchJ.addEventListener(u,e=>{cancelEvent(e); controller.up = false}, false);
 }
 //On PC, use mousedown/up
 else
 {
   d = 'mousedown';
   u = 'mouseup';
+  //Event Handlers
+  //left
+  touchL.addEventListener(d,e=>{cancelEvent(e); controller.left=true; }, false);
+  touchL.addEventListener(u,e=>{cancelEvent(e); controller.left=false;}, false);
+  //Right
+  touchR.addEventListener(d,e=>{cancelEvent(e); controller.right=true;   }, false);
+  touchR.addEventListener(u,e=>{cancelEvent(e); controller.right=false; }, false);
+  //Jump
+  touchJ.addEventListener(d,e=>{cancelEvent(e); controller.up = true; }, false);
+  touchJ.addEventListener(u,e=>{cancelEvent(e); controller.up = false; }, false);
 };
 
-//Event Handlers
-//left
-touchL.addEventListener(d,e=>{cancelEvent(e); controller.left=true; }, false);
-touchL.addEventListener(u,e=>{cancelEvent(e); controller.left=false;}, false);
-//Right
-touchR.addEventListener(d,e=>{firefoxSimulation(e, true);   }, false);
-touchR.addEventListener(u,e=>{cancelEvent(e); }, false);
-//Jump
-touchJ.addEventListener(d,e=>{firefoxSimulation(e, true);   }, false);
-touchJ.addEventListener(u,e=>{cancelEvent(e); controller.up = false; }, false);
+
 //End of Gamepad stuff
 
 var ObjectManager =
