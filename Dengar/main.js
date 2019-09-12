@@ -277,26 +277,41 @@ cancelEvent=function(e){
 };
 
 //Hacky fix to solve firefox not liking img hitmaps
-touchHandler=function(e, state){
-  //If button state is active (keydown,touchstart,mosuedown,etc)
-  //and there are more than 0 touches in list
-  if(state && e.touches)
+touchHandler=function(e, firefox){
+  //Allows button coords to change for firefox
+  let lx1 = 420; let lx2 = 620; let ly1 = 920; let ly2 = 1120;
+  let rx1 = 420; let rx2 = 620; let ry1 = 920; let ry2 = 1120;
+  let jx1 = 420; let jx2 = 620; let jy1 = 920; let jy2 = 1120;
+  if(firefox)
   {
-    //Jump
-    if(e.touches[0].pageX >= 420 && e.touches[0].pageX <=  620
-    && e.touches[0].pageY >= 920 && e.touches[0].pageY <= 1120)
+    lx1 = 20; lx2 = 80;
+    rx1= 120;rx2=   180;
+    jx1 = 300;
+    jx2 = 440;
+    jy1 = 0;
+  }
+  else
+  {
+    //If button state is active (keydown,touchstart,mosuedown,etc)
+    //and there are more than 0 touches in list
+    if(e.touches)
     {
-      controller.up = true;
-    }
+      //Jump
+      if(e.touches[0].pageX >= jx1 && e.touches[0].pageX <=  jx2
+      && e.touches[0].pageY >= 920 && e.touches[0].pageY <= 1120)
+      {
+        controller.up = true;
+      }
 
-    //left
-    if(e.touches[0].pageX >=  20 && e.touches[0].pageX <=  120
-    && e.touches[0].pageY >= 920 && e.touches[0].pageY <= 1120)
-    {
-      console.log("LEFT");
-    }
+      //left
+      if(e.touches[0].pageX >=  20 && e.touches[0].pageX <=  120
+      && e.touches[0].pageY >= 920 && e.touches[0].pageY <= 1120)
+      {
+        console.log("LEFT");
+      }
 
-    console.log(e.touches[0].pageY);
+      console.log(e.touches[0].pageY);
+    }
   }
   cancelEvent(e);
 }
@@ -310,13 +325,13 @@ if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))
   u = 'touchend';
   //Event Handlers
   //left
-  touchL.addEventListener(d,e=>{touchHandler(e,true); controller.left=true; }, false);
+  touchL.addEventListener(d,e=>{touchHandler(e,false); controller.left=true; }, false);
   touchL.addEventListener(u,e=>{touchHandler(e,false); controller.left=false;}, false);
   //Right
   touchR.addEventListener(d,e=>{touchHandler(e,false); controller.right=true; }, false);
   touchR.addEventListener(u,e=>{touchHandler(e,false); controller.right=false;}, false);
   //Jump
-  gamepad.addEventListener(d,e=>{touchHandler(e,true);FFchecker = e.touches[0].pageX;}, false);
+  gamepad.addEventListener(d,e=>{touchHandler(e,false); FFchecker = e.touches[0].pageY;}, false);
   touchJ.addEventListener(u,e=>{cancelEvent(e); controller.up = false}, false);
 }
 //On PC, use mousedown/up
