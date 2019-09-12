@@ -1,4 +1,4 @@
-var FFchecker = 8;
+var FFchecker = 0025;
 //TODO LIST
 // Spawn cacti
 // Animate dengar movement (pulse)
@@ -291,28 +291,25 @@ touchHandler=function(e, firefox){
     rx1 = 120; rx2 = 180;
     jx1 = 300; jx2 = 440;
   }
-  else
+  //If button state is active (keydown,touchstart,mosuedown,etc)
+  //and there are more than 0 touches in list
+  if(e.touches)
   {
-    //If button state is active (keydown,touchstart,mosuedown,etc)
-    //and there are more than 0 touches in list
-    if(e.touches)
+    //Jump
+    if(e.touches[0].pageX >= jx1 && e.touches[0].pageX <= jx2
+    && e.touches[0].pageY >=  y1 && e.touches[0].pageY <=  y2)
     {
-      //Jump
-      if(e.touches[0].pageX >= jx1 && e.touches[0].pageX <= jx2
-      && e.touches[0].pageY >=  y1 && e.touches[0].pageY <=  y2)
-      {
-        controller.up = true;
-      }
-
-      //left
-      if(e.touches[0].pageX >=  20 && e.touches[0].pageX <=  120
-      && e.touches[0].pageY >= 920 && e.touches[0].pageY <= 1120)
-      {
-        console.log("LEFT");
-      }
-
-      console.log(e.touches[0].pageY);
+      controller.up = true;
     }
+
+    //left
+    if(e.touches[0].pageX >=  20 && e.touches[0].pageX <=  120
+    && e.touches[0].pageY >= 920 && e.touches[0].pageY <= 1120)
+    {
+      console.log("LEFT");
+    }
+
+    console.log(e.touches[0].pageY);
   }
   cancelEvent(e);
 }
