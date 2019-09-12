@@ -303,10 +303,11 @@ touchHandler=function(e, firefox){
       FFchecker = "Jump!";
     }
     else {
-      if(!(e.touches[0].pageX >= jx1)){FFchecker = "jx1";}
-      if(!(e.touches[0].pageX <= jx1)){FFchecker += " jx2";}
-      if(!(e.touches[0].pageY >=  y1)){FFchecker += " y1";}
-      if(!(e.touches[0].pageY <=  y2)){FFchecker += " y2";}
+      FFchecker = "";
+      if(!(e.touches[0].pageX >= jx1)){FFchecker = "jx1: " + jx1 + " | ";}
+      if(!(e.touches[0].pageX <= jx2)){FFchecker += "jx2 " + jx2 + " | ";}
+      if(!(e.touches[0].pageY >=  y1)){FFchecker += "y1 "  +  y1 + " | ";}
+      if(!(e.touches[0].pageY <=  y2)){FFchecker += "y2 "  +  y2;}
     }
 
     //left
