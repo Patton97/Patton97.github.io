@@ -300,6 +300,11 @@ touchHandler=function(e, firefox){
     && e.touches[0].pageY >=  y1 && e.touches[0].pageY <=  y2)
     {
       controller.up = true;
+      FFchecker = "Jump!";
+    }
+    else {
+        FFchecker = "x: " + Math.floor(e.touches[0].pageX)
+                  + "y: " + Math.floor(e.touches[0].pageY);
     }
 
     //left
@@ -329,8 +334,8 @@ if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))
   touchR.addEventListener(d,e=>{touchHandler(e,false); controller.right=true; }, false);
   touchR.addEventListener(u,e=>{touchHandler(e,false); controller.right=false;}, false);
   //Jump
-  gamepad.addEventListener(d,e=>{touchHandler(e,true); FFchecker = e.touches[0].pageY;}, false);
-  gamepad.addEventListener(u,e=>{cancelEvent(e); controller.up = false;FFchecker = "TEST!";}, false);
+  gamepad.addEventListener(d,e=>{touchHandler(e,true);}, false);
+  gamepad.addEventListener(u,e=>{cancelEvent(e); controller.up = false;}, false);
 }
 //On PC, use mousedown/up
 else
