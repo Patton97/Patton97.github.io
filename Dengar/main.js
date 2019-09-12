@@ -282,7 +282,7 @@ if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))
   d = "touchstart";
   u = "touchend";
 
-  FFChecker = true;
+  FFchecker = true;
 
 }
 //On PC, use mousedown/up
