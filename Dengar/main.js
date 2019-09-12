@@ -181,6 +181,8 @@ class Scrollable
       this.strips.shift();
     }
 
+    //endgame sequence
+    if(false){}
     if(this.offset >= 32)
     {
       this.offset = 0;
@@ -271,11 +273,33 @@ cancelEvent=function(e){
   e.preventDefault();
   e.stopPropagation();
   e.cancelBubble = true;
-  e.returnValue = false
-
-  FFchecker++;
+  e.returnValue = false;
 };
-//gamepad.ontouchstart = gamepad.ontouchmove = gamepad.ontouchend = gamepad.ontouchcancel = cancelEvent;
+
+firefoxSimulation=function(e, state){
+  //Hacky fix?
+  if(e.touches)
+  {
+    //Jump
+    if(e.touches[0].pageX >= 420 && e.touches[0].pageX <=  620
+    && e.touches[0].pageY >= 920 && e.touches[0].pageY <= 1120)
+    {
+      controller.up = true;
+    }
+
+    //left
+    //Jump
+    if(e.touches[0].pageX >= 420 && e.touches[0].pageX <= 620
+    && e.touches[0].pageY >=  20 && e.touches[0].pageY <= 220)
+    {
+      console.log("LEFT");
+    }
+
+    console.log(e.touches[0].pageY);
+  }
+  cancelEvent(e);
+}
+gamepad.ontouchstart = gamepad.ontouchend =gamepad.ontouchmove = gamepad.ontouchcancel = cancelEvent;
 
 //On Android and iOS, use touchstart/end
 //Of course, firefox mobile doesn't work, because it sucks.
@@ -297,11 +321,11 @@ else
 touchL.addEventListener(d,e=>{cancelEvent(e); controller.left=true; }, false);
 touchL.addEventListener(u,e=>{cancelEvent(e); controller.left=false;}, false);
 //Right
-touchR.addEventListener(d,e=>{cancelEvent(e); controller.right=true; }, false);
-touchR.addEventListener(u,e=>{cancelEvent(e); controller.right=false;}, false);
+touchR.addEventListener(d,e=>{firefoxSimulation(e, true);   }, false);
+touchR.addEventListener(u,e=>{cancelEvent(e); }, false);
 //Jump
-touchJ.addEventListener(d,e=>{cancelEvent(e); controller.up=true; }, false);
-touchJ.addEventListener(u,e=>{cancelEvent(e); controller.up=false;}, false);
+touchJ.addEventListener(d,e=>{firefoxSimulation(e, true);   }, false);
+touchJ.addEventListener(u,e=>{cancelEvent(e); controller.up = false; }, false);
 //End of Gamepad stuff
 
 var ObjectManager =
