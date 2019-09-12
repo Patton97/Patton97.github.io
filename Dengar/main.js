@@ -286,7 +286,7 @@ touchHandler=function(e, firefox){
 
   if(firefox)
   {
-    y1  = 350; y1  = 500;
+    y1  = 350; y2  = 500;
     lx1 =  20; lx2 =  80;
     rx1 = 120; rx2 = 180;
     jx1 = 300; jx2 = 440;
@@ -300,11 +300,6 @@ touchHandler=function(e, firefox){
     && e.touches[0].pageY >=  y1 && e.touches[0].pageY <=  y2)
     {
       controller.up = true;
-      FFchecker = "Jump!";
-    }
-    else {
-      if(!(e.touches[0].pageY >=  y1)){FFchecker = "y1: " + y1 + " | " + "y: " + e.touches[0].pageY;}
-
     }
 
     //left
