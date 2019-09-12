@@ -1,3 +1,4 @@
+var FFchecker = false;
 //TODO LIST
 // Spawn cacti
 // Animate dengar movement (pulse)
@@ -272,14 +273,17 @@ cancelEvent=e=>{
   e.cancelBubble = true;
   e.returnValue = false
 };
-//gamepad.ontouchstart = gamepad.ontouchmove = gamepad.ontouchend = gamepad.ontouchcancel = cancelEvent;
+gamepad.ontouchstart = gamepad.ontouchmove = gamepad.ontouchend = gamepad.ontouchcancel = cancelEvent;
 
 //On Android and iOS, use touchstart/end
 //Of course, firefox mobile doesn't work, because it sucks.
 if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))
 {
-  d = "ontouchstart";
-  u = "ontouchend";
+  d = "touchstart";
+  u = "touchend";
+
+  FFChecker = true;
+
 }
 //On PC, use mousedown/up
 else
@@ -429,7 +433,7 @@ function drawDistance()
   context.font = "normal bold 1em courier new";
   context.fillStyle = "yellow";
   context.textAlign = "right";
-  context.fillText(distance + "m", context.canvas.width,10);
+  context.fillText(FFchecker + " " + distance + "m", context.canvas.width,10);
 }
 
 var game =
