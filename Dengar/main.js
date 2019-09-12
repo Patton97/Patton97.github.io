@@ -267,15 +267,13 @@ var controller = {
 
 //Gamepad controller for mobile
 //Block default behaviour
-cancelEvent=e=>{
+cancelEvent=function(e){
   e.preventDefault();
   e.stopPropagation();
   e.cancelBubble = true;
   e.returnValue = false
 };
-gamepad.gesturestart = gamepad.ontouchstart = gamepad.touchstart;
-gamepad.ontouchmove = gamepad.ontouchcancel = cancelEvent;
-gamepad.gestureend = gamepad.ontouchend = gamepad.touchend;
+gamepad.ontouchstart = gamepad.ontouchmove = gamepad.ontouchend = gamepad.ontouchcancel = cancelEvent;
 
 //On Android and iOS, use touchstart/end
 //Of course, firefox mobile doesn't work, because it sucks.
@@ -284,7 +282,7 @@ if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))
   d = "touchstart";
   u = "touchend";
 
-  //FFchecker = true;
+  FFchecker = true;
 
 }
 //On PC, use mousedown/up
