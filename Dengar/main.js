@@ -1,8 +1,11 @@
 //TODO LIST
 // Spawn cacti
-// Figure out collisions
 // Animate dengar movement (pulse)
 // Add star twinkle: rng spawn on black sky?  alt sprites?
+
+// Restart
+// Start menu
+//End game sequence
 
 /************************/
 //Autozoom | https://benjymous.gitlab.io/post/2019-08-25-js13k-tips/
@@ -28,23 +31,105 @@ context.canvas.height = 480;
 context.canvas.width = 640;
 var iFrame = 0;
 const TILESIZE = 32; //Assume square tiles, 32x32
+var gamestate = 1;// 0 Main menu | 1 Playing | 2 Dead
 var spritesheet = {
   img: document.getElementById('spritesheet')
 }
 
+class Heart
+{
+  constructor() { this.activate(); }
+  activate()    { this.active = true; }
+  deactivate()  { this.active = false;}
+  draw(i)
+  {
+    let sx = 160;
+    let sy = this.active ? 32 : 0;//should probably flip
+    let x = i*(TILESIZE + 8) + 8;
+    let y = 8;
+
+    context.drawImage(spritesheet.img,
+                      sx,   sy, TILESIZE, TILESIZE,  //source image data
+                      x,     y, TILESIZE, TILESIZE); //dest.  image data
+  }
+}
+
 var character = {
-  x: 600,  y:0,
-  sx: 0, sy: 0,
+  x:  600,  y:0,
+  sx: 0,  sy: 0,
   xVel:   0,  yVel:0,
   jumping: true,
+  hp: 3, grace:false, hearts: [new Heart(), new Heart(), new Heart()],
+  update:function()
+  {
+    //Default spritesheet selection
+    this.sx=32; this.sy=0;
+    //Controller movement
+    if(controller.up && !this.jumping)
+    {
+      this.yVel -= 20;
+      this.jumping = true;
+    }
+    //Ignore input if both L&R are pressed
+    if(!(controller.right && controller.left))
+    {
+      if(controller.left)  { this.xVel -= .5; this.sx=0; }
+      if(controller.right) { this.xVel += .5; this.sx=64;}
+    }
+
+    //Physics
+    this.yVel += 1; //Gravity
+    this.xVel *= 0.9; //Friction (x)
+    this.x += this.xVel;
+    this.y += this.yVel;
+
+    this.checkBoundaries();
+    this.draw();
+  },
+  checkBoundaries:function()
+  {
+    //Floor
+    if(this.y + TILESIZE > floor.y)
+    {
+      this.jumping = false;
+      this.y = floor.y - TILESIZE;
+      this.yVel = 0;
+    }
+    else
+    {
+      this.sy = 64;
+    }
+    //Sides of the screen
+    if(this.x < 0) {this.x = 1; }
+    if(this.x+TILESIZE > context.canvas.width) {this.x = context.canvas.width-TILESIZE}
+  },
   draw:function()
   {
-    //Choose character sprite
-    //  TODO: Move code here
     context.drawImage(spritesheet.img,
                       this.sx,   this.sy,   TILESIZE, TILESIZE,  //source image data
-                      this.x, this.y, TILESIZE, TILESIZE); //dest.  image data
-  }
+                      this.x,    this.y,    TILESIZE, TILESIZE); //dest.  image data
+    //Draw heartss
+    for(let i = 0; i < this.hearts.length; i++)
+    {
+      this.hearts[i].draw(i);
+    }
+  },
+  decreaseHealth:function()
+  {
+    if(!this.grace)
+    {
+      this.hp--;
+      this.hearts[this.hp].deactivate();
+      this.yVel -= 10;
+      console.log("HIT! New HP: " + this.hp);
+      this.gracePeriod();
+    }
+  },
+  gracePeriod:function()
+  {
+    this.grace = true;
+    setTimeout(function(){character.grace = false;}, 1000);
+  },
 };
 
 //Stores img data on non-collidable tiles
@@ -94,6 +179,18 @@ class Scrollable
     {
       this.strips.shift();
     }
+
+    if(this.offset >= 32)
+    {
+      this.offset = 0;
+      //Cactus probability = (distance * -0.0002) + 0.4
+      //meaning chance increases from 20% to 40% throughout game
+      let cactuschance = (distance * -0.00004) + 0.5;
+      if(Math.random() <= cactuschance)
+      {
+        let cactus = new Cactus(-TILESIZE);
+      }
+    }
   }
   draw()
   {
@@ -119,18 +216,13 @@ class Scrollable
     if(this.offset >= 32)
     {
       this.makeNewStrip();
-      this.offset = 0;
-      //20% Chance to spawn cactus - Possibly just temp solution
-      if(Math.floor(Math.random() * 9) % 5 === 0)
-      {
-        let cactus = new Cactus(-TILESIZE);
-      }
     }
   }
 }
 
 var sky   = new Scrollable(11,0,1);
-var floor = new Scrollable(4,context.canvas.height - 4*TILESIZE,10,32);
+var hills = new Scrollable(1,10*TILESIZE,1,32);
+var floor = new Scrollable(4,context.canvas.height - 4*TILESIZE,10,64);
 
 var controller = {
   left:false, right:false, up:false,
@@ -155,17 +247,20 @@ var controller = {
         break;
     }
   },
-  touchHandler:function(e)
-  {/*
-    //Page height is assumed to be the largest of the following
-    var pageHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight));
-    //If jump is touched
-    if(e.touches)
+  //Controller's update handles the gamepad img visuals
+  update:function()
+  {
+    //Fairly ugly solution forgive me for my sins
+    //Couldn't figure out to how crop-cut HTML<img> from spritesheet
+    let filepath = 'gamepad';
+    if (this.up) {filepath+='U'}
+    //Ignore input if both L&R are pressed
+    if(!(this.left && this.right))
     {
-      console.log("Touch-Y: " + e.touches[0].pageY);
-      var body = document.body, html = document.documentElement;
-
-    }*/
+      if (this.left) {filepath+='L'}
+      if (this.right){filepath+='R'}
+    }
+    document.getElementById('gamepad').src=filepath+'.png';
   }
 };
 
@@ -245,15 +340,11 @@ var ObjectManager =
 
 class GameObject
 {
-  constructor(x=0,y=0,width=TILESIZE,height=TILESIZE,sx=0,sy=0,collidable=false)
+  constructor(x=0,y=0,width=TILESIZE,height=TILESIZE,sx=0,sy=0)
   {
-    this.x=x;
-    this.y=y;
-    this.width=width;
-    this.height=height;
-    this.sx=sx;
-    this.sy=sy;
-    this.collidable=collidable;
+    this.x=x; this.y=y;
+    this.width=width; this.height=height;
+    this.sx=sx; this.sy=sy;
     this.active=true;
     ObjectManager.gameObjects.push(this);
   }
@@ -272,23 +363,22 @@ class GameObject
   }
   checkCollisions()
   {
-    //If object isn't collidable, skip check
-    if(this.collidable)
+    //AABB collision test
+    if(character.x < this.x + this.width
+    && character.x + TILESIZE > this.x
+    && character.y < this.y + this.height
+    && character.y + TILESIZE > this.y)
     {
-      //AABB collision test
-      if(character.x < this.x + this.width
-      && character.x + TILESIZE > this.x
-      && character.y < this.y + this.height
-      && character.y + TILESIZE > this.y)
-      {
-        //TODO: Game over sequence
-        //For now, player just bounces off
-        character.xVel = 10;
-        return true;
-      }
+      this.processCollisions();
     }
     //If code reaches this point, no collision detected
     return false;
+  }
+  processCollisions()
+  {
+    //Default is to do nothing
+    //Objects can override this function to
+    //instigate contextual behaviour on collision
   }
 }
 
@@ -299,9 +389,18 @@ class Cactus extends GameObject
     //Randomly select which row to place cactus in
     let y = floor.y+(TILESIZE*(Math.floor(Math.random()*5) - 1));
     //Randomly select which cactus sprite to use
-    let sx = 96 + (TILESIZE * Math.floor(Math.random() * 2));
-    let sy = 64;
-    super(x,y,TILESIZE,TILESIZE,sx,sy,true);
+    let sx = (6*TILESIZE) + (TILESIZE * Math.floor(Math.random() * 2));
+    let sy = 0;
+    super(x,y,TILESIZE,TILESIZE,sx,sy);
+  }
+  processCollisions()
+  {
+    //TEMP SOLUTION - reject inactive
+    if(this.active)
+    {
+      character.decreaseHealth();
+      this.active = false;
+    }
   }
 }
 
@@ -322,67 +421,78 @@ function drawFPS(iFrame)
   context.fillText(fps, context.canvas.width,10);
 }
 
-
-var gameLoop = function()
+var distance = 5000; //meters (?)
+function drawDistance()
 {
-  //Default spritesheet selection
-  character.sx=32; character.sy=32
-  //Controller movement
-  if(controller.up && !character.jumping)
-  {
-    character.yVel -= 20;
-    character.jumping = true;
-  }
-  if(controller.left)  { character.xVel -= .5; character.sx=0; }
-  if(controller.right) { character.xVel += .5; character.sx=64;}
-  //Physics
-  character.yVel += 1; //Gravity
-  character.x += character.xVel;
-  character.y += character.yVel;
-  character.xVel *= 0.9; //Friction (x)
-
-  //Check Boundaries
-  //Floor
-  if(character.y + TILESIZE > floor.y)
-  {
-    character.jumping = false;
-    character.y = floor.y - TILESIZE;
-    character.yVel = 0;
-    character.sy = 0;
-  }
-  else
-  {
-    character.sy = 64;
-  }
-  //Sides of the screen
-  if(character.x < 0) {character.x = 1; }
-  if(character.x+TILESIZE > context.canvas.width) {character.x = context.canvas.width-TILESIZE}
-
-  //Drawing
-  //Draw background
-  context.fillStyle = "#3F3F3F";
-  context.fillRect(0,0,context.canvas.width,context.canvas.height);
-
-  //Construct next frame
-  //Needs organising
-  floor.draw();
-  sky.draw();
-  character.draw();
-  ObjectManager.update();
-  //console.log(ObjectManager.gameObjects.length);
-
-  //DEBUG ONLY
-  drawFPS(iFrame);
-
-  //Update iframe (yes ugly ew)
-  if(iFrame < 60){iFrame++;}else{iFrame = 0;}
-
-  //Update
-  window.requestAnimationFrame(gameLoop);
+  distance--;
+  //Draw text every frame to avoid flickering
+  context.font = "normal bold 1em courier new";
+  context.fillStyle = "yellow";
+  context.textAlign = "right";
+  context.fillText(distance + "m", context.canvas.width,10);
 }
+
+var game =
+{
+  update:function()
+  {
+    switch(gamestate)
+    {
+      case 0://Main Menu
+        break;
+      case 1://Playing
+        //Construct next frame
+        context.fillStyle = "#3F3F3F";
+        context.fillRect(0,0,context.canvas.width,context.canvas.height);
+        sky.draw();
+        hills.draw();
+        floor.draw();
+        character.update();
+        ObjectManager.update();
+        controller.update();
+        drawDistance(distance);
+        //DEBUG ONLY
+        //drawFPS(iFrame);
+
+        //Update iframe (yes ugly ew)
+        if(iFrame < 60){iFrame++;}else{iFrame = 0;}
+
+        //If char runs out of lives
+        if(character.hp <= 0)
+        {
+          //Draw Game Over text
+          context.fillStyle = "yellow";
+          context.textAlign = "center";
+
+          context.font = "normal bold 5em courier new";
+          let x = context.canvas.width / 2;
+          let y = (context.canvas.height / 2) - 32;
+          context.fillText("GAME OVER", x,y);
+
+          context.font = "normal bold 1.5em courier new";
+          x = context.canvas.width  / 2;
+          y = context.canvas.height / 2;
+          context.fillText("Jump to try again!", x,y);
+
+          gamestate = 2;
+        }
+        break;
+      case 2://Dead
+        //Press jump to try again (false = local cache reload)
+        if(controller.up){window.location.reload(false);}
+        break;
+      default:
+        console.log("INVALID GAMESTATE: " + gamestate);
+        break;
+    }
+    //Request next frame, regardless of gamestate
+    window.requestAnimationFrame(game.update);
+  }
+}
+
 
 //Keyboard controls
 window.addEventListener("keydown", controller.keyListener);
 window.addEventListener("keyup",   controller.keyListener);
-//Instigate gameLoop
-window.requestAnimationFrame(gameLoop);
+//Instigate game loop
+window.requestAnimationFrame(game.update);
