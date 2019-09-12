@@ -303,8 +303,10 @@ touchHandler=function(e, firefox){
       FFchecker = "Jump!";
     }
     else {
-        FFchecker = "x: " + Math.floor(e.touches[0].pageX)
-                  + "y: " + Math.floor(e.touches[0].pageY);
+      if(!(e.touches[0].pageX >= jx1)){FFchecker = "jx1";}
+      if(!(e.touches[0].pageX <= jx1)){FFchecker += " jx2";}
+      if(!(e.touches[0].pageY >=  y1)){FFchecker += " y1";}
+      if(!(e.touches[0].pageY <=  y2)){FFchecker += " y2";}
     }
 
     //left
