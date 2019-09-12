@@ -273,7 +273,9 @@ cancelEvent=e=>{
   e.cancelBubble = true;
   e.returnValue = false
 };
-gamepad.ontouchstart = gamepad.ontouchmove = gamepad.ontouchend = gamepad.ontouchcancel = cancelEvent;
+gamepad.ontouchstart = gamepad.touchstart;
+gamepad.ontouchmove = gamepad.ontouchcancel = cancelEvent;
+gamepad.ontouchend = gamepad.touchend;
 
 //On Android and iOS, use touchstart/end
 //Of course, firefox mobile doesn't work, because it sucks.
