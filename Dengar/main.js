@@ -272,6 +272,8 @@ cancelEvent=function(e){
   e.stopPropagation();
   e.cancelBubble = true;
   e.returnValue = false
+
+  FFchecker = true;
 };
 gamepad.ontouchstart = gamepad.ontouchmove = gamepad.ontouchend = gamepad.ontouchcancel = cancelEvent;
 
@@ -279,17 +281,15 @@ gamepad.ontouchstart = gamepad.ontouchmove = gamepad.ontouchend = gamepad.ontouc
 //Of course, firefox mobile doesn't work, because it sucks.
 if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))
 {
-  d = "touchstart";
-  u = "touchend";
-
-  FFchecker = true;
+  d = 'touchstart';
+  u = 'touchend';
 
 }
 //On PC, use mousedown/up
 else
 {
-  d = "mousedown";
-  u = "mouseup";
+  d = 'mousedown';
+  u = 'mouseup';
 };
 
 //Event Handlers
