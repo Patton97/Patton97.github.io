@@ -292,6 +292,7 @@ firefoxHandler=function(e){
   //and there are more than 0 touches in list
   if(e.touches)
   {
+    FFchecker = e.touches.length;
     //Jump
     if(e.touches[0].pageX >= jx1 && e.touches[0].pageX <= jx2
     && e.touches[0].pageY >=  y1 && e.touches[0].pageY <=  y2)
