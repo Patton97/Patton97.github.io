@@ -1,4 +1,4 @@
-var FFchecker = 0;
+var FFchecker = 8;
 //TODO LIST
 // Spawn cacti
 // Animate dengar movement (pulse)
