@@ -316,7 +316,7 @@ if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))
   touchR.addEventListener(d,e=>{touchHandler(e,false); controller.right=true; }, false);
   touchR.addEventListener(u,e=>{touchHandler(e,false); controller.right=false;}, false);
   //Jump
-  document.addEventListener(d,e=>{touchHandler(e,true);FFchecker = e.touches[0].pageX;}, false);
+  gamepad.addEventListener(d,e=>{touchHandler(e,true);FFchecker = e.touches[0].pageX;}, false);
   touchJ.addEventListener(u,e=>{cancelEvent(e); controller.up = false}, false);
 }
 //On PC, use mousedown/up
