@@ -273,9 +273,9 @@ cancelEvent=e=>{
   e.cancelBubble = true;
   e.returnValue = false
 };
-gamepad.ontouchstart = gamepad.touchstart;
+gamepad.gesturestart = gamepad.ontouchstart = gamepad.touchstart;
 gamepad.ontouchmove = gamepad.ontouchcancel = cancelEvent;
-gamepad.ontouchend = gamepad.touchend;
+gamepad.gestureend = gamepad.ontouchend = gamepad.touchend;
 
 //On Android and iOS, use touchstart/end
 //Of course, firefox mobile doesn't work, because it sucks.
@@ -284,7 +284,7 @@ if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))
   d = "touchstart";
   u = "touchend";
 
-  FFchecker = true;
+  //FFchecker = true;
 
 }
 //On PC, use mousedown/up
