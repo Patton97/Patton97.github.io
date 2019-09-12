@@ -277,20 +277,17 @@ cancelEvent=function(e){
 };
 
 //Hacky fix to solve firefox not liking img hitmaps
-touchHandler=function(e, firefox){
+firefoxHandler=function(e){
   //Allows button coords to change for firefox
   let  y1 = 920; let  y2 = 1120;
   let lx1 =  20; let lx2 =  120;
   let rx1 = 160; let rx2 =  260;
   let jx1 = 420; let jx2 =  620;
 
-  if(firefox)
-  {
     y1  = 350; y2  = 500;
     lx1 =  20; lx2 =  80;
     rx1 = 120; rx2 = 180;
     jx1 = 300; jx2 = 440;
-  }
   //If button state is active (keydown,touchstart,mosuedown,etc)
   //and there are more than 0 touches in list
   if(e.touches)
@@ -301,15 +298,31 @@ touchHandler=function(e, firefox){
     {
       controller.up = true;
     }
-
-    //left
-    if(e.touches[0].pageX >=  20 && e.touches[0].pageX <=  120
-    && e.touches[0].pageY >= 920 && e.touches[0].pageY <= 1120)
-    {
-      console.log("LEFT");
+    else {
+      controller.up= false;
     }
 
-    console.log(e.touches[0].pageY);
+    //left
+    if(e.touches[0].pageX >= lx1 && e.touches[0].pageX <= lx2
+    && e.touches[0].pageY >=  y2 && e.touches[0].pageY <=  y2)
+    {
+      controller.left = true;
+    }
+    else
+    {
+      controller.left = false;
+    }
+
+    //Right
+    if(e.touches[0].pageX >= rx1 && e.touches[0].pageX <= rx2
+    && e.touches[0].pageY >=  y2 && e.touches[0].pageY <=  y2)
+    {
+      controller.right = true;
+    }
+    else
+    {
+      controller.right = false;
+    }
   }
   cancelEvent(e);
 }
@@ -323,14 +336,24 @@ if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))
   u = 'touchend';
   //Event Handlers
   //left
-  touchL.addEventListener(d,e=>{touchHandler(e,false); controller.left=true; }, false);
-  touchL.addEventListener(u,e=>{touchHandler(e,false); controller.left=false;}, false);
+  touchL.addEventListener(d,e=>{cancelEvent(e); controller.left=true; }, false);
+  touchL.addEventListener(u,e=>{cancelEvent(e); controller.left=false;}, false);
   //Right
-  touchR.addEventListener(d,e=>{touchHandler(e,false); controller.right=true; }, false);
-  touchR.addEventListener(u,e=>{touchHandler(e,false); controller.right=false;}, false);
+  touchR.addEventListener(d,e=>{cancelEvent(e); controller.right=true; }, false);
+  touchR.addEventListener(u,e=>{cancelEvent(e); controller.right=false;}, false);
   //Jump
-  gamepad.addEventListener(d,e=>{touchHandler(e,true);}, false);
-  gamepad.addEventListener(u,e=>{cancelEvent(e); controller.up = false;}, false);
+  touchJ.addEventListener(d,e=>{cancelEvent(e); controller.up = true;}, false);
+  touchJ.addEventListener(u,e=>{cancelEvent(e); controller.up = false;}, false);
+  //Firefox mobile specific fix
+  //Left
+  gamepad.addEventListener(d,e=>{firefoxHandler(e);}, false);
+  gamepad.addEventListener(u,e=>{firefoxHandler(e);}, false);
+  //Right
+  gamepad.addEventListener(d,e=>{firefoxHandler(e);}, false);
+  gamepad.addEventListener(u,e=>{firefoxHandler(e);}, false);
+  //Jump
+  gamepad.addEventListener(d,e=>{firefoxHandler(e);}, false);
+  gamepad.addEventListener(u,e=>{firefoxHandler(e);}, false);
 }
 //On PC, use mousedown/up
 else
