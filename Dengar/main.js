@@ -1,12 +1,3 @@
-var FFchecker = "0140";
-//TODO LIST
-// Spawn cacti
-// Animate dengar movement (pulse)
-// Add star twinkle: rng spawn on black sky?  alt sprites?
-
-// Restart
-// Start menu
-//End game sequence
 
 /************************/
 //Autozoom | https://benjymous.gitlab.io/post/2019-08-25-js13k-tips/
@@ -32,7 +23,8 @@ context.canvas.height = 480;
 context.canvas.width = 640;
 var iFrame = 0;
 const TILESIZE = 32; //Assume square tiles, 32x32
-var gamestate = 1;// 0 Main menu | 1 Playing | 2 Dead
+var gamestate = 0;// 0 Main menu | 1 Playing | 2 Dead
+var towerSpawned = false;//Only allow one endgame tower
 var spritesheet = {
   img: document.getElementById('spritesheet')
 }
@@ -44,8 +36,8 @@ class Heart
   deactivate()  { this.active = false;}
   draw(i)
   {
-    let sx = 160;
-    let sy = this.active ? 32 : 0;//should probably flip
+    let sx = this.active ? 0 : 1*TILESIZE;
+    let sy = 3*TILESIZE;
     let x = i*(TILESIZE + 8) + 8;
     let y = 8;
 
@@ -63,8 +55,6 @@ var character = {
   hp: 3, grace:false, hearts: [new Heart(), new Heart(), new Heart()],
   update:function()
   {
-    //Default spritesheet selection
-    this.sx=32; this.sy=0;
     //Controller movement
     if(controller.up && !this.jumping)
     {
@@ -74,8 +64,8 @@ var character = {
     //Ignore input if both L&R are pressed
     if(!(controller.right && controller.left))
     {
-      if(controller.left)  { this.xVel -= .5; this.sx=0; }
-      if(controller.right) { this.xVel += .5; this.sx=64;}
+      if(controller.left)  { this.xVel -= .5;}
+      if(controller.right) { this.xVel += .5;}
     }
 
     //Physics
@@ -96,20 +86,26 @@ var character = {
       this.y = floor.y - TILESIZE;
       this.yVel = 0;
     }
-    else
-    {
-      this.sy = 64;
-    }
     //Sides of the screen
-    if(this.x < 0) {this.x = 1; }
-    if(this.x+TILESIZE > context.canvas.width) {this.x = context.canvas.width-TILESIZE}
+    //Ignore during endgame sequence
+    if(gamestate != 3)
+    {
+      if(this.x < 0) {this.x = 1; }
+      if(this.x+TILESIZE > context.canvas.width) {this.x = context.canvas.width-TILESIZE}
+    }
   },
   draw:function()
   {
+    //Choose sprite
+    this.sx=0; this.sy=0;
+    if(controller.left)  {this.sy=32;}
+    if(controller.right) {this.sy=64;}
+    if(controller.up)    {this.sx=32;}
+
     context.drawImage(spritesheet.img,
                       this.sx,   this.sy,   TILESIZE, TILESIZE,  //source image data
                       this.x,    this.y,    TILESIZE, TILESIZE); //dest.  image data
-    //Draw heartss
+    //Draw hearts
     for(let i = 0; i < this.hearts.length; i++)
     {
       this.hearts[i].draw(i);
@@ -117,7 +113,7 @@ var character = {
   },
   decreaseHealth:function()
   {
-    if(!this.grace)
+    if(!this.grace && gamestate !=3)
     {
       this.hp--;
       this.hearts[this.hp].deactivate();
@@ -168,7 +164,7 @@ class Scrollable
     let newStrip = [];
     for(let i =0; i < this.height; i++)
     {
-      let sx = 97 + Math.floor(Math.random() * 32);
+      let sx = 65 + Math.floor(Math.random() * 32);
       let sy = this.sy;
       let newTile = new bgTile(sx,sy);
       newStrip.push(newTile);
@@ -181,24 +177,25 @@ class Scrollable
       this.strips.shift();
     }
 
-    //endgame sequence
-    if(false){}
     if(this.offset >= 32)
     {
       this.offset = 0;
-      //Cactus probability = (distance * -0.0002) + 0.4
-      //meaning chance increases from 20% to 40% throughout game
-      let cactuschance = (distance * -0.00004) + 0.5;
-      if(Math.random() <= cactuschance)
-      {
-        let cactus = new Cactus(-TILESIZE);
-      }
     }
   }
-  draw()
+  update()
   {
     //Assumes base speed (1) moves 16px per 60 frames
     this.offset += this.speed * (16/60);
+
+    //If furthest strip is offscreen, purge & replace
+    if(this.offset >= 32)
+    {
+      this.makeNewStrip();
+    }
+    this.draw();
+  }
+  draw()
+  {
     //Foreach strip (along x-axis, in reverse)
     for(let i = this.strips.length-1; i >= 0 ; i--)
     {
@@ -215,17 +212,49 @@ class Scrollable
                           dx, dy, TILESIZE, TILESIZE); //dest.  image data
       }
     }
-    //If furthest strip is offscreen, purge & replace
+  }
+}
+
+class Floor extends Scrollable
+{
+  constructor()
+  {
+    super(4,context.canvas.height - 4*TILESIZE,10,64)
+  }
+  //Not a true override, just an extensions
+  makeNewStrip()
+  {
+    //endgame sequence
+    if(distance < 250)
+    {
+      let fence = new Fence();
+      //Only spawn one tower,at the start
+      if(!towerSpawned)
+      {
+        let tower = new Tower();
+        towerSpawned = true;
+      }
+      //gamestate = 3; //Lock in gamestate
+    }
     if(this.offset >= 32)
     {
-      this.makeNewStrip();
+      //Cactus probability = (distance * -0.0002) + 0.4
+      //meaning chance increases from 20% to 40% throughout game
+      //No cacti spawned close to endgame for safety
+      let cactuschance = (distance * -0.00004) + 0.5;
+      if(Math.random() <= cactuschance && distance > 250)
+      {
+        let cactus = new Cactus();
+      }
     }
+    //End of extension, process superclass behaviour
+    super.makeNewStrip();
   }
 }
 
 var sky   = new Scrollable(11,0,1);
 var hills = new Scrollable(1,10*TILESIZE,1,32);
-var floor = new Scrollable(4,context.canvas.height - 4*TILESIZE,10,64);
+var floor = new Floor();//Floor is a scrollable, but can spawn gameobjects
 
 var controller = {
   left:false, right:false, up:false,
@@ -315,10 +344,6 @@ if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))
 {
   d = 'touchstart';
   u = 'touchend';
-
-  //Firefox mobile specific fix
-  gamepad.addEventListener(d,e=>{firefoxHandler(e);}, false);
-  gamepad.addEventListener(u,e=>{firefoxHandler(e);}, false);
 }
 //On PC, use mousedown/up
 else
@@ -337,11 +362,25 @@ touchR.addEventListener(u,e=>{cancelEvent(e); controller.right=false;}, false);
 //Jump
 touchJ.addEventListener(d,e=>{cancelEvent(e); controller.up = true;}, false);
 touchJ.addEventListener(u,e=>{cancelEvent(e); controller.up = false;}, false);
+//Firefox mobile specific fix
+gamepad.addEventListener(d,e=>{firefoxHandler(e);}, false);
+gamepad.addEventListener(u,e=>{firefoxHandler(e);}, false);
 //End of Gamepad stuff
 
 var ObjectManager =
 {
   gameObjects: [],
+  //Cactibuffer prevents unwinnable scenarios (max 3 adjacent cacti)
+  cactibuffer:0,
+  cacticount:0,
+  cactiCheck:function()
+  {
+    if(this.cacticount >= 3)
+    {
+      this.cactibuffer = 3;
+      this.cacticount  = 0;
+    }
+  },
   update:function()
   {
     this.purgeInactive();
@@ -390,7 +429,8 @@ class GameObject
   draw()
   {
     //Objects should move with floor
-    this.x += floor.speed * (16/60);
+    //(except during endgame sequence)
+    if(gamestate!=3){this.x += floor.speed * (16/60);}
     //Expanded for readability
     context.drawImage(spritesheet.img,         //Source spritesheet
                       this.sx,    this.sy,     //Source coords
@@ -423,13 +463,34 @@ class GameObject
 
 class Cactus extends GameObject
 {
-  constructor(x)
+  constructor()
   {
-    //Randomly select which row to place cactus in
-    let y = floor.y+(TILESIZE*(Math.floor(Math.random()*5) - 1));
+    let row = 0;
+    //cactibuffer prevents unwinnable scenarios (max 3 adjacent toprow cacti)
+    ObjectManager.cactiCheck();
+    if(ObjectManager.cactibuffer > 0)
+    {
+      //Randomly select which row to place cactus in (not top row)
+      row = Math.floor(Math.random()*4);
+      ObjectManager.cactibuffer--;
+      console.log(ObjectManager.cactibuffer);
+    }
+    else
+    {
+      //Randomly select which row to place cactus in
+      //For increased difficulty, top row is made more likely
+      row = Math.floor(Math.random()*10)-1;
+      if(row>4){row = -1}
+      if(row === -1){ObjectManager.cacticount++;}
+      else{ObjectManager.cacticount--;}
+    }
+
+    let x = -TILESIZE;
+    let y = floor.y+(row*TILESIZE);
+
     //Randomly select which cactus sprite to use
-    let sx = (6*TILESIZE) + (TILESIZE * Math.floor(Math.random() * 2));
-    let sy = 0;
+    let sx = (2*TILESIZE) + (TILESIZE * Math.floor(Math.random() * 2));
+    let sy = 3*TILESIZE;
     super(x,y,TILESIZE,TILESIZE,sx,sy);
   }
   processCollisions()
@@ -440,6 +501,30 @@ class Cactus extends GameObject
       character.decreaseHealth();
       this.active = false;
     }
+  }
+}
+
+class Fence extends GameObject
+{
+  constructor()
+  {
+    let x = -TILESIZE;
+    let y = floor.y - TILESIZE;
+    let sx = 4*TILESIZE;
+    let sy = 2*TILESIZE;
+    super(x,y,TILESIZE,TILESIZE,sx,sy);
+  }
+}
+
+class Tower extends GameObject
+{
+  constructor()
+  {
+    let x = -TILESIZE/2;
+    let y = floor.y - (2*TILESIZE);
+    let sx = 4*TILESIZE;
+    let sy = 0*TILESIZE;
+    super(x,y,TILESIZE,2*TILESIZE,sx,sy);
   }
 }
 
@@ -465,10 +550,10 @@ function drawDistance()
 {
   distance--;
   //Draw text every frame to avoid flickering
-  context.font = "normal bold 1em courier new";
+  context.font = "normal bold 1.5em courier new";
   context.fillStyle = "yellow";
   context.textAlign = "right";
-  context.fillText(FFchecker + " " + distance + "m", context.canvas.width,10);
+  context.fillText(" " + distance + "m", context.canvas.width,16);
 }
 
 var game =
@@ -478,18 +563,45 @@ var game =
     switch(gamestate)
     {
       case 0://Main Menu
-        break;
-      case 1://Playing
-        //Construct next frame
+        //Construct initial frame
         context.fillStyle = "#3F3F3F";
         context.fillRect(0,0,context.canvas.width,context.canvas.height);
         sky.draw();
         hills.draw();
         floor.draw();
         character.update();
+        context.fillStyle = "yellow";
+        context.textAlign = "center";
+
+        context.font = "normal bold 5em courier new";
+        let x = context.canvas.width / 2;
+        let y = (context.canvas.height / 2) - 64;
+        context.fillText("DENGAR", x,y);
+
+        context.font = "normal bold 1.25em courier new";
+        y+=32;//Line break
+        context.fillText("Anime fans across the world have succesfully", x,y);
+        y+=32;//Line break
+        context.fillText("raided AREA 51, but poor Dengar here", x,y);
+        y+=32;//Line break
+        context.fillText("quite enjoyed his containment facility", x,y);
+        y+=32;//Line break
+        context.fillText("Jump to get started!", x,y);
+
+        //Jump to begin
+        if(controller.up){gamestate =1;}
+        break;
+      case 1://Playing
+        //Construct next frame
+        context.fillStyle = "#3F3F3F";
+        context.fillRect(0,0,context.canvas.width,context.canvas.height);
+        sky.update();
+        hills.update();
+        floor.update();
+        character.update();
         ObjectManager.update();
         controller.update();
-        drawDistance(distance);
+        drawDistance();
         //DEBUG ONLY
         //drawFPS(iFrame);
 
@@ -507,18 +619,58 @@ var game =
           let x = context.canvas.width / 2;
           let y = (context.canvas.height / 2) - 32;
           context.fillText("GAME OVER", x,y);
+          y+=32;//Line break
 
           context.font = "normal bold 1.5em courier new";
-          x = context.canvas.width  / 2;
-          y = context.canvas.height / 2;
           context.fillText("Jump to try again!", x,y);
 
           gamestate = 2;
         }
+        //Last 100m are safezone, none-scrolling
+        else if(distance < 100)
+        {
+          gamestate = 3;
+        }
         break;
-      case 2://Dead
+      case 2://Game over (both win & lose)
         //Press jump to try again (false = local cache reload)
         if(controller.up){window.location.reload(false);}
+        break;
+      case 3://Endgame sequence
+        //Remove control from player
+        controller.left  = true;
+        controller.right = false;
+        controller.up    = false
+        sky.draw();
+        hills.draw();
+        floor.draw();
+        character.update();
+        ObjectManager.update();
+
+        if(distance >= 0)
+        {
+          drawDistance();
+        }
+        else
+        {
+          //Draw Game Over text
+          context.fillStyle = "yellow";
+          context.textAlign = "center";
+
+          context.font = "normal bold 5em courier new";
+          let x = context.canvas.width / 2;
+          let y = (context.canvas.height / 2) - 32;
+          context.fillText("VICTORY", x,y);
+
+          context.font = "normal bold 1.25em courier new";
+          y+=32;//Line break
+          context.fillText("Dengar has been reunited with his...people(?)", x,y);
+          y+=32;//Line break
+          context.fillText("Jump to try again!", x,y);
+
+          //Player essentially dies...doesn't really matter
+          gamestate = 2;
+        }
         break;
       default:
         console.log("INVALID GAMESTATE: " + gamestate);
