@@ -263,8 +263,8 @@ var controller = {
       if (this.left) {filepath+='L'}
       if (this.right){filepath+='R'}
     }
-    //Random value query forces firefox to reload image
-    document.getElementById('gamepad').src=filepath+'.png?t=t'+ Math.random(5);;
+    //Server time value query forces firefox to reload image
+    document.getElementById('gamepad').src=filepath+'.png?' + performance.now();
   }
 };
 
