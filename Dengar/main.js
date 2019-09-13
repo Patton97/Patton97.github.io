@@ -299,7 +299,7 @@ firefoxHandler=function(e){
 
       //left
       if(e.touches[i].pageX >= lx1 && e.touches[i].pageX <= lx2
-      && e.touches[i].pageY >=  y2 && e.touches[i.pageY <=  y2)
+      && e.touches[i].pageY >=  y2 && e.touches[i].pageY <=  y2)
       { controller.left = true; }
 
       //Right
