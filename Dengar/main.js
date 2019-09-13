@@ -611,6 +611,8 @@ var game =
         //If char runs out of lives
         if(character.hp <= 0)
         {
+          //forceupdate hearts
+          character.draw();
           //Draw Game Over text
           context.fillStyle = "yellow";
           context.textAlign = "center";
@@ -680,7 +682,6 @@ var game =
     window.requestAnimationFrame(game.update);
   }
 }
-
 
 //Keyboard controls
 window.addEventListener("keydown", controller.keyListener);
