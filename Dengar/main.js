@@ -285,27 +285,23 @@ firefoxHandler=function(e){
   let jx1 = 300; let jx2 = 440;
 
   //Assume no buttons are pressed until checked
-  controller.up =false;
-  controller.left =false;
+  controller.up    = false;
+  controller.left  = false;
   controller.right = false;
 
   //For each touch in touchlist
   for(let i = 0; i <= e.touches.length; i++)
   {
-    //Jump
-    if(e.touches[i].pageX >= jx1 && e.touches[i].pageX <= jx2
-    && e.touches[i].pageY >=  y1 && e.touches[i].pageY <=  y2)
-    { controller.up = true; }
-
-    //left
-    if(e.touches[i].pageX >= lx1 && e.touches[i].pageX <= lx2
-    && e.touches[i].pageY >=  y1 && e.touches[i].pageY <=  y2)
-    { controller.left = true; }
-
-    //Right
-    if(e.touches[i].pageX >= rx1 && e.touches[i].pageX <= rx2
-    && e.touches[i].pageY >=  y1 && e.touches[i].pageY <=  y2)
-    { controller.right = true; }
+    let touchX = e.touches[i].pageX;
+    let touchY = e.touches[i].pageY;
+    //All buttons have same y1 & y2
+    if(touchY >=  y1 && touchY <=  y2)
+    {
+      //Else used for micro-optimisation
+      if     (touchX >= jx1 && touchX <= jx2) {controller.up    = true;}
+      else if(touchX >= lx1 && touchX <= lx2) {controller.left  = true;}
+      else if(touchX >= rx1 && touchX <= rx2) {controller.right = true;}
+    }
   }
   //Prevent default events (doesn't seem to work)
   cancelEvent(e);
@@ -340,8 +336,6 @@ touchR.addEventListener(u,e=>{cancelEvent(e); controller.right=false;}, false);
 //Jump
 touchJ.addEventListener(d,e=>{cancelEvent(e); controller.up = true;}, false);
 touchJ.addEventListener(u,e=>{cancelEvent(e); controller.up = false;}, false);
-
-
 //End of Gamepad stuff
 
 var ObjectManager =
