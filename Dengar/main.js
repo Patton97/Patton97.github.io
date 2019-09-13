@@ -1,4 +1,4 @@
-var FFchecker = "0025";
+var FFchecker = "0125";
 //TODO LIST
 // Spawn cacti
 // Animate dengar movement (pulse)
@@ -263,6 +263,7 @@ var controller = {
       if (this.left) {filepath+='L'}
       if (this.right){filepath+='R'}
     }
+    FFchecker = filepath
     document.getElementById('gamepad').src=filepath+'.png';
   }
 };
