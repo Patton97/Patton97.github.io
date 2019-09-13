@@ -1,4 +1,4 @@
-var FFchecker = "0125";
+var FFchecker = "0135";
 //TODO LIST
 // Spawn cacti
 // Animate dengar movement (pulse)
@@ -264,7 +264,8 @@ var controller = {
       if (this.right){filepath+='R'}
     }
     FFchecker = filepath;
-    document.getElementById('gamepad').src=filepath+'.png';
+    //Random value query forces firefox to reload image
+    document.getElementById('gamepad').src=filepath+'.png?t=t'+ Math.random(5);;
   }
 };
 
