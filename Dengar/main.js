@@ -295,23 +295,17 @@ firefoxHandler=function(e){
       //Jump
       if(e.touches[i].pageX >= jx1 && e.touches[i].pageX <= jx2
       && e.touches[i].pageY >=  y1 && e.touches[i].pageY <=  y2)
-      {
-        controller.up = true;
-      }
+      { controller.up = true; }
 
       //left
       if(e.touches[i].pageX >= lx1 && e.touches[i].pageX <= lx2
       && e.touches[i].pageY >=  y2 && e.touches[i.pageY <=  y2)
-      {
-        controller.left = true;
-      }
+      { controller.left = true; }
 
       //Right
       if(e.touches[i].pageX >= rx1 && e.touches[i].pageX <= rx2
       && e.touches[i].pageY >=  y2 && e.touches[i].pageY <=  y2)
-      {
-        controller.right = true;
-      }
+      { controller.right = true; }
     }
   }
   cancelEvent(e);
