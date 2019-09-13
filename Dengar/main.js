@@ -279,50 +279,39 @@ cancelEvent=function(e){
 //Hacky fix to solve firefox not liking img hitmaps
 firefoxHandler=function(e){
   //Allows button coords to change for firefox
-  let  y1 = 920; let  y2 = 1120;
-  let lx1 =  20; let lx2 =  120;
-  let rx1 = 160; let rx2 =  260;
-  let jx1 = 420; let jx2 =  620;
+  let  y1 = 350; let  y2 = 500;
+  let lx1 =  20; let lx2 =  80;
+  let rx1 = 120; let rx2 = 180;
+  let jx1 = 300; let jx2 = 440;
 
-    y1  = 350; y2  = 500;
-    lx1 =  20; lx2 =  80;
-    rx1 = 120; rx2 = 180;
-    jx1 = 300; jx2 = 440;
-  //If button state is active (keydown,touchstart,mosuedown,etc)
-  //and there are more than 0 touches in list
+  //Assume no buttons are pressed until checked
+  controller.up = controller.left = controller.right = false;
+
+  //If touchlist is not empty
   if(e.touches)
   {
-    FFchecker = e.touches.length;
-    //Jump
-    if(e.touches[0].pageX >= jx1 && e.touches[0].pageX <= jx2
-    && e.touches[0].pageY >=  y1 && e.touches[0].pageY <=  y2)
+    for(let i = 0; i <= e.touches.length; i++)
     {
-      controller.up = true;
-    }
-    else {
-      controller.up= false;
-    }
+      //Jump
+      if(e.touches[i].pageX >= jx1 && e.touches[i].pageX <= jx2
+      && e.touches[i].pageY >=  y1 && e.touches[i].pageY <=  y2)
+      {
+        controller.up = true;
+      }
 
-    //left
-    if(e.touches[0].pageX >= lx1 && e.touches[0].pageX <= lx2
-    && e.touches[0].pageY >=  y2 && e.touches[0].pageY <=  y2)
-    {
-      controller.left = true;
-    }
-    else
-    {
-      controller.left = false;
-    }
+      //left
+      if(e.touches[i].pageX >= lx1 && e.touches[i].pageX <= lx2
+      && e.touches[i].pageY >=  y2 && e.touches[i.pageY <=  y2)
+      {
+        controller.left = true;
+      }
 
-    //Right
-    if(e.touches[0].pageX >= rx1 && e.touches[0].pageX <= rx2
-    && e.touches[0].pageY >=  y2 && e.touches[0].pageY <=  y2)
-    {
-      controller.right = true;
-    }
-    else
-    {
-      controller.right = false;
+      //Right
+      if(e.touches[i].pageX >= rx1 && e.touches[i].pageX <= rx2
+      && e.touches[i].pageY >=  y2 && e.touches[i].pageY <=  y2)
+      {
+        controller.right = true;
+      }
     }
   }
   cancelEvent(e);
@@ -346,13 +335,6 @@ if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))
   touchJ.addEventListener(d,e=>{cancelEvent(e); controller.up = true;}, false);
   touchJ.addEventListener(u,e=>{cancelEvent(e); controller.up = false;}, false);
   //Firefox mobile specific fix
-  //Left
-  gamepad.addEventListener(d,e=>{firefoxHandler(e);}, false);
-  gamepad.addEventListener(u,e=>{firefoxHandler(e);}, false);
-  //Right
-  gamepad.addEventListener(d,e=>{firefoxHandler(e);}, false);
-  gamepad.addEventListener(u,e=>{firefoxHandler(e);}, false);
-  //Jump
   gamepad.addEventListener(d,e=>{firefoxHandler(e);}, false);
   gamepad.addEventListener(u,e=>{firefoxHandler(e);}, false);
 }
