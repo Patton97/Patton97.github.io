@@ -263,7 +263,7 @@ var controller = {
       if (this.left) {filepath+='L'}
       if (this.right){filepath+='R'}
     }
-    FFchecker = filepath
+    FFchecker = filepath;
     document.getElementById('gamepad').src=filepath+'.png';
   }
 };
