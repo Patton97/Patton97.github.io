@@ -285,29 +285,29 @@ firefoxHandler=function(e){
   let jx1 = 300; let jx2 = 440;
 
   //Assume no buttons are pressed until checked
-  controller.up = controller.left = controller.right = false;
+  controller.up =false;
+  controller.left =false;
+  controller.right = false;
 
-  //If touchlist is not empty
-  if(e.touches)
+  //For each touch in touchlist
+  for(let i = 0; i <= e.touches.length; i++)
   {
-    for(let i = 0; i <= e.touches.length; i++)
-    {
-      //Jump
-      if(e.touches[i].pageX >= jx1 && e.touches[i].pageX <= jx2
-      && e.touches[i].pageY >=  y1 && e.touches[i].pageY <=  y2)
-      { controller.up = true; }
+    //Jump
+    if(e.touches[i].pageX >= jx1 && e.touches[i].pageX <= jx2
+    && e.touches[i].pageY >=  y1 && e.touches[i].pageY <=  y2)
+    { controller.up = true; }
 
-      //left
-      if(e.touches[i].pageX >= lx1 && e.touches[i].pageX <= lx2
-      && e.touches[i].pageY >=  y2 && e.touches[i].pageY <=  y2)
-      { controller.left = true; }
+    //left
+    if(e.touches[i].pageX >= lx1 && e.touches[i].pageX <= lx2
+    && e.touches[i].pageY >=  y1 && e.touches[i].pageY <=  y2)
+    { controller.left = true; }
 
-      //Right
-      if(e.touches[i].pageX >= rx1 && e.touches[i].pageX <= rx2
-      && e.touches[i].pageY >=  y2 && e.touches[i].pageY <=  y2)
-      { controller.right = true; }
-    }
+    //Right
+    if(e.touches[i].pageX >= rx1 && e.touches[i].pageX <= rx2
+    && e.touches[i].pageY >=  y1 && e.touches[i].pageY <=  y2)
+    { controller.right = true; }
   }
+  //Prevent default events (doesn't seem to work)
   cancelEvent(e);
 }
 gamepad.ontouchstart = gamepad.ontouchend =gamepad.ontouchmove = gamepad.ontouchcancel = cancelEvent;
@@ -318,16 +318,7 @@ if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))
 {
   d = 'touchstart';
   u = 'touchend';
-  //Event Handlers
-  //left
-  touchL.addEventListener(d,e=>{cancelEvent(e); controller.left=true; }, false);
-  touchL.addEventListener(u,e=>{cancelEvent(e); controller.left=false;}, false);
-  //Right
-  touchR.addEventListener(d,e=>{cancelEvent(e); controller.right=true; }, false);
-  touchR.addEventListener(u,e=>{cancelEvent(e); controller.right=false;}, false);
-  //Jump
-  touchJ.addEventListener(d,e=>{cancelEvent(e); controller.up = true;}, false);
-  touchJ.addEventListener(u,e=>{cancelEvent(e); controller.up = false;}, false);
+
   //Firefox mobile specific fix
   gamepad.addEventListener(d,e=>{firefoxHandler(e);}, false);
   gamepad.addEventListener(u,e=>{firefoxHandler(e);}, false);
@@ -337,17 +328,18 @@ else
 {
   d = 'mousedown';
   u = 'mouseup';
-  //Event Handlers
-  //left
-  touchL.addEventListener(d,e=>{cancelEvent(e); controller.left=true; }, false);
-  touchL.addEventListener(u,e=>{cancelEvent(e); controller.left=false;}, false);
-  //Right
-  touchR.addEventListener(d,e=>{cancelEvent(e); controller.right=true;   }, false);
-  touchR.addEventListener(u,e=>{cancelEvent(e); controller.right=false; }, false);
-  //Jump
-  touchJ.addEventListener(d,e=>{cancelEvent(e); controller.up = true; }, false);
-  touchJ.addEventListener(u,e=>{cancelEvent(e); controller.up = false; }, false);
 };
+
+//Event Handlers
+//left
+touchL.addEventListener(d,e=>{cancelEvent(e); controller.left=true; }, false);
+touchL.addEventListener(u,e=>{cancelEvent(e); controller.left=false;}, false);
+//Right
+touchR.addEventListener(d,e=>{cancelEvent(e); controller.right=true; }, false);
+touchR.addEventListener(u,e=>{cancelEvent(e); controller.right=false;}, false);
+//Jump
+touchJ.addEventListener(d,e=>{cancelEvent(e); controller.up = true;}, false);
+touchJ.addEventListener(u,e=>{cancelEvent(e); controller.up = false;}, false);
 
 
 //End of Gamepad stuff
