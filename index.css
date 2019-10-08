@@ -240,6 +240,7 @@ video, canvas
 .download:before {background:url('Images/download.png') 0 0 no-repeat;}
 .ggj:before      {background:url('Images/ggj.png')      0 0 no-repeat;}
 .github:before   {background:url('Images/github.png')   0 0 no-repeat;}
+.unity:before    {background:url('Images/unity.png')    0 0 no-repeat;}
 .vr:before       {background:url('Images/vr.png')       0 0 no-repeat;}
 .website:before  {background:url('Images/website.png')  0 0 no-repeat;}
 .youtube:before  {background:url('Images/youtube.png')  0 0 no-repeat;}
