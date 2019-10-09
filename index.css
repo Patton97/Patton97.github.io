@@ -281,9 +281,6 @@ footer a
   font-size: 1em;
   text-decoration: none;
   color: #FFFFFF;
-  
-  /*Flex item stlying*/
-  text-direction: none;
 }
 footer .email   {order: 1;} /*Flex item order*/
 footer .twitter {order: 2;} /*Flex item order*/
