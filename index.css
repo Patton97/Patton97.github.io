@@ -285,9 +285,8 @@ footer a
   /*Flex item stlying*/
   text-direction: none;
 }
-footer a:nth-of-type(1) {order: 1;} /*Flex item order*/
-footer a:nth-of-type(2) {order: 2;} /*Flex item order*/
-*/
+footer .email   {order: 1;} /*Flex item order*/
+footer .twitter {order: 2;} /*Flex item order*/
 
 /*****************/
 /* END OF FOOTER */
