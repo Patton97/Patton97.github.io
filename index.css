@@ -36,8 +36,7 @@ nav
   
   /*Flex item styling*/
   order: 1;
-  flex-grow: 0; /*Setting #name, #home and menu to flex-grow: 2, 0, 1
-                  respectively, allows the #home to center correctly*/
+  flex-grow: 0;
 }
 
 #home img{width: 3em; height: auto;}
@@ -236,14 +235,16 @@ video, canvas
 }
 
 /*Spritesheets will preload hover images and help clean css*/
-.dengar:before   {background:url('Images/dengar.png')   0 0 no-repeat;}
-.download:before {background:url('Images/download.png') 0 0 no-repeat;}
-.ggj:before      {background:url('Images/ggj.png')      0 0 no-repeat;}
-.github:before   {background:url('Images/github.png')   0 0 no-repeat;}
-.unity:before    {background:url('Images/unity.png')    0 0 no-repeat;}
-.vr:before       {background:url('Images/vr.png')       0 0 no-repeat;}
-.website:before  {background:url('Images/website.png')  0 0 no-repeat;}
-.youtube:before  {background:url('Images/youtube.png')  0 0 no-repeat;}
+.dengar:before   {background: url('Images/dengar.png')   0 0 no-repeat;}
+.download:before {background: url('Images/download.png') 0 0 no-repeat;}
+.email:before    {background: url('Images/email.png')   0 0 no-repeat;}
+.ggj:before      {background: url('Images/ggj.png')      0 0 no-repeat;}
+.github:before   {background: url('Images/github.png')   0 0 no-repeat;}
+.twitter:before  {background: url('Images/twitter.png') 0 0 no-repeat;}
+.unity:before    {background: url('Images/unity.png')    0 0 no-repeat;}
+.vr:before       {background: url('Images/vr.png')       0 0 no-repeat;}
+.website:before  {background: url('Images/website.png')  0 0 no-repeat;}
+.youtube:before  {background: url('Images/youtube.png')  0 0 no-repeat;}
 
 .links li a:hover{color: #464F59;}
 .links li a:hover:before{background-position: -25px 0;}
@@ -284,25 +285,8 @@ footer a
   /*Flex item stlying*/
   text-direction: none;
 }
-footer #email  {order: 1;} /*Flex item order*/
-footer #twitter{order: 2;} /*Flex item order*/
-
-/*Preceeding icons*/
-footer a:before
-{
-  content: "";
-  display: block;
-  width: 25px;
-  height: 25px;
-  float: left;
-  margin: 0 5px 0 0;
-}
-#email:before   {background: url('Images/email.png')   0 0 no-repeat;}
-#twitter:before {background: url('Images/twitter.png') 0 0 no-repeat;}
-
-/*
-footer a:hover{color: #464F59;}
-footer a:hover:before{background-position:  -25px 0;}
+footer a:nth-of-type(1) {order: 1;} /*Flex item order*/
+footer a:nth-of-type(2) {order: 2;} /*Flex item order*/
 */
 
 /*****************/
