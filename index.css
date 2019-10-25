@@ -237,16 +237,18 @@ video, canvas
 }
 
 /*Spritesheets will preload hover images and help clean css*/
-.dengar:before   {background: url('Images/dengarFront.png')   0 0 no-repeat;}
-.download:before {background: url('Images/download.png') 0 0 no-repeat;}
-.email:before    {background: url('Images/email.png')   0 0 no-repeat;}
-.ggj:before      {background: url('Images/ggj.png')      0 0 no-repeat;}
-.github:before   {background: url('Images/github.png')   0 0 no-repeat;}
-.twitter:before  {background: url('Images/twitter.png') 0 0 no-repeat;}
-.unity:before    {background: url('Images/unity.png')    0 0 no-repeat;}
-.vr:before       {background: url('Images/vr.png')       0 0 no-repeat;}
-.website:before  {background: url('Images/website.png')  0 0 no-repeat;}
-.youtube:before  {background: url('Images/youtube.png')  0 0 no-repeat;}
+.dengar:before   {background: url('Images/dengarFront.png') 0 0 no-repeat;}
+.download:before {background: url('Images/download.png')    0 0 no-repeat;}
+.email:before    {background: url('Images/email.png')       0 0 no-repeat;}
+.ggj:before      {background: url('Images/ggj.png')         0 0 no-repeat;}
+.github:before   {background: url('Images/github.png')      0 0 no-repeat;}
+.itch:before     {background: url('Images/itch.png')        0 0 no-repeat;}
+.ludumdare:before{background: url('Images/ludumdare.png')   0 0 no-repeat;}
+.twitter:before  {background: url('Images/twitter.png')     0 0 no-repeat;}
+.unity:before    {background: url('Images/unity.png')       0 0 no-repeat;}
+.vr:before       {background: url('Images/vr.png')          0 0 no-repeat;}
+.website:before  {background: url('Images/website.png')     0 0 no-repeat;}
+.youtube:before  {background: url('Images/youtube.png')     0 0 no-repeat;}
 
 .links li a:hover{color: #464F59;}
 .links li a:hover:before{background-position: -25px 0;}
