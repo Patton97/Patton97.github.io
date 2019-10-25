@@ -237,7 +237,7 @@ video, canvas
 }
 
 /*Spritesheets will preload hover images and help clean css*/
-.dengar:before   {background: url('Images/dengar.png')   0 0 no-repeat;}
+.dengar:before   {background: url('Images/dengarFront.png')   0 0 no-repeat;}
 .download:before {background: url('Images/download.png') 0 0 no-repeat;}
 .email:before    {background: url('Images/email.png')   0 0 no-repeat;}
 .ggj:before      {background: url('Images/ggj.png')      0 0 no-repeat;}
