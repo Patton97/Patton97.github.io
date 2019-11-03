@@ -235,7 +235,7 @@ video, canvas
   margin: 0 5px 0 0;
   content:"";
   /*Spritesheet preloads all images to avoid flickering and clean css*/
-  background: url('Images/spritesheet_links.png') 
+  background: url('Images/Links/spritesheet.png') 
 }
 
 .dengar:before   {background-position: 0    0px!important;}
