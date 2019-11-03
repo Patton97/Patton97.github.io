@@ -234,24 +234,25 @@ video, canvas
   float: left;
   margin: 0 5px 0 0;
   content:"";
+  /*Spritesheet preloads all images to avoid flickering and clean css*/
+  background: url('Images/spritesheet_links.png') 
 }
 
-/*Spritesheets will preload hover images and help clean css*/
-.dengar:before   {background: url('Images/dengarFront.png') 0 0 no-repeat;}
-.download:before {background: url('Images/download.png')    0 0 no-repeat;}
-.email:before    {background: url('Images/email.png')       0 0 no-repeat;}
-.ggj:before      {background: url('Images/ggj.png')         0 0 no-repeat;}
-.github:before   {background: url('Images/github.png')      0 0 no-repeat;}
-.itch:before     {background: url('Images/itch.png')        0 0 no-repeat;}
-.ludumdare:before{background: url('Images/ludumdare.png')   0 0 no-repeat;}
-.twitter:before  {background: url('Images/twitter.png')     0 0 no-repeat;}
-.unity:before    {background: url('Images/unity.png')       0 0 no-repeat;}
-.vr:before       {background: url('Images/vr.png')          0 0 no-repeat;}
-.website:before  {background: url('Images/website.png')     0 0 no-repeat;}
-.youtube:before  {background: url('Images/youtube.png')     0 0 no-repeat;}
+.dengar:before   {background-position: 0    0px!important;}
+.download:before {background-position: 0  -25px!important;}
+.email:before    {background-position: 0  -50px!important;}
+.ggj:before      {background-position: 0  -75px!important;}
+.github:before   {background-position: 0 -100px!important;}
+.itch:before     {background-position: 0 -125px!important;}
+.ludumdare:before{background-position: 0 -150px!important;}
+.twitter:before  {background-position: 0 -175px!important;}
+.unity:before    {background-position: 0 -200px!important;}
+.vr:before       {background-position: 0 -225px!important;}
+.website:before  {background-position: 0 -250px!important;}
+.youtube:before  {background-position: 0 -275px!important;}
 
 .links li a:hover{color: #464F59;}
-.links li a:hover:before{background-position: -25px 0;}
+.links li a:hover:before{background-position-x: -25px!important;}
 
 /***************/
 /* END OF MAIN */
