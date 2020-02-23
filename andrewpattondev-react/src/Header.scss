@@ -1,0 +1,63 @@
+nav
+{
+  background-color: #0E1011;
+  padding: 15px;
+  vertical-align: middle;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  ul
+  {
+    /*General styling*/
+    margin: 0;
+    padding: 0 5vw 0 0;
+    list-style-type: none;
+
+    /*Flex item styling*/
+    order: 2;
+    flex-grow: 1; /*Setting #name, #home and menu to flex-grow: 2, 0, 1
+                  respectively, allows the #home to center correctly*/
+
+    /*Flex container styling (This list owns a separate, nested flexbox)*/
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  li
+  {
+    font-size: 1.5em;
+    text-align: center;
+    border-radius: 10px;
+    padding: 0 0 0 1vw;
+
+    a
+    {
+      text-decoration: none;
+      color: #FFFFFF;
+      padding: 10px;
+      &:hover
+      {
+        background-color: #464F59;
+        border-radius: 10px;
+        color: #FFFFFF;
+      }
+    }
+  }
+}
+
+.Home
+{
+  /*General styling*/
+  text-align: center;
+  transition: transform .5s ease-in-out;
+
+  /*Flex item styling*/
+  order: 1;
+  flex-grow: 0;
+
+  img{width: 3em; height: auto;}
+  &:hover{transform: scale(1.25);}
+}
