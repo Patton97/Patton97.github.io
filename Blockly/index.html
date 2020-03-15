@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang = "en-US">
+<head>  
+  <meta charset = "UTF-8">
+  <meta name="theme-color"  content="#0E1011"/>
+  <link rel="stylesheet"    type="text/css"     href="../index.css"/>
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>  
+  <link rel="icon"           sizes="192x192"     href="/mobilefavicon.png"/>
+  <title>Andrew Patton | Blockly</title>
+
+  <script src="google-blockly-9a466fe/blockly_compressed.js"></script>
+  <script src="google-blockly-9a466fe/blocks_compressed.js"></script>
+  <script src="google-blockly-9a466fe/msg/js/en.js"></script>
+</head>
+<html>
+  <body>
+    <nav>
+      <a href="https://andrewpatton.dev" id="home">
+        <img src="/favicon.png"/>
+      </a>
+      <ul>
+        <li><a href="../about">About</a></li>
+        <li><a href="../portfolio">Portfolio</a></li>
+        <li><a href="../Downloads/Resume.pdf">CV [PDF]</a></li>
+      </ul>
+    </nav>     
+    <main>
+      <section id="blockly" style="height: 480px; width: 600px;">
+        <xml id="toolbox" style="display: none">
+          <block type="controls_if"></block>
+          <block type="controls_repeat_ext"></block>
+          <block type="logic_compare"></block>
+          <block type="math_number"></block>
+          <block type="math_arithmetic"></block>
+          <block type="text"></block>
+          <block type="text_print"></block>
+        </xml>
+      </section>
+    </main>
+    <footer>
+      <ul class="links">
+        <li><a href="mailto:atpatton97@gmail.com" class="email">atpatton97@gmail.com</a></li>
+        <li><a href="https://twitter.com/______Patton" class="twitter">@______Patton</a></li>
+      </ul>
+    </footer>
+  </body>
+
+  <script>
+    var blocklyArea = document.getElementById('blockly');
+    var blocklyDiv = document.getElementById('blockly');
+    var workspace = Blockly.inject(blocklyDiv,
+            {toolbox: document.getElementById('toolbox')});
+    var onresize = function(e) {
+      // Compute the absolute coordinates and dimensions of blocklyArea.
+      var element = blocklyArea;
+      var x = 0;
+      var y = 0;
+      do {
+        x += element.offsetLeft;
+        y += element.offsetTop;
+        element = element.offsetParent;
+      } while (element);
+      // Position blocklyDiv over blocklyArea.
+      blocklyDiv.style.left = x + 'px';
+      blocklyDiv.style.top = y + 'px';
+      blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+      blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+      Blockly.svgResize(workspace);
+    };
+    window.addEventListener('resize', onresize, false);
+    onresize();
+    Blockly.svgResize(workspace);
+  </script>
+</html>
