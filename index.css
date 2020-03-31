@@ -85,14 +85,14 @@ nav li a:hover
 /**************/
 
 /*IMAGE GALLERY*/
-.gallery
+.hex-gallery
 {
   position:relative;
   height: 250px;
   width: 250px;
 }
 
-.clipped-border{
+.hexagon{
   -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
    padding:5px;
@@ -103,14 +103,14 @@ nav li a:hover
    position:relative;
 }
 
-.clipped-border:nth-of-type(1){top:   50px; left: 100px;}
-.clipped-border:nth-of-type(2){top:   25px; left: 150px;}
-.clipped-border:nth-of-type(3){top: -170px; left: 200px;}
-.clipped-border:nth-of-type(4){top: -195px; left: 250px;}
-.clipped-border:nth-of-type(5){top: -390px; left: 300px;}
-.clipped-border:nth-of-type(6){top: -415px; left: 350px;}
+.hexagon:nth-of-type(1){top:   50px; left: 100px;}
+.hexagon:nth-of-type(2){top:   25px; left: 150px;}
+.hexagon:nth-of-type(3){top: -170px; left: 200px;}
+.hexagon:nth-of-type(4){top: -195px; left: 250px;}
+.hexagon:nth-of-type(5){top: -390px; left: 300px;}
+.hexagon:nth-of-type(6){top: -415px; left: 350px;}
 
-.clipped-border .hexThumb
+.hexagon .hex-thumbnail
 {
   width:  100%;
   height: 100%;
@@ -120,7 +120,7 @@ nav li a:hover
   transition: opacity 0.5s ease-in-out;
 }
 
-.clipped-border .hexText 
+.hexagon .hex-description 
 {
   position: absolute;
   top:  0;
@@ -134,21 +134,21 @@ nav li a:hover
 }
 
 /*TODO: Replace with responsive text scaling+positioning*/
-.clipped-border:nth-of-type(2) .hexText {top: 25.0%;} 
-.clipped-border:nth-of-type(3) .hexText {top: 25.0%;  font-size: 75%;}
-.clipped-border:nth-of-type(4) .hexText {top: 12.5%;}
-.clipped-border:nth-of-type(5) .hexText {top: 25.0%;}
-.clipped-border:nth-of-type(6) .hexText {top: 25.0%;}
+.hexagon:nth-of-type(2) .hex-description {top: 25.0%;} 
+.hexagon:nth-of-type(3) .hex-description {top: 25.0%;  font-size: 75%;}
+.hexagon:nth-of-type(4) .hex-description {top: 12.5%;}
+.hexagon:nth-of-type(5) .hex-description {top: 25.0%;}
+.hexagon:nth-of-type(6) .hex-description {top: 25.0%;}
 
-.clipped-border:hover
+.hexagon:hover
 {
   transform:scale(1.2);
   transition:transform 0.2s;
   z-index: 10;
 }
 
-.clipped-border:hover .hexThumb { opacity:0; transition: opacity 0.5s ease-in-out; }
-.clipped-border:hover .hexText  { opacity:1; transition: opacity 0.5s ease-in-out; }
+.hexagon:hover .hex-thumbnail { opacity:0; transition: opacity 0.5s ease-in-out; }
+.hexagon:hover .hex-description  { opacity:1; transition: opacity 0.5s ease-in-out; }
 
 /*END OF GALLERY*/
 
@@ -160,7 +160,7 @@ main
 {
   display: flex;
   flex-direction: column;
-  margin: 10px 30% 5vh;
+  margin: 1vh 30vw 10vh;
 }
 
 main section
@@ -316,8 +316,8 @@ footer
   left:     0px;
   bottom:   0px;
   width:    100vw;
-  padding:  5px 0 5px 0;
-   
+  padding:  1vh 0 1vh 0;
+     
   background-color: #0E1011;
   vertical-align: middle;
   
