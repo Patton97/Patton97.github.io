@@ -1,0 +1,13 @@
+{
+  "portfolio":
+  {
+    "title" : "Hotel Null",
+    "description" : "Hotel Null is a game I've wanted to make for a while - a classic 'escape the room' where the player is tasked with finding clues and solving puzzles in order to escape. This is another Jam game, this time for LudumDare 45.",
+    "tools" : ["unity", "csharp"],
+    "links" : 
+    {
+      "icon" : "github",
+      "text" : "View Source"
+    } 
+  }
+}
