@@ -147,8 +147,8 @@ nav li a:hover
   z-index: 10;
 }
 
-.clipped-border:hover .hexThumb {opacity:0; transition: opacity 0.5s ease-in-out;}
-.clipped-border:hover .hexText  {opacity:1; transition: opacity 0.5s ease-in-out;}
+.clipped-border:hover .hexThumb { opacity:0; transition: opacity 0.5s ease-in-out; }
+.clipped-border:hover .hexText  { opacity:1; transition: opacity 0.5s ease-in-out; }
 
 /*END OF GALLERY*/
 
@@ -196,6 +196,59 @@ video, canvas
   transform: translateX(-50%);
 }
 
+.projectCardHeader
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tools
+{
+  /*General styling*/
+  margin: 0;
+  padding: 5px 0 5px 0;
+  list-style-type: none;
+
+  /*Flex container styling (This list owns a separate, nested flexbox)*/
+  display: flex;
+}
+.tools li
+{
+  text-align: center;
+  padding: 0 0 0 1vw;
+}
+
+.tools li a {
+  color: #FFFFFF;
+  text-decoration: none;
+  margin: 5px 0 5px 0;
+}
+
+.tools li a:before
+{
+  position: relative;
+  width:  50px; 
+  height: 50px;
+  float: left;
+  margin: 0 5px 0 0;
+  content:"";
+
+  /*Spritesheet preloads all images to avoid flickering and clean css*/
+  background: url('Images/Tools/spritesheet.png') 
+}
+.tools .blueprints:before { background-position: 0    0px!important; }
+.tools .cpp:before        { background-position: 0  -50px!important; }
+.tools .csharp:before     { background-position: 0 -100px!important; }
+.tools .java:before       { background-position: 0 -150px!important; }
+.tools .javascript:before { background-position: 0 -200px!important; }
+.tools .threejs:before    { background-position: 0 -250px!important; }
+.tools .unity:before      { background-position: 0 -300px!important; }
+.tools .unreal:before     { background-position: 0 -350px!important; }
+.tools .vr:before         { background-position: 0 -400px!important; }
+
+
 .links 
 {
   /*General styling*/
@@ -224,13 +277,9 @@ video, canvas
 
 .links li a:before
 {
-  position:relative; 
-  min-width: 25px;
-  min-height:25px;
+  position:relative;
   width: 25px; 
   height: 25px;
-  max-width: 25px;
-  max-height:25px;
   float: left;
   margin: 0 5px 0 0;
   content:"";
