@@ -1,11 +1,13 @@
 
-function GenerateHexagonHTML(project)
+function GenerateThumbnailHTML(project)
 {
   let html = ``
-  html += `<a href="./portfolio#${project.id}">`
-  html += `<img src="${project.thumbnail}" class="hex-thumbnail">`
-  html += `<p class="hex-description">${project.title}</p>`
-  html += `</a>`
+  html += `<div class="thumbnail-wrapper">`
+  html += `  <p class="thumbnail-description">${project.title}</p>`
+  html += `  <a href="./portfolio#${project.id}">`
+  html += `    <img src="${project.thumbnail}" class="thumbnail">`  
+  html += `  </a>`
+  html+= `</div>`
   return html
 }
 
@@ -13,16 +15,16 @@ function GenerateGalleryHTML(projects)
 {
   let main = document.getElementsByTagName("main")[0]
   let gallery = document.createElement('div')
-  gallery.className = "hex-gallery"
+  gallery.className = "gallery"
   main.insertBefore(gallery, main.lastChild)
 
 
   projects.forEach(project => {
-    let hexagon = document.createElement('div')
-    hexagon.className = "hexagon"
-    hexagon.id = project.id
-    hexagon.innerHTML = GenerateHexagonHTML(project)
-    main.insertBefore(hexagon, gallery.lastChild)
+    let thumbnail = document.createElement('div')
+    thumbnail.className = "thumbnail"
+    thumbnail.id = project.id
+    thumbnail.innerHTML = GenerateThumbnailHTML(project)
+    main.insertBefore(thumbnail, gallery.lastChild)
   });
 }
 

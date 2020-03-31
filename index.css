@@ -83,16 +83,14 @@ nav li a:hover
 /**************/
 /* END OF NAV */
 /**************/
-
 /*IMAGE GALLERY*/
-.hex-gallery
+.gallery
 {
   position:relative;
   height: 250px;
   width: 250px;
 }
-
-.hexagon{
+.thumbnail{
   -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
    padding:5px;
@@ -102,18 +100,13 @@ nav li a:hover
    transition:transform 0.2s;
    position:relative;
 }
-
-.hexagon:nth-of-type(1){top:   0px; left: 100px;}
-.hexagon:nth-of-type(2){top:  75px; left: 150px;}
-.hexagon:nth-of-type(3){top: -120px; left: 200px;}
-.hexagon:nth-of-type(4){top: -145px; left: 250px;}
-.hexagon:nth-of-type(5){top: -340px; left: 300px;}
-.hexagon:nth-of-type(6){top: -365px; left: 350px;}
-.hexagon:nth-of-type(7){top: -550px; left: 400px;}
-.hexagon:nth-of-type(8){top: -585px; left: 450px;}
-
-
-.hexagon .hex-thumbnail
+.thumbnail:nth-of-type(1){top:   50px; left: 100px;}
+.thumbnail:nth-of-type(2){top:   25px; left: 150px;}
+.thumbnail:nth-of-type(3){top: -170px; left: 200px;}
+.thumbnail:nth-of-type(4){top: -195px; left: 250px;}
+.thumbnail:nth-of-type(5){top: -390px; left: 300px;}
+.thumbnail:nth-of-type(6){top: -415px; left: 350px;}
+.thumbnail img
 {
   width:  100%;
   height: 100%;
@@ -122,8 +115,7 @@ nav li a:hover
   
   transition: opacity 0.5s ease-in-out;
 }
-
-.hexagon .hex-description 
+.thumbnail .thumbnail-description 
 {
   position: absolute;
   top:  0;
@@ -135,25 +127,20 @@ nav li a:hover
   opacity:0;
   font-size: 100%;
 }
-
 /*TODO: Replace with responsive text scaling+positioning*/
-.hexagon:nth-of-type(2) .hex-description {top: 25.0%;} 
-
-.hexagon:nth-of-type(5) .hex-description {top: 12.5%;}
-.hexagon:nth-of-type(6) .hex-description {top: 25.0%;  font-size: 75%;}
-.hexagon:nth-of-type(6) .hex-description {top: 25.0%;}
-.hexagon:nth-of-type(7) .hex-description {top: 25.0%;}
-
-.hexagon:hover
+.thumbnail:nth-of-type(2) .thumbnail-description {top: 25.0%;} 
+.thumbnail:nth-of-type(3) .thumbnail-description {top: 25.0%;  font-size: 75%;}
+.thumbnail:nth-of-type(4) .thumbnail-description {top: 12.5%;}
+.thumbnail:nth-of-type(5) .thumbnail-description {top: 25.0%;}
+.thumbnail:nth-of-type(6) .thumbnail-description {top: 25.0%;}
+.thumbnail:hover
 {
   transform:scale(1.2);
   transition:transform 0.2s;
   z-index: 10;
 }
-
-.hexagon:hover .hex-thumbnail { opacity:0; transition: opacity 0.5s ease-in-out; }
-.hexagon:hover .hex-description  { opacity:1; transition: opacity 0.5s ease-in-out; }
-
+.thumbnail:hover img {opacity:0; transition: opacity 0.5s ease-in-out;}
+.thumbnail:hover .thumbnail-description  {opacity:1; transition: opacity 0.5s ease-in-out;}
 /*END OF GALLERY*/
 
 
