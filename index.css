@@ -160,7 +160,7 @@ main
 {
   display: flex;
   flex-direction: column;
-  margin: 0 30% 2.5%;
+  margin: 10px 30% 5vh;
 }
 
 main section
@@ -168,7 +168,7 @@ main section
     background-color: #464F59;
     border-radius: 10px;
     padding: 10px;
-    margin: 0 0 25px 0;
+    margin: 10px 0 10px 0;
 }
 
 main section p{font-family: "Lato", sans-serif;}
@@ -247,7 +247,6 @@ video, canvas
 .tools .unity:before      { background-position: 0 -300px!important; }
 .tools .unreal:before     { background-position: 0 -350px!important; }
 .tools .vr:before         { background-position: 0 -400px!important; }
-
 
 .links 
 {
