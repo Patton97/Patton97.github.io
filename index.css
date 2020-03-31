@@ -103,12 +103,15 @@ nav li a:hover
    position:relative;
 }
 
-.hexagon:nth-of-type(1){top:   50px; left: 100px;}
-.hexagon:nth-of-type(2){top:   25px; left: 150px;}
-.hexagon:nth-of-type(3){top: -170px; left: 200px;}
-.hexagon:nth-of-type(4){top: -195px; left: 250px;}
-.hexagon:nth-of-type(5){top: -390px; left: 300px;}
-.hexagon:nth-of-type(6){top: -415px; left: 350px;}
+.hexagon:nth-of-type(1){top:   0px; left: 100px;}
+.hexagon:nth-of-type(2){top:  75px; left: 150px;}
+.hexagon:nth-of-type(3){top: -120px; left: 200px;}
+.hexagon:nth-of-type(4){top: -145px; left: 250px;}
+.hexagon:nth-of-type(5){top: -340px; left: 300px;}
+.hexagon:nth-of-type(6){top: -365px; left: 350px;}
+.hexagon:nth-of-type(7){top: -550px; left: 400px;}
+.hexagon:nth-of-type(8){top: -585px; left: 450px;}
+
 
 .hexagon .hex-thumbnail
 {
@@ -135,10 +138,11 @@ nav li a:hover
 
 /*TODO: Replace with responsive text scaling+positioning*/
 .hexagon:nth-of-type(2) .hex-description {top: 25.0%;} 
-.hexagon:nth-of-type(3) .hex-description {top: 25.0%;  font-size: 75%;}
-.hexagon:nth-of-type(4) .hex-description {top: 12.5%;}
-.hexagon:nth-of-type(5) .hex-description {top: 25.0%;}
+
+.hexagon:nth-of-type(5) .hex-description {top: 12.5%;}
+.hexagon:nth-of-type(6) .hex-description {top: 25.0%;  font-size: 75%;}
 .hexagon:nth-of-type(6) .hex-description {top: 25.0%;}
+.hexagon:nth-of-type(7) .hex-description {top: 25.0%;}
 
 .hexagon:hover
 {

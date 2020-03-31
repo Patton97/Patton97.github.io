@@ -1,3 +1,4 @@
+
 function GenerateHexagonHTML(project)
 {
   let html = ``
@@ -15,10 +16,11 @@ function GenerateGalleryHTML(projects)
   gallery.className = "hex-gallery"
   main.insertBefore(gallery, main.lastChild)
 
+
   projects.forEach(project => {
     let hexagon = document.createElement('div')
     hexagon.className = "hexagon"
-    
+    hexagon.id = project.id
     hexagon.innerHTML = GenerateHexagonHTML(project)
     main.insertBefore(hexagon, gallery.lastChild)
   });
