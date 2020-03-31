@@ -50,26 +50,23 @@ function GenerateLinksHTML(links)
 
 function GenerateProjectHTML(project)
 {
-  let section = document.createElement('section')
-  section.className = "projectCard"
-
   let html = ``
   html += GenerateHeaderHTML(project.id, project.title, project.tools)
   html += GenerateDescriptionHTML(project.description)
   html += GenerateVideoHTML(project.video)
   html += GenerateLinksHTML(project.links)
 
-  section.innerHTML = html
-
-  return section
+  return html
 }
 
 function GeneratePortfolioHTML(projects)
 {
   let main = document.getElementsByTagName("main")[0]
   projects.forEach(project => {
-    let html = GenerateProjectHTML(project)
-    main.insertBefore(html, main.lastChild)
+    let section = document.createElement('section')
+    section.className = "projectCard"
+    section.innerHTML = GenerateProjectHTML(project)
+    main.insertBefore(section, main.lastChild)
   });
 }
 
