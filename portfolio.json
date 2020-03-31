@@ -22,7 +22,8 @@
       { "class" : "github", "url" : "https://github.com/Patton97/Dengar",  "text" : "View Source" },
       { "class" : "dengar", "url":"./Dengar", "text" : "Play Now!" },
       { "class" : "website", "url":"https://js13kgames.com","text" : "js13kGames' Website" }
-    ] 
+    ],
+    "video" : "./dengar.mp4"
   },
 
   {
