@@ -30,8 +30,8 @@ function GenerateVideoHTML(video)
   if(video == null) {return html}
 
   
-  html += `<video width="75%" autoplay controls loop muted>`
-  html += `  <source src="${video}" type="video/mp4">`
+  html += `<video width="${video.scale}%" autoplay controls loop muted>`
+  html += `  <source src="${video.url}" type="video/mp4">`
   html += `  Your browser does not support the video tag.`
   html += `</video>`
   return html

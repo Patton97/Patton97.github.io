@@ -23,7 +23,7 @@
       { "class" : "dengar", "url":"./Dengar", "text" : "Play Now!" },
       { "class" : "website", "url":"https://js13kgames.com","text" : "js13kGames' Website" }
     ],
-    "video" : "./Videos/dengar.mp4"
+    "video" : {"url": "./Videos/dengar.mp4", "scale" : 50}
   },
 
   {
