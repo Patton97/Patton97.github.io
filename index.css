@@ -151,7 +151,7 @@ main
 {
   display: flex;
   flex-direction: column;
-  margin: 1vh 30vw 10vh;
+  margin: 1vh 30vw 5vh;
 }
 
 main section
@@ -341,6 +341,6 @@ footer .twitter {order: 2;} /*Flex item order*/
 {
   main
   {
-    margin: 0 5vw;
+    margin: 1vh 5vw 5vh;
   }
 }
