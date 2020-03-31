@@ -38,39 +38,39 @@
       { "class" : "website", "url":"https://northumbriaggj.github.io/2019/games/caravan_carnage_club/","text" : "Game Website" },
       { "class" : "ggj", "url":"https://globalgamejam.org/2019/games/caravan-carnage-club","text" : "GGJ Listing" }      
     ],
-    "video" : "./Videos/caravancarnageclub.mp4"
+    "video" : {"url" : "./Videos/caravancarnageclub.mp4", "scale" : 75}
   },
 
   {
     "id" : "CodeCraft",
     "title" : "CodeCraft",
-    "description" : "Forming the development side of my final year dissertation, this game acts as a          learning tool for new programmers. Rather than being tasked with mundane data           processing programs, outputting countless variables to the console, they can          now drive their very own Mars rover! Whilst this has now been submitted, I           plan to continue iterating upon it to see how far the program can go in terms of          helping new programmers understand the fundamentals.",
+    "description" : "Forming the development side of my final year dissertation, this game acts as a learning tool for new programmers. Rather than being tasked with mundane data processing programs, outputting countless variables to the console, they can now drive their very own Mars rover! Whilst this has now been submitted, I plan to continue iterating upon it to see how far the program can go in terms of helping new programmers understand the fundamentals.",
     "tools" : ["java"],
     "links" : 
     [
       { "class" : "github", "url" : "https://github.com/Patton97/Codecraft",  "text" : "View Source" },
       { "class" : "download", "url":"./CodeCraft.zip", "text" : "Download" }
     ],
-    "video" : "./Videos/codecraft.mp4"
+    "video" : {"url" : "./Videos/codecraft.mp4", "scale" : 75}
   },
 
   {
     "id" : "Cowmageddon",
     "title" : "Cowmageddon",
-    "description" : "Using C++ to extend a DirectX wrapper into a functional 2D game engine, applying an           optional advanced element. My engine was built on the concept of generic, flexible components,           similar to the Unity framework. Gameplay programmers can add their own game objects, attaching           both core and custom components to alter the behavior of and breathe context into the game           object. This module focused on the underpinning programming patterns of a game engine, and the           strengths/weaknesses of different approaches, along with a supporting commentary on how this can           greatly affect the working environment of a large-scale development team.",
+    "description" : "Using C++ to extend a DirectX wrapper into a functional 2D game engine, applying an optional advanced element. My engine was built on the concept of generic, flexible components, similar to the Unity framework. Gameplay programmers can add their own game objects, attaching both core and custom components to alter the behavior of and breathe context into the game object. This module focused on the underpinning programming patterns of a game engine, and the strengths/weaknesses of different approaches, along with a supporting commentary on how this can greatly affect the working environment of a large-scale development team.",
     "tools" : ["cpp"],
     "links" : 
     [
       { "class" : "github", "url" : "https://github.com/Patton97/Cowmageddon",  "text" : "View Source" },
       { "class" : "download", "url":"./Downloads/cowmageddon.zip", "text" : "Download" }
     ],
-    "video" : "./Videos/cowmageddon.mp4"
+    "video" : {"url" : "./Videos/cowmageddon.mp4", "scale" : 75}
   },
 
   {
     "id" : "ChristmasTrainVR",
     "title" : "Christmas Train VR",
-    "description" : "As part of a 2-person project, we were tasked with created a 360° VR animation, using the THREE.js           library. As the directions for this were left open to allow for creativity and individuality, my           partner and I decided on a theme of a “Christmas Train”, with present-filled carriages and snow           falling into the user’s view. When the user taps on the screen, the simulation is stopped and they           are transported station-side. ",
+    "description" : "As part of a 2-person project, we were tasked with created a 360° VR animation, using the THREE.js library. As the directions for this were left open to allow for creativity and individuality, my partner and I decided on a theme of a “Christmas Train”, with present-filled carriages and snow falling into the user’s view. When the user taps on the screen, the simulation is stopped and they are transported station-side. ",
     "tools" : ["threejs", "vr"],
     "links" : 
     [
@@ -83,7 +83,7 @@
   {
     "id" : "Combine",
     "title" : "Combine",
-    "description" : "This game was made as part of a team project, with my focus being UI and Inventory. The player is tasked with           collecting components around the world to craft gun modules, enabling them to access different elements. These           elements can be equipped via a radial menu [Q], where the player is able to select two elements; a primary [RMB]           and a secondary [LMB].",
+    "description" : "This game was made as part of a team project, with my focus being UI and Inventory. The player is tasked with collecting components around the world to craft gun modules, enabling them to access different elements. These elements can be equipped via a radial menu [Q], where the player is able to select two elements; a primary [RMB] and a secondary [LMB].",
     "tools" : ["unreal", "blueprints"],
     "links" : 
     [

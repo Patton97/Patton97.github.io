@@ -29,7 +29,8 @@ function GenerateVideoHTML(video)
   let html = ``
   if(video == null) {return html}
 
-  
+  if(video.scale == null) { video.scale = 100 }
+
   html += `<video width="${video.scale}%" autoplay controls loop muted>`
   html += `  <source src="${video.url}" type="video/mp4">`
   html += `  Your browser does not support the video tag.`
