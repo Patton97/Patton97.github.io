@@ -1,13 +1,94 @@
-{
-  "portfolio":
+[
   {
+    "id" : "HotelNull",
     "title" : "Hotel Null",
     "description" : "Hotel Null is a game I've wanted to make for a while - a classic 'escape the room' where the player is tasked with finding clues and solving puzzles in order to escape. This is another Jam game, this time for LudumDare 45.",
     "tools" : ["unity", "csharp"],
     "links" : 
-    {
-      "icon" : "github",
-      "text" : "View Source"
-    } 
+    [
+      { "class" : "github", "url" : "https://github.com/Patton97/LD45",  "text" : "View Source" },
+      { "class" : "itch", "url":"https://andrewpatton.itch.io/hotel-null", "text" : "Download via itch.io!" },
+      { "class" : "ludumdare", "url":"https://ldjam.com/events/ludum-dare/45/hotel-null","text" : "LD45 Page" }
+    ] 
+  },
+
+  {
+    "id" : "Dengar",
+    "title" : "Dengar!",
+    "description" : "Entry for js13k2019: The theme was \"back\", and the challenge of js13k is to keep the filesize below 13 kilobytes. The idea for Dengar was to have an 'endless' runner in reverse, where you play as an alien trying to return to Area 51. This was my first time using JavaScript for a Jam and I definitely learned a lot for next year! ",
+    "tools" : ["javascript"],
+    "links" : 
+    [
+      { "class" : "github", "url" : "https://github.com/Patton97/Dengar",  "text" : "View Source" },
+      { "class" : "dengar", "url":"./Dengar", "text" : "Play Now!" },
+      { "class" : "website", "url":"https://js13kgames.com","text" : "js13kGames' Website" }
+    ] 
+  },
+
+  {
+    "id" : "CaravanCarnageClub",
+    "title" : "Caravan Carnage Club",
+    "description" : "Started as a 'jam game' for GlobalGameJam, this is by far the most fun project I've worked on to date. Myself and other members of Northumbria's Game Dev Society took the 2019 theme \"What home means to you\" and...well we ran with it. <br><br> Within the 48 hours of the jam, we focused on creating the spiritual successor to Snake that aboslutely nobody asked for. Crash into enemy cars to steal their caravans,  collect powerups to go fast or get drunk, see what hi-score you can get without before time runs out! <br><br> After the jam, we decided the game had been so fun to develop and adopted it into our weekly meetups. Since, pickups have been converted from 2D to 3D, new obstacles were added, and more!",
+    "tools" : ["unity", "csharp"],
+    "links" : 
+    [
+      { "class" : "github", "url" : "https://github.com/JosephWhi98/GlobalGameAssets",  "text" : "View Source" },
+      { "class" : "download", "url":"./Downloads/CaravanCarnageClub.zip", "text" : "Download" },
+      { "class" : "website", "url":"https://northumbriaggj.github.io/2019/games/caravan_carnage_club/","text" : "Game Website" },
+      { "class" : "ggj", "url":"https://globalgamejam.org/2019/games/caravan-carnage-club","text" : "GGJ Listing" }      
+    ],
+    "video" : "./Videos/caravancarnageclub.mp4"
+  },
+
+  {
+    "id" : "CodeCraft",
+    "title" : "CodeCraft",
+    "description" : "Forming the development side of my final year dissertation, this game acts as a          learning tool for new programmers. Rather than being tasked with mundane data           processing programs, outputting countless variables to the console, they can          now drive their very own Mars rover! Whilst this has now been submitted, I           plan to continue iterating upon it to see how far the program can go in terms of          helping new programmers understand the fundamentals.",
+    "tools" : ["java"],
+    "links" : 
+    [
+      { "class" : "github", "url" : "https://github.com/Patton97/Codecraft",  "text" : "View Source" },
+      { "class" : "download", "url":"./CodeCraft.zip", "text" : "Download" }
+    ],
+    "video" : "./Videos/codecraft.mp4"
+  },
+
+  {
+    "id" : "Cowmageddon",
+    "title" : "Cowmageddon",
+    "description" : "Using C++ to extend a DirectX wrapper into a functional 2D game engine, applying an           optional advanced element. My engine was built on the concept of generic, flexible components,           similar to the Unity framework. Gameplay programmers can add their own game objects, attaching           both core and custom components to alter the behavior of and breathe context into the game           object. This module focused on the underpinning programming patterns of a game engine, and the           strengths/weaknesses of different approaches, along with a supporting commentary on how this can           greatly affect the working environment of a large-scale development team.",
+    "tools" : ["cpp"],
+    "links" : 
+    [
+      { "class" : "github", "url" : "https://github.com/Patton97/Cowmageddon",  "text" : "View Source" },
+      { "class" : "download", "url":"./Downloads/cowmageddon.zip", "text" : "Download" }
+    ],
+    "video" : "./Videos/cowmageddon.mp4"
+  },
+
+  {
+    "id" : "ChristmasTrainVR",
+    "title" : "Christmas Train VR",
+    "description" : "As part of a 2-person project, we were tasked with created a 360° VR animation, using the THREE.js           library. As the directions for this were left open to allow for creativity and individuality, my           partner and I decided on a theme of a “Christmas Train”, with present-filled carriages and snow           falling into the user’s view. When the user taps on the screen, the simulation is stopped and they           are transported station-side. ",
+    "tools" : ["threejs", "vr"],
+    "links" : 
+    [
+      { "class" : "github", "url" : "https://github.com/Patton97/Patton97.github.io/tree/master/Animation/ChristmasTrain",  "text" : "View Source" },
+      { "class" : "download", "url":"./Animation/ChristmasTrain/ChristmasTrain.zip", "text" : "Download" },
+      { "class" : "vr", "url":"./Animation/ChristmasTrain", "text" : "View in VR" }
+    ]
+  },
+
+  {
+    "id" : "Combine",
+    "title" : "Combine",
+    "description" : "This game was made as part of a team project, with my focus being UI and Inventory. The player is tasked with           collecting components around the world to craft gun modules, enabling them to access different elements. These           elements can be equipped via a radial menu [Q], where the player is able to select two elements; a primary [RMB]           and a secondary [LMB].",
+    "tools" : ["unreal", "blueprints"],
+    "links" : 
+    [
+      { "class" : "github", "url" : "https://github.com/Patton97/Patton97.github.io/tree/master/Animation/ChristmasTrain",  "text" : "View Source" },
+      { "class" : "download", "url":"./Animation/ChristmasTrain/ChristmasTrain.zip", "text" : "Download" },
+      { "class" : "youtube", "url":"https://youtu.be/IpwEOZqjkLU", "text" : "Trailer" }
+    ]
   }
-}
+]
