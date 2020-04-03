@@ -215,6 +215,8 @@ video, canvas
   width:  50px; 
   height: 50px;
   float: left;
+  margin-left: 10px;
+
   /*If content is left null, images are hidden*/
   content:""; 
 
@@ -226,11 +228,42 @@ video, canvas
 .tools .csharp:before     { background-position: 0 -100px!important; }
 .tools .java:before       { background-position: 0 -150px!important; }
 .tools .javascript:before { background-position: 0 -200px!important; }
-.tools .threejs:before    { background-position: 0 -250px!important; }
-.tools .unity:before      { background-position: 0 -300px!important; }
-.tools .unreal:before     { background-position: 0 -350px!important; }
-.tools .vr:before         { background-position: 0 -400px!important; }
+.tools .mixamo:before     { background-position: 0 -250px!important; }
+.tools .threejs:before    { background-position: 0 -300px!important; }
+.tools .unity:before      { background-position: 0 -350px!important; }
+.tools .unreal:before     { background-position: 0 -400px!important; }
+.tools .vr:before         { background-position: 0 -450px!important; }
 
+
+/*Tool tip on tool hover - a literal tooltip for a tool*/
+.tools li a .tooltip {
+  visibility: hidden;
+  width: auto;
+  background-color: #0E1011;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin: -40px -50px;
+  position: absolute;
+  z-index: 1;
+}
+.tools li a:hover .tooltip {visibility: visible;}
+
+/*There's definitely a better way of doing this*/
+.tools .blueprints .tooltip:before { content: "UE4 Blueprints";}
+.tools .cpp .tooltip:before        { content: "C++";}
+.tools .csharp .tooltip:before     { content: "C#";}
+.tools .java .tooltip:before       { content: "Java";}
+.tools .javascript .tooltip:before { content: "JavaScript";}
+.tools .mixamo .tooltip:before     { content: "Mixamo";}
+.tools .threejs .tooltip:before    { content: "Three.js";}
+.tools .unity .tooltip:before      { content: "Unity";}
+.tools .unreal .tooltip:before     { content: "Unreal";}
+.tools .vr .tooltip:before         { content: "VR";}
+
+
+/*Bottom bar links*/
 .links 
 {
   /*General styling*/

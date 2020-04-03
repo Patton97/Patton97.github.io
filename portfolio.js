@@ -8,7 +8,7 @@ function GenerateHeaderHTML(id, title, tools)
   html += `  <ul class="tools">`
 
   tools.forEach(tool => {
-    html += `    <li><a href="" class="${tool}"></a></li>`
+    html += `    <li><a href="" class="${tool}"><span class="tooltip"></span></a></li>`
   });
 
   html += `  </ul>`

@@ -1,16 +1,18 @@
 [
   {
-    "id" : "HotelNull",
-    "title" : "Hotel Null",
-    "description" : "Hotel Null is a game I've wanted to make for a while - a classic 'escape the room' where the player is tasked with finding clues and solving puzzles in order to escape. This is another Jam game, this time for LudumDare 45.",
-    "tools" : ["unity", "csharp"],
-    "thumbnail" : "./Images/HexGallery/hotelnull.png",
+    "id" : "TheBrokenArms",
+    "title" : "The Broken Arms",
+    "description" : "For GGJ20, the theme was 'repair'. TBA sees the player take over a bar: serving customers, managing stock, y'know...vibing. BUT everything keeps breaking! Like, seriously, who built this bar?<br><br>My focus was the AI customers, the complaints system and post-jam I took care of adding poo splatter, because, well, why not?",
+    "tools" : ["unity", "csharp", "mixamo"],
+    "thumbnail" : "./Images/HexGallery/thebrokenarms.png",
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/Patton97/LD45",  "text" : "View Source" },
-      { "class" : "itch", "url":"https://andrewpatton.itch.io/hotel-null", "text" : "Download via itch.io!" },
-      { "class" : "ludumdare", "url":"https://ldjam.com/events/ludum-dare/45/hotel-null","text" : "LD45 Page" }
-    ] 
+      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2020",  "text" : "View Source" },
+      { "class" : "ggj", "url":"https://globalgamejam.org/2020/games/broken-arms-1", "text" : "GGJ Listing" },
+      { "class" : "download", "url":"./Downloads/TheBrokenArms.zip", "text" : "Download" },
+      { "class" : "website", "url":"https://nu-game-dev-society.github.io/GGJ2020/","text" : "Play in browser" }
+    ], 
+    "video" : {"url": "./Videos/thebrokenarms.mp4", "scale" : 75}
   },
 
   {
@@ -45,20 +47,6 @@
   },
 
   {
-    "id" : "CodeCraft",
-    "title" : "CodeCraft",
-    "description" : "Forming the development side of my final year dissertation, this game acts as a learning tool for new programmers. Rather than being tasked with mundane data processing programs, outputting countless variables to the console, they can now drive their very own Mars rover! Whilst this has now been submitted, I plan to continue iterating upon it to see how far the program can go in terms of helping new programmers understand the fundamentals.",
-    "tools" : ["java"],
-    "thumbnail" : "./Images/HexGallery/codecraft.png",
-    "links" : 
-    [
-      { "class" : "github", "url" : "https://github.com/Patton97/Codecraft",  "text" : "View Source" },
-      { "class" : "download", "url":"./CodeCraft.zip", "text" : "Download" }
-    ],
-    "video" : {"url" : "./Videos/codecraft.mp4", "scale" : 75}
-  },
-
-  {
     "id" : "Cowmageddon",
     "title" : "Cowmageddon",
     "description" : "Using C++ to extend a DirectX wrapper into a functional 2D game engine, applying an optional advanced element. My engine was built on the concept of generic, flexible components, similar to the Unity framework. Gameplay programmers can add their own game objects, attaching both core and custom components to alter the behavior of and breathe context into the game object. This module focused on the underpinning programming patterns of a game engine, and the strengths/weaknesses of different approaches, along with a supporting commentary on how this can greatly affect the working environment of a large-scale development team.",
@@ -70,6 +58,35 @@
       { "class" : "download", "url":"./Downloads/cowmageddon.zip", "text" : "Download" }
     ],
     "video" : {"url" : "./Videos/cowmageddon.mp4", "scale" : 75}
+  },
+
+  {
+    "id" : "HotelNull",
+    "title" : "Hotel Null",
+    "description" : "Hotel Null is a game I've wanted to make for a while - a classic 'escape the room' where the player is tasked with finding clues and solving puzzles in order to escape. This is another Jam game, this time for LudumDare 45.<br><br>Admittedly the UI is terrible, but that's down to the limited time I had that weekend. This project is definitely one I'd love to revist & expand on in the future.",
+    "tools" : ["unity", "csharp"],
+    "thumbnail" : "./Images/HexGallery/hotelnull.png",
+    "links" : 
+    [
+      { "class" : "github", "url" : "https://github.com/Patton97/LD45",  "text" : "View Source" },
+      { "class" : "download", "url":"./Downloads/HotelNull.zip", "text" : "Download" },
+      { "class" : "ludumdare", "url":"https://ldjam.com/events/ludum-dare/45/hotel-null","text" : "LD45 Page" }
+    ],
+    "video" : {"url": "./Videos/hotelnull.mp4", "scale" : 75}
+  },
+
+  {
+    "id" : "CodeCraft",
+    "title" : "CodeCraft",
+    "description" : "Forming the development side of my final year dissertation, this game acts as a learning tool for new programmers. Rather than being tasked with mundane data processing programs, outputting countless variables to the console, they can now drive their very own Mars rover! Whilst this has now been submitted, I plan to continue iterating upon it to see how far the program can go in terms of helping new programmers understand the fundamentals.",
+    "tools" : ["java"],
+    "thumbnail" : "./Images/HexGallery/codecraft.png",
+    "links" : 
+    [
+      { "class" : "github", "url" : "https://github.com/Patton97/Codecraft",  "text" : "View Source" },
+      { "class" : "download", "url":"./CodeCraft.zip", "text" : "Download" }
+    ],
+    "video" : {"url" : "./Videos/codecraft.mp4", "scale" : 75}
   },
 
   {
@@ -97,6 +114,7 @@
       { "class" : "github", "url" : "https://github.com/Patton97/Patton97.github.io/tree/master/Animation/ChristmasTrain",  "text" : "View Source" },
       { "class" : "download", "url":"./Animation/ChristmasTrain/ChristmasTrain.zip", "text" : "Download" },
       { "class" : "youtube", "url":"https://youtu.be/IpwEOZqjkLU", "text" : "Trailer" }
-    ]
+    ],
+    "video" : {"url": "./Videos/combine.mp4", "scale" : 75}
   }
 ]
