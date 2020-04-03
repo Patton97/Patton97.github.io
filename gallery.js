@@ -40,7 +40,7 @@ var json = (function ()
           json = data;
       }
   });
-  return json;
+  return json
 })(); 
 
 GenerateGalleryHTML(json)

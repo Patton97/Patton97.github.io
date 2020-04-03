@@ -162,6 +162,12 @@ main section
     margin: 10px 0 10px 0;
 }
 
+main section h2
+{
+  font-size: 2.5em;
+  margin: 0;
+}
+
 main section p{font-family: "Lato", sans-serif;}
 main section p a
 {
@@ -198,33 +204,19 @@ video, canvas
 .tools
 {
   /*General styling*/
-  margin: 0;
-  padding: 5px 0 5px 0;
   list-style-type: none;
 
   /*Flex container styling (This list owns a separate, nested flexbox)*/
   display: flex;
 }
-.tools li
-{
-  text-align: center;
-  padding: 0 0 0 1vw;
-}
-
-.tools li a {
-  color: #FFFFFF;
-  text-decoration: none;
-  margin: 5px 0 5px 0;
-}
 
 .tools li a:before
 {
-  position: relative;
   width:  50px; 
   height: 50px;
   float: left;
-  margin: 0 5px 0 0;
-  content:"";
+  /*If content is left null, images are hidden*/
+  content:""; 
 
   /*Spritesheet preloads all images to avoid flickering and clean css*/
   background: url('Images/Tools/spritesheet.png') 
@@ -342,5 +334,16 @@ footer .twitter {order: 2;} /*Flex item order*/
   main
   {
     margin: 1vh 5vw 5vh;
+  }
+
+  .links li
+  {
+    font-size: 1.5em;
+  }
+
+  .links li a
+  {
+    width: 1.5vh;
+    height: 1.5vh;
   }
 }
