@@ -322,6 +322,33 @@ video, canvas
 /* END OF MAIN */
 /***************/
 
+.bullet-sprites
+{
+  list-style-type: none;
+  margin: 0;
+  padding-left:0;
+}
+.bullet-sprites li
+{
+  margin-bottom: 10px;
+}
+.bullet-sprites li:before
+{
+  height: 25px;
+  width: 25px;
+  float: left;
+  margin: 0 5px 0 0;
+  content:"";
+  background-image: url(./Images/Misc/25px/spritesheet.png);
+}
+
+
+.bullet-sprites .laughter:before     { background-position: 0    0px; }
+.bullet-sprites .rocketleague:before { background-position: 0  -25px; }
+.bullet-sprites .sixers:before       { background-position: 0  -50px; }
+.bullet-sprites .spiderman:before    { background-position: 0  -75px; }
+.bullet-sprites .thumbsdown:before   { background-position: 0 -100px; }
+
 /*****************/
 /* START OF FOOTER */
 /*****************/
