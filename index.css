@@ -328,30 +328,33 @@ video, canvas
   margin: 0;
   padding-left:0;
 }
-.bullet-sprites li
-{
-  margin-bottom: 10px;
-}
+
 .bullet-sprites li:before
 {
-  height: 25px;
-  width: 25px;
+  --tilesize: 25px;
+  height: var(--tilesize);
+  width: var(--tilesize);
   float: left;
   margin: 0 5px 0 0;
   content:"";
   background-image: url(./Images/Misc/25px/spritesheet.png);
 }
 
-
+/*Good lord this is ugly*/
 .bullet-sprites .laughter:before     { background-position: 0    0px; }
-.bullet-sprites .rocketleague:before { background-position: 0  -25px; }
-.bullet-sprites .sixers:before       { background-position: 0  -50px; }
-.bullet-sprites .spiderman:before    { background-position: 0  -75px; }
-.bullet-sprites .thumbsdown:before   { background-position: 0 -100px; }
+.bullet-sprites .rocketleague:before { background-position: 0 calc(0px - (var(--tilesize) * 1)); }
+.bullet-sprites .sixers:before       { background-position: 0 calc(0px - (var(--tilesize) * 2)); }
+.bullet-sprites .spiderman:before    { background-position: 0 calc(0px - (var(--tilesize) * 3)); }
+.bullet-sprites .thumbsdown:before   { background-position: 0 calc(0px - (var(--tilesize) * 4)); }
 
-/*****************/
+.bullet-sprites li
+{
+  margin-bottom: 25px;
+}
+
+/*******************/
 /* START OF FOOTER */
-/*****************/
+/*******************/
 
 footer 
 {
@@ -405,5 +408,15 @@ footer .twitter {order: 2;} /*Flex item order*/
   {
     width: 1.5vh;
     height: 1.5vh;
+  }
+
+  .bullet-sprites li:before
+  {
+    --tilesize: 50px;
+    background-image: url(./Images/Misc/50px/spritesheet.png);
+  }
+  .bullet-sprites li
+  {
+    margin-bottom: 50px;
   }
 }
