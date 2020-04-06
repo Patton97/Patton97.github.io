@@ -352,6 +352,8 @@ video, canvas
   margin-bottom: 25px;
 }
 
+.spiderman a { color: #B11313; text-decoration: underline;}
+.spiderman a:visited { color: #DF1F2D;}
 /*******************/
 /* START OF FOOTER */
 /*******************/
