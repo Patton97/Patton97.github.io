@@ -1,9 +1,17 @@
+function loadWorkspace(button) {
+  let workspace = Blockly.getMainWorkspace();
+  workspace.clear();
+  if (button.blocklyXml) {
+    Blockly.Xml.domToWorkspace(button.blocklyXml, workspace);
+  }
+}
+
 function RunCode(event) 
 {
   loadWorkspace(event.target);
   Blockly.JavaScript.addReservedWords('code');
   var code = Blockly.JavaScript.workspaceToCode(Blockly.getMainWorkspace());
-  code += 'console.log("it worked");';
+  code += 'alert("it worked");';
   try 
   {
     eval(code);
@@ -12,6 +20,8 @@ function RunCode(event)
   {
     console.log(error);
   }
+
+  alert(code);
 }
 
 function OnResize() {
@@ -47,22 +57,29 @@ function CreateBlocklyArea()
   html += `    <category name="Functions" colour="290" custom="PROCEDURE"></category>`
   html += `  </xml>`
   html += `</section>`
+  html += `<button onclick="RunCode(event)">Run</button>`
   main.innerHTML += html
-}
-
-function Initialise()
-{
-  CreateBlocklyArea();  
-  var blocklyDiv = document.getElementById('blockly');
-  var workspace = Blockly.inject(blocklyDiv,
-          {toolbox: document.getElementById('toolbox'),
-            renderer: 'zelos'}
-          );
   
-  window.addEventListener('resize', OnResize, false);
-  OnResize();
-  Blockly.svgResize(workspace);
+  return document.getElementById('blockly')
 }
 
-Initialise();
-var blocklyArea = document.getElementById('blockly'); //store area for resize ops
+function CreateWorkspace()
+{
+  let blocklyDiv = document.getElementById('blockly')
+  let workspaceOptions = 
+  { 
+    toolbox: document.getElementById('toolbox'),
+    renderer: 'zelos',
+    scrollbars: false
+  }
+  return Blockly.inject(blocklyDiv, workspaceOptions)
+}
+
+var blocklyArea = CreateBlocklyArea(); //store area for resize ops
+var blocklyDiv = document.getElementById('blockly');
+var workspace = CreateWorkspace();
+
+//Handle resize operation | NOTE: Could be removed if planning to keep area fixed
+window.addEventListener('resize', OnResize, false);
+OnResize();
+Blockly.svgResize(workspace);
