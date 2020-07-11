@@ -7,20 +7,26 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>  
   <link rel="icon"           sizes="192x192"     href="/mobilefavicon.png"/>
   <title>Andrew Patton | Blockly</title>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <!-- Google Blockly -->
   <script src="google-blockly-9a466fe/blockly_compressed.js"></script>
-  <script src="google-blockly-9a466fe/javascript_compressed.js"></script>
-  <script src="google-blockly-9a466fe/blocks_compressed.js"></script>
+  <script src="google-blockly-9a466fe/python_compressed.js"></script>
+  <script src="google-blockly-9a466fe/python_microbit.js"></script>
+  <script src="google-blockly-9a466fe/blocks_microbit.js"></script>
+  <script src="google-blockly-9a466fe/blocks_compressed.js"></script>  
   <script src="google-blockly-9a466fe/msg/js/en.js"></script>
-  
+
+  <!-- Brython Transpiler -->
+  <script src="brython.js"></script>
+  <script src="brython_stdlib.js"></script>
 </head>
 <html>
-  <body>
+  <body onload="brython({debug: 1, indexedDB: false})"> 
     <nav>
       <script src="../navigation.js" type="text/javascript"></script>
     </nav>    
     <main>
-      <script src="BlocklyManager.js"></script>
+      <script src="./BlocklyManager.js"></script>
     </main>
     <footer>
       <script src="../footer.js" type="text/javascript"></script>

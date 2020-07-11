@@ -6,12 +6,30 @@ function loadWorkspace(button) {
   }
 }
 
-function RunCode(event) 
+function download(filename, text) {
+  var element = document.createElement('a')
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
+  element.setAttribute('download', filename)
+
+  element.style.display = 'none'
+  document.body.appendChild(element)
+
+  //Fake link click to force download
+  element.click()
+  document.body.removeChild(element)
+}
+
+function GenerateCode(event) 
 {
-  loadWorkspace(event.target);
-  Blockly.JavaScript.addReservedWords('code');
-  var code = Blockly.JavaScript.workspaceToCode(Blockly.getMainWorkspace());
-  code += 'alert("it worked");';
+  //loadWorkspace(event.target);
+  Blockly.Python.addReservedWords('code');
+  
+  //Change to file read
+  var code;
+  code = `from microbit import *\n`
+
+  code += Blockly.Python.workspaceToCode(workspace);
+  console.log(code)
   try 
   {
     eval(code);
@@ -21,7 +39,8 @@ function RunCode(event)
     console.log(error);
   }
 
-  alert(code);
+  // Start file download.
+  download("microbit-full-pipeline-test.py", code)
 }
 
 function OnResize() {
@@ -48,6 +67,13 @@ function CreateBlocklyArea()
   let html = ``
   html += `<section id="blockly" style="height: 480px; width: 600px;">`
   html += `  <xml id="toolbox" style="display: none">`
+  html += `    <category name="Microbit" colour="%{BKY_MATH_HUE}">`
+  html += `      <block type="microbit_turnonled"><field name="Turn on LED"></field></block>`
+  html += `      <block type="microbit_turnoffled"><field name="Turn off LED"></field></block>`
+  html += `      <block type="microbit_wait"><field name="Wait"></field></block>`
+  html += `      <block type="controls_whileUntil"></block>`
+  html += `      <block type="logic_boolean"></block>`
+  html += `    </category>`
   html += `    <category name="Math" colour="%{BKY_MATH_HUE}">`
   html += `      <block type="math_number">`
   html += `        <field name="NUM">123</field>`
@@ -57,7 +83,7 @@ function CreateBlocklyArea()
   html += `    <category name="Functions" colour="290" custom="PROCEDURE"></category>`
   html += `  </xml>`
   html += `</section>`
-  html += `<button onclick="RunCode(event)">Run</button>`
+  html += `<button id="GenerateCode" onclick="GenerateCode(event)">Run</button>`
   main.innerHTML += html
   
   return document.getElementById('blockly')
@@ -78,6 +104,12 @@ function CreateWorkspace()
 var blocklyArea = CreateBlocklyArea(); //store area for resize ops
 var blocklyDiv = document.getElementById('blockly');
 var workspace = CreateWorkspace();
+
+function myUpdateFunction(event) {
+  var code = Blockly.Python.workspaceToCode(workspace);
+  console.log(code);
+}
+workspace.addChangeListener(myUpdateFunction);
 
 //Handle resize operation | NOTE: Could be removed if planning to keep area fixed
 window.addEventListener('resize', OnResize, false);
