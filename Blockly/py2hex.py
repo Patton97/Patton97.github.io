@@ -1,6 +1,6 @@
 # Paul Grenfell (2016)
 # Available at: http://giggletronics.blogspot.com/2016/09/what-are-hex-files.html
-#import document
+import document
 
 include_filename = document.getElementById("base-hex").value
 source_filename  = document.getElementById("python-code").value

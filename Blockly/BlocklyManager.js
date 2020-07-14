@@ -6,6 +6,57 @@ function loadWorkspace(button) {
   }
 }
 
+function DownloadHex()
+{
+  // Getting a file through XMLHttpRequest as an arraybuffer and creating a Blob
+  var base_hex_storage = localStorage.getItem("base_hex")
+  var base_hex = document.getElementById("base_hex")
+
+  if (base_hex_storage) 
+  {
+    // Reuse existing Data URL from localStorage
+    base_hex.setAttribute("src", base_hex_storage);
+  }
+  else 
+  {
+      // Create XHR, Blob and FileReader objects
+      var xhr = new XMLHttpRequest()
+      var blob
+      var fileReader = new FileReader()
+
+      xhr.open("GET", "base.hex", true);
+      // Set the responseType to arraybuffer. "blob" is an option too, rendering manual Blob creation unnecessary, 
+      // but the support for "blob" is not widespread enough yet
+      xhr.responseType = "arraybuffer";
+
+      xhr.addEventListener("load", function () {
+          if (xhr.status === 200) {
+              // Create a blob from the response
+              blob = new Blob([xhr.response], {type: "text/plain"});
+
+              // onload needed since Google Chrome doesn't support addEventListener for FileReader
+              fileReader.onload = function (evt) {
+                  // Read out file contents as a Data URL
+                  var result = evt.target.result;
+                  // Set image src to Data URL
+                  base_hex.setAttribute("src", result);
+                  // Store Data URL in localStorage
+                  try {
+                      localStorage.setItem("base_hex", result);
+                  }
+                  catch (e) {
+                      console.log("Storage failed: " + e);
+                  }
+              };
+              // Load blob as Data URL
+              fileReader.readAsDataURL(blob);
+          }
+      }, false);
+      // Send XHR
+      xhr.send();
+  }
+}
+
 function download(filename, text) {
   var element = document.createElement('a')
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
