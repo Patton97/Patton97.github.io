@@ -76,7 +76,20 @@ function GenerateCode(event)
   //loadWorkspace(event.target);
   Blockly.Python.addReservedWords('code');
   
-  let code = `from microbit import *\n`
+  let code = `
+from microbit import *
+I2caddr = 0x10
+# Maqueen motor control
+# direction:0=forward  1=back
+# speed: 0~255
+def motor(directionL, speedL, directionR, speedR):
+  buf = bytearray(5)
+  buf[0] = 0x00
+  buf[1] = directionL
+  buf[2] = speedL
+  buf[3] = directionR
+  buf[4] = speedR
+  i2c.write(I2caddr, buf)\n`
 
   code += Blockly.Python.workspaceToCode(workspace);
   try 
@@ -118,8 +131,9 @@ function CreateBlocklyArea()
   html += `<section id="blockly" style="height: 480px; width: 600px;">`
   html += `  <xml id="toolbox" style="display: none">`
   html += `    <category name="Microbit" colour="%{BKY_MATH_HUE}">`
-  html += `      <block type="microbit_turnonled"><field name="Turn on LED"></field></block>`
-  html += `      <block type="microbit_turnoffled"><field name="Turn off LED"></field></block>`
+  html += `      <block type="microbit_indicator"><field name="%1 Turn %2 indicator %3"></field></block>`
+  html += `      <block type="microbit_motor"><field name=%1 Drive %2"></field></block>`
+  html += `      <block type="microbit_display_image"><field name="%1 Display %2"></field></block>`  
   html += `      <block type="microbit_wait"><field name="Wait"></field></block>`
   html += `      <block type="controls_whileUntil"></block>`
   html += `      <block type="logic_boolean"></block>`
