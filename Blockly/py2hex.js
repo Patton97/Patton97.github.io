@@ -1,9 +1,6 @@
 // Adapted from make_hex.py script created by Paul Grenfell (2016)
 // Available at: http://giggletronics.blogspot.com/2016/09/what-are-hex-files.html
 
-var include_filename = 'base.hex'
-var source_filename = 'source.py'
-var output_filename = 'output.hex'
 var output_file = ``
 
 function readTextFile(file)
@@ -41,7 +38,6 @@ class HexDataWriter
       this.base_address = base_address
       this.data_bytes_per_line = data_bytes_per_line
     }
-        
 
     output(data)
     {
@@ -83,21 +79,22 @@ class HexDataWriter
 
 function GetHeader()
 {
-  let header;
+  let header = ``
   header += readTextFile("./base.hex")
-  return header;
+  console.log("header: " + header)
+  return header
 }
 
 function GetPrologue()
 {
-  let prologue;
+  let prologue = ``
   prologue += ':020000040003F7\n'
   return prologue
 }
 
 function GetEpilogue()
 {
-  let epilogue;
+  let epilogue = ``
   epilogue += ':0400000500013A8537\n'
   epilogue += ':00000001FF\n'
   return epilogue
@@ -105,6 +102,9 @@ function GetEpilogue()
 
 function ConvertToHex(python_code)
 {
+  //clear existing code
+  output_file = ``
+
   //Header & Prologue are universal, so we can begin by copying those over
   output_file += GetHeader()
   output_file += GetPrologue()
@@ -129,5 +129,5 @@ function ConvertToHex(python_code)
   // Epilogue is also universal, so we can copy that over too
   output_file += GetEpilogue()
   
-  console.log(output_file)
+  return output_file
 } 

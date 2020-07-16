@@ -1,3 +1,4 @@
+
 function loadWorkspace(button) {
   let workspace = Blockly.getMainWorkspace();
   workspace.clear();
@@ -75,12 +76,9 @@ function GenerateCode(event)
   //loadWorkspace(event.target);
   Blockly.Python.addReservedWords('code');
   
-  //Change to file read
-  var code;
-  code = `from microbit import *\n`
+  let code = `from microbit import *\n`
 
   code += Blockly.Python.workspaceToCode(workspace);
-  console.log(code)
   try 
   {
     eval(code);
@@ -91,7 +89,8 @@ function GenerateCode(event)
   }
 
   // Start file download.
-  download("microbit-full-pipeline-test.py", code)
+  let output_hex = ConvertToHex(code)
+  download('microbit.hex', output_hex)
 }
 
 function OnResize() {
@@ -134,7 +133,6 @@ function CreateBlocklyArea()
   html += `    <category name="Functions" colour="290" custom="PROCEDURE"></category>`
   html += `  </xml>`
   html += `</section>`
-  html += `<button id="GenerateCode" onclick="GenerateCode(event)">Run</button>`
   main.innerHTML += html
   
   return document.getElementById('blockly')

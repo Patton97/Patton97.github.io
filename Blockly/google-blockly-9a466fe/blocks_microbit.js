@@ -26,6 +26,27 @@ Blockly.defineBlocksWithJsonArray(
       "colour": 230,
       "tooltip": "",
       "helpUrl": ""
+    },
+    {
+      "type": "microbit_indicator",
+      "message0": "Turn %1 indicator %2",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "SIDE",
+          "options": [ ["left", "left"], ["right", "right"] ]
+        },
+        {
+          "type": "field_dropdown",
+          "name": "ONOFF",
+          "options": [ ["on", "on"], ["off", "off"] ]
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 230,
+      "tooltip": "Turns on the LED",
+      "helpUrl": ""
     }
   ]
 );
