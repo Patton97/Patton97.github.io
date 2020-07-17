@@ -155,11 +155,11 @@ Blockly.defineBlocksWithJsonArray(
           "name": "NAME",
           "options": 
           [
-            [ { "src": "./images/red.png",   "width": 25, "height": 25, "alt": "red"   }, "RED"   ],
-            [ { "src": "./images/green.png", "width": 25, "height": 25, "alt": "green" }, "GREEN" ],
-            [ { "src": "./images/blue.png",  "width": 25, "height": 25, "alt": "blue"  }, "BLUE"  ],
-            [ { "src": "./images/white.png", "width": 25, "height": 25, "alt": "white" }, "WHITE" ],
-            [ "OFF", "OFF" ]
+            [ { "src": "./images/red.png",   "width": 25, "height": 25, "alt": "red"   }, "#FF0000"   ],
+            [ { "src": "./images/green.png", "width": 25, "height": 25, "alt": "green" }, "#00FF00" ],
+            [ { "src": "./images/blue.png",  "width": 25, "height": 25, "alt": "blue"  }, "#0000FF"  ],
+            [ { "src": "./images/white.png", "width": 25, "height": 25, "alt": "white" }, "#FFFFFF" ],
+            [ "OFF", "#000000" ]
           ]
         }
       ],
