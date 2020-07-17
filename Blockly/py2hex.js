@@ -1,7 +1,11 @@
 // Adapted from make_hex.py script created by Paul Grenfell (2016)
 // Available at: http://giggletronics.blogspot.com/2016/09/what-are-hex-files.html
 
-var output_file = ``
+var header_hex = readTextFile(`header.hex`)
+var base_py = readTextFile(`base.py`)
+var prologue_hex = `:020000040003F7\n`
+var epilogue_hex = `:0400000500013A8537\n:00000001FF\n`
+var output_file;
 
 function readTextFile(file)
 {
@@ -77,40 +81,21 @@ class HexDataWriter
     }
 }
 
-function GetHeader()
-{
-  let header = ``
-  header += readTextFile("./base.hex")
-  console.log("header: " + header)
-  return header
-}
-
-function GetPrologue()
-{
-  let prologue = ``
-  prologue += ':020000040003F7\n'
-  return prologue
-}
-
-function GetEpilogue()
-{
-  let epilogue = ``
-  epilogue += ':0400000500013A8537\n'
-  epilogue += ':00000001FF\n'
-  return epilogue
-}
-
 function ConvertToHex(python_code)
 {
-  //clear existing code
+  // Clear existing code
   output_file = ``
 
-  //Header & Prologue are universal, so we can begin by copying those over
-  output_file += GetHeader()
-  output_file += GetPrologue()
+  // Include any base code we want pre-defined (functions, API, global vars)
+  python_code = base_py + "\n" + python_code
+
+  // Begin writing to hex file
+  // Header & Prologue are universal, so we can begin by copying those over
+  output_file += header_hex
+  output_file += prologue_hex
 
   // HexDataWriter is used to esnure precise conversion & formatting of the hex file
-  writer = new HexDataWriter(0xe000, 16)
+  let writer = new HexDataWriter(0xe000, 16)
 
   // Send required MicroPython Signature to the hex data writer
   writer.output('M'.charCodeAt(0))
@@ -123,11 +108,12 @@ function ConvertToHex(python_code)
     writer.output(python_code.charAt(i).charCodeAt(0))
   }
   
+  // Clear out buffer & mark end of program with 00
   writer.output(0)
   writer.finalise()
 
   // Epilogue is also universal, so we can copy that over too
-  output_file += GetEpilogue()
+  output_file += epilogue_hex
   
   return output_file
 } 

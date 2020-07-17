@@ -11,11 +11,11 @@ Blockly.defineBlocksWithJsonArray(
     },
     {
       "type": "microbit_indicator",
-      "message0": "%1 Switch %2 indicator %3",
+      "message0": "%1 Switch %2 light %3",
       "args0": [
         {
           "type": "field_image",
-          "src": "./images/LED.png",
+          "src": "./images/LED_bulb.png",
           "width": 25,
           "height": 25,
           "alt": "*",
@@ -53,49 +53,7 @@ Blockly.defineBlocksWithJsonArray(
         {
           "type": "field_dropdown",
           "name": "DIRECTION",
-          "options": [
-            [
-              "forward",
-              "forward"
-            ],
-            [
-              "backward",
-              "backward"
-            ]
-          ]
-        }
-      ],
-      "previousStatement": null,
-      "nextStatement": null,
-      "colour": 230,
-      "tooltip": "Drive the robot",
-      "helpUrl": ""
-    },
-    {
-      "type": "microbit_motor",
-      "message0": "%1 Drive %2",
-      "args0": [
-        {
-          "type": "field_image",
-          "src": "./images/wheel.png",
-          "width": 25,
-          "height": 25,
-          "alt": "*",
-          "flipRtl": false
-        },
-        {
-          "type": "field_dropdown",
-          "name": "DIRECTION",
-          "options": [
-            [
-              "forward",
-              "forward"
-            ],
-            [
-              "backward",
-              "backward"
-            ]
-          ]
+          "options": [ ["forward", "forward"], ["backward", "backward"] ]
         }
       ],
       "previousStatement": null,
@@ -132,6 +90,79 @@ Blockly.defineBlocksWithJsonArray(
       "nextStatement": null,
       "colour": 230,
       "tooltip": "Turns on the LED",
+      "helpUrl": ""
+    },
+    {
+      "type": "microbit_music",
+      "message0": "%1 Play music %2",
+      "args0": [
+        {
+          "type": "field_image",
+          "src": "./images/music.png",
+          "width": 25,
+          "height": 25,
+          "alt": "*",
+          "flipRtl": false
+        },
+        {
+          "type": "field_dropdown",
+          "name": "TRACK",
+          "options": [
+            ["da-da-da-dum", "DADADADUM"],
+            ["Entertainer", "ENTERTAINER"],
+            ["Prelude", "PRELUDE"],
+            ["ODE", "ODE"],
+            ["Nyan", "NYAN"],
+            ["Ringtone", "RINGTONE"],
+            ["Funk", "FUNK"],
+            ["Blues", "BLUES"],
+            ["Birthday", "BIRTHDAY"],
+            ["Wedding", "WEDDING"],
+            ["Funeral", "FUNERAL"],
+            ["Punchline", "PUNCHLINE"],
+            ["Python", "PYTHON"],
+            ["Baddy", "BADDY"],
+            ["Chase", "CHASE"],
+            ["ba-ding", "BA_DING"],
+            ["wa-wa-wa-waa", "WAWAWAWAA"],
+            ["Jump up", "JUMP_UP"],
+            ["Jump down", "JUMP_DOWN"],
+            ["Power up", "POWER_UP"],
+            ["Power down", "POWER_DOWN"]
+          ]
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 230,
+      "tooltip": "Plays a musical melody",
+      "helpUrl": ""
+    },
+    {
+      "type": "microbit_rgb",
+      "message0": "%1 Set RGB lights to %2",
+      "args0": [
+        {
+          "type": "field_image",
+          "src": "./images/RGB.png",
+          "width": 25,
+          "height": 25,
+          "alt": "*",
+          "flipRtl": false
+        },
+        {
+          "type": "field_colour",
+          "name": "RGB_COLOUR",
+          "colour": "#5b67a5",
+          "colourOptions": ['#ff0000', '#00ff00', '#0000ff', '#ffffff'],
+          "colourTitles": ['red', 'green', 'blue', 'white', 'blue'],
+          "columns": 4
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 230,
+      "tooltip": "Changes RGB light colours",
       "helpUrl": ""
     }
   ]

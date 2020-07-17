@@ -25,6 +25,25 @@ Blockly.Python['microbit_motor'] = function(block) {
 };
 
 Blockly.Python['microbit_display_image'] = function(block) {
-  var dropdown_image = block.getFieldValue('IMAGE')
   return `display.show(Image.${dropdown_image})\n`
 };
+
+Blockly.Python['microbit_music'] = function(block) {
+  return `music.play(music.${dropdown_track})\n`
+};
+
+Blockly.Python['microbit_rgb'] = function(block) {
+  var dropdown_colour = block.getFieldValue('RGB_COLOUR')
+  
+  // Remove # from hex value
+  if (dropdown_colour.charAt(0) === `#`) {
+    dropdown_colour = dropdown_colour.substring(1)
+  }
+  // Convert hex to dec, split RGB (via bitwise)
+  let hex = parseInt(dropdown_colour, 16)
+  let r = (hex >> 16) & 255
+  let g = (hex >> 8) & 255
+  let b = hex & 255
+
+  return `rgb_all(${r},${g},${b})`
+}
