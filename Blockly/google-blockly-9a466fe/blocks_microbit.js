@@ -140,7 +140,7 @@ Blockly.defineBlocksWithJsonArray(
     },
     {
       "type": "microbit_rgb",
-      "message0": "%1 Set RGB lights to %2",
+      "message0": "%1 Set RGB lights %2",
       "args0": [
         {
           "type": "field_image",
@@ -151,12 +151,16 @@ Blockly.defineBlocksWithJsonArray(
           "flipRtl": false
         },
         {
-          "type": "field_colour",
-          "name": "RGB_COLOUR",
-          "colour": "#5b67a5",
-          "colourOptions": ['#ff0000', '#00ff00', '#0000ff', '#ffffff'],
-          "colourTitles": ['red', 'green', 'blue', 'white', 'blue'],
-          "columns": 4
+          "type": "field_dropdown",
+          "name": "NAME",
+          "options": 
+          [
+            [ { "src": "./images/red.png",   "width": 25, "height": 25, "alt": "red"   }, "RED"   ],
+            [ { "src": "./images/green.png", "width": 25, "height": 25, "alt": "green" }, "GREEN" ],
+            [ { "src": "./images/blue.png",  "width": 25, "height": 25, "alt": "blue"  }, "BLUE"  ],
+            [ { "src": "./images/white.png", "width": 25, "height": 25, "alt": "white" }, "WHITE" ],
+            [ "OFF", "OFF" ]
+          ]
         }
       ],
       "previousStatement": null,

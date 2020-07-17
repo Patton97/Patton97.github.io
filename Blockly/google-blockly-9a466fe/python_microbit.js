@@ -25,6 +25,7 @@ Blockly.Python['microbit_motor'] = function(block) {
 };
 
 Blockly.Python['microbit_display_image'] = function(block) {
+  var dropdown_image = block.getFieldValue('IMAGE')
   return `display.show(Image.${dropdown_image})\n`
 };
 
