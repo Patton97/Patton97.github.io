@@ -17,4 +17,3 @@ class ObjectManager
     });
   }
 }
-//var objectManager = new ObjectManager
