@@ -10,10 +10,10 @@ class ObjectManager
     scene.add(obj)
     console.log("adding: " + obj)
   }
-  animateAll()
+  animateAll(iFrame)
   {
     this.objects.forEach(obj => {
-      obj.animate()
+      obj.animate(iFrame)
     });
   }
 }

@@ -1,4 +1,4 @@
-const { MeshPhongMaterial } = require("three")
+//const { MeshPhongMaterial } = require("three")
 
 class Microbit_Wheel extends THREE.Group
 {
@@ -16,21 +16,38 @@ class Microbit_Wheel extends THREE.Group
     let geo = new THREE.CylinderGeometry(0.19, 0.19, 0.1, 16, 1)
     let mat = new THREE.MeshPhongMaterial( { color: 0xffffff } )
     let rim = new THREE.Mesh(geo, mat)
-    rim.rotateZ(THREE.Math.degToRad(90))
     this.add(rim)
+
+    //decorate rim to make highlight when moving
+    geo = new THREE.CylinderGeometry(0.06, 0.06, 0.11, 8, 1)
+    mat = new THREE.MeshPhongMaterial( { color: 0x000000 } )
+    for(let i = 0; i < 3; i++)
+    {
+      let decoration = new THREE.Mesh(geo, mat)
+      rim.add(decoration)
+      decoration.rotateY(THREE.Math.degToRad(i*120))
+      decoration.translateZ(0.1)
+    }
+    geo = new THREE.CylinderGeometry(0.03, 0.03, 0.11, 8, 1)
+    for(let i = 0; i < 3; i++)
+    {
+      let decoration = new THREE.Mesh(geo, mat)
+      rim.add(decoration)
+      decoration.rotateY(THREE.Math.degToRad((i*120)+60))
+      decoration.translateZ(0.1)
+    }
   }
   createTyre()
   {
     let geo = new THREE.CylinderGeometry(0.22, 0.22, 0.099, 16, 1)
     let mat = new THREE.MeshPhongMaterial( { color: 0x000000 } )
     let tyre = new THREE.Mesh(geo, mat)
-    tyre.rotateZ(THREE.Math.degToRad(90))
     this.add(tyre)
   }
-  animate()
+  animate(iFrame)
   {
     if(this.speed === 0) { return }
-    let rotAmount = THREE.Math.degToRad(speed)
+    let rotAmount = THREE.Math.degToRad(this.speed)
     this.rotateY(rotAmount)
   }
 }
@@ -99,6 +116,7 @@ class Microbit_Chassis extends THREE.Group
     this.createMiddle()
     this.createFront()
     this.createSides()
+    this.slot = this.createSlot()
   }
   createBack()
   {
@@ -140,8 +158,16 @@ class Microbit_Chassis extends THREE.Group
 
     side_L.rotateY(THREE.Math.degToRad(-50))
     side_R.rotateY(THREE.Math.degToRad( 50))
-  }
-  
+  }  
+  createSlot()
+  {
+    let geo = new THREE.BoxGeometry(0.56,0.1,0.05)
+    let mat = new THREE.MeshPhongMaterial({color:0xADADAD})
+    let slot = new THREE.Mesh(geo, mat)
+    slot.translateZ(0.28)
+    this.add(slot)
+    return slot
+  }  
 }
 
 class Microbit_LED extends THREE.Group
@@ -153,7 +179,7 @@ class Microbit_LED extends THREE.Group
     this.sphere = this.createSphere()
     this.active = false
     this.colors = [0x580000, 0xff0000] // toggled when light is off/on
-    this.toggle()
+    this.updateLight()
   }
   createCylinder()
   {
@@ -175,14 +201,7 @@ class Microbit_LED extends THREE.Group
   }
   toggle()
   {
-    if(this.active)
-    {
-      this.turnOff()
-    }
-    else
-    {
-      this.turnOn()
-    }
+    this.active ? this.turnOff() : this.turnOn()
   }
   turnOn()
   {
@@ -200,6 +219,13 @@ class Microbit_LED extends THREE.Group
     this.cylinder.material.color.setHex(newColor)
     this.sphere.material.color.setHex(newColor)
   }
+  animate(iFrame)
+  {
+    if(iFrame % 60 == 0)
+    {
+      this.toggle()
+    }
+  }
 }
 
 class Microbit_Board extends THREE.Group
@@ -207,17 +233,17 @@ class Microbit_Board extends THREE.Group
   constructor()
   {
     super()
-    this.leds = []
-    this.createSlot()
+    this.leds = [
+      ['','','','',''],  
+      ['','','','',''], // super ugly i apologise to
+      ['','','','',''], // everyone who ever reads
+      ['','','','',''], // this...hopefully 0 people
+      ['','','','','']
+    ] 
     this.createBoard()
     this.createLEDs()
     this.createButtons()
-    
-    
-  }
-  createSlot()
-  {
-
+    this.translateY(0.21)
   }
   createBoard()
   {
@@ -227,7 +253,26 @@ class Microbit_Board extends THREE.Group
     this.add(board)
   }
   createLEDs()
+  {
+    for(let x = 0; x < 5; x++)
+    {
+      for(let y = 0; y < 5; y++)
+      {
+        let geo = new THREE.BoxGeometry(0.01, 0.02, 0.02)
+        let mat = new THREE.MeshPhongMaterial({color: 0xADADAD})
+        let led = new THREE.Mesh(geo, mat)
+        led.translateX((x*0.04)-0.08)
+        led.translateY((y*0.04)-0.08)
+        led.translateZ(0.01)
+        this.add(led)
+        this.leds[x][y] = led
+      }
+    }
+  }
   createButtons()
+  {
+
+  }
 
 }
 
@@ -236,7 +281,8 @@ class Microbit extends THREE.Group
   constructor()
   {
     super()
-    this.iFrame=0
+    this.moveSpeed=0
+    this.rotSpeed=0
     
     this.chassis = this.createChassis()
     this.leds = this.createLEDs()
@@ -244,7 +290,6 @@ class Microbit extends THREE.Group
     this.batterypack = this.createBatteryPack()
     this.board = this.createBoard()
 
-    //this.rotateX(THREE.Math.degToRad(90))
     objectManager.addObject(this)
   }
   
@@ -282,6 +327,7 @@ class Microbit extends THREE.Group
 
     let wheels = [wheel_L, wheel_R]
     wheels.forEach(wheel=>{
+      wheel.rotateZ(THREE.Math.degToRad(-90))
       wheel.translateY(.06)
       this.chassis.add(wheel)
     })
@@ -298,16 +344,33 @@ class Microbit extends THREE.Group
   createBoard()
   {
     let board = new Microbit_Board
-    this.chassis.add(board)
+    this.chassis.slot.add(board)
     return board
   }
-  animate()
+  animate(iFrame)
   {
-    if(this.iFrame % 60 == 0)
+    this.leds.forEach(led=>{led.animate(iFrame)})
+    this.wheels.forEach(wheel=>{wheel.animate(iFrame)})
+    this.translateZ(this.moveSpeed * 0.005)
+    this.rotateY(this.rotSpeed * -0.005)
+  }
+  setMoveSpeed(speed)
+  {
+    this.moveSpeed = speed
+    this.wheels.forEach(wheel=>{wheel.speed = speed})
+  }
+  setRotSpeed(speed)
+  {
+    this.rotSpeed = speed
+    if(rotSpeed > 0)
     {
-      this.leds.forEach(led=>{led.toggle()})
+      this.wheels[0].speed =  speed
+      this.wheels[1].speed = -speed
     }
-    this.wheels.forEach(wheel=>{wheel.animate()})
-    this.iFrame = this.iFrame >= 60 ? 1 : this.iFrame+1
+    else
+    {
+      this.wheels[0].speed = -speed
+      this.wheels[1].speed =  speed
+    }
   }
 }

@@ -1,6 +1,7 @@
 var scene = new THREE.Scene()
 scene.background = new THREE.Color( 0xffffff )
 var camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 1000 )
+camera.position.y = 0
 camera.position.z = 5
 var renderer = new THREE.WebGLRenderer()
 renderer.setSize( window.innerWidth, window.innerHeight )
@@ -34,14 +35,19 @@ function UpdateControls()
   if(controls.rotccw)   { camera.rotateZ(-rotSpeed) }
 }
 
+//microbit1.setMoveSpeed(1)
+//microbit1.setRotSpeed(-1)
+
+var iFrame = 0;
 // every frame
 function animate() 
 {
   requestAnimationFrame( animate )
   // ----------
-  objectManager.animateAll()
+  objectManager.animateAll(iFrame)
   UpdateControls()  
   // ----------
+  iFrame = iFrame >= 60 ? 1 : iFrame+1
   renderer.render( scene, camera )
 }
 animate();
