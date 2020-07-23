@@ -8,7 +8,7 @@
   <link rel="icon"           sizes="192x192"     href="/mobilefavicon.png"/>
   <title>Andrew Patton | Blockly</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-  <!-- Google Blockly -->
+  <!-- Blockly -->
   <link rel="stylesheet" type="text/css" href="/Research/Blockly/blockly.css"/>
   <script src="Blockly/google-blockly-9a466fe/blockly_compressed.js"></script>
   <script src="Blockly/google-blockly-9a466fe/python_compressed.js"></script>
@@ -24,10 +24,15 @@
     <nav>
       <script src="/navigation.js" type="text/javascript"></script>
     </nav>    
-    <main>      
-      <script src="Blockly/BlocklyManager.js"></script>
-      <script src="Blockly/py2hex.js"></script>
-      <button onclick="GenerateCode(event)">Download code</button>
+    <main>
+      <!-- Blockly -->
+      <section id="blocklyContainer">
+        <button id="btnPlay" onclick="GenerateCode(event)">&#9658;</button>
+        <script src="Blockly/BlocklyManager.js"></script>
+        <script src="Blockly/py2hex.js"></script>
+        
+      </section>      
+      <!-- ThreeJS -->
       <section id="threejs-container">
 				<script src="threejs/three.js"></script>
 				<script src="threejs/ObjectManager.js"></script>

@@ -70,20 +70,26 @@ function OnResize() {
     y += element.offsetTop
     element = element.offsetParent
   } while (element)
+
   // Position blocklyDiv over blocklyArea.
   blocklyDiv.style.left = x + 'px'
   blocklyDiv.style.top = y + 'px'
-  blocklyDiv.style.width = blocklyArea.offsetWidth + 'px'
-  blocklyDiv.style.height = blocklyArea.offsetHeight + 'px'
+  let workspaceWidth = blocklyArea.offsetWidth - (parseInt(window.getComputedStyle(blocklyArea).paddingLeft)*4)
+  let workspaceHeight = blocklyArea.offsetHeight - (parseInt(window.getComputedStyle(blocklyArea).paddingTop)*4)
+  blocklyDiv.style.width = workspaceWidth + 'px'
+  blocklyDiv.style.height = workspaceHeight + 'px'
+
+  // Resize the play button too
+  let playButton = document.getElementById(`btnPlay`)
+  playButton.style.width = `${workspaceWidth}px`
   Blockly.svgResize(workspace)
 };
 
 function CreateBlocklyArea()
 {
-  let main = document.getElementsByTagName("main")[0]  
-  main.innerHTML += readFromTextFile("/Research/Blockly/blockly_toolbox.html")
-  
-  return document.getElementById('blockly')
+  let container = document.getElementById(`blocklyContainer`)
+  let blocklyHTML = readFromTextFile(`/Research/Blockly/blockly_toolbox.html`)
+  container.innerHTML = blocklyHTML + container.innerHTML
 }
 
 function CreateWorkspace()
@@ -98,7 +104,8 @@ function CreateWorkspace()
   return Blockly.inject(blocklyDiv, workspaceOptions)
 }
 
-var blocklyArea = CreateBlocklyArea() //store area for resize ops
+CreateBlocklyArea()
+var blocklyArea = document.getElementById('blocklyContainer') //store area for resize ops
 var blocklyDiv = document.getElementById('blockly')
 var workspace = CreateWorkspace()
 

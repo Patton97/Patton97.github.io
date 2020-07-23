@@ -1,1 +1,12 @@
 .blocklyTreeLabel { color: black; font-weight: bold; }
+.injectionDiv { border-radius: 10px; }
+
+#btnPlay{
+  font-size: 3em;
+  background-color: green;
+  color: white;
+  border: solid 5px white;
+  border-radius: 10px;
+  margin-top: 1vh;
+  cursor:pointer;
+}
