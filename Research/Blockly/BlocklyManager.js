@@ -81,7 +81,7 @@ function OnResize() {
 function CreateBlocklyArea()
 {
   let main = document.getElementsByTagName("main")[0]  
-  main.innerHTML += readFromTextFile("./blockly_toolbox.html")
+  main.innerHTML += readFromTextFile("/Research/Blockly/blockly_toolbox.html")
   
   return document.getElementById('blockly')
 }

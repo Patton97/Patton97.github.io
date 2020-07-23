@@ -1,11 +1,9 @@
-body { margin: 0; background-color: #000000;}
-canvas { display: block; }
 #threejs-container {
   width: 500px;
   height: 500px;
-  margin: 100px;
-  padding: 0px;
-  position: static; /* fixed or static */
-  top: 100px;
-  left: 100px;
+  padding: 10px;
+  margin:0;
+}
+canvas{
+  border-radius: 10px;
 }

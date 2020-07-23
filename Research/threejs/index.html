@@ -1,18 +1,33 @@
 <!DOCTYPE html>
+<html lang = "en-US">
+<head>  
+  <meta charset = "UTF-8">
+  <meta name="theme-color"  content="#0E1011"/>
+  <link rel="stylesheet"    type="text/css"     href="/index.css"/>
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>  
+  <link rel="icon"           sizes="192x192"     href="/mobilefavicon.png"/>
+  <title>Andrew Patton | Blockly</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+	<!-- ThreeJS -->
+	<link rel="stylesheet" type="text/css" href="/Research/threejs/threejs.css">
+</head>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>My first three.js app</title>
-		<link rel="stylesheet" type="text/css" href="threejs.css"/>
-	</head>
-	<body>
-		<div id="threejs-container">
-			<script src="three.js"></script>
-			<script src="ObjectManager.js"></script>
-			<script src="microbit_model.js"></script>    
-			<script src="globals.js"></script>
-			<script src="KeyController.js"></script>
-			<script src="setup.js"></script>
-		</div>		
-	</body>
+  <body> 
+    <nav>
+      <script src="/navigation.js" type="text/javascript"></script>
+    </nav>    
+    <main>
+			<section id="threejs-container">
+				<script src="three.js"></script>
+				<script src="ObjectManager.js"></script>
+				<script src="microbit_model.js"></script>    
+				<script src="globals.js"></script>
+				<script src="KeyController.js"></script>
+				<script src="setup.js"></script>
+			</section>
+    </main>
+    <footer>
+      <script src="/footer.js" type="text/javascript"></script>
+    </footer>
+  </body>  
 </html>

@@ -5,7 +5,6 @@ camera.rotateX(THREE.Math.degToRad(-90))
 camera.translateZ(5)
 // Renderer
 renderer.setSize( CANVAS_WIDTH, CANVAS_HEIGHT )
-document.body.appendChild( container )
 container.appendChild( renderer.domElement )
 
 // Lights

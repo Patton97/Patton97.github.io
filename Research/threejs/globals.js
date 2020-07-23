@@ -1,8 +1,14 @@
 var container = document.getElementById('threejs-container')
-const CANVAS_WIDTH  = container.offsetWidth
-const CANVAS_HEIGHT = container.offsetHeight
-console.log(container.offsetWidth)
+let paddingWidth = 0
+paddingWidth += parseInt(window.getComputedStyle(container).paddingLeft)
+paddingWidth += parseInt(window.getComputedStyle(container).paddingRight)
 
+let paddingHeight = 0
+paddingHeight += parseInt(window.getComputedStyle(container).paddingTop)
+paddingHeight += parseInt(window.getComputedStyle(container).paddingBottom)
+
+const CANVAS_WIDTH  = container.offsetWidth - paddingWidth
+const CANVAS_HEIGHT = container.offsetHeight - paddingHeight
 
 // Scene global reqs
 var scene    = new THREE.Scene()
