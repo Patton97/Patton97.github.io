@@ -47,21 +47,7 @@ function UpdateControls()
   if(controls.rotcw)    { camera.rotateZ( rotSpeed) }
   if(controls.rotccw)   { camera.rotateZ(-rotSpeed) }
 }
-
-// MOVE THIS SOMEWHERE
-class Action
-{
-  constructor(actionName, frameLength)
-  {
-    this.actionName = actionName
-    this.frameLength = frameLength
-  }
-}
-
-var running = false
-var actionNumber = 0
-var actionList = []
-var actionFrame = 0
+var actionManager = new ActionManager
 // every frame
 function animate() 
 {
@@ -69,84 +55,18 @@ function animate()
   // ----------
   objectManager.animateAll(iFrame)
   UpdateControls()
-  ExecuteUserCode()  
+  actionManager.update()  
   // ----------
   iFrame = iFrame >= 60 ? 1 : iFrame+1 // loops from 1 to 60 to 1 ... 
   renderer.render( scene, camera )
 }
 animate();
 
-function moveForward()
+function btnPlay_Pressed()
 {
-  actionList.push(new Action('moveForward', 200))
-  actionList.push(new Action('stop', 60))
-}
-function moveBackward()
-{
-  actionList.push(new Action('moveBackward', 200))
-  actionList.push(new Action('stop', 60))
-}
-function turnLeft()
-{
-  actionList.push(new Action('turnLeft', 180))
-  actionList.push(new Action('stop', 60))
-}
-
-function resetLevel()
-{
-  running = false
-  actionList = []
-  action = 0
-}
-let code = 
-`
-moveForward()
-moveForward()
-moveBackward()
-turnLeft()
-`
-function runTest()
-{
-  resetLevel()
-  eval(code) //load in new attempt
-  running = true
-}
-
-//
-function ExecuteUserCode()
-{
-  if(!running){return}
-  if(actionNumber < actionList.length)
-  {
-    Perform(actionList[actionNumber])
-  }
-  else
-  {
-    running = false
-  }
-}
-
-function Perform(action)
-{
-  if(!(action.actionName in actionDictionary)) 
-  {
-    console.log(`${action.actionName} has no implementation`)
-    return;
-  }
-  actionDictionary[action.actionName]()
-  console.log(`${action.actionName} frame #${actionFrame}`)
-  actionFrame++
-  if(actionFrame >= action.frameLength)
-  {
-    actionNumber++
-    actionFrame = 0
-  }  
-}
-
-var actionDictionary = {
-  'moveForward': function() { microbit.setMoveSpeed(1) },
-  'moveBackward' : function() { microbit.setMoveSpeed(-1) },
-  'turnLeft' : function() { microbit.setRotSpeed(-1) },
-  'turnRight' : function() { microbit.setRotSpeed(1) },
-  'stop' : function() { microbit.setMoveSpeed(0); microbit.setRotSpeed(0) }
+  actionManager.reset()
+  //load in new attempt
+  GenerateCode(event,'simulated')
+  //eval(code) // used for injecting mock code
+  actionManager.running = true
 }

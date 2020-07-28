@@ -13,6 +13,8 @@
   <script src="Blockly/google-blockly-9a466fe/blockly_compressed.js"></script>
   <script src="Blockly/google-blockly-9a466fe/python_compressed.js"></script>
   <script src="Blockly/google-blockly-9a466fe/python_microbit.js"></script>
+  <script src="Blockly/google-blockly-9a466fe/javascript_compressed.js"></script>
+  <script src="Blockly/google-blockly-9a466fe/javascript_microbit.js"></script>
   <script src="Blockly/google-blockly-9a466fe/blocks_microbit.js"></script>
   <script src="Blockly/google-blockly-9a466fe/blocks_compressed.js"></script>
   <script src="Blockly/google-blockly-9a466fe/msg/js/en.js"></script>
@@ -27,11 +29,8 @@
     <main>
       <!-- Blockly -->
       <section id="blocklyContainer">
-        <!--<button id="btnPlay" onclick="GenerateCode(event,'simulated')">&#9658;</button>-->
-        <button id="btnPlay" onclick="runTest()">&#9658;</button>
+        <button id="btnPlay" onclick="btnPlay_Pressed()">&#9658;</button>
         <script src="Blockly/BlocklyManager.js"></script>
-        <script src="Blockly/py2hex.js"></script>
-        
       </section>      
       <!-- ThreeJS -->
       <section id="threejs-container">
@@ -39,7 +38,8 @@
 				<script src="threejs/ObjectManager.js"></script>
 				<script src="threejs/microbit_model.js"></script>    
 				<script src="threejs/globals.js"></script>
-				<script src="threejs/KeyController.js"></script>
+        <script src="threejs/KeyController.js"></script>
+        <script src="threejs/ActionManager.js"></script>
 				<script src="threejs/setup.js"></script>
 			</section>
     </main>

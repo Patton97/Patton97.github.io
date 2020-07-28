@@ -56,10 +56,17 @@ function GenerateCode(event, environment)
 
 function GenerateCode_ThreeJS(event)
 {
-  //Blockly.JavaScript.addReservedWords('code')
-  //let code = Blockly.JavaScript.workspaceToCode(workspace)
+  Blockly.JavaScript.addReservedWords('code')
+  let code = Blockly.JavaScript.workspaceToCode(workspace)
 
-  let code = `moveForward()`
+  /*
+  code = 
+  `
+  actionManager.addAction_MoveForward()
+  actionManager.addAction_MoveForward()
+  actionManager.addAction_MoveBackward()
+  `
+  */
 
   // Attempt to catch any discrepencies in the code (like an IDE would)
   try {
@@ -68,9 +75,6 @@ function GenerateCode_ThreeJS(event)
   catch (error) {
     console.log(`${error}\n${required_import}${code}`)
   }
-
-  //Plug into 3js
-  /* ???? */
 }
 
 function GenerateCode_Microbit(event) 
