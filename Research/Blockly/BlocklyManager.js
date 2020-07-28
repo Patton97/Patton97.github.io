@@ -147,11 +147,13 @@ var blocklyArea = document.getElementById('blocklyContainer') //store area for r
 var blocklyDiv = document.getElementById('blockly')
 var workspace = CreateWorkspace()
 
+/*
 function myUpdateFunction(event) {
   var code = Blockly.Python.workspaceToCode(workspace)
   console.log(`---\n${code}\n---`)
 }
 workspace.addChangeListener(myUpdateFunction);
+*/
 
 //Handle resize operation | NOTE: Could be removed if planning to keep area fixed
 window.addEventListener('resize', OnResize, false)

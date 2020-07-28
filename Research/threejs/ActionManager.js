@@ -29,21 +29,25 @@ class ActionManager
   addAction_MoveForward()
   {
     this.addAction(Action_MoveForward)
-    this.addAction(Action_Stop)
+    this.addAction_Stop()
   }
   addAction_MoveBackward()
   {
     this.addAction(Action_MoveBackward)
-    this.addAction(Action_Stop)
+    this.addAction_Stop()
   }
   addAction_TurnLeft()
   {
     this.addAction(Action_TurnLeft)
-    this.addAction(Action_Stop)
+    this.addAction_Stop()
   }
   addAction_TurnRight()
   {
     this.addAction(Action_TurnRight)
+    this.addAction_Stop()
+  }
+  addAction_Stop()
+  {
     this.addAction(Action_Stop)
   }
   update()
