@@ -1,3 +1,4 @@
+// Document structuring (css, etc)
 var container = document.getElementById('threejs-container')
 let paddingWidth = 0
 paddingWidth += parseInt(window.getComputedStyle(container).paddingLeft)

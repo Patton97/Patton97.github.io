@@ -152,7 +152,7 @@ Blockly.defineBlocksWithJsonArray(
         },
         {
           "type": "field_dropdown",
-          "name": "NAME",
+          "name": "RGB_COLOUR",
           "options": 
           [
             [ { "src": "/images/Blockly/red.png",   "width": 25, "height": 25, "alt": "red"   }, "#FF0000"   ],

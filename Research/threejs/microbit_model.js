@@ -1,4 +1,3 @@
-//const { MeshPhongMaterial } = require("three")
 
 class Microbit_Wheel extends THREE.Group
 {
@@ -289,7 +288,7 @@ class Microbit extends THREE.Group
     this.wheels = this.createWheels()    
     this.batterypack = this.createBatteryPack()
     this.board = this.createBoard()
-
+    new THREE.Box3().setFromObject( this ).getCenter( this.position ).multiplyScalar( - 1 );
     objectManager.addObject(this)
   }
   
@@ -315,8 +314,7 @@ class Microbit extends THREE.Group
     })
 
     return leds
-  }
-  
+  }  
   createWheels()
   {
     let wheel_L = new Microbit_Wheel
@@ -352,7 +350,7 @@ class Microbit extends THREE.Group
     this.leds.forEach(led=>{led.animate()})
     this.wheels.forEach(wheel=>{wheel.animate()})
     this.translateZ(this.moveSpeed * 0.005)
-    this.rotateY(this.rotSpeed * -0.005)
+    this.rotateY(THREE.Math.degToRad(this.rotSpeed * -0.5))
   }
   setMoveSpeed(speed)
   {

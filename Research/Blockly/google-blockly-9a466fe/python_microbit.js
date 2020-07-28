@@ -46,5 +46,5 @@ Blockly.Python['microbit_rgb'] = function(block) {
   let g = (hex >> 8) & 255
   let b = hex & 255
 
-  return `rgb_all(${r},${g},${b})`
+  return `rgb_all(${r},${g},${b})\n`
 }

@@ -1,8 +1,9 @@
 // Adapted from make_hex.py script created by Paul Grenfell (2016)
 // Available at: http://giggletronics.blogspot.com/2016/09/what-are-hex-files.html
 
-var header_hex = readTextFile(`header.hex`)
-var base_py = readTextFile(`base.py`)
+var header_hex = readTextFile(`/Research/Blockly/header.hex`)
+console.log(header_hex)
+var base_py = readTextFile(`/Research/Blockly/base.py`)
 var prologue_hex = `:020000040003F7\n`
 var epilogue_hex = `:0400000500013A8537\n:00000001FF\n`
 var output_file;

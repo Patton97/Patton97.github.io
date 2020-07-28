@@ -39,10 +39,44 @@ function download(filename, text) {
   document.body.removeChild(element)
 }
 
-function GenerateCode(event) 
+function GenerateCode(event, environment)
+{
+  if(environment == 'physical')
+  { 
+    GenerateCode_Microbit(event)
+    return
+  }
+  if(environment == 'simulated') 
+  { 
+    GenerateCode_ThreeJS(event)
+    return
+  }
+  alert('invalid environment arg')
+}
+
+function GenerateCode_ThreeJS(event)
+{
+  //Blockly.JavaScript.addReservedWords('code')
+  //let code = Blockly.JavaScript.workspaceToCode(workspace)
+
+  let code = `moveForward()`
+
+  // Attempt to catch any discrepencies in the code (like an IDE would)
+  try {
+    eval(code)
+  } 
+  catch (error) {
+    console.log(`${error}\n${required_import}${code}`)
+  }
+
+  //Plug into 3js
+  /* ???? */
+}
+
+function GenerateCode_Microbit(event) 
 {
   //loadWorkspace(event.target);
-  Blockly.Python.addReservedWords('code');
+  Blockly.Python.addReservedWords('code')
   
   let required_import = `from microbit import *\n`
   let code = Blockly.Python.workspaceToCode(workspace)
