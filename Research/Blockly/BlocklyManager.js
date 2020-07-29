@@ -58,16 +58,7 @@ function GenerateCode_ThreeJS(event)
 {
   Blockly.JavaScript.addReservedWords('code')
   let code = Blockly.JavaScript.workspaceToCode(workspace)
-
-  /*
-  code = 
-  `
-  actionManager.addAction_MoveForward()
-  actionManager.addAction_MoveForward()
-  actionManager.addAction_MoveBackward()
-  `
-  */
-
+  
   // Attempt to catch any discrepencies in the code (like an IDE would)
   try {
     eval(code)

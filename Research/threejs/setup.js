@@ -3,7 +3,8 @@ scene.background = new THREE.Color( 0xffffff )
 // Camera
 camera.rotateX(THREE.Math.degToRad(-90))
 camera.translateZ(5)
-camera.translateY(-1)
+camera.translateY(-2)
+camera.translateX(2)
 // Renderer
 renderer.setSize( CANVAS_WIDTH, CANVAS_HEIGHT )
 container.appendChild( renderer.domElement )
@@ -15,17 +16,49 @@ camera.add(pointLight)
 scene.add(camera)
 
 // Floor
-let geo = new THREE.PlaneGeometry( 1, 1, 32 )
-let colours =  [0xff0000, 0x00ff00, 0x0000ff]
-for(let i = 0; i < 3; i++)
+function loadLevelGridFromFile()
 {
-  let mat = new THREE.MeshBasicMaterial( {color: colours[i], side: THREE.DoubleSide} )
-  let floor = new THREE.Mesh(geo, mat)
-  floor.translateZ(i)
-  floor.translateY(-0.3)
-  floor.rotateX(THREE.Math.degToRad(90))
-  scene.add(floor)
+  let levelData = readFromTextFile(`/Research/threejs/levels/level1.txt`)
+  levelData = levelData.split(`\r\n`)
+  console.log(levelData)
+  let floorGrid = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
+  let x = 0, y = 0
+  for(row in levelData)
+  {
+    for(char of levelData[row])
+    {
+      floorGrid[y][x] = parseInt(char)
+      x++
+    }
+    x=0
+    y++
+  }
+  return floorGrid
 }
+var tileFactory = new TileFactory
+function loadLevel()
+{
+  let geo = new THREE.PlaneGeometry( 1, 1, 32 )
+  let colours =  [0xC0C0C0, 0x0000C0]
+  let floorGrid = loadLevelGridFromFile()
+
+  for(let x = 0; x < floorGrid.length; x++)
+  {
+    for(let y = 0; y < floorGrid[x].length; y++)
+    {
+      let tileData = floorGrid[x][y]
+      let floor = tileFactory.createRoadTile(colours[tileData])
+      
+      floor.rotateX(THREE.Math.degToRad(90))      
+      floor.translateX(x)
+      floor.translateY(y)
+      floor.translateZ(0.3)
+
+      scene.add(floor)
+    }
+  }
+}
+loadLevel()
 
 
 // DEBUG CONTROLS ONLY (toggle in globals.js)
