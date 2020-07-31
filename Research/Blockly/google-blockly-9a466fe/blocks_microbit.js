@@ -15,7 +15,7 @@ Blockly.defineBlocksWithJsonArray(
       "args0": [
         {
           "type": "field_image",
-          "src": "/images/Blockly/LED_bulb.png",
+          "src": "/Research/Blockly/images/LED_bulb.png",
           "width": 25,
           "height": 25,
           "alt": "*",
@@ -44,7 +44,7 @@ Blockly.defineBlocksWithJsonArray(
       "args0": [
         {
           "type": "field_image",
-          "src": "/Images/Blockly/wheel.png",
+          "src": "/Research/Blockly/images/wheel.png",
           "width": 25,
           "height": 25,
           "alt": "*",
@@ -63,12 +63,36 @@ Blockly.defineBlocksWithJsonArray(
       "helpUrl": ""
     },
     {
+      "type": "microbit_motor_turn",
+      "message0": "%1 Turn %2",
+      "args0": [
+        {
+          "type": "field_image",
+          "src": "/Research/Blockly/images/steering.png",
+          "width": 25,
+          "height": 25,
+          "alt": "*",
+          "flipRtl": false
+        },
+        {
+          "type": "field_dropdown",
+          "name": "DIRECTION",
+          "options": [ ["left", "left"], ["right", "right"] ]
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 230,
+      "tooltip": "Drive the robot",
+      "helpUrl": ""
+    },
+    {
       "type": "microbit_display_image",
       "message0": "%1 Display %2",
       "args0": [
         {
           "type": "field_image",
-          "src": "/Images/Blockly/display.png",
+          "src": "/Research/Blockly/images/display.png",
           "width": 25,
           "height": 25,
           "alt": "*",
@@ -79,10 +103,10 @@ Blockly.defineBlocksWithJsonArray(
           "name": "IMAGE",
           "options": 
           [
-            [ {"src": "/Images/Blockly/display_happy.png", "width": 25, "height": 25, "alt": "happy face"}, "HAPPY" ],
-            [ {"src": "/Images/Blockly/display_sad.png",   "width": 25, "height": 25, "alt": "sad face"  }, "SAD" ],
-            [ {"src": "/Images/Blockly/display_yes.png",   "width": 25, "height": 25, "alt": "tick (yes)"}, "YES" ],
-            [ {"src": "/Images/Blockly/display_no.png",    "width": 25, "height": 25, "alt": "cross (no)"}, "NO" ],
+            [ {"src": "/Research/Blockly/images/display_happy.png", "width": 25, "height": 25, "alt": "happy face"}, "HAPPY" ],
+            [ {"src": "/Research/Blockly/images/display_sad.png",   "width": 25, "height": 25, "alt": "sad face"  }, "SAD" ],
+            [ {"src": "/Research/Blockly/images/display_yes.png",   "width": 25, "height": 25, "alt": "tick (yes)"}, "YES" ],
+            [ {"src": "/Research/Blockly/images/display_no.png",    "width": 25, "height": 25, "alt": "cross (no)"}, "NO" ],
           ]
         }
       ],
@@ -98,7 +122,7 @@ Blockly.defineBlocksWithJsonArray(
       "args0": [
         {
           "type": "field_image",
-          "src": "/Images/Blockly/music.png",
+          "src": "/Research/Blockly/images/music.png",
           "width": 25,
           "height": 25,
           "alt": "*",
@@ -144,7 +168,7 @@ Blockly.defineBlocksWithJsonArray(
       "args0": [
         {
           "type": "field_image",
-          "src": "/Images/Blockly/RGB.png",
+          "src": "/Research/Blockly/images/RGB.png",
           "width": 25,
           "height": 25,
           "alt": "*",
@@ -155,10 +179,10 @@ Blockly.defineBlocksWithJsonArray(
           "name": "RGB_COLOUR",
           "options": 
           [
-            [ { "src": "/Images/Blockly/red.png",   "width": 25, "height": 25, "alt": "red"   }, "#FF0000"   ],
-            [ { "src": "/Images/Blockly/green.png", "width": 25, "height": 25, "alt": "green" }, "#00FF00" ],
-            [ { "src": "/Images/Blockly/blue.png",  "width": 25, "height": 25, "alt": "blue"  }, "#0000FF"  ],
-            [ { "src": "/Images/Blockly/white.png", "width": 25, "height": 25, "alt": "white" }, "#FFFFFF" ],
+            [ { "src": "/Research/Blockly/images/red.png",   "width": 25, "height": 25, "alt": "red"   }, "#FF0000"   ],
+            [ { "src": "/Research/Blockly/images/green.png", "width": 25, "height": 25, "alt": "green" }, "#00FF00" ],
+            [ { "src": "/Research/Blockly/images/blue.png",  "width": 25, "height": 25, "alt": "blue"  }, "#0000FF"  ],
+            [ { "src": "/Research/Blockly/images/white.png", "width": 25, "height": 25, "alt": "white" }, "#FFFFFF" ],
             [ "OFF", "#000000" ]
           ]
         }

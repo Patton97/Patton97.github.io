@@ -58,13 +58,13 @@ function GenerateCode_ThreeJS(event)
 {
   Blockly.JavaScript.addReservedWords('code')
   let code = Blockly.JavaScript.workspaceToCode(workspace)
-  
+  console.log(code)
   // Attempt to catch any discrepencies in the code (like an IDE would)
   try {
     eval(code)
   } 
   catch (error) {
-    console.log(`${error}\n${required_import}${code}`)
+    console.log(`${error}\n${code}`)
   }
 }
 

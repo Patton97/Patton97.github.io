@@ -1,6 +1,10 @@
+// --------------------------------------------------------------------------------
+
 Blockly.Python['microbit_wait'] = function(block) {
   return 'sleep(500)\n'
 };
+
+// --------------------------------------------------------------------------------
 
 Blockly.Python['microbit_indicator'] = function(block) {
   var dropdown_side = block.getFieldValue('SIDE')
@@ -17,6 +21,8 @@ Blockly.Python['microbit_indicator'] = function(block) {
   return `${pin}.write_digital(${on})\n`
 };
 
+// --------------------------------------------------------------------------------
+
 Blockly.Python['microbit_motor'] = function(block) {
   var dropdown_direction = block.getFieldValue('DIRECTION')
   let speed = 100
@@ -24,14 +30,20 @@ Blockly.Python['microbit_motor'] = function(block) {
   return `motor(${direction},${speed},${direction},${speed})\nsleep(500)\nmotor(0,0,0,0)\n`
 };
 
+// --------------------------------------------------------------------------------
+
 Blockly.Python['microbit_display_image'] = function(block) {
   var dropdown_image = block.getFieldValue('IMAGE')
   return `display.show(Image.${dropdown_image})\n`
 };
 
+// --------------------------------------------------------------------------------
+
 Blockly.Python['microbit_music'] = function(block) {
   return `music.play(music.${dropdown_track})\n`
 };
+
+// --------------------------------------------------------------------------------
 
 Blockly.Python['microbit_rgb'] = function(block) {
   var dropdown_colour = block.getFieldValue('RGB_COLOUR')

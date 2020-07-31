@@ -218,13 +218,6 @@ class Microbit_LED extends THREE.Group
     this.cylinder.material.color.setHex(newColor)
     this.sphere.material.color.setHex(newColor)
   }
-  animate()
-  {
-    if(iFrame % 60 == 0)
-    {
-      this.toggle()
-    }
-  }
 }
 
 class Microbit_Board extends THREE.Group
@@ -288,7 +281,10 @@ class Microbit extends THREE.Group
     this.wheels = this.createWheels()    
     this.batterypack = this.createBatteryPack()
     this.board = this.createBoard()
-    new THREE.Box3().setFromObject( this ).getCenter( this.position ).multiplyScalar( - 1 );
+
+    this.chassis.translateY(-0.15)
+    this.chassis.translateZ(-0.2)
+
     objectManager.addObject(this)
   }
   
@@ -347,7 +343,6 @@ class Microbit extends THREE.Group
   }
   animate()
   {
-    this.leds.forEach(led=>{led.animate()})
     this.wheels.forEach(wheel=>{wheel.animate()})
     this.translateZ(this.moveSpeed * 0.005)
     this.rotateY(THREE.Math.degToRad(this.rotSpeed * -0.5))
@@ -370,5 +365,15 @@ class Microbit extends THREE.Group
       this.wheels[0].speed = -speed
       this.wheels[1].speed =  speed
     }
+  }
+  turnOnLED(side) // 0 = left, 1 = right, 2 = both
+  {
+    if(side === 2) { this.leds.forEach(led=>{led.turnOn()}) }
+    else {this.leds[side].turnOn()}    
+  }
+  turnOffLED(side) // 0 = left, 1 = right, 2 = both
+  {
+    if(side === 2) { this.leds.forEach(led=>{led.turnOff()}) }
+    else {this.leds[side].turnOff()}  
   }
 }

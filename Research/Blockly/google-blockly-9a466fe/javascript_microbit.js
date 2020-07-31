@@ -1,35 +1,45 @@
+// --------------------------------------------------------------------------------
+
 Blockly.JavaScript['microbit_wait'] = function(block) {
   return 'actionManager.addAction_Stop()\n'
 };
-/*
-Blockly.Python['microbit_indicator'] = function(block) {
+
+// --------------------------------------------------------------------------------
+
+Blockly.JavaScript['microbit_indicator'] = function(block) {
   var dropdown_side = block.getFieldValue('SIDE')
-  var dropdown_on = block.getFieldValue('ON')
-  
-  let pin = dropdown_side == 'left' ? 'pin8' : 'pin12'
-  let on = dropdown_on == 'true' ? '1' : '0'
+  let dropdown_on = block.getFieldValue('ON')
 
-  if(dropdown_side == 'both')
-  {
-    return `pin8.write_digital(${on})\npin12.write_digital(${on})\n`
-  }
+  // Capitalise first letter 
+  let side = dropdown_side.charAt(0).toUpperCase() + dropdown_side.slice(1)
+  let on = dropdown_on === 'true' ? `On` : `Off`
 
-  return `${pin}.write_digital(${on})\n`
-};*/
+  return `actionManager.addAction_Turn${on}${side}LED()\n`
+};
+
+// --------------------------------------------------------------------------------
 
 Blockly.JavaScript['microbit_motor'] = function(block) {
   var dropdown_direction = block.getFieldValue('DIRECTION')
-  let code = ''
-  if(dropdown_direction == 'forward')
-  {
-    code = `actionManager.addAction_MoveForward()`
-  }
-  else if(dropdown_direction == 'backward')
-  {
-    code = `actionManager.addAction_MoveBackward()`
-  }
-  return `${code}\n`
+  
+  // Capitalise first letter 
+  let direction = dropdown_direction.charAt(0).toUpperCase() + dropdown_direction.slice(1)
+  
+  return `actionManager.addAction_Move${direction}()\n`
 };
+
+// --------------------------------------------------------------------------------
+
+Blockly.JavaScript['microbit_motor_turn'] = function(block) {
+  var dropdown_direction = block.getFieldValue('DIRECTION')
+
+  // Capitalise first letter 
+  let direction = dropdown_direction.charAt(0).toUpperCase() + dropdown_direction.slice(1)
+  
+  return `actionManager.addAction_Turn${direction}()\n`
+};
+
+// --------------------------------------------------------------------------------
 
 /*
 Blockly.JavaScript['microbit_display_image'] = function(block) {
@@ -38,11 +48,16 @@ Blockly.JavaScript['microbit_display_image'] = function(block) {
 };
 */
 
+// --------------------------------------------------------------------------------
+
 /*
 Blockly.JavaScript['microbit_music'] = function(block) {
   return `music.play(music.${dropdown_track})\n`
 };
 */
+
+// --------------------------------------------------------------------------------
+
 /*
 Blockly.JavaScript['microbit_rgb'] = function(block) {
   var dropdown_colour = block.getFieldValue('RGB_COLOUR')
