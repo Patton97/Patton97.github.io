@@ -1,3 +1,4 @@
+
 function GenerateFooterHTML()
 {
   let html = ``

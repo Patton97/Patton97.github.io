@@ -1,3 +1,4 @@
+
 // levels are drawn as screens are (from top left)
 //  0 1 2
 // 0+
@@ -48,10 +49,9 @@ class LevelLoader
     // this is required due to differences in CRLF requirements of win vs linux
     // https://owasp.org/www-community/vulnerabilities/CRLF_Injection
     fileData = fileData.split(/\n|\r\n/) 
-    
+
     let newLevelData = []
-    let x = 0, y = 0
-    
+    let y = 0    
     for(let row in fileData)
     {
       newLevelData.push([])
@@ -61,9 +61,7 @@ class LevelLoader
 
         let rowWidth = fileData[row].length
         if(rowWidth > this.levelWidth) { this.levelWidth = rowWidth }
-        x++
       }
-      x=0
       y++
     }
     this.levelHeight = fileData.length
