@@ -3,7 +3,7 @@ function readFromTextFile(file) {
   let fileContents;
   let rawFile = new XMLHttpRequest()
   rawFile.open("GET", file, false)
-  //rawFile.overrideMimeType("text/html")
+  rawFile.overrideMimeType("text/plain")
   rawFile.onreadystatechange = function ()
   {
     if(rawFile.readyState === 4)
