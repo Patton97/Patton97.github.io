@@ -43,9 +43,12 @@ class LevelLoader
   readFileData()
   {
     let fileData
+    let i
     while( fileData === undefined)
     {
       fileData = readFromTextFile(`/Research/threejs/levels/level1.txt`)
+      console.log(`Attempt #${i}: ${fileData}`)
+      i++
     }    
     
     fileData = fileData.split(`\r\n`)
