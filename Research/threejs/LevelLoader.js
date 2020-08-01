@@ -42,16 +42,13 @@ class LevelLoader
   }
   readFileData()
   {
-    let fileData
-    let i
-    while( fileData === undefined)
-    {
-      fileData = readFromTextFile(`/Research/threejs/levels/level1.txt`)
-      console.log(`Attempt #${i}: ${fileData}`)
-      i++
-    }    
+    let fileData = readFromTextFile(`/Research/threejs/levels/level1.txt`)
     
-    fileData = fileData.split(`\r\n`)
+    // split where either carriage return and linebreak (\r\n), or just linebreak (\n)
+    // this is required due to differences in CRLF requirements of win vs linux
+    // https://owasp.org/www-community/vulnerabilities/CRLF_Injection
+    fileData = fileData.split(/\n|\r\n/) 
+    
     let newLevelData = []
     let x = 0, y = 0
     
