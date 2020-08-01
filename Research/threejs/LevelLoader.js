@@ -42,7 +42,8 @@ class LevelLoader
   }
   readFileData()
   {
-    let fileData = readFromTextFile(`/Research/threejs/levels/level1.txt`)
+    let fileData
+    fileData = readFromTextFile(`/Research/threejs/levels/level1.txt`)
     fileData = fileData.split(`\r\n`)
     let newLevelData = []
     let x = 0, y = 0
