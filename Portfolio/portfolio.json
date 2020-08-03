@@ -24,7 +24,7 @@
     "links" : 
     [
       { "class" : "github", "url" : "https://github.com/Patton97/Dengar",  "text" : "View Source" },
-      { "class" : "dengar", "url":"./Dengar", "text" : "Play Now!" },
+      { "class" : "dengar", "url":"/Dengar", "text" : "Play Now!" },
       { "class" : "website", "url":"https://js13kgames.com","text" : "js13kGames' Website" }
     ],
     "video" : {"url": "/Videos/dengar.mp4", "scale" : 50}
@@ -112,7 +112,6 @@
     "links" : 
     [
       { "class" : "github", "url" : "https://github.com/Patton97/Patton97.github.io/tree/master/Animation/ChristmasTrain",  "text" : "View Source" },
-      { "class" : "download", "url":"/Animation/ChristmasTrain/ChristmasTrain.zip", "text" : "Download" },
       { "class" : "youtube", "url":"https://youtu.be/IpwEOZqjkLU", "text" : "Trailer" }
     ],
     "video" : {"url": "/Videos/combine.mp4", "scale" : 75}
