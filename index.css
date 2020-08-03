@@ -221,7 +221,7 @@ video, canvas
   content:""; 
 
   /*Spritesheet preloads all images to avoid flickering and clean css*/
-  background: url('Images/Tools/spritesheet.png') 
+  background: url('/Images/Tools/spritesheet.png') 
 }
 .tools .blueprints:before { background-position: 0    0px!important; }
 .tools .cpp:before        { background-position: 0  -50px!important; }
@@ -299,7 +299,7 @@ video, canvas
   margin: 0 5px 0 0;
   content:"";
   /*Spritesheet preloads all images to avoid flickering and clean css*/
-  background: url('Images/Links/spritesheet.png') 
+  background: url('/Images/Links/spritesheet.png') 
 }
 
 .dengar:before   {background-position: 0    0px!important;}
@@ -322,38 +322,7 @@ video, canvas
 /* END OF MAIN */
 /***************/
 
-.bullet-sprites
-{
-  list-style-type: none;
-  margin: 0;
-  padding-left:0;
-}
 
-.bullet-sprites li:before
-{
-  --tilesize: 25px;
-  height: var(--tilesize);
-  width: var(--tilesize);
-  float: left;
-  margin: 0 5px 0 0;
-  content:"";
-  background-image: url(./Images/Misc/25px/spritesheet.png);
-}
-
-/*Good lord this is ugly*/
-.bullet-sprites .laughter:before     { background-position: 0    0px; }
-.bullet-sprites .rocketleague:before { background-position: 0 calc(0px - (var(--tilesize) * 1)); }
-.bullet-sprites .sixers:before       { background-position: 0 calc(0px - (var(--tilesize) * 2)); }
-.bullet-sprites .spiderman:before    { background-position: 0 calc(0px - (var(--tilesize) * 3)); }
-.bullet-sprites .thumbsdown:before   { background-position: 0 calc(0px - (var(--tilesize) * 4)); }
-
-.bullet-sprites li
-{
-  margin-bottom: 25px;
-}
-
-.spiderman a { color: #B11313; text-decoration: underline;}
-.spiderman a:visited { color: #DF1F2D;}
 /*******************/
 /* START OF FOOTER */
 /*******************/
@@ -415,7 +384,7 @@ footer .twitter {order: 2;} /*Flex item order*/
   .bullet-sprites li:before
   {
     --tilesize: 50px;
-    background-image: url(./Images/Misc/50px/spritesheet.png);
+    background-image: url('/Images/Misc/50px/spritesheet.png');
   }
   .bullet-sprites li
   {

@@ -77,7 +77,7 @@ var json = (function ()
   $.ajax({
       'async': false,
       'global': false,
-      'url': './portfolio.json',
+      'url': '/Portfolio/portfolio.json',
       'dataType': "json",
       'success': function (data) {
           json = data;

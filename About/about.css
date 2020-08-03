@@ -1,0 +1,32 @@
+.bullet-sprites
+{
+  list-style-type: none;
+  margin: 0;
+  padding-left:0;
+}
+
+.bullet-sprites li:before
+{
+  --tilesize: 25px;
+  height: var(--tilesize);
+  width: var(--tilesize);
+  float: left;
+  margin: 0 5px 0 0;
+  content:"";
+  background-image: url('/Images/Misc/25px/spritesheet.png');
+}
+
+/*Good lord this is ugly*/
+.bullet-sprites .laughter:before     { background-position: 0    0px; }
+.bullet-sprites .rocketleague:before { background-position: 0 calc(0px - (var(--tilesize) * 1)); }
+.bullet-sprites .sixers:before       { background-position: 0 calc(0px - (var(--tilesize) * 2)); }
+.bullet-sprites .spiderman:before    { background-position: 0 calc(0px - (var(--tilesize) * 3)); }
+.bullet-sprites .thumbsdown:before   { background-position: 0 calc(0px - (var(--tilesize) * 4)); }
+
+.bullet-sprites li
+{
+  margin-bottom: 25px;
+}
+
+.spiderman a { color: #B11313; text-decoration: underline;}
+.spiderman a:visited { color: #DF1F2D;}

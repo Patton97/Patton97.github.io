@@ -6,7 +6,7 @@ function GenerateNavHTML()
   html +=`</a>`
   html +=`<ul>`
   html +=`  <li><a href="/about">About</a></li>`
-  html +=`  <li><a href="/portfolio">Portfolio</a></li>`
+  html +=`  <li><a href="/Portfolio">Portfolio</a></li>`
   html +=`  <li><a href="/Downloads/Resume.pdf">CV [PDF]</a></li>`
   html +=`</ul>`
 
