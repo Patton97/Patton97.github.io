@@ -1,0 +1,42 @@
+.levelPortal-container{
+  width: 95%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  margin: 0 auto;
+}
+
+.levelPortal, .researchForm
+{
+  display: block;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+
+  border: 5px solid;
+  border-radius: 10px;
+}
+
+.levelPortal
+{  
+  border-color: white;
+  padding: 7.5%;
+  font-weight: bold;  
+}
+.levelPortal:hover { border-color: black; }
+
+.levelPortal:nth-of-type(1) { background-color: #ff3333; }
+.levelPortal:nth-of-type(2) { background-color: #ff8800; }
+.levelPortal:nth-of-type(3) { background-color: #008800; }
+.levelPortal:nth-of-type(4) { background-color: #0088ff; }
+.levelPortal:nth-of-type(5) { background-color: #880088; }
+
+.researchForm
+{
+  margin: 10px auto;
+  width: 95%;
+  background-color: #EEEAAA;  
+  
+  border-color: #EEEAAA;  
+}
+.researchForm:hover { border-color: black; }
