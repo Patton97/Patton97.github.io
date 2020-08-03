@@ -4,7 +4,7 @@ function GenerateThumbnailHTML(project)
   let html = ``
   html += `<div class="thumbnail-wrapper">`
   html += `  <p class="thumbnail-description">${project.title}</p>`
-  html += `  <a href="./portfolio#${project.id}">`
+  html += `  <a href="/Portfolio#${project.id}">`
   html += `    <img src="${project.thumbnail}" class="thumbnail">`  
   html += `  </a>`
   html+= `</div>`
@@ -34,7 +34,7 @@ var json = (function ()
   $.ajax({
       'async': false,
       'global': false,
-      'url': './portfolio.json',
+      'url': '/Portfolio/portfolio.json',
       'dataType': "json",
       'success': function (data) {
           json = data;
