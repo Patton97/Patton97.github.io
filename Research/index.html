@@ -31,9 +31,10 @@
             // All level portals lead to same page, but before redirecting
             // they will first update the levelID item in localStorage
             window.onload = function() {    
-              Array.from(document.getElementsByClassName(`levelPortal`)).forEach(portal => {
-                portal.onclick = function() {
-                  localStorage.setItem("levelID", portal.textContent)
+              let portals = Array.from(document.getElementsByClassName(`levelPortal`))
+              portals.forEach(p => {
+                p.onclick = function() {
+                  localStorage.setItem("levelID", p.textContent)
                   return true
                 }
               })
