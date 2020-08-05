@@ -56,10 +56,19 @@ animate();
 
 function btnPlay_Pressed()
 {
-  actionManager.reset()
-  //load in new attempt
+  ResetLevel()
   GenerateCode(event,'simulated')
-  
-  //eval(code) // used for injecting mock code
-  actionManager.running = true
+  StartAnimation()
+}
+
+function ResetLevel()
+{
+  microbit.reset()
+  actionManager.reset()
+}
+
+// Short delay to allow user to acknowledge level has been reset
+function StartAnimation()
+{
+  setTimeout(function(){ actionManager.running = true }, 1000)
 }

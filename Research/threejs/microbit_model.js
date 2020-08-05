@@ -376,4 +376,26 @@ class Microbit extends THREE.Group
     if(side === 2) { this.leds.forEach(led=>{led.turnOff()}) }
     else {this.leds[side].turnOff()}  
   }
+  reset()
+  {
+    microbit.position.set(levelLoader.startingPos.x,-levelLoader.startingPos.y,0)
+    
+    //surely a better way to autorot than this
+    //let dir = levelLoader.startingDir
+    let dir = new THREE.Vector2(-1,0)
+    let degToRad_90  = THREE.Math.degToRad(90)
+    let degToRad_180 = deg90*2
+
+    // default to facing up
+    microbit.rotation.set(-degToRad_90, 0, degToRad_180) 
+    
+    if(isFacingRight(dir)) { microbit.rotateY(-degToRad_90)  }
+    if(isFacingDown(dir))  { microbit.rotateY( degToRad_180) }
+    if(isFacingLeft(dir))  { microbit.rotateY( degToRad_90)  }
+  }
 }
+
+function isFacingUp(v)    { return v.equals(new THREE.Vector2( 0,-1)) }
+function isFacingRight(v) { return v.equals(new THREE.Vector2( 1, 0)) }
+function isFacingDown(v)  { return v.equals(new THREE.Vector2( 0, 1)) }
+function isFacingLeft(v)  { return v.equals(new THREE.Vector2(-1, 0)) }

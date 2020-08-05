@@ -6,17 +6,6 @@ class Action
     this.frameLength = frameLength
   }
 }
-var Action_MoveForward  = new Action('MoveForward', 200)
-var Action_MoveBackward = new Action('MoveBackward', 200)
-var Action_TurnLeft     = new Action('TurnLeft', 180)
-var Action_TurnRight    = new Action('TurnRight', 180)
-var Action_Stop         = new Action('Stop', 60)
-var Action_TurnOnLeftLED   = new Action('TurnOnLeftLED', 10)
-var Action_TurnOnRightLED  = new Action('TurnOnRightLED', 10)
-var Action_TurnOnBothLED   = new Action('TurnOnBothLED', 10)
-var Action_TurnOffLeftLED  = new Action('TurnOffLeftLED', 10)
-var Action_TurnOffRightLED = new Action('TurnOffRightLED', 10)
-var Action_TurnOffBothLED  = new Action('TurnOffBothLED', 10)
 
 class ActionManager
 {
@@ -26,59 +15,71 @@ class ActionManager
     this.running = false
     this.actionNumber = 0
     this.actionFrame = 0
+    this.predictionSuccess = true
+    this.position = new THREE.Vector2(0, 0)
+    this.facing = new THREE.Vector2(0, 1)
     this.reset()
   }
-  addAction(action)
+  addAction(name, frameLength)
   {
-    this.actionList.push(action)
+    //if prediction has reached fail state, ignore all further actions
+    if(!this.predictionSuccess) { return }
+    this.actionList.push(new Action(name, frameLength))
   }
   addAction_MoveForward()
   {
-    this.addAction(Action_MoveForward)
+    this.addAction('MoveForward', 200)
     this.addAction_Stop()
+    
+    this.evaluate(1)
   }
   addAction_MoveBackward()
   {
-    this.addAction(Action_MoveBackward)
+    this.addAction('MoveBackward', 200)
     this.addAction_Stop()
+    this.evaluate(-1)
   }
   addAction_TurnLeft()
   {
-    this.addAction(Action_TurnLeft)
+    this.addAction('TurnLeft', 180)
     this.addAction_Stop()
+    
+    //surely a better way
+    this.facing.set(this.facing.y, -this.facing.x)
   }
   addAction_TurnRight()
   {
-    this.addAction(Action_TurnRight)
+    this.addAction('TurnRight', 180)
     this.addAction_Stop()
+
+    //surely a better way
+    this.facing.set(-this.facing.y, this.facing.x)
   }
-  addAction_Stop()
+  addAction_Stop() { this.addAction('Stop', 60) }
+  addAction_TurnOnLeftLED()  { this.addAction('TurnOnLeftLED',   10) }
+  addAction_TurnOnRightLED() { this.addAction('TurnOnRightLED',  10) }
+  addAction_TurnOnBothLED()  { this.addAction('TurnOnBothLED',   10) }
+  addAction_TurnOffLeftLED() { this.addAction('TurnOffLeftLED',  10) }
+  addAction_TurnOffRightLED(){ this.addAction('TurnOffRightLED', 10) }
+  addAction_TurnOffBothLED() { this.addAction('TurnOffBothLED',  10) }
+  evaluate(direction)
   {
-    this.addAction(Action_Stop)
+    this.position.add(this.facing.multiplyScalar(direction))
+    if(!this.isValidPosition())
+    {
+      this.predicting = false
+      this.predictionSuccess = false
+    }
   }
-  addAction_TurnOnLeftLED()
+  isValidPosition()
   {
-    this.addAction(Action_TurnOnLeftLED)
-  }
-  addAction_TurnOnRightLED()
-  {
-    this.addAction(Action_TurnOnRightLED)
-  }
-  addAction_TurnOnBothLED()
-  {
-    this.addAction(Action_TurnOnBothLED)
-  }
-  addAction_TurnOffLeftLED()
-  {
-    this.addAction(Action_TurnOffLeftLED)
-  }
-  addAction_TurnOffRightLED()
-  {
-    this.addAction(Action_TurnOffRightLED)
-  }
-  addAction_TurnOffBothLED()
-  {
-    this.addAction(Action_TurnOffBothLED)
+    //if off-grid
+    if(this.position.x < 0 || this.position.x >= levelLoader.levelWidth
+    || this.position.y < 0 || this.position.y >= levelLoader.levelHeight)
+    {
+      return false
+    }
+    return true
   }
   update()
   {
@@ -97,7 +98,7 @@ class ActionManager
     if(!(action.name in actionDictionary)) 
     {
       console.log(`${action.name} has no implementation`)
-      return;
+      return
     }
     actionDictionary[action.name]() // call action func via dictionary of "delegates" (not really delegates, but same idea)
 
@@ -114,6 +115,10 @@ class ActionManager
     this.running = false
     this.actionNumber = 0
     this.actionFrame = 0
+    this.predicting = false
+    this.predictionSuccess = true
+    this.position.set(levelLoader.startingPos.x, levelLoader.startingPos.y)
+    this.position.set(levelLoader.startingDir.x, levelLoader.startingDir.y)
   }
 }
 

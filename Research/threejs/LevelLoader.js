@@ -21,6 +21,7 @@ class LevelLoader
       7: function() { return tileFactory.createRoadCorner(3)},
     }
     this.startingPos = new THREE.Vector2(0,0)
+    this.startingDir = new THREE.Vector2(0,1)
     this.levelWidth = 0
     this.levelHeight = 0
   }

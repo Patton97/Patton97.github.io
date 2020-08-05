@@ -38,7 +38,7 @@ class RoadTile extends THREE.Group
     super()
     let roadColour = !debug ? getRandomColour() : 0x696969
     this.roadMat = new THREE.MeshBasicMaterial( { color: roadColour, side: THREE.DoubleSide } )
-    this.curbMat = new THREE.MeshBasicMaterial( { color: 0xf30000 } )
+    this.curbMat = new THREE.MeshBasicMaterial( { color: 0xf32800 } )
     this.add(new RoadBase(this.roadMat))
   }
 }
