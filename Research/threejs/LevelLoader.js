@@ -1,4 +1,3 @@
-
 // levels are drawn as screens are (from top left)
 //  0 1 2
 // 0+
@@ -9,8 +8,17 @@ class LevelLoader
 {
   constructor()
   { 
-    this.levelData = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
+    this.tileData = readTileDataJSON()
+    this.levelData = []
     this.tileDict = {
+      "RoadBase"       : function() { return tileFactory.createRoadTile()},
+      "RoadVertical"   : function() { return tileFactory.createRoadVertical()},
+      "RoadHorizontal" : function() { return tileFactory.createRoadHorizontal()},
+      "RoadCross"      : function() { return tileFactory.createRoadCross()},
+      "RoadCornerTL"   : function() { return tileFactory.createRoadCorner(0)},
+      "RoadCornerTR"   : function() { return tileFactory.createRoadCorner(1)},
+      "RoadCornerBR"   : function() { return tileFactory.createRoadCorner(2)},
+      "RoadCornerBL"   : function() { return tileFactory.createRoadCorner(3)},
       0: function() { return tileFactory.createRoadTile()},
       1: function() { return tileFactory.createRoadVertical()},
       2: function() { return tileFactory.createRoadHorizontal()},
@@ -21,81 +29,70 @@ class LevelLoader
       7: function() { return tileFactory.createRoadCorner(3)},
     }
     this.startingPos = new THREE.Vector2(0,0)
-    this.startingDir = new THREE.Vector2(0,-1)
+    this.startingDir = new THREE.Vector2(0,0)
     this.levelWidth = 0
     this.levelHeight = 0
   }
   unloadLevel()
   {
-    // reset microbit
-    scene.remove(microbit)
-    microbit = new Microbit
-    
+    this.levelJSON = null
     microbit.translateX( this.startingPos.x)
     microbit.translateY(-this.startingPos.y)
-    microbit.rotateX(THREE.MathUtils.degToRad(90))
+    microbit.rotateX(THREE.Math.degToRad(90))
   }
-  loadLevel()
+  loadLevel(levelID)
   {
+    levelID = levelID || 0
     this.unloadLevel()
-    this.levelData = this.readFileData()
+    this.levelData = this.tileData.levels[levelID]
+    this.levelGrid = this.levelData.grid
+    this.startingPos = this.levelData.startingPos
+    this.startingDir = this.levelData.startingDir
     this.createLevel()
     this.moveCamera()
   }
-  readFileData()
-  {
-    let fileData = readFromTextFile(`/Research/threejs/levels/level1.txt`)
-    
-    // split where either carriage return and linebreak (\r\n), or just linebreak (\n)
-    // this is required due to differences in CRLF requirements of win vs linux
-    // https://owasp.org/www-community/vulnerabilities/CRLF_Injection
-    fileData = fileData.split(/\n|\r\n/) 
-
-    let newLevelData = []
-    let y = 0    
-    for(let row in fileData)
-    {
-      newLevelData.push([])
-      for(let char of fileData[row])
-      {
-        newLevelData[y].push(parseInt(char))
-
-        let rowWidth = fileData[row].length
-        if(rowWidth > this.levelWidth) { this.levelWidth = rowWidth }
-      }
-      y++
-    }
-    this.levelHeight = fileData.length
-    return newLevelData
-  }
   createLevel()
   {
-    let x = 0, y = 0
-    for(let row in this.levelData)
+    //let x = 0, y = 0
+    for(let y = 0; y < this.levelGrid.length; y++)
     {
-      for(let tile in this.levelData[row])
+      for(let x = 0; x < this.levelGrid[y].length; x++)
       {
-        let tileData = this.levelData[row][tile]
+        let tileData = this.levelGrid[y][x]
         let floor = this.tileDict[tileData]()
-
+        
         floor.translateX(x)
         floor.translateY(-y)
         floor.translateZ(-0.3)
-
-        x++
       }
-      x=0
-      y++
+      let rowWidth = this.levelGrid[y].length
+      if(rowWidth > this.levelWidth) { this.levelWidth = rowWidth }
     }
+    this.levelHeight = this.levelGrid.length
   }
   moveCamera()
   {
-    // note: assumes all rows in level are of equal length
+    camera.position.set(0,0,0)
+    
     let offsetX = (this.levelWidth  - 1) * 0.5
     let offsetY = (this.levelHeight - 1) * 0.5
-    
     camera.translateX(offsetX)
     camera.translateY(-offsetY)
     camera.translateZ(5)
   }
+}
+
+function readTileDataJSON()
+{
+  let tile_json = null
+  $.ajax({
+      'async': false,
+      'global': false,
+      'url': '/Research/threejs/levels/leveldata.json',
+      'dataType': "json",
+      'success': function (data) {
+        tile_json = data
+      }
+  })
+  return tile_json
 }

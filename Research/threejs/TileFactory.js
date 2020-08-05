@@ -157,3 +157,4 @@ function getRandomColour() {
   }
   return colour;
 }
+
