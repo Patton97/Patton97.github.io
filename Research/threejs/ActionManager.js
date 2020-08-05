@@ -64,7 +64,10 @@ class ActionManager
   addAction_TurnOffBothLED() { this.addAction('TurnOffBothLED',  10) }
   evaluate(direction)
   {
+    if(!this.predictionSuccess) { return }
+
     this.position.add(this.facing.multiplyScalar(direction))
+    
     if(!this.isValidPosition())
     {
       this.predicting = false
@@ -118,7 +121,7 @@ class ActionManager
     this.predicting = false
     this.predictionSuccess = true
     this.position.set(levelLoader.startingPos.x, levelLoader.startingPos.y)
-    this.position.set(levelLoader.startingDir.x, levelLoader.startingDir.y)
+    this.facing.set(levelLoader.startingDir.x, levelLoader.startingDir.y)
   }
 }
 

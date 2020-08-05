@@ -381,10 +381,9 @@ class Microbit extends THREE.Group
     microbit.position.set(levelLoader.startingPos.x,-levelLoader.startingPos.y,0)
     
     //surely a better way to autorot than this
-    //let dir = levelLoader.startingDir
-    let dir = new THREE.Vector2(-1,0)
-    let degToRad_90  = THREE.Math.degToRad(90)
-    let degToRad_180 = deg90*2
+    let dir = levelLoader.startingDir
+    let degToRad_90  = THREE.Math.degToRad( 90)
+    let degToRad_180 = THREE.Math.degToRad(180)
 
     // default to facing up
     microbit.rotation.set(-degToRad_90, 0, degToRad_180) 
