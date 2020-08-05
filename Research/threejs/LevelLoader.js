@@ -8,26 +8,8 @@ class LevelLoader
 {
   constructor()
   { 
-    this.tileData = readTileDataJSON()
+    this.dataJSON = readDataJSON()
     this.levelData = []
-    this.tileDict = {
-      "RoadBase"       : function() { return tileFactory.createRoadTile()},
-      "RoadVertical"   : function() { return tileFactory.createRoadVertical()},
-      "RoadHorizontal" : function() { return tileFactory.createRoadHorizontal()},
-      "RoadCross"      : function() { return tileFactory.createRoadCross()},
-      "RoadCornerTL"   : function() { return tileFactory.createRoadCorner(0)},
-      "RoadCornerTR"   : function() { return tileFactory.createRoadCorner(1)},
-      "RoadCornerBR"   : function() { return tileFactory.createRoadCorner(2)},
-      "RoadCornerBL"   : function() { return tileFactory.createRoadCorner(3)},
-      0: function() { return tileFactory.createRoadTile()},
-      1: function() { return tileFactory.createRoadVertical()},
-      2: function() { return tileFactory.createRoadHorizontal()},
-      3: function() { return tileFactory.createRoadCross()},
-      4: function() { return tileFactory.createRoadCorner(0)},
-      5: function() { return tileFactory.createRoadCorner(1)},
-      6: function() { return tileFactory.createRoadCorner(2)},
-      7: function() { return tileFactory.createRoadCorner(3)},
-    }
     this.startingPos = new THREE.Vector2(0,0)
     this.startingDir = new THREE.Vector2(0,0)
     this.levelWidth = 0
@@ -40,11 +22,11 @@ class LevelLoader
     microbit.translateY(-this.startingPos.y)
     microbit.rotateX(THREE.Math.degToRad(90))
   }
-  loadLevel(levelID)
+  loadLevel()
   {
-    levelID = levelID || 0
     this.unloadLevel()
-    this.levelData = this.tileData.levels[levelID]
+    let levelID = localStorage.getItem("levelID")    
+    this.levelData = this.dataJSON.levels[levelID]
     this.levelGrid = this.levelData.grid
     this.startingPos = this.levelData.startingPos
     this.startingDir = this.levelData.startingDir
@@ -53,13 +35,13 @@ class LevelLoader
   }
   createLevel()
   {
-    //let x = 0, y = 0
     for(let y = 0; y < this.levelGrid.length; y++)
     {
       for(let x = 0; x < this.levelGrid[y].length; x++)
       {
         let tileData = this.levelGrid[y][x]
-        let floor = this.tileDict[tileData]()
+        let tileName = this.dataJSON.tiles[tileData].name
+        let floor = tileFactory.create(tileName)
         
         floor.translateX(x)
         floor.translateY(-y)
@@ -82,13 +64,13 @@ class LevelLoader
   }
 }
 
-function readTileDataJSON()
+function readDataJSON()
 {
   let tile_json = null
   $.ajax({
       'async': false,
       'global': false,
-      'url': '/Research/threejs/levels/leveldata.json',
+      'url': '/Research/threejs/levels/data.json',
       'dataType': "json",
       'success': function (data) {
         tile_json = data

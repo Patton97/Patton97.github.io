@@ -22,4 +22,12 @@ class ObjectManager
   {
     return this.objects.length
   }
+  removeAllObjects()
+  {
+    this.objects.forEach(obj=>{
+      scene.remove(obj)
+      obj = undefined
+    })
+    this.objects = []
+  }
 }

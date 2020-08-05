@@ -5,10 +5,10 @@
     { "name": "RoadVertical" },
     { "name": "RoadHorizontal" },
     { "name": "RoadCross" },
-    { "name": "RoadCornerTopLeft" },
-    { "name": "RoadCornerTopRight" },
-    { "name": "RoadCornerBottomRight" },
-    { "name": "RoadCornerBottomLeft" }
+    { "name": "RoadCornerTL" },
+    { "name": "RoadCornerTR" },
+    { "name": "RoadCornerBR" },
+    { "name": "RoadCornerBL" }
   ],
   "levels":
   [
@@ -17,11 +17,11 @@
       "startingDir": {"x": 0, "y": -1 },
       "grid":
       [
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0]
+        [0,0,1,0,0],
+        [0,0,1,0,0],
+        [0,0,1,0,0],
+        [0,0,1,0,0],
+        [0,0,1,0,0]
       ]
     },
     {

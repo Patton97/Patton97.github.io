@@ -2,7 +2,7 @@
 scene.background = new THREE.Color( 0xffffff )
 
 // Camera
-/* --- */
+scene.add(camera)
 
 // Renderer
 renderer.setSize( CANVAS_WIDTH, CANVAS_HEIGHT )
@@ -12,11 +12,8 @@ container.appendChild( renderer.domElement )
 pointLight = new THREE.PointLight( 0xffffff )
 pointLight.position.set(1,1,2)
 camera.add(pointLight)
-scene.add(camera)
 
 // Scene creation
-var tileFactory = new TileFactory
-var levelLoader = new LevelLoader
 levelLoader.loadLevel()
 
 

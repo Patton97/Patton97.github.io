@@ -1,12 +1,32 @@
+var tileDict = {
+  "RoadBase"       : function() { return tileFactory.createRoadBase()},
+  "RoadVertical"   : function() { return tileFactory.createRoadVertical()},
+  "RoadHorizontal" : function() { return tileFactory.createRoadHorizontal()},
+  "RoadCross"      : function() { return tileFactory.createRoadCross()},
+  "RoadCornerTL"   : function() { return tileFactory.createRoadCorner(0)},
+  "RoadCornerTR"   : function() { return tileFactory.createRoadCorner(1)},
+  "RoadCornerBR"   : function() { return tileFactory.createRoadCorner(2)},
+  "RoadCornerBL"   : function() { return tileFactory.createRoadCorner(3)},
+}
+
 class TileFactory
 {
   constructor()
   {
     
   }
-  createRoadTile()
+  create(tileName)
   {
-    let tile = new RoadTile
+    if(!tileName in tileDict)
+    {
+      console.log(`Error: ${tileName} is an invalid tile name`)
+      return null
+    }
+    return tileDict[tileName]()
+  }
+  createRoadBase()
+  {
+    let tile = new RoadTile    
     return objectManager.addObject(tile)
   }
   createRoadVertical()
