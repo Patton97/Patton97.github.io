@@ -1,3 +1,26 @@
+main{
+  
+  display: block;
+  margin-top: 1vh!important;
+  margin-left: 1vw!important;
+  margin-bottom: 1vh!important;
+  margin-right: 1vw!important;
+
+  height: 80vh;
+}
+#researchContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 100%
+}
+
+#researchContainer > *
+{
+  margin: 0 1vw 0 1vw ;
+}
+
 .levelPortal-container{
   width: 95%;
   display: flex;
@@ -40,3 +63,9 @@
   border-color: #EEEAAA;  
 }
 .researchForm:hover { border-color: black; }
+
+@media only screen and (orientation: portrait) {
+  #researchContainer {
+    flex-direction: column;
+  }
+}

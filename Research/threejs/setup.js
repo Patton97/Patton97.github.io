@@ -5,7 +5,28 @@ scene.background = new THREE.Color( 0xffffff )
 scene.add(camera)
 
 // Renderer
-renderer.setSize( CANVAS_WIDTH, CANVAS_HEIGHT )
+function ResizeRenderer(width, height)
+{
+  let x = 0, y = 0, size = 0
+  
+  if(height < width)
+  {
+    x = (width/2) - (height/2)
+    size = height
+  }
+  else if(width> height)
+  {
+    y = (height/2) - (width/2)
+    size = width
+  }
+  else // assume width === height
+  {
+    size = height
+  }
+  renderer.setSize( width, height )
+  renderer.setViewport(x,y,size,size)
+}
+ResizeRenderer(getCanvasWidth(),getCanvasHeight() )
 container.appendChild( renderer.domElement )
 
 // Lights
@@ -68,4 +89,14 @@ function ResetLevel()
 function StartAnimation()
 {
   setTimeout(function(){ actionManager.running = true }, 1000)
+}
+
+window.addEventListener(`resize`, threejs_OnResize)
+
+function threejs_OnResize()
+{
+  let newWidth = getCanvasWidth()
+  let newHeight = getCanvasHeight()
+  ResizeRenderer(newWidth,newHeight)
+  camera.aspect = newWidth / newHeight
 }

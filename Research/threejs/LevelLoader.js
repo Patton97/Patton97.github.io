@@ -32,6 +32,7 @@ class LevelLoader
     this.startingDir = this.levelData.startingDir
     this.createLevel()
     this.moveCamera()
+    microbit.reset()
   }
   createLevel()
   {
