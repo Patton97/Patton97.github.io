@@ -66,6 +66,11 @@ main{
 
 @media only screen and (orientation: portrait) {
   #researchContainer {
-    flex-direction: column;
+    flex-direction: column-reverse;
+  }
+
+  #threejs-container {
+    width: 90vw!important;
+    height: 20vh!important;
   }
 }

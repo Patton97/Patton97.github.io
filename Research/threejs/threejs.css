@@ -13,3 +13,10 @@ canvas{
   height:50vh;
   display:block;
 }
+
+@media only screen and (orientation: portrait) {
+  #threejs-container, canvas{
+    width:90vw;
+    height:20vh;
+  }
+}
