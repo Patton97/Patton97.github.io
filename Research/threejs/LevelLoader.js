@@ -25,7 +25,8 @@ class LevelLoader
   loadLevel()
   {
     this.unloadLevel()
-    let levelID = localStorage.getItem("levelID")    
+    let levelID = localStorage.getItem("levelID")
+    if(levelID === undefined)   {  levelID = 1}
     this.levelData = this.dataJSON.levels[levelID]
     this.levelGrid = this.levelData.grid
     this.startingPos = this.levelData.startingPos
