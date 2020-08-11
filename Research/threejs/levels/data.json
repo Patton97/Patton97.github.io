@@ -1,14 +1,15 @@
 {
   "tiles":
   [
-    { "name": "RoadBase" },
+    { "name": "TileBase" },
     { "name": "RoadVertical" },
     { "name": "RoadHorizontal" },
     { "name": "RoadCross" },
     { "name": "RoadCornerTL" },
     { "name": "RoadCornerTR" },
     { "name": "RoadCornerBR" },
-    { "name": "RoadCornerBL" }
+    { "name": "RoadCornerBL" },
+    { "name": "Grass" }
   ],
   "levels":
   [
@@ -17,12 +18,26 @@
       "startingDir": {"x": 0, "y": -1 },
       "grid":
       [
+        [4,2,2,2,5],
+        [1,8,1,8,1],
+        [1,2,3,2,1],
+        [1,8,1,8,1],
+        [7,2,2,2,6]
+      ],
+      "description": "This level is a fun sanbox for you to play around in."
+    },
+    {
+      "startingPos": {"x": 0, "y": 2 },
+      "startingDir": {"x": 1, "y": 0 },
+      "grid":
+      [
         [0,0,0,0,0],
         [0,0,0,0,0],
-        [0,0,0,0,0],
+        [2,2,2,2,2],
         [0,0,0,0,0],
         [0,0,0,0,0]
-      ]
+      ],
+      "description": "Level 1:"
     },
     {
       "startingPos": {"x": 4, "y": 4 },
@@ -31,12 +46,41 @@
       [
         [0,0,1,0,0],
         [0,0,1,0,0],
-        [0,0,1,0,0],
-        [0,0,1,0,0],
-        [0,0,1,0,0]
-      ]
+        [2,2,6,0,0],
+        [0,0,0,0,0],
+        [0,0,0,0,0]
+      ],
+      "description": "Level 2:"
     },
     {
+      "startingPos": {"x": 4, "y": 4 },
+      "startingDir": {"x": -1, "y": 0 },
+      "grid":
+      [
+        [0,0,0,0,1],
+        [0,0,0,0,1],
+        [2,2,2,2,6],
+        [0,0,0,0,0],
+        [0,0,0,0,0]
+      ],
+      "description": "Level 3:"
+    },
+    {
+      "startingPos": {"x": 2, "y": 0 },
+      "startingDir": {"x": 1, "y": 0 },
+      "grid":
+      [
+        [1,8,2,2,5],
+        [1,8,8,8,1],
+        [1,8,8,8,1],
+        [1,8,8,8,1],
+        [7,2,2,2,6]
+      ],
+      "description": "Level 4:"
+    },
+    {
+      "startingPos": {"x": 0, "y": 2 },
+      "startingDir": {"x": 1, "y": 0 },
       "grid":
       [
         [0,0,0,0,0],
@@ -44,27 +88,8 @@
         [0,0,0,0,0],
         [0,0,0,0,0],
         [0,0,0,0,0]
-      ]
-    },
-    {
-      "grid":
-      [
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0]
-      ]
-    },
-    {
-      "grid":
-      [
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0]
-      ]
+      ],
+      "description": "Level 5:"
     }
   ]
 }

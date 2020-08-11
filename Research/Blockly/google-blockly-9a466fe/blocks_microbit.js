@@ -87,6 +87,32 @@ Blockly.defineBlocksWithJsonArray(
       "helpUrl": ""
     },
     {
+      "type": "repeat_until_star",
+      "message0": "Repeat until %1 %2 %3",
+      "args0": [
+        {
+          "type": "field_image",
+          "src": "/Images/Blockly/star.png",
+          "width": 25,
+          "height": 25,
+          "alt": "*",
+          "flipRtl": false
+        },
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_statement",
+          "name": "NAME"
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 230,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
       "type": "microbit_display_image",
       "message0": "%1 Display %2",
       "args0": [

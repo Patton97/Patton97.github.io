@@ -41,6 +41,14 @@ Blockly.JavaScript['microbit_motor_turn'] = function(block) {
 
 // --------------------------------------------------------------------------------
 
+Blockly.JavaScript['repeat_until_star'] = function(block) {
+  // Convert sub-block(s) fist, then wrap & return 
+  var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
+  return `while(!isJourneyComplete())\n{\n${statements_name}\n}\n`;
+};
+
+// --------------------------------------------------------------------------------
+
 /*
 Blockly.JavaScript['microbit_display_image'] = function(block) {
   var dropdown_image = block.getFieldValue('IMAGE')

@@ -22,7 +22,7 @@ function getCanvasHeight()
 // Scene global reqs
 var scene    = new THREE.Scene()
 //var camera   = new THREE.PerspectiveCamera( 60, getCanvasWidth() / getCanvasHeight())
-const CAMSCALE = 2.5
+const CAMSCALE = 2.6
 var camera   = new THREE.OrthographicCamera( -CAMSCALE, CAMSCALE, CAMSCALE, -CAMSCALE, 1, 1000 )
 
 console.log(getCanvasWidth() / 100)

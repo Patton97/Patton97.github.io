@@ -1,5 +1,5 @@
 var tileDict = {
-  "RoadBase"       : function() { return tileFactory.createRoadBase()},
+  "TileBase"       : function() { return tileFactory.createTileBase()},
   "RoadVertical"   : function() { return tileFactory.createRoadVertical()},
   "RoadHorizontal" : function() { return tileFactory.createRoadHorizontal()},
   "RoadCross"      : function() { return tileFactory.createRoadCross()},
@@ -7,7 +7,10 @@ var tileDict = {
   "RoadCornerTR"   : function() { return tileFactory.createRoadCorner(1)},
   "RoadCornerBR"   : function() { return tileFactory.createRoadCorner(2)},
   "RoadCornerBL"   : function() { return tileFactory.createRoadCorner(3)},
+  "Grass"   : function() { return tileFactory.createGrass(3)}
 }
+
+var grassMat = new THREE.MeshBasicMaterial({color: 0x008800 })
 
 class TileFactory
 {
@@ -24,9 +27,9 @@ class TileFactory
     }
     return tileDict[tileName]()
   }
-  createRoadBase()
+  createTileBase()
   {
-    let tile = new RoadTile    
+    let tile = new TileBase    
     return objectManager.addObject(tile)
   }
   createRoadVertical()
@@ -49,6 +52,20 @@ class TileFactory
     let tile = new RoadCorner(side)
     return objectManager.addObject(tile)
   }
+  createGrass()
+  {
+    let tile = new TileBase(grassMat)
+    return objectManager.addObject(tile)
+  }
+}
+
+class TileBase extends THREE.Mesh
+{
+  constructor(mat)
+  {
+    let geo = new THREE.PlaneGeometry( 1, 1, 32 )
+    super(geo, mat)
+  }
 }
 
 class RoadTile extends THREE.Group
@@ -59,16 +76,7 @@ class RoadTile extends THREE.Group
     let roadColour = debug ? getRandomColour() : 0x696969
     this.roadMat = new THREE.MeshBasicMaterial( { color: roadColour, side: THREE.DoubleSide } )
     this.curbMat = new THREE.MeshBasicMaterial( { color: 0xf32800 } )
-    this.add(new RoadBase(this.roadMat))
-  }
-}
-
-class RoadBase extends THREE.Mesh
-{
-  constructor(mat)
-  {
-    let geo = new THREE.PlaneGeometry( 1, 1, 32 )
-    super(geo, mat)
+    this.add(new TileBase(this.roadMat))
   }
 }
 

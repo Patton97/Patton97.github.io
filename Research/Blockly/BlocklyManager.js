@@ -141,13 +141,11 @@ var workspace = CreateWorkspace()
 blocklyDiv.style.width = `100%`
 blocklyDiv.style.height = `90%`
 
-/*
 function myUpdateFunction(event) {
-  var code = Blockly.Python.workspaceToCode(workspace)
+  var code = Blockly.JavaScript.workspaceToCode(workspace)
   console.log(`---\n${code}\n---`)
 }
 workspace.addChangeListener(myUpdateFunction);
-*/
 
 //Handle resize operation | NOTE: Could be removed if planning to keep area fixed
 /*
