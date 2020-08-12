@@ -31,6 +31,7 @@ class LevelLoader
     this.levelGrid = this.levelData.grid
     this.startingPos = this.levelData.startingPos
     this.startingDir = this.levelData.startingDir
+    this.destinationPos = this.levelData.destinationPos
     this.createLevel()
     this.moveCamera()
     microbit.reset()
@@ -45,7 +46,7 @@ class LevelLoader
         let tileName = this.dataJSON.tiles[tileData].name
         let floor = tileFactory.create(tileName)
         
-        floor.translateX(x)
+        floor.translateX( x)
         floor.translateY(-y)
         floor.translateZ(-0.3)
       }
@@ -53,6 +54,10 @@ class LevelLoader
       if(rowWidth > this.levelWidth) { this.levelWidth = rowWidth }
     }
     this.levelHeight = this.levelGrid.length
+
+    let star = tileFactory.create("Star")
+    star.translateX( this.destinationPos.x)
+    star.translateY(-this.destinationPos.y)
   }
   moveCamera()
   {

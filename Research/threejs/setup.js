@@ -1,5 +1,5 @@
 // Scene
-scene.background = new THREE.Color( 0xffffff )
+scene.background = new THREE.Color( 0x77b5fe  )
 
 // Camera
 scene.add(camera)

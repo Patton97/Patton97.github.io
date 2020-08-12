@@ -1,13 +1,18 @@
+const ROADCOLOUR = 0x696969
+const CURBCOLOUR = 0xf32800
+const GRASSCOLOUR = 0x77b5fe
+const ERRORCOLOUR = 0xFF66CC
+
 var tileDict = {
-  "TileBase"       : function() { return tileFactory.createTileBase()},
-  "RoadVertical"   : function() { return tileFactory.createRoadVertical()},
-  "RoadHorizontal" : function() { return tileFactory.createRoadHorizontal()},
-  "RoadCross"      : function() { return tileFactory.createRoadCross()},
-  "RoadCornerTL"   : function() { return tileFactory.createRoadCorner(0)},
-  "RoadCornerTR"   : function() { return tileFactory.createRoadCorner(1)},
-  "RoadCornerBR"   : function() { return tileFactory.createRoadCorner(2)},
-  "RoadCornerBL"   : function() { return tileFactory.createRoadCorner(3)},
-  "Grass"   : function() { return tileFactory.createGrass(3)}
+  "Grass": function() { return tileFactory.createGrass() },
+  "Star" : function() { return tileFactory.createStar()  },
+  "RoadVertical"  : function() { return tileFactory.createRoadVertical()   },
+  "RoadHorizontal": function() { return tileFactory.createRoadHorizontal() },
+  "RoadCross"     : function() { return tileFactory.createRoadCross() },
+  "RoadCornerTL"  : function() { return tileFactory.createRoadCorner(0) },
+  "RoadCornerTR"  : function() { return tileFactory.createRoadCorner(1) },
+  "RoadCornerBR"  : function() { return tileFactory.createRoadCorner(2) },
+  "RoadCornerBL"  : function() { return tileFactory.createRoadCorner(3) }  
 }
 
 var grassMat = new THREE.MeshBasicMaterial({color: 0x008800 })
@@ -27,10 +32,15 @@ class TileFactory
     }
     return tileDict[tileName]()
   }
-  createTileBase()
+  createGrass()
   {
-    let tile = new TileBase    
+    let tile = new Tile(GRASSCOLOUR)
     return objectManager.addObject(tile)
+  }  
+  createStar()
+  {
+    let star = new Star
+    return objectManager.addObject(star)
   }
   createRoadVertical()
   {
@@ -44,7 +54,7 @@ class TileFactory
   }
   createRoadCross()
   {
-    let tile = new RoadCross
+    let tile = new Tile(ROADCOLOUR)
     return objectManager.addObject(tile)
   }
   createRoadCorner(side)
@@ -52,18 +62,28 @@ class TileFactory
     let tile = new RoadCorner(side)
     return objectManager.addObject(tile)
   }
-  createGrass()
+}
+
+class Star extends THREE.Sprite
+{
+  constructor()
   {
-    let tile = new TileBase(grassMat)
-    return objectManager.addObject(tile)
+    let spriteMap = new THREE.TextureLoader().load( "/Images/Blockly/star.png" )
+    let mat = new THREE.SpriteMaterial( { map: spriteMap } )
+    super( mat )
+    this.scale.set(0.75,0.75,0.75)
+    this.translateZ(-0.25)
   }
 }
 
-class TileBase extends THREE.Mesh
+class Tile extends THREE.Mesh
 {
-  constructor(mat)
+  constructor(color)
   {
+    color = color ? color : ERRORCOLOUR
+    
     let geo = new THREE.PlaneGeometry( 1, 1, 32 )
+    let mat = new THREE.MeshBasicMaterial( { color: color, side: THREE.DoubleSide } )
     super(geo, mat)
   }
 }
@@ -73,10 +93,32 @@ class RoadTile extends THREE.Group
   constructor()
   {
     super()
-    let roadColour = debug ? getRandomColour() : 0x696969
-    this.roadMat = new THREE.MeshBasicMaterial( { color: roadColour, side: THREE.DoubleSide } )
-    this.curbMat = new THREE.MeshBasicMaterial( { color: 0xf32800 } )
-    this.add(new TileBase(this.roadMat))
+    this.curbMat = new THREE.MeshBasicMaterial( { color: CURBCOLOUR } )
+    this.add(new Tile(ROADCOLOUR))
+  }
+}
+
+class Curb extends THREE.Group
+{
+  constructor()
+  {
+    super()
+    let geo = new THREE.BoxGeometry(0.1, 0.1, 0.1)
+    let mat_red   = new THREE.MeshBasicMaterial( { color: 0xf32800 } )
+    let mat_white = new THREE.MeshBasicMaterial( { color: 0xffffff } )
+
+    let numSegments = 1 + (1/geo.parameters.height)
+    let matFlipper = false // alternate red/white/red/white/red
+    for(let i = 0; i < numSegments; i++)
+    {
+      // alternate red/white/red/white/red
+      let mat = matFlipper ? mat_red : mat_white
+      matFlipper = !matFlipper
+
+      let mesh = new THREE.Mesh(geo, mat)
+      mesh.translateY((i * geo.parameters.height) - 0.5)
+      this.add(mesh)
+    }
   }
 }
 
@@ -86,59 +128,19 @@ class RoadStraight extends RoadTile
   {
     super()
     this.horizontal = horizontal
-    this.createCurbs()  
+    this.createCurbs()
   }
   createCurbs()
   {
-    let geo = new THREE.BoxGeometry(0.1, 0.9, 0.1)
-    let curb_L = new THREE.Mesh(geo, this.curbMat)
-    let curb_R = new THREE.Mesh(geo, this.curbMat)
-    let curbs = [curb_L, curb_R]
+    let curbs = [new Curb, new Curb]
 
     if(this.horizontal)
     {
       curbs.forEach(curb=>{curb.rotateZ(THREE.Math.degToRad(90))})
     }
-    curb_L.translateX(-0.5)
-    curb_R.translateX(0.5)
-
-    curbs.forEach(curb=>{this.add(curb)})
-  }
-}
-
-class RoadCross extends RoadTile
-{
-  constructor()
-  {
-    super()
-    this.createCurbs()
-  }
-  createCurbs()
-  {
-    let geo = new THREE.BoxGeometry(0.1, 0.1, 0.1)
-    let curbs = []
-    for(let i = 0; i < 4; i++)
-    {
-      curbs.push(new THREE.Mesh(geo, this.curbMat))
-    }
-
-    // top left
     curbs[0].translateX(-0.5)
-    curbs[0].translateY(0.5)   
-
-    // top right
     curbs[1].translateX(0.5)
-    curbs[1].translateY(0.5)
-    
-    // bottom left
-    curbs[2].translateX(-0.5)
-    curbs[2].translateY(-0.5)    
 
-    // bottom right
-    curbs[3].translateX(0.5)
-    curbs[3].translateY(-0.5)
-
-    // add to group
     curbs.forEach(curb=>{this.add(curb)})
   }
 }
@@ -154,12 +156,7 @@ class RoadCorner extends RoadTile
   createCurbs()
   {
     let geo = new THREE.BoxGeometry(0.1, 1, 0.1)
-    let curbs = []
-
-    for(let i = 0; i < 2; i++)
-    {
-      curbs.push(new THREE.Mesh(geo, this.curbMat))
-    }
+    let curbs = [new Curb, new Curb]
 
     // rotate to fit different corner sides 
     // (0 = left&top, 1 = top&right, 2 = right&bottom, 3 = bottom&left)
@@ -185,4 +182,3 @@ function getRandomColour() {
   }
   return colour;
 }
-
