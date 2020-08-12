@@ -382,7 +382,6 @@ class Microbit extends THREE.Group
     
     //surely a better way to autorot than this
     let dir = new THREE.Vector2(levelLoader.startingDir.x, levelLoader.startingDir.y)
-    console.log(dir)
     let degToRad_90  = THREE.Math.degToRad( 90)
     let degToRad_180 = THREE.Math.degToRad(180)
 
@@ -392,8 +391,6 @@ class Microbit extends THREE.Group
     if(isFacingRight(dir)) { microbit.rotateY(-degToRad_90)  }
     if(isFacingDown(dir))  { microbit.rotateY( degToRad_180) }
     if(isFacingLeft(dir))  { microbit.rotateY( degToRad_90)  }
-
-    
   }
 }
 

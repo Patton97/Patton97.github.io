@@ -12,7 +12,6 @@ function getCanvasWidth()
 function getCanvasHeight()
 {
   let containerHeight = container.offsetHeight
-  console.log(containerHeight)
   let paddingHeight = 0 
   paddingHeight += parseInt(window.getComputedStyle(container).paddingTop)
   paddingHeight += parseInt(window.getComputedStyle(container).paddingBottom)
@@ -25,7 +24,6 @@ var scene    = new THREE.Scene()
 const CAMSCALE = 2.6
 var camera   = new THREE.OrthographicCamera( -CAMSCALE, CAMSCALE, CAMSCALE, -CAMSCALE, 1, 1000 )
 
-console.log(getCanvasWidth() / 100)
 
 var renderer = new THREE.WebGLRenderer()
 

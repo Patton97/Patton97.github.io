@@ -25,7 +25,6 @@ function ResizeRenderer(width, height)
   }
   renderer.setSize( width, height )
   renderer.setViewport(x,y,size,size)
-  console.log(`w: ${width}, h: ${height}`)
 }
 ResizeRenderer(getCanvasWidth(),getCanvasHeight() )
 container.appendChild( renderer.domElement )

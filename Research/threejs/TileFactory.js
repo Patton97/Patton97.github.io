@@ -1,6 +1,7 @@
 const ROADCOLOUR = 0x696969
 const CURBCOLOUR = 0xf32800
-const GRASSCOLOUR = 0x77b5fe
+const SKYCOLOUR = 0x77b5fe
+const GRASSCOLOUR = 0x008800
 const ERRORCOLOUR = 0xFF66CC
 
 var tileDict = {
@@ -14,8 +15,6 @@ var tileDict = {
   "RoadCornerBR"  : function() { return tileFactory.createRoadCorner(2) },
   "RoadCornerBL"  : function() { return tileFactory.createRoadCorner(3) }  
 }
-
-var grassMat = new THREE.MeshBasicMaterial({color: 0x008800 })
 
 class TileFactory
 {

@@ -8,7 +8,7 @@ class ObjectManager
   {
     this.objects.push(obj)
     scene.add(obj)
-    console.log(`ObjectManager: added ${obj.constructor.name}`)
+    //console.log(`ObjectManager: added ${obj.constructor.name}`)
     return obj
   }
   animateAll()
