@@ -74,15 +74,36 @@ class ActionManager
       this.predictionSuccess = false
     }
   }
-  isValidPosition()
+  isValidPosition(position)
   {
-    //if off-grid
-    if(this.position.x < 0 || this.position.x >= levelLoader.levelWidth
-    || this.position.y < 0 || this.position.y >= levelLoader.levelHeight)
+    // if no position provided, assume they mean the current position
+    position = position ? position : this.position 
+    
+    // if off-grid
+    if(position.x < 0 || position.x >= levelLoader.levelWidth
+    || position.y < 0 || position.y >= levelLoader.levelHeight)
     {
       return false
     }
+
+    // if grass tile    
+    let tileType = levelLoader.levelGrid[position.y][position.x]
+    if(!levelLoader.dataJSON.tiles[tileType].safe)
+    {
+      return false
+    }
+
+    // otherwise
     return true
+  }
+  isJourneyComplete()
+  {
+    if(this.position.x === levelLoader.destinationPos.x 
+    && this.position.y === levelLoader.destinationPos.y)
+    {
+      return true
+    }
+    return false
   }
   update()
   {

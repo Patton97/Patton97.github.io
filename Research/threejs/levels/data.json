@@ -1,14 +1,18 @@
 {
   "tiles":
   [
-    { "name": "Grass" },
-    { "name": "RoadVertical" },
-    { "name": "RoadHorizontal" },
-    { "name": "RoadCross" },
-    { "name": "RoadCornerTL" },
-    { "name": "RoadCornerTR" },
-    { "name": "RoadCornerBR" },
-    { "name": "RoadCornerBL" }    
+    { "name": "Grass", "safe":false},
+    { "name": "RoadVertical",   "safe":true},
+    { "name": "RoadHorizontal", "safe":true},
+    { "name": "RoadCross",      "safe":true},
+    { "name": "RoadCornerTL",   "safe":true},
+    { "name": "RoadCornerTR",   "safe":true},
+    { "name": "RoadCornerBR",   "safe":true},
+    { "name": "RoadCornerBL",   "safe":true},
+    { "name": "RoadEndTop",     "safe":true},
+    { "name": "RoadEndRight",   "safe":true},
+    { "name": "RoadEndBottom",  "safe":true},
+    { "name": "RoadEndLeft",    "safe":true}
   ],
   "levels":
   [
@@ -27,74 +31,74 @@
       "description": "This level is a fun sanbox for you to play around in."
     },
     {
-      "startingPos": {"x": 0, "y": 2 },
-      "startingDir": {"x": 1, "y": 0 },
-      "destinationPos" : {"x": 4, "y": 2 },
+      "startingPos": { "x": 0, "y": 2 },
+      "startingDir": { "x": 1, "y": 0 },
+      "destinationPos" : { "x": 4, "y": 2 },
       "grid":
       [
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-        [2,2,2,2,2],
-        [0,0,0,0,0],
-        [0,0,0,0,0]
+        [ 0, 0, 0, 0, 0],
+        [ 0, 0, 0, 0, 0],
+        [ 9, 2, 2, 2,11],
+        [ 0, 0, 0, 0, 0],
+        [ 0, 0, 0, 0, 0]
       ],
-      "description": "Level 1:"
+      "description": "Level 1: get moving"
     },
     {
-      "startingPos": {"x": 4, "y": 4 },
-      "startingDir": {"x": -1, "y": 0 },
-      "destinationPos" : {"x": -1, "y": 0 },
+      "startingPos": { "x": 0, "y": 2 },
+      "startingDir": { "x": 1, "y": 0 },
+      "destinationPos" : { "x": 2, "y": 0 },
       "grid":
       [
-        [0,0,1,0,0],
-        [0,0,1,0,0],
-        [2,2,6,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0]
+        [ 0, 0, 8, 0, 0],
+        [ 0, 0, 1, 0, 0],
+        [11, 2, 6, 0, 0],
+        [ 0, 0, 0, 0, 0],
+        [ 0, 0, 0, 0, 0]
       ],
-      "description": "Level 2:"
+      "description": "Level 2: turning"
     },
     {
-      "startingPos": {"x": 4, "y": 4 },
-      "startingDir": {"x": -1, "y": 0 },
-      "destinationPos" : {"x": -1, "y": 0 },
+      "startingPos": { "x": 0, "y": 2 },
+      "startingDir": { "x": 1, "y": 0 },
+      "destinationPos" : { "x": 4, "y": 0 },
       "grid":
       [
-        [0,0,0,0,1],
-        [0,0,0,0,1],
-        [2,2,2,2,6],
-        [0,0,0,0,0],
-        [0,0,0,0,0]
+        [ 0, 0, 0, 0, 8],
+        [ 0, 0, 0, 0, 1],
+        [11, 2, 2, 2, 6],
+        [ 0, 0, 0, 0, 0],
+        [ 0, 0, 0, 0, 0]
       ],
-      "description": "Level 3:"
+      "description": "Level 3: for loops"
     },
     {
-      "startingPos": {"x": 2, "y": 0 },
-      "startingDir": {"x": 1, "y": 0 },
-      "destinationPos" : {"x": 0, "y": 0 },
+      "startingPos": { "x": 2, "y": 0 },
+      "startingDir": { "x": 1, "y": 0 },
+      "destinationPos" : { "x": 0, "y": 0 },
       "grid":
       [
-        [1,0,2,2,5],
-        [1,0,0,0,1],
-        [1,0,0,0,1],
-        [1,0,0,0,1],
-        [7,2,2,2,6]
+        [ 8, 0,11, 2, 5],
+        [ 1, 0, 0, 0, 1],
+        [ 1, 0, 0, 0, 1],
+        [ 1, 0, 0, 0, 1],
+        [ 7, 2, 2, 2, 6]
       ],
-      "description": "Level 4:"
+      "description": "Level 4: while loops"
     },
     {
-      "startingPos": {"x": 0, "y": 2 },
-      "startingDir": {"x": 1, "y": 0 },
-      "destinationPos" : {"x": 0, "y": 0 },
+      "startingPos": { "x": 2, "y": 0 },
+      "startingDir": { "x": 1, "y": 0 },
+      "destinationPos" : { "x": 2, "y": 4 },
       "grid":
       [
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0]
+        [ 0, 0,11, 2, 5],
+        [ 0, 0, 0, 0, 1],
+        [ 4, 2, 2, 2, 6],
+        [ 1, 0, 0, 0, 0],
+        [ 7, 2, 9, 0, 0]
       ],
-      "description": "Level 5:"
+      "description": "Level 5: ifs"
     }
   ]
 }

@@ -64,7 +64,7 @@ function GenerateCode_ThreeJS(event)
     eval(code)
   } 
   catch (error) {
-    console.log(`${error}\n${code}`)
+    console.log(`${error}\n${error.stack}\n${code}`)
   }
 }
 

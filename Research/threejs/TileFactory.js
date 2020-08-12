@@ -13,7 +13,11 @@ var tileDict = {
   "RoadCornerTL"  : function() { return tileFactory.createRoadCorner(0) },
   "RoadCornerTR"  : function() { return tileFactory.createRoadCorner(1) },
   "RoadCornerBR"  : function() { return tileFactory.createRoadCorner(2) },
-  "RoadCornerBL"  : function() { return tileFactory.createRoadCorner(3) }  
+  "RoadCornerBL"  : function() { return tileFactory.createRoadCorner(3) },
+  "RoadEndTop"    : function() { return tileFactory.createRoadEnd(0) },
+  "RoadEndRight"  : function() { return tileFactory.createRoadEnd(1) },
+  "RoadEndBottom" : function() { return tileFactory.createRoadEnd(2) },
+  "RoadEndLeft"   : function() { return tileFactory.createRoadEnd(3) },
 }
 
 class TileFactory
@@ -59,6 +63,11 @@ class TileFactory
   createRoadCorner(side)
   {
     let tile = new RoadCorner(side)
+    return objectManager.addObject(tile)
+  }
+  createRoadEnd(side)
+  {
+    let tile = new RoadEnd(side)
     return objectManager.addObject(tile)
   }
 }
@@ -135,12 +144,12 @@ class RoadStraight extends RoadTile
 
     if(this.horizontal)
     {
-      curbs.forEach(curb=>{curb.rotateZ(THREE.Math.degToRad(90))})
+      curbs.forEach( curb => { curb.rotateZ(THREE.Math.degToRad(90)) } )
     }
     curbs[0].translateX(-0.5)
     curbs[1].translateX(0.5)
 
-    curbs.forEach(curb=>{this.add(curb)})
+    curbs.forEach( curb => { this.add(curb) } )
   }
 }
 
@@ -154,22 +163,50 @@ class RoadCorner extends RoadTile
   }
   createCurbs()
   {
-    let geo = new THREE.BoxGeometry(0.1, 1, 0.1)
     let curbs = [new Curb, new Curb]
 
     // rotate to fit different corner sides 
     // (0 = left&top, 1 = top&right, 2 = right&bottom, 3 = bottom&left)
-    curbs.forEach(curb=>{curb.rotateZ(THREE.Math.degToRad(this.side * -90))})
+    curbs.forEach( curb => { curb.rotateZ(THREE.Math.degToRad(this.side * -90)) } )
 
-    // left
-    curbs[0].translateX(-0.5)    
+    // sides
+    curbs[0].translateX(-0.5)
 
-    // top
-    curbs[1].translateY(0.5)   
+    // end
+    curbs[1].translateY(0.5)
     curbs[1].rotateZ(THREE.Math.degToRad(90))
 
     // add to group
-    curbs.forEach(curb=>{this.add(curb)})
+    curbs.forEach( curb => { this.add(curb) } )
+  }
+}
+
+class RoadEnd extends RoadTile
+{
+  constructor(side)
+  {
+    super()
+    this.side = side || 0
+    this.createCurbs()
+  }
+  createCurbs()
+  {
+    let curbs = [new Curb, new Curb, new Curb]
+
+    // rotate to fit different end sides 
+    // (0 = top, 1 = right, 2 = bottom, 3 = left)
+    curbs.forEach( curb => { curb.rotateZ(THREE.Math.degToRad(this.side * -90)) } )
+
+    // sides
+    curbs[0].translateX( 0.5)
+    curbs[1].translateX(-0.5)
+
+    // end
+    curbs[2].translateY(0.5)   
+    curbs[2].rotateZ(THREE.Math.degToRad(90))
+
+    // add to group
+    curbs.forEach( curb => { this.add(curb) } )
   }
 }
 

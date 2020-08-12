@@ -24,12 +24,6 @@ function getCanvasHeight()
   return (containerHeight - paddingHeight - descriptionHeight)
 }
 
-
-function getContainerWidth()
-{
-  
-}
-
 // Scene global reqs
 var scene    = new THREE.Scene()
 //var camera   = new THREE.PerspectiveCamera( 60, getCanvasWidth() / getCanvasHeight())

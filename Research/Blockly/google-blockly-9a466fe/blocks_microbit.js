@@ -77,7 +77,7 @@ Blockly.defineBlocksWithJsonArray(
         {
           "type": "field_dropdown",
           "name": "DIRECTION",
-          "options": [ ["left", "left"], ["right", "right"] ]
+          "options": [ ["left \u27f2", "left"], ["right \u27f3", "right"] ]
         }
       ],
       "previousStatement": null,
@@ -108,7 +108,25 @@ Blockly.defineBlocksWithJsonArray(
       ],
       "previousStatement": null,
       "nextStatement": null,
-      "colour": 230,
+      "colour": 120,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
+      "type": "if_path_safe",
+      "message0": "if path is safe %1 %2 %3",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "DIRECTION",
+          "options": [ [ "ahead", "ahead" ], [ "to the left \u27f2", "left" ], [ "to the right \u27f3", "right" ] ]
+        },
+        { "type": "input_dummy" },
+        { "type": "input_statement", "name": "NAME" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 290,
       "tooltip": "",
       "helpUrl": ""
     },

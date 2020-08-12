@@ -44,7 +44,38 @@ Blockly.JavaScript['microbit_motor_turn'] = function(block) {
 Blockly.JavaScript['repeat_until_star'] = function(block) {
   // Convert sub-block(s) fist, then wrap & return 
   var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
-  return `while(!isJourneyComplete())\n{\n${statements_name}}\n`;
+  return `while(!actionManager.isJourneyComplete())\n{\n${statements_name}}\n`;
+};
+
+// --------------------------------------------------------------------------------
+
+Blockly.JavaScript['if_path_safe'] = function(block) {
+  var dropdown_direction = block.getFieldValue('DIRECTION');
+  var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
+
+  // in case this block is used in a loop, we must avoid redeclaring a variable (of the same name) via let/var
+  // to circumvent this, we instead store the variable as a property of the window
+  let code = `window.microbit_position = {x: actionManager.position.x, y: actionManager.position.y} \n`
+  
+  if(dropdown_direction === `ahead`)
+  {
+    code += `window.microbit_position.x += actionManager.facing.x\n`
+    code += `window.microbit_position.y += actionManager.facing.y\n`
+  }
+  if(dropdown_direction === `left`)
+  {
+    code += `if(actionManager.facing.x === 0)\n{\n  window.microbit_position.x = actionManager.position.x + actionManager.facing.y\n}\n`
+    code += `if(actionManager.facing.x === 1)\n{\n  window.microbit_position.y = actionManager.position.y - actionManager.facing.x\n}\n`
+  }
+  if(dropdown_direction === `right`)
+  {
+    code += `console.log('BEFORE: ' + window.microbit_position.x + ', ' + window.microbit_position.y)\n`
+    code += `if(actionManager.facing.x === 0)\n{\n  window.microbit_position.x = actionManager.position.x - actionManager.facing.y\n}\n`
+    code += `if(actionManager.facing.x === 1)\n{\n  window.microbit_position.x = actionManager.position.x + actionManager.facing.y\n}\n`
+    code += `console.log('AFTER: ' + window.microbit_position.x + ', ' + window.microbit_position.y)\n`
+  }
+  code += `if(actionManager.isValidPosition(window.microbit_position))\n{\n${statements_name}}\n`
+  return code;
 };
 
 // --------------------------------------------------------------------------------
