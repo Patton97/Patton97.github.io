@@ -1,17 +1,28 @@
 #threejs-container {
-  flex-grow: 1;
+  /*general properties*/
   width: 50vh;
-  height: 50vh;
+  height: 80vh;
   padding: 1vh;
-  margin:0;  
+  margin: 0;
+
+  /*as item*/
+  flex-grow: 1;
+
+  /*as container*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: stretch;
 }
 
 
 canvas{
   border-radius: 10px;
-  width:50vh;
-  height:50vh;
   display:block;
+
+  flex-grow: 0;
+  flex-shrink: 1;
+  order: -1;
 }
 
 @media only screen and (orientation: portrait) {

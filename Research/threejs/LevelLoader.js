@@ -85,3 +85,8 @@ function readDataJSON()
   })
   return tile_json
 }
+
+function setLevelDescription(description)
+{
+  
+}

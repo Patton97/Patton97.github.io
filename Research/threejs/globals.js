@@ -1,5 +1,6 @@
 // Document structuring (css, etc)
 var container = document.getElementById('threejs-container')
+var description = document.getElementById('levelDescription')
 
 function getCanvasWidth()
 {
@@ -15,7 +16,18 @@ function getCanvasHeight()
   let paddingHeight = 0 
   paddingHeight += parseInt(window.getComputedStyle(container).paddingTop)
   paddingHeight += parseInt(window.getComputedStyle(container).paddingBottom)
-  return (containerHeight - paddingHeight)
+  
+  descriptionHeight = description.offsetHeight 
+  descriptionHeight += parseInt(window.getComputedStyle(description).marginTop)
+  descriptionHeight += parseInt(window.getComputedStyle(description).marginBottom)
+  
+  return (containerHeight - paddingHeight - descriptionHeight)
+}
+
+
+function getContainerWidth()
+{
+  
 }
 
 // Scene global reqs
