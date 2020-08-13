@@ -89,6 +89,7 @@ function ResetLevel()
 function StartAnimation()
 {
   setTimeout(function(){ actionManager.running = true }, 1000)
+  setStatus(1)
 }
 
 window.addEventListener(`resize`, threejs_OnResize)
@@ -132,4 +133,33 @@ function btnNextLevel_SetDisabled(disabled)
   let btnNextLevel = document.getElementById(`btnNextLevel`)
   btnNextLevel.disabled = disabled
   btnNextLevel.textContent = disabled ? "Next 🔒" : "Next →"
+}
+
+function setLevelComplete(levelID)
+{
+  let progress = getProgress()
+  progress[levelID] = true
+  setProgress(progress)
+}
+
+function OnJourneyComplete(success)
+{  
+  if(success)
+  {
+    setLevelComplete(getLevelID())
+    btnNextLevel_SetDisabled(false)
+    setStatus(3)
+  }
+  else
+  {
+    setStatus(2)
+  }
+}
+
+// 0 = waiting, 1 = running, 2 = failed, 3 = complete
+function setStatus(status)
+{
+  let element = document.getElementById(`statusIndicator`)
+  let messages = [`💤 idle`, `⌛ running`, `❌ failed`, `✔️ complete`]
+  element.textContent = messages[status]
 }

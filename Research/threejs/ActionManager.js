@@ -101,6 +101,8 @@ class ActionManager
     if(this.position.x === levelLoader.destinationPos.x 
     && this.position.y === levelLoader.destinationPos.y)
     {
+      console.log(`position:    ${this.position.x}, ${this.position.y}`)
+      console.log(`destination: ${levelLoader.destinationPos.x }, ${levelLoader.destinationPos.y}`)
       return true
     }
     return false
@@ -114,7 +116,8 @@ class ActionManager
     }
     else
     {
-      this.running = false
+      this.finalise()
+      this.reset()
     }
   }
   perform(action)
@@ -132,6 +135,10 @@ class ActionManager
       this.actionNumber++
       this.actionFrame = 0
     } 
+  }
+  finalise()
+  {
+    OnJourneyComplete(this.isJourneyComplete())
   }
   reset()
   {

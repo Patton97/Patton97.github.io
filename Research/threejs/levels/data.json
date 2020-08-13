@@ -42,7 +42,7 @@
         [ 0, 0, 0, 0, 0],
         [ 0, 0, 0, 0, 0]
       ],
-      "description": "Level 1: get moving"
+      "description": "get moving"
     },
     {
       "startingPos": { "x": 0, "y": 2 },
@@ -56,7 +56,7 @@
         [ 0, 0, 0, 0, 0],
         [ 0, 0, 0, 0, 0]
       ],
-      "description": "Level 2: turning"
+      "description": "turning"
     },
     {
       "startingPos": { "x": 0, "y": 2 },

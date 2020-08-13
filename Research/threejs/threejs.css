@@ -44,12 +44,30 @@ canvas{
   background-color: black;
 }
 
+#btnNextLevel{background-color: blue!important;}
+#btnNextLevel:hover{background-color: darkblue!important;}
+
 #levelButtons-container > button:disabled{
   background-color: dimgray!important;
   color: white!important;
   cursor: not-allowed!important;
 }
 #levelButtons-container > button:disabled:hover{background-color: dimgray!important;}
+
+#statusIndicator
+{
+  font-size: 1.5em;
+  background-color: dimgray;
+  color: white;
+  border: solid 5px white;
+  border-radius: 10px;
+  margin-top: 1vh;
+
+  flex-grow: 1;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  text-align: center;
+}
 
 @media only screen and (orientation: portrait) {
   #threejs-container, canvas{

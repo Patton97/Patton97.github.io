@@ -36,6 +36,7 @@ class LevelLoader
     this.createLevel()
     this.moveCamera()
     microbit.reset()
+    setStatus(0)
   }
   createLevel()
   {
@@ -72,7 +73,7 @@ class LevelLoader
   }
   setDescription(description)
   {
-    document.getElementById(`levelDescription`).textContent = description
+    document.getElementById(`levelDescription`).textContent = `Level ${this.levelID}: ${description}`
     threejs_OnResize()
   }
   updateNavButtons()
@@ -102,26 +103,27 @@ function readDataJSON()
 
 function getLevelID()
 {  
-  if(!("levelID" in localStorage))
-  {
-    setLevelID(1)
-  }
-  console.log("returning")
+  // default levelID is 1
+  if(!("levelID" in localStorage)) { setLevelID(1) }
   return parseInt(localStorage.getItem("levelID"))
 }
 
 function setLevelID(levelID)
 {
   localStorage.setItem("levelID", levelID)
-  console.log("setting")
 }
 
 function getProgress()
-{  
+{ 
+  // level 0 is defaulted to complete
   if(!("progress" in localStorage))
   {
-    setProgress([true]) // level 0 is defaulted to complete
+    let defaultProgress = []
+    levelLoader.dataJSON.levels.forEach(level => {defaultProgress.push(false)})
+    defaultProgress[0] = true
+    setProgress(defaultProgress)
   }
+
   return JSON.parse(localStorage.getItem("progress"))
 }
 
