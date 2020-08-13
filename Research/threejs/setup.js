@@ -70,7 +70,7 @@ function animate()
   iFrame = iFrame >= 60 ? 1 : iFrame+1 // loops from 1 to 60 to 1 ... 
   renderer.render( scene, camera )
 }
-animate();
+animate()
 
 function btnPlay_Pressed()
 {
@@ -99,4 +99,37 @@ function threejs_OnResize()
   let newHeight = getCanvasHeight()
   ResizeRenderer(newWidth,newHeight)
   camera.aspect = newWidth / newHeight
+}
+
+
+function btnPrevLevel_Pressed()
+{
+  let currentLevel = parseInt(localStorage.getItem("levelID"))
+  let prevLevel = Math.max(currentLevel - 1, 1)
+  localStorage.setItem("levelID", prevLevel)
+  location.reload()
+}
+
+function btnNextLevel_Pressed()
+{
+  let currentLevel = parseInt(localStorage.getItem("levelID"))
+  let numLevels = levelLoader.dataJSON.levels.length - 1
+  let nextLevel = Math.min(currentLevel + 1, numLevels)
+
+  localStorage.setItem("levelID", nextLevel)
+  location.reload()
+}
+
+function btnPrevLevel_SetDisabled(disabled)
+{
+  let btnPrevLevel = document.getElementById(`btnPrevLevel`)
+  btnPrevLevel.disabled = disabled
+  btnPrevLevel.textContent = disabled ? "🔒 Prev" : "← Prev"
+}
+
+function btnNextLevel_SetDisabled(disabled)
+{
+  let btnNextLevel = document.getElementById(`btnNextLevel`)
+  btnNextLevel.disabled = disabled
+  btnNextLevel.textContent = disabled ? "Next 🔒" : "Next →"
 }

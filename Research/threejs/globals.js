@@ -1,6 +1,7 @@
 // Document structuring (css, etc)
 var container = document.getElementById('threejs-container')
-var description = document.getElementById('levelDescription')
+var levelDescription = document.getElementById('levelDescription')
+var levelButtons = document.getElementById(`levelButtons-container`)
 
 function getCanvasWidth()
 {
@@ -12,16 +13,38 @@ function getCanvasWidth()
 }
 function getCanvasHeight()
 {
-  let containerHeight = container.offsetHeight
-  let paddingHeight = 0 
-  paddingHeight += parseInt(window.getComputedStyle(container).paddingTop)
-  paddingHeight += parseInt(window.getComputedStyle(container).paddingBottom)
+  let canvasHeight = container.offsetHeight
   
-  descriptionHeight = description.offsetHeight 
-  descriptionHeight += parseInt(window.getComputedStyle(description).marginTop)
-  descriptionHeight += parseInt(window.getComputedStyle(description).marginBottom)
-  
-  return (containerHeight - paddingHeight - descriptionHeight)
+  let containerStyle = window.getComputedStyle(container)
+  canvasHeight -= parseInt(containerStyle.paddingTop)
+  canvasHeight -= parseInt(containerStyle.paddingBottom)
+
+  canvasHeight -= getElementHeight(levelDescription)
+  canvasHeight -= getElementHeight(levelButtons)
+ 
+  return canvasHeight
+}
+
+function getElementWidth(element)
+{
+  let width = element.offsetWidth
+  let elementStyle = window.getComputedStyle(element)
+  width += parseInt(elementStyle.marginLeft)
+  width += parseInt(elementStyle.marginRight)  
+  width += parseInt(elementStyle.paddingLeft)
+  width += parseInt(elementStyle.paddingRight)
+  return width
+}
+
+function getElementHeight(element)
+{
+  let height = element.offsetHeight
+  let elementStyle = window.getComputedStyle(element)
+  height += parseInt(elementStyle.marginTop)
+  height += parseInt(elementStyle.marginBottom)
+  height += parseInt(elementStyle.paddingTop)
+  height += parseInt(elementStyle.paddingBottom)
+  return height
 }
 
 // Scene global reqs

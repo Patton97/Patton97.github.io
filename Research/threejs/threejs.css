@@ -15,7 +15,6 @@
   align-items: stretch;
 }
 
-
 canvas{
   border-radius: 10px;
   display:block;
@@ -24,6 +23,33 @@ canvas{
   flex-shrink: 1;
   order: -1;
 }
+
+#levelButtons-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+#levelButtons-container > button{
+  font-size: 1.5em;
+  background-color: dimgray;
+  color: white;
+  border: solid 5px white;
+  border-radius: 10px;
+  margin-top: 1vh;
+  cursor:pointer;
+  flex-grow: 0;
+}
+
+#levelButtons-container > button:hover{
+  background-color: black;
+}
+
+#levelButtons-container > button:disabled{
+  background-color: dimgray!important;
+  color: white!important;
+  cursor: not-allowed!important;
+}
+#levelButtons-container > button:disabled:hover{background-color: dimgray!important;}
 
 @media only screen and (orientation: portrait) {
   #threejs-container, canvas{

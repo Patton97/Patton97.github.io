@@ -18,20 +18,21 @@ class LevelLoader
   unloadLevel()
   {
     this.levelJSON = null
-    microbit.translateX( this.startingPos.x)
-    microbit.translateY(-this.startingPos.y)
+    microbit.translateX(0)
+    microbit.translateY(0)
     microbit.rotateX(THREE.Math.degToRad(90))
   }
   loadLevel()
   {
     this.unloadLevel()
-    let levelID = localStorage.getItem("levelID")
-    if(levelID === null) {  levelID = 1 }
-    this.levelData = this.dataJSON.levels[levelID]
+    this.levelID = getLevelID()
+    this.levelData = this.dataJSON.levels[this.levelID]
     this.levelGrid = this.levelData.grid
     this.startingPos = this.levelData.startingPos
     this.startingDir = this.levelData.startingDir
     this.destinationPos = this.levelData.destinationPos
+    this.setDescription(this.levelData.description)
+    this.updateNavButtons()
     this.createLevel()
     this.moveCamera()
     microbit.reset()
@@ -69,6 +70,19 @@ class LevelLoader
     camera.translateY(-offsetY)
     camera.translateZ(5)
   }
+  setDescription(description)
+  {
+    document.getElementById(`levelDescription`).textContent = description
+    threejs_OnResize()
+  }
+  updateNavButtons()
+  {
+    // if current levelID is 1 or lower, disable btnPrevLevel (otherwise, enable it)
+    btnPrevLevel_SetDisabled(this.levelID <= 1)
+
+    // if current level is NOT complete, disable btnNextLevel (otherwise, enable it)
+    btnNextLevel_SetDisabled(!isLevelComplete(this.levelID))
+  }
 }
 
 function readDataJSON()
@@ -86,7 +100,39 @@ function readDataJSON()
   return tile_json
 }
 
-function setLevelDescription(description)
+function getLevelID()
+{  
+  if(!("levelID" in localStorage))
+  {
+    setLevelID(1)
+  }
+  console.log("returning")
+  return parseInt(localStorage.getItem("levelID"))
+}
+
+function setLevelID(levelID)
 {
-  
+  localStorage.setItem("levelID", levelID)
+  console.log("setting")
+}
+
+function getProgress()
+{  
+  if(!("progress" in localStorage))
+  {
+    setProgress([true]) // level 0 is defaulted to complete
+  }
+  return JSON.parse(localStorage.getItem("progress"))
+}
+
+function setProgress(progress)
+{
+  localStorage.setItem("progress", JSON.stringify(progress))
+}
+
+function isLevelComplete(levelID)
+{
+  let complete = getProgress()[levelID]
+  if(complete === undefined || complete === null) { complete = false }
+  return complete
 }
