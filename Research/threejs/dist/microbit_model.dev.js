@@ -511,7 +511,7 @@ function (_THREE$Group7) {
       this.wheels.forEach(function (wheel) {
         wheel.animate();
       });
-      this.translateZ(this.moveSpeed * 0.01);
+      this.translateZ(this.moveSpeed * 0.02);
       this.rotateY(THREE.Math.degToRad(this.rotSpeed * -2));
     }
   }, {
