@@ -42,21 +42,21 @@ function () {
   }, {
     key: "addAction_MoveForward",
     value: function addAction_MoveForward() {
-      this.addAction('MoveForward', 100);
+      this.addAction('MoveForward', 50);
       this.addAction_Stop();
       this.evaluate(1);
     }
   }, {
     key: "addAction_MoveBackward",
     value: function addAction_MoveBackward() {
-      this.addAction('MoveBackward', 100);
+      this.addAction('MoveBackward', 50);
       this.addAction_Stop();
       this.evaluate(-1);
     }
   }, {
     key: "addAction_TurnLeft",
     value: function addAction_TurnLeft() {
-      this.addAction('TurnLeft', 100);
+      this.addAction('TurnLeft', 50);
       this.addAction_Stop(); //surely a better way
 
       this.facing.set(this.facing.y, -this.facing.x);
@@ -64,7 +64,7 @@ function () {
   }, {
     key: "addAction_TurnRight",
     value: function addAction_TurnRight() {
-      this.addAction('TurnRight', 100);
+      this.addAction('TurnRight', 50);
       this.addAction_Stop(); //surely a better way
 
       this.facing.set(-this.facing.y, this.facing.x);
@@ -72,7 +72,7 @@ function () {
   }, {
     key: "addAction_Stop",
     value: function addAction_Stop() {
-      this.addAction('Stop', 50);
+      this.addAction('Stop', 45);
     }
   }, {
     key: "addAction_TurnOnLeftLED",

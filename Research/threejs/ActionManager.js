@@ -28,20 +28,20 @@ class ActionManager
   }
   addAction_MoveForward()
   {
-    this.addAction('MoveForward', 100)
+    this.addAction('MoveForward', 50)
     this.addAction_Stop()
     
     this.evaluate(1)
   }
   addAction_MoveBackward()
   {
-    this.addAction('MoveBackward', 100)
+    this.addAction('MoveBackward', 50)
     this.addAction_Stop()
     this.evaluate(-1)
   }
   addAction_TurnLeft()
   {
-    this.addAction('TurnLeft', 100)
+    this.addAction('TurnLeft', 50)
     this.addAction_Stop()
     
     //surely a better way
@@ -49,13 +49,13 @@ class ActionManager
   }
   addAction_TurnRight()
   {
-    this.addAction('TurnRight', 100)
+    this.addAction('TurnRight', 50)
     this.addAction_Stop()
 
     //surely a better way
     this.facing.set(-this.facing.y, this.facing.x)
   }
-  addAction_Stop() { this.addAction('Stop', 50) }
+  addAction_Stop() { this.addAction('Stop', 45) }
   addAction_TurnOnLeftLED()  { this.addAction('TurnOnLeftLED',   10) }
   addAction_TurnOnRightLED() { this.addAction('TurnOnRightLED',  10) }
   addAction_TurnOnBothLED()  { this.addAction('TurnOnBothLED',   10) }

@@ -512,7 +512,7 @@ function (_THREE$Group7) {
         wheel.animate();
       });
       this.translateZ(this.moveSpeed * 0.01);
-      this.rotateY(THREE.Math.degToRad(this.rotSpeed * -0.5));
+      this.rotateY(THREE.Math.degToRad(this.rotSpeed * -2));
     }
   }, {
     key: "setMoveSpeed",

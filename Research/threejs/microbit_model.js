@@ -345,7 +345,7 @@ class Microbit extends THREE.Group
   {
     this.wheels.forEach(wheel=>{wheel.animate()})
     this.translateZ(this.moveSpeed * 0.01)
-    this.rotateY(THREE.Math.degToRad(this.rotSpeed * -0.5))
+    this.rotateY(THREE.Math.degToRad(this.rotSpeed * -2))
   }
   setMoveSpeed(speed)
   {
