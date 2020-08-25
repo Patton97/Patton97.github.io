@@ -175,6 +175,17 @@ function btnNextLevel_SetSkip(skip) {
     btnNextLevel.classList -= "skip";
     btnNextLevel.textContent = "Next \u2192";
   }
+} // toggles button between "skip" and "next" (for when the user completes the level)
+
+
+function btnNextLevel_SetFinish(finish) {
+  var btnNextLevel = document.getElementById("btnNextLevel");
+  btnNextLevel.classList += "finish";
+  btnNextLevel.textContent = "Finish!";
+
+  btnNextLevel.onclick = function () {
+    window.location = '/Research/';
+  };
 }
 
 function setLevelComplete(levelID) {

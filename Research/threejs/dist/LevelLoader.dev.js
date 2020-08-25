@@ -95,10 +95,10 @@ function () {
     key: "updateNavButtons",
     value: function updateNavButtons() {
       // if current levelID is 1 or lower, disable btnPrevLevel (otherwise, enable it)
-      btnPrevLevel_SetDisabled(this.levelID <= 1); // if current levelID is the last available level, disable btnNextLevel
+      btnPrevLevel_SetDisabled(this.levelID <= 1); // if current levelID is the last available level, send user back to main menu
 
       if (this.levelID >= this.dataJSON.levels.length - 1) {
-        btnNextLevel_SetDisabled(true);
+        btnNextLevel_SetFinish();
       } else {
         btnNextLevel_SetDisabled(false); // if current level is NOT complete, set btnNextLevel to "skip" (otherwise, set it to "next")
 
