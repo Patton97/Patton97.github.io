@@ -56,14 +56,16 @@ var camera   = new THREE.OrthographicCamera( -CAMSCALE, CAMSCALE, CAMSCALE, -CAM
 
 var renderer = new THREE.WebGLRenderer()
 
-var iFrame   = 0
+var iFrame = 0
+var clock = new THREE.Clock
+clock.start()
+var frameTime = 0
 
 // Scene objects
 var objectManager = new ObjectManager
 var tileFactory = new TileFactory
 var levelLoader = new LevelLoader
 var microbit = new Microbit
-
 
 // DEBUG Switcher
 var debug = false

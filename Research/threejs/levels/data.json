@@ -33,30 +33,16 @@
     {
       "startingPos": { "x": 0, "y": 2 },
       "startingDir": { "x": 1, "y": 0 },
-      "destinationPos" : { "x": 4, "y": 2 },
+      "destinationPos" : { "x": 4, "y": 0 },
       "grid":
       [
-        [ 0, 0, 0, 0, 0],
-        [ 0, 0, 0, 0, 0],
-        [11, 2, 2, 2, 9],
+        [ 0, 0, 0, 0, 8],
+        [ 0, 0, 0, 0, 1],
+        [11, 2, 2, 2, 6],
         [ 0, 0, 0, 0, 0],
         [ 0, 0, 0, 0, 0]
       ],
       "description": "get moving"
-    },
-    {
-      "startingPos": { "x": 0, "y": 2 },
-      "startingDir": { "x": 1, "y": 0 },
-      "destinationPos" : { "x": 2, "y": 0 },
-      "grid":
-      [
-        [ 0, 0, 8, 0, 0],
-        [ 0, 0, 1, 0, 0],
-        [11, 2, 6, 0, 0],
-        [ 0, 0, 0, 0, 0],
-        [ 0, 0, 0, 0, 0]
-      ],
-      "description": "turning"
     },
     {
       "startingPos": { "x": 0, "y": 2 },
@@ -70,21 +56,35 @@
         [ 0, 0, 0, 0, 0],
         [ 0, 0, 0, 0, 0]
       ],
-      "description": "Level 3: for loops"
+      "description": "for loops"
     },
     {
-      "startingPos": { "x": 2, "y": 0 },
+      "startingPos": { "x": 0, "y": 2 },
       "startingDir": { "x": 1, "y": 0 },
-      "destinationPos" : { "x": 0, "y": 0 },
+      "destinationPos" : { "x": 4, "y": 2 },
       "grid":
       [
-        [ 8, 0,11, 2, 5],
-        [ 1, 0, 0, 0, 1],
-        [ 1, 0, 0, 0, 1],
-        [ 1, 0, 0, 0, 1],
-        [ 7, 2, 2, 2, 6]
+        [ 0, 0, 0, 0, 0],
+        [ 0, 0, 0, 0, 0],
+        [11, 2, 2, 2, 9],
+        [ 0, 0, 0, 0, 0],
+        [ 0, 0, 0, 0, 0]
       ],
-      "description": "Level 4: while loops"
+      "description": "while loops"
+    },
+    {
+      "startingPos": { "x": 0, "y": 4 },
+      "startingDir": { "x": 1, "y": 0 },
+      "destinationPos" : { "x": 4, "y": 0 },
+      "grid":
+      [
+        [ 0, 0, 0, 0, 8],
+        [ 0, 0, 0, 4, 6],
+        [ 0, 0, 4, 6, 0],
+        [ 0, 4, 6, 0, 0],
+        [11, 6, 0, 0, 0]
+      ],
+      "description": "loops puzzle"
     },
     {
       "startingPos": { "x": 2, "y": 0 },
@@ -98,7 +98,7 @@
         [ 1, 0, 0, 0, 0],
         [ 7, 2, 9, 0, 0]
       ],
-      "description": "Level 5: ifs"
+      "description": "conditionals"
     }
   ]
 }

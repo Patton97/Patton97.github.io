@@ -54,6 +54,10 @@ canvas{
 }
 #levelButtons-container > button:disabled:hover{background-color: dimgray!important;}
 
+#levelButtons-container > button.skip{
+  background-color: darkgoldenrod!important;
+}
+
 #statusIndicator
 {
   font-size: 1.5em;

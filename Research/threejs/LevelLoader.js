@@ -81,8 +81,17 @@ class LevelLoader
     // if current levelID is 1 or lower, disable btnPrevLevel (otherwise, enable it)
     btnPrevLevel_SetDisabled(this.levelID <= 1)
 
-    // if current level is NOT complete, disable btnNextLevel (otherwise, enable it)
-    btnNextLevel_SetDisabled(!isLevelComplete(this.levelID))
+    // if current levelID is the last available level, disable btnNextLevel
+    if(this.levelID >= this.dataJSON.levels.length - 1)
+    {
+      btnNextLevel_SetDisabled(true)
+    }
+    else
+    {
+      btnNextLevel_SetDisabled(false)
+      // if current level is NOT complete, set btnNextLevel to "skip" (otherwise, set it to "next")
+      btnNextLevel_SetSkip(!isLevelComplete(this.levelID))
+    }    
   }
 }
 

@@ -68,6 +68,8 @@ function animate()
   actionManager.update()  
   // ----------
   iFrame = iFrame >= 60 ? 1 : iFrame+1 // loops from 1 to 60 to 1 ... 
+  frameTime = clock.getDelta()
+  console.log(frameTime)
   renderer.render( scene, camera )
 }
 animate()
@@ -135,6 +137,22 @@ function btnNextLevel_SetDisabled(disabled)
   btnNextLevel.textContent = disabled ? "Next 🔒" : "Next →"
 }
 
+// toggles button between "skip" and "next" (for when the user completes the level)
+function btnNextLevel_SetSkip(skip)
+{
+  let btnNextLevel = document.getElementById(`btnNextLevel`)
+  if(skip)
+  {
+    btnNextLevel.classList += `skip`
+    btnNextLevel.textContent = `Skip →`
+  }
+  else
+  {
+    btnNextLevel.classList -= `skip`
+    btnNextLevel.textContent = `Next →`
+  }  
+}
+
 function setLevelComplete(levelID)
 {
   let progress = getProgress()
@@ -147,7 +165,7 @@ function OnJourneyComplete(success)
   if(success)
   {
     setLevelComplete(getLevelID())
-    btnNextLevel_SetDisabled(false)
+    btnNextLevel_SetSkip(false)
     setStatus(3)
   }
   else

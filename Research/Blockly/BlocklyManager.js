@@ -117,7 +117,13 @@ function OnResize() {
 function CreateBlocklyArea()
 {
   let container = document.getElementById(`blocklyContainer`)
-  let blocklyHTML = readFromTextFile(`/Research/Blockly/blockly_toolbox.html`)
+  let levelID = localStorage.getItem(`levelID`)
+  let blocklyHTML = ``
+  blocklyHTML += `<div id="blockly" style="height: 480px; width: 600px;">`
+  blocklyHTML += `  <xml id="toolbox" style="display: none">`
+  blocklyHTML += readFromTextFile(`/Research/Blockly/toolboxes/level${levelID}.html`)
+  blocklyHTML += `  </xml>`
+  blocklyHTML += `</div>`
   container.innerHTML = blocklyHTML + container.innerHTML
 }
 
