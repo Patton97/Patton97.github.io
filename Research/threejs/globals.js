@@ -57,9 +57,11 @@ var camera   = new THREE.OrthographicCamera( -CAMSCALE, CAMSCALE, CAMSCALE, -CAM
 var renderer = new THREE.WebGLRenderer()
 
 var iFrame = 0
+/*
 var clock = new THREE.Clock
 clock.start()
 var frameTime = 0
+*/
 
 // Scene objects
 var objectManager = new ObjectManager
