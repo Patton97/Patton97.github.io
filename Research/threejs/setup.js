@@ -154,11 +154,11 @@ function btnNextLevel_SetSkip(skip)
 }
 
 // toggles button between "skip" and "next" (for when the user completes the level)
-function btnNextLevel_SetFinish(finish)
+function btnNextLevel_SetFinish()
 {
   let btnNextLevel = document.getElementById(`btnNextLevel`)
   btnNextLevel.classList += `finish`
-  btnNextLevel.textContent = `Finish!`
+  btnNextLevel.textContent = `Finish ⭐`
   btnNextLevel.onclick = function() { window.location='/Research/' }
 }
 

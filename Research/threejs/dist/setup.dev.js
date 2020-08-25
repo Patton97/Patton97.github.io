@@ -178,10 +178,10 @@ function btnNextLevel_SetSkip(skip) {
 } // toggles button between "skip" and "next" (for when the user completes the level)
 
 
-function btnNextLevel_SetFinish(finish) {
+function btnNextLevel_SetFinish() {
   var btnNextLevel = document.getElementById("btnNextLevel");
   btnNextLevel.classList += "finish";
-  btnNextLevel.textContent = "Finish!";
+  btnNextLevel.textContent = "Finish \u2B50";
 
   btnNextLevel.onclick = function () {
     window.location = '/Research/';

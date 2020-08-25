@@ -54,9 +54,11 @@ canvas{
 }
 #levelButtons-container > button:disabled:hover{background-color: dimgray!important;}
 
-#levelButtons-container > button.skip{
-  background-color: darkgoldenrod!important;
-}
+#levelButtons-container > button.skip{background-color: goldenrod!important;}
+#levelButtons-container > button.skip:hover{background-color: darkgoldenrod!important;}
+
+#levelButtons-container > button.finish{background-color: green!important;}
+#levelButtons-container > button.finish:hover{background-color: darkgreen!important;}
 
 #statusIndicator
 {
