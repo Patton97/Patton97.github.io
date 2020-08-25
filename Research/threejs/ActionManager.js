@@ -41,7 +41,7 @@ class ActionManager
   }
   addAction_TurnLeft()
   {
-    this.addAction('TurnLeft', 50)
+    this.addAction('TurnLeft', 45)
     this.addAction_Stop()
     
     //surely a better way
@@ -55,7 +55,7 @@ class ActionManager
     //surely a better way
     this.facing.set(-this.facing.y, this.facing.x)
   }
-  addAction_Stop() { this.addAction('Stop', 45) }
+  addAction_Stop() { this.addAction('Stop', 50) }
   addAction_TurnOnLeftLED()  { this.addAction('TurnOnLeftLED',   10) }
   addAction_TurnOnRightLED() { this.addAction('TurnOnRightLED',  10) }
   addAction_TurnOnBothLED()  { this.addAction('TurnOnBothLED',   10) }

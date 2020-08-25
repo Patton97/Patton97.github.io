@@ -56,7 +56,7 @@ function () {
   }, {
     key: "addAction_TurnLeft",
     value: function addAction_TurnLeft() {
-      this.addAction('TurnLeft', 50);
+      this.addAction('TurnLeft', 45);
       this.addAction_Stop(); //surely a better way
 
       this.facing.set(this.facing.y, -this.facing.x);
@@ -72,7 +72,7 @@ function () {
   }, {
     key: "addAction_Stop",
     value: function addAction_Stop() {
-      this.addAction('Stop', 45);
+      this.addAction('Stop', 50);
     }
   }, {
     key: "addAction_TurnOnLeftLED",
