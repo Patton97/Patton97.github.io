@@ -72,7 +72,7 @@ function () {
   }, {
     key: "addAction_Stop",
     value: function addAction_Stop() {
-      this.addAction('Stop', 50);
+      this.addAction('Stop', 20);
     }
   }, {
     key: "addAction_TurnOnLeftLED",

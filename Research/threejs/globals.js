@@ -57,7 +57,7 @@ var camera   = new THREE.OrthographicCamera( -CAMSCALE, CAMSCALE, CAMSCALE, -CAM
 var renderer = new THREE.WebGLRenderer()
 
 var iFrame = 0
-const MAXFPS = 30
+const MAXFPS = 60
 
 // Scene objects
 var objectManager = new ObjectManager
