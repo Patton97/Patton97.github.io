@@ -64,7 +64,7 @@ function () {
   }, {
     key: "addAction_TurnRight",
     value: function addAction_TurnRight() {
-      this.addAction('TurnRight', 50);
+      this.addAction('TurnRight', 45);
       this.addAction_Stop(); //surely a better way
 
       this.facing.set(-this.facing.y, this.facing.x);
