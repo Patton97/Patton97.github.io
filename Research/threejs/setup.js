@@ -69,7 +69,6 @@ function animate()
   // ----------
   iFrame = iFrame >= 60 ? 1 : iFrame+1 // loops from 1 to 60 to 1 ... 
   
-  console.log(frameTime)
   renderer.render( scene, camera )
 }
 animate()
