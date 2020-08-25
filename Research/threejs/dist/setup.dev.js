@@ -93,7 +93,10 @@ function UpdateControls() {
 var actionManager = new ActionManager(); // every frame
 
 function animate() {
-  requestAnimationFrame(animate); // ----------
+  // Limit framerate 
+  setTimeout(function () {
+    requestAnimationFrame(animate);
+  }, 1000 / 60); // ----------
 
   objectManager.animateAll(iFrame);
   UpdateControls();
