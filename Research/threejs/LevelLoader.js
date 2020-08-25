@@ -73,7 +73,7 @@ class LevelLoader
   }
   setDescription(description)
   {
-    document.getElementById(`levelDescription`).textContent = `Level ${this.levelID}: ${description}`
+    document.getElementById(`levelDescription`).innerHTML = `Level ${this.levelID}: ${description}`
     threejs_OnResize()
   }
   updateNavButtons()

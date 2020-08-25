@@ -20,11 +20,12 @@ main{
 }
 
 #blockly{
-  flex-grow: 1
+  flex-grow: 1;
 }
 
 .blocklyTreeLabel { color: black; font-weight: bold; }
 .injectionDiv { border-radius: 10px; }
+
 
 #btnPlay{
   font-size: 3em;

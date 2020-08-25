@@ -42,7 +42,7 @@
         [ 0, 0, 0, 0, 0],
         [ 0, 0, 0, 0, 0]
       ],
-      "description": "get moving"
+      "description": "Let's get moving! <br><br> Your task is to reach the gold star. Drag in blocks from the left hand side to give your robot instructions. Once you're ready, hit the green play button!"
     },
     {
       "startingPos": { "x": 0, "y": 2 },
@@ -56,7 +56,7 @@
         [ 0, 0, 0, 0, 0],
         [ 0, 0, 0, 0, 0]
       ],
-      "description": "for loops"
+      "description": "Loop-de-loop! <br><br> In programming, loops allow us to save time and avoid repetition. Rather than dragging the \"move forward\" block mupltiple times, try putting it inside a green \"repeat (X) times\" block"
     },
     {
       "startingPos": { "x": 0, "y": 2 },
@@ -70,7 +70,7 @@
         [ 0, 0, 0, 0, 0],
         [ 0, 0, 0, 0, 0]
       ],
-      "description": "while loops"
+      "description": "Different types of loops <br><br> Sometimes we don't know exactly how many times we want to repeat our loop. This new block \"repeat until ⭐\" will loop until you reach the star, give it a try."
     },
     {
       "startingPos": { "x": 0, "y": 4 },
@@ -84,7 +84,7 @@
         [ 0, 4, 6, 0, 0],
         [11, 6, 0, 0, 0]
       ],
-      "description": "loops puzzle"
+      "description": "Puzzle time! <br><br> Using your new knowledge of loops, try to navigate this puzzle to reach the star. You can use either type of loop to solve this problem, so I've left that decision up to you."
     },
     {
       "startingPos": { "x": 2, "y": 0 },
@@ -98,7 +98,7 @@
         [ 1, 0, 0, 0, 0],
         [ 7, 2, 9, 0, 0]
       ],
-      "description": "conditionals"
+      "description": "Conditionals <br><br> We don't always want every piece of code to run. To control this, we can use \"conditonals\", or \"if statements\". By placing code inside these statements, we ensure it is only run if the condition is met. Try to navigate this level using a combination of loops and conditionals."
     }
   ]
 }

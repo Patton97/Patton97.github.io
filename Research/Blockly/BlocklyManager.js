@@ -147,6 +147,9 @@ var workspace = CreateWorkspace()
 blocklyDiv.style.width = `100%`
 blocklyDiv.style.height = `90%`
 
+//force colour change
+document.getElementsByClassName(`blocklyFlyoutBackground`)[0].style.fill = `#888888`
+
 function myUpdateFunction(event) {
   var code = Blockly.JavaScript.workspaceToCode(workspace)
   console.log(`---\n${code}\n---`)

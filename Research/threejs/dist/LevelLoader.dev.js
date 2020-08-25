@@ -88,7 +88,7 @@ function () {
   }, {
     key: "setDescription",
     value: function setDescription(description) {
-      document.getElementById("levelDescription").textContent = "Level ".concat(this.levelID, ": ").concat(description);
+      document.getElementById("levelDescription").innerHTML = "Level ".concat(this.levelID, ": ").concat(description);
       threejs_OnResize();
     }
   }, {

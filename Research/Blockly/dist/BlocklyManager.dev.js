@@ -135,7 +135,9 @@ var blocklyArea = document.getElementById('blocklyContainer'); //store area for 
 var blocklyDiv = document.getElementById('blockly');
 var workspace = CreateWorkspace();
 blocklyDiv.style.width = "100%";
-blocklyDiv.style.height = "90%";
+blocklyDiv.style.height = "90%"; //force colour change
+
+document.getElementsByClassName("blocklyFlyoutBackground")[0].style.fill = "#888888";
 
 function myUpdateFunction(event) {
   var code = Blockly.JavaScript.workspaceToCode(workspace);
