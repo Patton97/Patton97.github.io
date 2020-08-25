@@ -49,7 +49,8 @@ var scene = new THREE.Scene(); //var camera   = new THREE.PerspectiveCamera( 60,
 var CAMSCALE = 2.6;
 var camera = new THREE.OrthographicCamera(-CAMSCALE, CAMSCALE, CAMSCALE, -CAMSCALE, 1, 1000);
 var renderer = new THREE.WebGLRenderer();
-var iFrame = 0; // Scene objects
+var iFrame = 0;
+var MAXFPS = 30; // Scene objects
 
 var objectManager = new ObjectManager();
 var tileFactory = new TileFactory();

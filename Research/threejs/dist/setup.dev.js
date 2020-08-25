@@ -96,7 +96,7 @@ function animate() {
   // Limit framerate 
   setTimeout(function () {
     requestAnimationFrame(animate);
-  }, 1000 / 60); // ----------
+  }, 1000 / MAXFPS); // ----------
 
   objectManager.animateAll(iFrame);
   UpdateControls();

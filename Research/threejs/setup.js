@@ -62,7 +62,7 @@ var actionManager = new ActionManager
 function animate() 
 {
   // Limit framerate 
-  setTimeout( function() { requestAnimationFrame( animate ) }, 1000 / 60 )
+  setTimeout( function() { requestAnimationFrame( animate ) }, 1000 / MAXFPS )
   // ----------
   objectManager.animateAll(iFrame)
   UpdateControls()
