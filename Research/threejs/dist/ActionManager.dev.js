@@ -133,8 +133,9 @@ function () {
 
       if (!levelLoader.dataJSON.tiles[tileType].safe) {
         return false;
-      } // otherwise
+      }
 
+      console.log(tileType); // otherwise
 
       return true;
     }

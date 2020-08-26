@@ -130,6 +130,18 @@ class Curb extends THREE.Group
   }
 }
 
+
+
+class Marking extends THREE.Mesh
+{
+  constructor(length)
+  {
+    let geo = new THREE.PlaneGeometry(0.1,length,0.1)
+    let mat = new THREE.MeshBasicMaterial( { color: 0xffffff, side: THREE.DoubleSide } )
+    super(geo, mat)
+  }
+}
+
 class RoadStraight extends RoadTile
 {
   constructor(horizontal)
@@ -137,6 +149,7 @@ class RoadStraight extends RoadTile
     super()
     this.horizontal = horizontal
     this.createCurbs()
+    this.createMarkings()
   }
   createCurbs()
   {
@@ -151,6 +164,16 @@ class RoadStraight extends RoadTile
 
     curbs.forEach( curb => { this.add(curb) } )
   }
+  createMarkings()
+  {
+    let marking = new Marking(0.35)
+    if(this.horizontal)
+    {
+      marking.rotateZ(THREE.Math.degToRad(90))
+    }
+
+    this.add(marking)
+  }
 }
 
 class RoadCorner extends RoadTile
@@ -160,6 +183,7 @@ class RoadCorner extends RoadTile
     super()
     this.side = side || 0
     this.createCurbs()
+    this.createMarkings()
   }
   createCurbs()
   {
@@ -179,6 +203,19 @@ class RoadCorner extends RoadTile
     // add to group
     curbs.forEach( curb => { this.add(curb) } )
   }
+  createMarkings()
+  {
+    let markings = [new Marking(0.27),new Marking(0.27)]
+
+    markings.forEach( marking => { marking.rotateZ(THREE.Math.degToRad(this.side * -90)) } )
+
+    markings[0].translateY(-0.09)
+
+    markings[1].translateX(0.09)
+    markings[1].rotateZ(THREE.Math.degToRad(90))
+
+    markings.forEach(marking=>{this.add(marking)})
+  }
 }
 
 class RoadEnd extends RoadTile
@@ -188,6 +225,7 @@ class RoadEnd extends RoadTile
     super()
     this.side = side || 0
     this.createCurbs()
+    this.createMarkings()
   }
   createCurbs()
   {
@@ -207,6 +245,12 @@ class RoadEnd extends RoadTile
 
     // add to group
     curbs.forEach( curb => { this.add(curb) } )
+  }
+  createMarkings()
+  {
+    let marking = new Marking(0.35)
+    marking.rotateZ(THREE.Math.degToRad(this.side * -90))
+    this.add(marking)
   }
 }
 

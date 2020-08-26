@@ -93,6 +93,7 @@ class ActionManager
       return false
     }
 
+    console.log(tileType)
     // otherwise
     return true
   }

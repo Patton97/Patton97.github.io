@@ -64,15 +64,17 @@ Blockly.JavaScript['if_path_safe'] = function(block) {
   }
   if(dropdown_direction === `left`)
   {
-    code += `if(actionManager.facing.x === 0)\n{\n  window.microbit_position.x = actionManager.position.x + actionManager.facing.y\n}\n`
-    code += `if(actionManager.facing.x === 1)\n{\n  window.microbit_position.y = actionManager.position.y - actionManager.facing.x\n}\n`
+    code += `if(actionManager.facing.x === 0)\n{\n`
+    code += `  window.microbit_position.x = actionManager.position.x + actionManager.facing.y\n}\n`
+    code += `else\n{\n`
+    code += `  window.microbit_position.y = actionManager.position.y - actionManager.facing.x\n}\n`
   }
   if(dropdown_direction === `right`)
   {
-    code += `console.log('BEFORE: ' + window.microbit_position.x + ', ' + window.microbit_position.y)\n`
-    code += `if(actionManager.facing.x === 0)\n{\n  window.microbit_position.x = actionManager.position.x - actionManager.facing.y\n}\n`
-    code += `if(actionManager.facing.x === 1)\n{\n  window.microbit_position.x = actionManager.position.x + actionManager.facing.y\n}\n`
-    code += `console.log('AFTER: ' + window.microbit_position.x + ', ' + window.microbit_position.y)\n`
+    code += `if(actionManager.facing.x === 0)\n{\n`
+    code += `  window.microbit_position.x = actionManager.position.x - actionManager.facing.y\n}\n`
+    code += `else\n{\n`
+    code += `  window.microbit_position.y = actionManager.position.y + actionManager.facing.x\n}\n`
   }
   code += `if(actionManager.isValidPosition(window.microbit_position))\n{\n${statements_name}}\n`
   return code;
