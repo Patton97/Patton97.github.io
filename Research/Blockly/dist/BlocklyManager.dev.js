@@ -99,10 +99,10 @@ function OnResize() {
   var workspaceWidth = blocklyArea.offsetWidth - parseInt(window.getComputedStyle(blocklyArea).paddingLeft) * 4;
   var workspaceHeight = blocklyArea.offsetHeight - parseInt(window.getComputedStyle(blocklyArea).paddingTop) * 4;
   blocklyDiv.style.width = workspaceWidth + 'px';
-  blocklyDiv.style.height = workspaceHeight + 'px'; // Resize the play button too
+  blocklyDiv.style.height = workspaceHeight + 'px'; // Resize the buttons
 
-  var playButton = document.getElementById("btnPlay");
-  playButton.style.width = "".concat(workspaceWidth, "px"); //Blockly.svgResize(workspace)
+  var buttons = document.getElementById("blocklyButtons");
+  buttons.style.width = "".concat(workspaceWidth, "px"); //Blockly.svgResize(workspace)
 }
 
 ;

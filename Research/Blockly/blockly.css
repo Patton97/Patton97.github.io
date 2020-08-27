@@ -26,16 +26,30 @@ main{
 .blocklyTreeLabel { color: black; font-weight: bold; }
 .injectionDiv { border-radius: 10px; }
 
-
-#btnPlay{
-  font-size: 3em;
-  background-color: green;
+#blocklyButtons{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#blocklyButtons > button{
+  
   color: white;
   border: solid 5px white;
   border-radius: 10px;
   margin-top: 1vh;
   cursor:pointer;
-  width:100%;
-  flex-grow: 0;
+}
+#btnPlay{
+  font-size: 3em;
+  background-color: green;
+  flex-grow: 1;
 }
 #btnPlay:hover{background-color: darkgreen;}
+
+#btnMenu{
+  font-size: 1.5em;
+  background-color: dimgray;
+  flex-grow: 0;
+  margin-right: 1vw;
+}
+#btnMenu:hover{background-color: black;}

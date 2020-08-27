@@ -108,9 +108,9 @@ function OnResize() {
   blocklyDiv.style.width = workspaceWidth + 'px'
   blocklyDiv.style.height = workspaceHeight + 'px'
 
-  // Resize the play button too
-  let playButton = document.getElementById(`btnPlay`)
-  playButton.style.width = `${workspaceWidth}px`
+  // Resize the buttons
+  let buttons = document.getElementById(`blocklyButtons`)
+  buttons.style.width = `${workspaceWidth}px`
   //Blockly.svgResize(workspace)
 };
 

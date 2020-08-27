@@ -104,6 +104,13 @@ function threejs_OnResize()
   camera.aspect = newWidth / newHeight
 }
 
+// ********************************************************************************
+// BUTTON HANDLERS
+// ********************************************************************************
+function btnMenu_Pressed()
+{
+  window.location = "/Research/"
+}
 
 function btnPrevLevel_Pressed()
 {

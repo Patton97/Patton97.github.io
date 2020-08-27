@@ -135,6 +135,13 @@ function threejs_OnResize() {
   var newHeight = getCanvasHeight();
   ResizeRenderer(newWidth, newHeight);
   camera.aspect = newWidth / newHeight;
+} // ********************************************************************************
+// BUTTON HANDLERS
+// ********************************************************************************
+
+
+function btnMenu_Pressed() {
+  window.location = "/Research/";
 }
 
 function btnPrevLevel_Pressed() {
