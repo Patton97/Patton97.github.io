@@ -1,11 +1,12 @@
 // --------------------------------------------------------------------------------
 
 Blockly.Python['microbit_wait'] = function(block) {
-  return 'sleep(500)\n'
+  //return 'sleep(500)\n'
+  return 'wait()\n'
 };
 
 // --------------------------------------------------------------------------------
-
+/*
 Blockly.Python['microbit_indicator'] = function(block) {
   var dropdown_side = block.getFieldValue('SIDE')
   var dropdown_on = block.getFieldValue('ON')
@@ -20,14 +21,51 @@ Blockly.Python['microbit_indicator'] = function(block) {
 
   return `${pin}.write_digital(${on})\n`
 };
-
+*/
 // --------------------------------------------------------------------------------
 
 Blockly.Python['microbit_motor'] = function(block) {
   var dropdown_direction = block.getFieldValue('DIRECTION')
-  let speed = 100
-  let direction = dropdown_direction == 'forward' ? '0' : '1'
-  return `motor(${direction},${speed},${direction},${speed})\nsleep(500)\nmotor(0,0,0,0)\n`
+  //let speed = 100
+  //let direction = dropdown_direction == 'forward' ? '0' : '1'
+  //return `motor(${direction},${speed},${direction},${speed})\nsleep(500)\nmotor(0,0,0,0)\n`
+  let direction = dropdown_direction.charAt(0).toUpperCase() + dropdown_direction.slice(1)
+  return `move${direction}()\n`
+};
+
+// --------------------------------------------------------------------------------
+
+Blockly.Python['microbit_motor_turn'] = function(block) {
+  var dropdown_direction = block.getFieldValue('DIRECTION')
+
+  // Capitalise first letter 
+  let direction = dropdown_direction.charAt(0).toUpperCase() + dropdown_direction.slice(1)
+  
+  return `turn${direction}()\n`
+};
+
+// --------------------------------------------------------------------------------
+
+Blockly.Python['repeat_until_star'] = function(block) {
+  // Convert sub-block(s) fist, then wrap & return 
+  var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME')
+  return `while not isJourneyComplete():\n  ${statements_name}\n`
+};
+
+// --------------------------------------------------------------------------------
+
+Blockly.Python['if_path_safe'] = function(block) {
+  var dropdown_direction = block.getFieldValue('DIRECTION');
+  var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME')
+
+  let code = ``
+  
+  if(dropdown_direction === `ahead`) { code += `if isSafe_Ahead():\n` }
+  if(dropdown_direction === `left`)  { code += `if isSafe_Left():\n`  }
+  if(dropdown_direction === `right`) { code += `if isSafe_Right():\n` }
+  
+  code += `  ${statements_name}\n`
+  return code
 };
 
 // --------------------------------------------------------------------------------

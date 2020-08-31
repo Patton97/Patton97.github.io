@@ -1,34 +1,60 @@
 <!DOCTYPE html>
 <html lang = "en-US">
-<head>  
-  <meta charset = "UTF-8">
-  <meta name="theme-color"  content="#0E1011"/>
-  <link rel="stylesheet"    type="text/css"     href="/index.css"/>
-  <link rel="shortcut icon" type="image/x-icon" href="/Images/Favicon/favicon.ico"/>  
-  <link rel="icon"          sizes="192x192"     href="/Images/Favicon/mobilefavicon.png"/>
-  <title>Andrew Patton | Blockly</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <!-- Blockly -->
-  <link rel="stylesheet" type="text/css" href="/Research/Blockly/blockly.css"/>
-  <script src="Blockly/google-blockly-9a466fe/blockly_compressed.js"></script>
-  <script src="Blockly/google-blockly-9a466fe/python_compressed.js"></script>
-  <script src="Blockly/google-blockly-9a466fe/python_microbit.js"></script>
-  <script src="Blockly/google-blockly-9a466fe/blocks_microbit.js"></script>
-  <script src="Blockly/google-blockly-9a466fe/blocks_compressed.js"></script>
-  <script src="Blockly/google-blockly-9a466fe/msg/js/en.js"></script>
-</head>
-<html>
+  <head>  
+    <meta charset = "UTF-8">
+    <meta name="theme-color"  content="#0E1011"/>
+    <link rel="stylesheet"    type="text/css"     href="/index.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/Images/Favicon/favicon.ico"/>  
+    <link rel="icon"          sizes="192x192"     href="/Images/Favicon/mobilefavicon.png"/>
+    <title>Andrew Patton | Blockly</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Research/research.css">
+    <!-- Blockly -->
+    <link rel="stylesheet" type="text/css" href="/Research/Blockly/blockly.css"/>
+    <script src="/Research/Blockly/google-blockly-9a466fe/blockly_compressed.js"></script>
+    <script src="/Research/Blockly/google-blockly-9a466fe/python_compressed.js"></script>
+    <script src="/Research/Blockly/google-blockly-9a466fe/python_microbit.js"></script>
+    <script src="/Research/Blockly/google-blockly-9a466fe/javascript_compressed.js"></script>
+    <script src="/Research/Blockly/google-blockly-9a466fe/javascript_microbit.js"></script>
+    <script src="/Research/Blockly/google-blockly-9a466fe/blocks_microbit.js"></script>
+    <script src="/Research/Blockly/google-blockly-9a466fe/blocks_compressed.js"></script>
+    <script src="/Research/Blockly/google-blockly-9a466fe/msg/js/en.js"></script>
+    <!-- ThreeJS -->
+    <link rel="stylesheet" type="text/css" href="/Research/threejs/threejs.css">
+  </head>
   <body> 
     <nav>
       <script src="/js/navigation.js"></script>
     </nav>    
     <main>
-      <!-- Blockly -->
-      <section id="blocklyContainer">
-        <button id="btnPlay" onclick="GenerateCode(event, 'physical')">&#9658;</button>
-        <script src="Blockly/BlocklyManager.js"></script>
-        <script src="Blockly/py2hex.js"></script>
-      </section>
+      <div id="researchContainer">
+        <!-- Blockly -->
+        <section id="blocklyContainer">
+          <div id="blocklyButtons">
+            <button id="btnMenu" onclick="btnMenu_Pressed()">Back to menu</button>
+            <button id="btnPlay" onclick="GenerateCode(event, 'physical')">&#9658;</button>
+          </div>          
+          <script src="/Research/Blockly/BlocklyManager.js"></script>
+          <script src="/Research/Blockly/py2hex.js"></script>
+        </section>      
+        <!-- ThreeJS -->
+        <section id="threejs-container">
+          <p id="levelDescription">
+            THIS IS A TEST! 
+
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
+            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
+            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.            
+          </p>
+          <div id="levelButtons-container">
+            <button id="btnPrevLevel" onclick="btnPrevLevel_Pressed()">&#8592; Previous</button>
+            <button id="btnNextLevel" onclick="btnNextLevel_Pressed()">Next &#8594;</button>
+          </div>
+          <script src="/Research/Blockly/setup.js"></script>          
+        </section>
+      </div>
     </main>
     <footer>
       <script src="/js/footer.js"></script>

@@ -41,6 +41,11 @@
                   return true
                 }
               })
+
+              if(localStorage.getItem("physical"))
+              {
+                portals.forEach(p=>{p.href="physical.html"})
+              }
             }
         </script>
         </span>

@@ -73,15 +73,29 @@ function GenerateCode_Microbit(event)
   //loadWorkspace(event.target);
   Blockly.Python.addReservedWords('code')
   
-  let required_import = `from microbit import *\n`
-  let code = Blockly.Python.workspaceToCode(workspace)
+  let required_import = readFromTextFile(`/Research/Blockly/base.py`)
+
+  // inject level data
+  let levelData = readDataJSON().levels[localStorage.getItem("levelID")]
+
+  let level_code = `# Load level-specific data`
+  level_code += `level = ${levelData.grid}`
+  level_code += `startingPos    = [${levelData.startingPos.x},    ${levelData.startingPos.y}]`
+  level_code += `startingDir    = [${levelData.startingDir.x},    ${levelData.startingDir.y}]`
+  level_code += `destinationPos = [${levelData.destinationPos.x}, ${levelData.destinationPos.y}]`
+  level_code += `currentPos = startingPos`
+  level_code += `currentDir = startingDir`
+  level_code += `myDestination = destinationPos`
+
+  let user_code = Blockly.Python.workspaceToCode(workspace)
+  let full_code = `${required_import}\n${level_code}\n${user_code}`
 
   // Attempt to catch any discrepencies in the code (like an IDE would)
   try {
-    eval(required_import + code)
+    eval(full_code)
   } 
   catch (error) {
-    console.log(`${error}\n${required_import}${code}`)
+    console.log(`${error}\n${full_code}`)
   }
 
   // Start file download.
@@ -163,3 +177,18 @@ OnResize()
 
 */
 Blockly.svgResize(workspace)
+
+function readDataJSON()
+{
+  let tile_json = null
+  $.ajax({
+      'async': false,
+      'global': false,
+      'url': '/Research/threejs/levels/data.json',
+      'dataType': "json",
+      'success': function (data) {
+        tile_json = data
+      }
+  })
+  return tile_json
+}
