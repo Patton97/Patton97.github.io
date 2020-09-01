@@ -49,9 +49,13 @@ function btnNextLevel_SetFinish()
 function PHY_LoadLevel()
 {
   let levelID = localStorage.getItem("levelID")
+  if(levelID === undefined || levelID === null)
+  {
+    levelID = 1
+  }
   let levelData = readDataJSON()
 
-  document.getElementById(`levelDescription`).innerHTML = levelData.levels[levelID].description
+  document.getElementById(`levelDescription`).innerHTML = `Level ${levelID}: ${levelData.levels[levelID].description}`
   if(levelID >= levelData.levels.length - 1)
   {
     btnNextLevel_SetFinish()
