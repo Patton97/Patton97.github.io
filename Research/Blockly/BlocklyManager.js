@@ -68,38 +68,47 @@ function GenerateCode_ThreeJS(event)
   }
 }
 
+function GenerateCode_Microbit_Pre_User_Code(levelGrid, startingPos, startingDir, destinationPos)
+{
+  let pre_user_code = `# Load level-specific data\n`
+  pre_user_code += `level = ${JSON.stringify(levelGrid)}\n`
+  pre_user_code += `startingPos    = [${startingPos.x}, ${startingPos.y}]\n`
+  pre_user_code += `startingDir    = [${startingDir.x}, ${startingDir.y}]\n`
+  pre_user_code += `destinationPos = [${destinationPos.x}, ${destinationPos.y}]\n`
+  pre_user_code += `currentPos = startingPos\n`
+  pre_user_code += `currentDir = startingDir\n`
+  pre_user_code += `myDestination = destinationPos\n`
+  pre_user_code += `updateStatus()\n`
+  return pre_user_code
+}
+
+function GenerateCode_Microbit_Post_User_Code()
+{
+  let post_user_code = `# Mark end of user code\n`
+  post_user_code += `isRunning = False\n`
+  post_user_code += `updateStatus()\n`
+  return post_user_code
+}
+
 function GenerateCode_Microbit(event) 
 {
   //loadWorkspace(event.target);
   Blockly.Python.addReservedWords('code')
-  
-  let required_import = readFromTextFile(`/Research/Blockly/base.py`)
 
-  // inject level data
+  // Craft user code w/pre&post reqs
   let levelData = readDataJSON().levels[localStorage.getItem("levelID")]
-
-  let level_code = `# Load level-specific data`
-  level_code += `level = ${levelData.grid}`
-  level_code += `startingPos    = [${levelData.startingPos.x},    ${levelData.startingPos.y}]`
-  level_code += `startingDir    = [${levelData.startingDir.x},    ${levelData.startingDir.y}]`
-  level_code += `destinationPos = [${levelData.destinationPos.x}, ${levelData.destinationPos.y}]`
-  level_code += `currentPos = startingPos`
-  level_code += `currentDir = startingDir`
-  level_code += `myDestination = destinationPos`
-
+  let pre_user_code = GenerateCode_Microbit_Pre_User_Code(levelData.grid,levelData.startingPos,levelData.startingDir,levelData.destinationPos)
   let user_code = Blockly.Python.workspaceToCode(workspace)
-  let full_code = `${required_import}\n${level_code}\n${user_code}`
+  let post_user_code = GenerateCode_Microbit_Post_User_Code()
 
-  // Attempt to catch any discrepencies in the code (like an IDE would)
-  try {
-    eval(full_code)
-  } 
-  catch (error) {
-    console.log(`${error}\n${full_code}`)
-  }
+  let full_code = `${pre_user_code}\n${user_code}\n${post_user_code}\n`
+  
+  // DEBUG ONLY: print generated code
+  console.log(`${full_code}`)
 
-  // Start file download.
-  let output_hex = ConvertToHex(code)
+  //hexlify generated code
+  let output_hex = ConvertToHex(full_code)
+  // Start file download
   download('microbit.hex', output_hex)
 }
 

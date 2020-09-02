@@ -48,15 +48,15 @@ Blockly.Python['microbit_motor_turn'] = function(block) {
 
 Blockly.Python['repeat_until_star'] = function(block) {
   // Convert sub-block(s) fist, then wrap & return 
-  var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME')
-  return `while not isJourneyComplete():\n  ${statements_name}\n`
+  var statements_name = Blockly.Python.statementToCode(block, 'NAME')
+  return `while not isJourneyComplete():\n${statements_name}\n`
 };
 
 // --------------------------------------------------------------------------------
 
 Blockly.Python['if_path_safe'] = function(block) {
   var dropdown_direction = block.getFieldValue('DIRECTION');
-  var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME')
+  var statements_name = Blockly.Python.statementToCode(block, 'NAME')
 
   let code = ``
   
@@ -64,7 +64,7 @@ Blockly.Python['if_path_safe'] = function(block) {
   if(dropdown_direction === `left`)  { code += `if isSafe_Left():\n`  }
   if(dropdown_direction === `right`) { code += `if isSafe_Right():\n` }
   
-  code += `  ${statements_name}\n`
+  code += `${statements_name}\n`
   return code
 };
 

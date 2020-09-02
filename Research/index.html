@@ -46,10 +46,14 @@
               {
                 portals.forEach(p=>{p.href="physical.html"})
               }
+
+              let form_url_PHY = `https://forms.gle/KGbTrTmDYm4ZkKwcA`
+              let form_url_SIM = `https://forms.gle/TTD6KZvxY5D5TtFN8`
+              document.getElementById("researchForm").href = localStorage.getItem("physical") ? form_url_PHY : form_url_SIM
             }
         </script>
         </span>
-        <a href="" class="researchForm">Finished? Click here to give your feedback!</a>
+        <a href="" id="researchForm" class="researchForm">Finished? Click here to give your feedback!</a>
       </section>
     </main>
     <footer>

@@ -6,7 +6,7 @@ console.log(header_hex)
 var base_py = readTextFile(`/Research/Blockly/base.py`)
 var prologue_hex = `:020000040003F7\n`
 var epilogue_hex = `:0400000500013A8537\n:00000001FF\n`
-var output_file;
+var output_file
 
 function readTextFile(file)
 {
@@ -88,7 +88,7 @@ function ConvertToHex(python_code)
   output_file = ``
 
   // Include any base code we want pre-defined (functions, API, global vars)
-  python_code = base_py + "\n" + python_code
+  python_code = `${base_py}\n${python_code}`
 
   // Begin writing to hex file
   // Header & Prologue are universal, so we can begin by copying those over

@@ -29,7 +29,9 @@ def isJourneyComplete():
 
   return xPos == xDest and yPos == yDest
 
-def isValidPosition(xPos, yPos):  
+def isValidPosition(xPos, yPos):
+  if xPos < 0 or yPos < 0 or xPos >= len(level[0]) or yPos >= len(level):
+    return False
   return not level[yPos][xPos] == 0
 
 def isSafe_Ahead():
@@ -197,28 +199,3 @@ def rgb_all(red,green,blue):
 # --------------------------------------------------------------------------------
 # MAIN CODE ----------------------------------------------------------------------
 # --------------------------------------------------------------------------------
-"""
-# Load level-specific data
-level = [ [ 0, 0, 0, 0, 8], [ 0, 0, 0, 0, 1], [11, 2, 2, 2, 6], [ 0, 0, 0, 0, 1], [ 0, 0, 0, 0, 0] ]
-
-startingPos    = [ 0, 2]
-startingDir    = [ 1, 0]
-destinationPos = [ 4, 0]
-
-# initalise
-currentPos = startingPos
-currentDir = startingDir
-myDestination = destinationPos
-"""
-# Run user code
-moveForward()
-moveForward()
-moveForward()
-moveForward()
-turnLeft()
-moveForward()
-moveForward()
-
-# Mark end of user code
-isRunning = False
-updateStatus()
