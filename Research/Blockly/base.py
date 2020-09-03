@@ -84,14 +84,17 @@ def updateStatus():
   # update display
   if isRunning:
     display.show(Image.HAPPY)
+    rgb_all(125, 75, 0) # orange
     return
 
   if isComplete:
     display.show(Image.YES)
+    rgb_all(0, 75, 0) # green
     return
   
   if not isRunning and not isComplete:
     display.show(Image.NO)
+    rgb_all(125, 0, 0) # red
 
 # --------------------------------------------------------------------------------
 # MOTOR SETUP --------------------------------------------------------------------
@@ -111,25 +114,26 @@ def motor(directionL, speedL, directionR, speedR):
 # --------------------------------------------------------------------------------
 
 # direction: 0 = forward, 1 = back
+MOVESPEED = 35 # possible speed range: 0 - 255
+
 def movePhysical(direction):
-  MOVESPEED = 50 # possible speed range: 0 - 255
+  global MOVESPEED
   motor(direction, MOVESPEED, direction, MOVESPEED)
   wait()
   motor(0,0,0,0)
   wait()
 
-# direction: 0 = forward, 1 = back
 def moveLogical(direction):
   global currentPos
   global currentDir
   currentPos[0] += currentDir[0]
   currentPos[1] += currentDir[1]
 
-# direction: 0 = forward, 1 = back
 def move(direction):
   global isCrashed
   
   if isCrashed:
+    updateStatus()
     return
 
   movePhysical(direction)
@@ -190,12 +194,20 @@ np = neopixel.NeoPixel(pin15, 4)
 def rgb(pixel_id, red, green, blue):
   if pixel_id > len(np) or pixel_id < 0:
     return
+
   np[pixel_id] = (red, green, blue)
+  np.show()
 
 def rgb_all(red,green,blue):
+  # first reset all
+  for pixel_id in range(0, len(np)):
+    rgb(pixel_id, 0,0,0)
+  # then apply new rgb
   for pixel_id in range(0, len(np)):
     rgb(pixel_id,red,green,blue)
 
 # --------------------------------------------------------------------------------
 # MAIN CODE ----------------------------------------------------------------------
 # --------------------------------------------------------------------------------
+
+# The user's generated code will be appended below
