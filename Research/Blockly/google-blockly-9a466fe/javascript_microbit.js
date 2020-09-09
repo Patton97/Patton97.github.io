@@ -45,11 +45,14 @@ Blockly.JavaScript['repeat_until_star'] = function(block) {
   // Convert sub-block(s) fist, then wrap & return 
   var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME')
 
-  let early_break = ``
-  let code = `while(!actionManager.isJourneyComplete())\n`
+  let code = `let numIterations = 0\n`
+  code += `let maxIterations = 100\n`
+  code += `let maxActions = 100\n`
+  code += `while(!actionManager.isJourneyComplete())\n`
   code += `{\n`
-  code += `  ${statements_name}\n`
-  code += `  if(actionManager.actionList.length >= 100) { break }\n`
+  code += `  ${statements_name}\nconsole.log(numIterations)\n`
+  code += `  numIterations++\n`
+  code += `  if(actionManager.actionList.length >= maxActions || numIterations >= maxIterations || !actionManager.predictionSuccess) { break }\n`
   code += `}\n`
   return code
 };
