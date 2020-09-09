@@ -80,4 +80,9 @@ canvas{
     width:90vw;
     height:20vh;
   }
+
+  #levelDescription
+  {
+    font-size: 2em!important;
+  }
 }
