@@ -3,23 +3,33 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Lost in the Three Seas</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="TemplateData/UnityProgress.js"></script>
-    <script src="Build/UnityLoader.js"></script>
-    <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/WebBuild.json", {onProgress: UnityProgress});
-    </script>
+    <title>Andrew Patton | Lost in the Three Seas</title>
+    
+    <link rel="stylesheet"    type="text/css"     href="/index.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/Images/Favicon/favicon.ico"/>  
+    <link rel="icon"          sizes="192x192"     href="/Images/Favicon/mobilefavicon.png"/>
   </head>
-  <body style="background-color:#24292E">
-    <div class="webgl-content">
-      <div id="unityContainer" style="width: 960px; height: 600px"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
-        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-        <div class="title">Lost in the Three Seas</div>
-      </div>
-    </div>
+  <body>
+    <nav>
+      <script src="/js/navigation.js"></script>
+    </nav>
+    <main>
+      <span class="projectCardHeader" id="">
+        <h2>Lost in the Three Seas</h2>
+        <ul class="tools">
+        </ul>
+        <p class="description">
+          This game was NUGameDev's entry for GGJ2021. We managed to get this one working on several platforms (PC, webGL, Android)
+        </p>
+        <ul class="links">
+          <li><a href="https://github.com/nu-game-dev-society/GGJ2021" target="_blank" class="github">View Source</a></li>
+          <li><a href="/LostInTheSea/ggj" target="_blank" class="ggj">GGJ Submission</a></li>
+          <li><a href="/LostInTheSea/WebBuild" target="_blank" class="website">Play in Browser</a></li>
+          <li><a href="/LostInTheSea/Android/LostInTheSea.apk" target="_blank" class="download">Android (.apk)</a></li>          
+        </ul>
+    </main>
+    <footer>
+      <script src="/js/footer.js"></script>
+    </footer>    
   </body>
 </html>
