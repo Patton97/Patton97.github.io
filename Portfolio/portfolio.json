@@ -9,7 +9,7 @@
     [
       { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2021",  "text" : "View Source" },
       { "class" : "ggj", "url":"/LostInTheThreeSeas/ggj", "text" : "GGJ Listing" },
-      { "class" : "download", "/LostInTheThreeSeas/Android/LostInTheThreeSeas.apk", "text" : "Download (.apk)" },
+      { "class" : "download", "url": "/LostInTheThreeSeas/Android/LostInTheThreeSeas.apk", "text" : "Download (.apk)" },
       { "class" : "website", "url":"/LostInTheThreeSeas/WebBuild","text" : "Play in browser" }
     ], 
     "video" : {"url": "/Videos/thebrokenarms.mp4", "scale" : 75}
