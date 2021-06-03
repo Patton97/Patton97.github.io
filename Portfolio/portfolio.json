@@ -1,18 +1,4 @@
 [
-  <span class="projectCardHeader" id="">
-          <h2>Lost in the Three Seas</h2>
-          <ul class="tools">
-          </ul>
-        </span>
-        <p class="description">
-          This game was NUGameDev's entry for GGJ2021. We managed to get this one working on several platforms (PC, webGL, Android)
-        </p>
-        <ul class="links">
-          <li><a href="https://github.com/nu-game-dev-society/GGJ2021" target="_blank" class="github">View Source</a></li>
-          <li><a href="/LostInTheThreeSeas/ggj" target="_blank" class="ggj">GGJ Submission</a></li>
-          <li><a href="/LostInTheThreeSeas/WebBuild" target="_blank" class="website">Play in Browser</a></li>
-          <li><a href="/LostInTheThreeSeas/Android/LostInTheThreeSeas.apk" target="_blank" class="download">Android (.apk)</a></li>          
-        </ul>
   {
     "id" : "LostInTheThreeSeas",
     "title" : "Lost in the Three Seas",
