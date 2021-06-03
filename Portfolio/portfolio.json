@@ -12,7 +12,7 @@
       { "class" : "download", "url": "/LostInTheThreeSeas/Android/LostInTheThreeSeas.apk", "text" : "Download (.apk)" },
       { "class" : "website", "url":"/LostInTheThreeSeas/WebBuild","text" : "Play in browser" }
     ], 
-    "video" : {"url": "/Videos/thebrokenarms.mp4", "scale" : 75}
+    "video" : {"url": "/Videos/lostinthethreeseas.mp4", "scale" : 75}
   },
   {
     "id" : "TheBrokenArms",
