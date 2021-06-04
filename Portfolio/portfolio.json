@@ -1,19 +1,5 @@
 [
   {
-    "id" : "LostInTheThreeSeas",
-    "title" : "Lost in the Three Seas",
-    "description" : "This game was NUGameDev's entry for GGJ2021 (Theme: \"Lost\"). My focus here was the fleet's formation code, relying on a lot of triangle number mathematics, as well as some of the combat detection logic. We managed to get this one working on several platforms (PC, webGL, Android)",
-    "tools" : ["unity", "csharp"],
-    "thumbnail" : "/Images/HexGallery/lostinthethreeseas.png",
-    "links" : 
-    [
-      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2021",  "text" : "View Source" },
-      { "class" : "ggj", "url":"/LostInTheThreeSeas/ggj", "text" : "GGJ Listing" },
-      { "class" : "download", "url": "/LostInTheThreeSeas/Android/LostInTheThreeSeas.apk", "text" : "Download (.apk)" },
-      { "class" : "website", "url":"/LostInTheThreeSeas/WebBuild","text" : "Play in browser" }
-    ], 
-  },
-  {
     "id" : "TheBrokenArms",
     "title" : "The Broken Arms",
     "description" : "For GGJ20, the theme was 'repair'. TBA sees the player take over a bar: serving customers, managing stock, y'know...vibing. BUT everything keeps breaking! Like, seriously, who built this bar?<br><br>My focus was the AI customers, the complaints system and post-jam I took care of adding poo splatter, because, well, why not?",
@@ -28,6 +14,7 @@
     ], 
     "video" : {"url": "/Videos/thebrokenarms.mp4", "scale" : 75}
   },
+  
   {
     "id" : "Dengar",
     "title" : "Dengar!",
