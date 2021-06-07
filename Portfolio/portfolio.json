@@ -10,7 +10,7 @@
       { "class" : "ggj", "url":"/LostInTheThreeSeas/ggj", "text" : "GGJ Listing" },
       { "class" : "download", "url": "/LostInTheThreeSeas/Android/LostInTheThreeSeas.apk", "text" : "Download (.apk)" },
       { "class" : "website", "url":"/LostInTheThreeSeas/WebBuild","text" : "Play in browser" }
-    ], 
+    ]
   },
   {
     "id" : "TheBrokenArms",
