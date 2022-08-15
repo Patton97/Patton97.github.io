@@ -86,61 +86,44 @@ nav li a:hover
 /*IMAGE GALLERY*/
 .gallery
 {
-  position:relative;
-  height: 250px;
-  width: 250px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content: space-between;
 }
-.thumbnail{
-  -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
-   clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
-   padding:5px;
-   background-color: #464F59;;
-   width:  100px;
-   height: 100px;
-   transition:transform 0.2s;
-   position:relative;
+@media (orientation: portrait)
+{
+  .gallery
+  {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
 }
-.thumbnail:nth-of-type(1){top:   50px; left: 100px;}
-.thumbnail:nth-of-type(2){top:   25px; left: 150px;}
-.thumbnail:nth-of-type(3){top: -170px; left: 200px;}
-.thumbnail:nth-of-type(4){top: -195px; left: 250px;}
-.thumbnail:nth-of-type(5){top: -390px; left: 300px;}
-.thumbnail:nth-of-type(6){top: -415px; left: 350px;}
+
+.thumbnail
+{
+  width:100px;
+  height:100px;
+  background-color:hotpink;
+  border-color: #0E1011;
+  border-width: 10px;
+  border-style: solid;
+  display: block;
+}
+
 .thumbnail img
 {
   width:  100%;
-  height: 100%;
-  -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
-  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
-  
-  transition: opacity 0.5s ease-in-out;
-}
-.thumbnail .thumbnail-description 
-{
-  position: absolute;
-  top:  0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  height: 90%;
   text-align: center;
-  color: #FFFFFF;
-  opacity:0;
-  font-size: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
-/*TODO: Replace with responsive text scaling+positioning*/
-.thumbnail:nth-of-type(2) .thumbnail-description {top: 25.0%;} 
-.thumbnail:nth-of-type(3) .thumbnail-description {top: 25.0%;  font-size: 75%;}
-.thumbnail:nth-of-type(4) .thumbnail-description {top: 12.5%;}
-.thumbnail:nth-of-type(5) .thumbnail-description {top: 25.0%;}
-.thumbnail:nth-of-type(6) .thumbnail-description {top: 25.0%;}
-.thumbnail:hover
+
+.thumbnail a p 
 {
-  transform:scale(1.2);
-  transition:transform 0.2s;
-  z-index: 10;
+  text-align: center;
 }
-.thumbnail:hover img {opacity:0; transition: opacity 0.5s ease-in-out;}
-.thumbnail:hover .thumbnail-description  {opacity:1; transition: opacity 0.5s ease-in-out;}
 /*END OF GALLERY*/
 
 
@@ -151,7 +134,7 @@ main
 {
   display: flex;
   flex-direction: column;
-  margin: 1vh 30vw 5vh;
+  margin: 5vh 25vw 5vh;
 }
 
 main section
