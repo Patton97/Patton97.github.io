@@ -43,7 +43,7 @@ function GenerateLinksHTML(links)
   let html = ``
   html += `<ul class="links">`
   links.forEach(link =>{
-    html += `<li><a href="${link.url}" target="_blank" class="${link.class}">${link.text}</a></li>`
+    html += `<li><a href="${link.url}" target="_blank" rel="noopener noreferrer" class="${link.class}">${link.text}</a></li>`
   });
   html += `</ul>`
   return html
