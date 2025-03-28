@@ -309,11 +309,12 @@ video, canvas
 .github:before   {background-position: 0 -100px!important;}
 .itch:before     {background-position: 0 -125px!important;}
 .ludumdare:before{background-position: 0 -150px!important;}
-.twitter:before  {background-position: 0 -175px!important;}
-.unity:before    {background-position: 0 -200px!important;}
-.vr:before       {background-position: 0 -225px!important;}
-.website:before  {background-position: 0 -250px!important;}
-.youtube:before  {background-position: 0 -275px!important;}
+.linkedin:before {background-position: 0 -175px!important;}
+.twitter:before  {background-position: 0 -200px!important;}
+.unity:before    {background-position: 0 -225px!important;}
+.vr:before       {background-position: 0 -250px!important;}
+.website:before  {background-position: 0 -275px!important;}
+.youtube:before  {background-position: 0 -300px!important;}
 
 .links li a:hover{color: #464F59;}
 .links li a:hover:before{background-position-x: -25px!important;}
