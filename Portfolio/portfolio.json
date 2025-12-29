@@ -1,14 +1,26 @@
 [
   {
+    "id" : "RacingUnderTheThreeSeas",
+    "title" : "Racing under the Three Seas",
+    "description" : "My uni friends & I created this for GGJ2025! The theme was 🫧bubble🫧 and we ended up creating a not-quite-mario-kart fish racing game. My primary focus here was the player character/controller. This was by far our most polished GGJ game to date, so I'm excited to see what we can achieve for GGJ2026!",
+    "tools" : ["unity", "csharp"],
+    "links" : 
+    [
+      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2025/",  "text" : "View Source" },
+      { "class" : "ggj", "url":"https://globalgamejam.org/games/2025/racing-under-three-seas-1", "text" : "GGJ Listing" },
+      { "class" : "download", "url": "/RacingUnderTheThreeSeas/DesktopBuild/RacingUnderTheThreeSeas.zip", "text" : "Download (Desktop)" },
+    ]
+  },
+  {
     "id" : "LostInTheThreeSeas",
     "title" : "Lost in the Three Seas",
     "description" : "This game was NUGameDev's entry for GGJ2021 (Theme: \"Lost\"). My focus here was the fleet's formation code, relying on a lot of triangle number mathematics, as well as some of the combat detection logic. We managed to get this one working on several platforms (PC, webGL, Android)",
     "tools" : ["unity", "csharp"],
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2021",  "text" : "View Source" },
-      { "class" : "ggj", "url":"/LostInTheThreeSeas/ggj", "text" : "GGJ Listing" },
-      { "class" : "download", "url": "/LostInTheThreeSeas/Android/LostInTheThreeSeas.apk", "text" : "Download (.apk)" },
+      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2021/",  "text" : "View Source" },
+      { "class" : "ggj", "url":"https://globalgamejam.org/games/2021/LostInTheThreeSeas", "text" : "GGJ Listing" },
+      { "class" : "download", "url": "/LostInTheThreeSeas/Android/LostInTheThreeSeas.apk", "text" : "Download (Android)" },
       { "class" : "website", "url":"/LostInTheThreeSeas/WebBuild","text" : "Play in browser" }
     ]
   },
