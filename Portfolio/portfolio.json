@@ -8,7 +8,7 @@
     [
       { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2025/",  "text" : "View Source" },
       { "class" : "ggj", "url":"https://globalgamejam.org/games/2025/racing-under-three-seas-1", "text" : "GGJ Listing" },
-      { "class" : "download", "url": "/RacingUnderTheThreeSeas/DesktopBuild/RacingUnderTheThreeSeas.zip", "text" : "Download (Desktop)" },
+      { "class" : "download", "url": "/RacingUnderTheThreeSeas/DesktopBuild/RacingUnderTheThreeSeas.zip", "text" : "Download (Desktop)" }
     ]
   },
   {
