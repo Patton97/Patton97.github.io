@@ -1,14 +1,48 @@
 [
   {
+    "id" : "RacingUnderTheThreeSeas",
+    "title" : "Racing under the Three Seas",
+    "description" : "The theme for GGJ'25 was 🫧bubble🫧 and we ended up creating a not-quite-mario-kart fish racing game. My primary focus on this one was the player character/controller. This was by far our most polished GGJ game to date, so I'm excited to see what we can achieve for GGJ'26!",
+    "tools" : ["unity", "csharp"],
+    "links" : 
+    [
+      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2025/", "text" : "View Source" },
+      { "class" : "ggj", "url":"https://globalgamejam.org/games/2025/racing-under-three-seas-1", "text" : "GGJ Listing" },
+      { "class" : "download", "url": "/RacingUnderTheThreeSeas/DesktopBuild/RacingUnderTheThreeSeas.zip", "text" : "Download (Desktop)" }
+    ],
+    "video" :
+    {
+      "url": "/RacingUnderTheThreeSeas/trailer_compressed.mp4",
+      "scale" : 75
+    }
+  },
+  {
+    "id" : "Jekyll",
+    "title" : "Jekyll",
+    "description" : "The theme for GGJ'22 was \"Duality\". Step into the laboratory of Dr Jekyll and concoct a cure to keep Mr Hyde at bay.",
+    "tools" : ["unity", "csharp"],
+    "links" : 
+    [
+      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2022/", "text" : "View Source" },
+      { "class" : "ggj", "url":"https://v3.globalgamejam.org/2022/games/jekyll-5", "text" : "GGJ Listing" },
+      { "class" : "download", "url": "/Jekyll/DesktopBuild/Jekyll.zip", "text" : "Download (Desktop)" }
+    ],
+    "video" :
+    {
+      "url": "/Jekyll/trailer_compressed.mp4",
+      "scale" : 75
+    }
+  },
+  {
     "id" : "LostInTheThreeSeas",
     "title" : "Lost in the Three Seas",
     "description" : "This game was NUGameDev's entry for GGJ2021 (Theme: \"Lost\"). My focus here was the fleet's formation code, relying on a lot of triangle number mathematics, as well as some of the combat detection logic. We managed to get this one working on several platforms (PC, webGL, Android)",
     "tools" : ["unity", "csharp"],
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2021",  "text" : "View Source" },
-      { "class" : "ggj", "url":"/LostInTheThreeSeas/ggj", "text" : "GGJ Listing" },
-      { "class" : "download", "url": "/LostInTheThreeSeas/Android/LostInTheThreeSeas.apk", "text" : "Download (.apk)" },
+      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2021/", "text" : "View Source" },
+      { "class" : "ggj", "url":"https://globalgamejam.org/games/2021/LostInTheThreeSeas", "text" : "GGJ Listing" },
+      { "class" : "download", "url": "/LostInTheThreeSeas/Android/LostInTheThreeSeas.apk", "text" : "Download (Android)" },
       { "class" : "website", "url":"/LostInTheThreeSeas/WebBuild","text" : "Play in browser" }
     ]
   },
@@ -20,7 +54,7 @@
     "thumbnail" : "/Images/HexGallery/thebrokenarms.png",
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2020",  "text" : "View Source" },
+      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2020", "text" : "View Source" },
       { "class" : "ggj", "url":"https://globalgamejam.org/2020/games/broken-arms-1", "text" : "GGJ Listing" },
       { "class" : "download", "url":"/Downloads/TheBrokenArms.zip", "text" : "Download" },
       { "class" : "website", "url":"https://nu-game-dev-society.github.io/GGJ2020/","text" : "Play in browser" }
@@ -35,7 +69,7 @@
     "thumbnail" : "/Images/HexGallery/dengar.png",
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/Patton97/Dengar",  "text" : "View Source" },
+      { "class" : "github", "url" : "https://github.com/Patton97/Dengar", "text" : "View Source" },
       { "class" : "dengar", "url":"/Dengar", "text" : "Play Now!" },
       { "class" : "website", "url":"https://js13kgames.com","text" : "js13kGames' Website" }
     ],
@@ -50,10 +84,10 @@
     "thumbnail" : "/Images/HexGallery/caravancarnageclub.png",
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/JosephWhi98/GlobalGameAssets",  "text" : "View Source" },
+      { "class" : "github", "url" : "https://github.com/JosephWhi98/GlobalGameAssets", "text" : "View Source" },
       { "class" : "download", "url":"/Downloads/CaravanCarnageClub.zip", "text" : "Download" },
       { "class" : "website", "url":"https://northumbriaggj.github.io/2019/games/caravan_carnage_club/","text" : "Game Website" },
-      { "class" : "ggj", "url":"https://globalgamejam.org/2019/games/caravan-carnage-club","text" : "GGJ Listing" }      
+      { "class" : "ggj", "url":"https://globalgamejam.org/2019/games/caravan-carnage-club","text" : "GGJ Listing" }
     ],
     "video" : {"url" : "/Videos/caravancarnageclub.mp4", "scale" : 75}
   },
@@ -66,7 +100,7 @@
     "thumbnail" : "/Images/HexGallery/cowmageddon.png",
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/Patton97/Cowmageddon",  "text" : "View Source" },
+      { "class" : "github", "url" : "https://github.com/Patton97/Cowmageddon", "text" : "View Source" },
       { "class" : "download", "url":"/Downloads/cowmageddon.zip", "text" : "Download" }
     ],
     "video" : {"url" : "/Videos/cowmageddon.mp4", "scale" : 75}
@@ -80,7 +114,7 @@
     "thumbnail" : "/Images/HexGallery/hotelnull.png",
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/Patton97/LD45",  "text" : "View Source" },
+      { "class" : "github", "url" : "https://github.com/Patton97/LD45", "text" : "View Source" },
       { "class" : "download", "url":"/Downloads/HotelNull.zip", "text" : "Download" },
       { "class" : "ludumdare", "url":"https://ldjam.com/events/ludum-dare/45/hotel-null","text" : "LD45 Page" }
     ],
@@ -95,7 +129,7 @@
     "thumbnail" : "/Images/HexGallery/codecraft.png",
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/Patton97/Codecraft",  "text" : "View Source" },
+      { "class" : "github", "url" : "https://github.com/Patton97/Codecraft", "text" : "View Source" },
       { "class" : "download", "url":"/Downloads/CodeCraft.zip", "text" : "Download" }
     ],
     "video" : {"url" : "/Videos/codecraft.mp4", "scale" : 75}
@@ -109,7 +143,7 @@
     "thumbnail" : "/Images/HexGallery/train.png",
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/Patton97/Patton97.github.io/tree/master/Animation/ChristmasTrain",  "text" : "View Source" },
+      { "class" : "github", "url" : "https://github.com/Patton97/Patton97.github.io/tree/master/Animation/ChristmasTrain", "text" : "View Source" },
       { "class" : "download", "url":"./Animation/ChristmasTrain/ChristmasTrain.zip", "text" : "Download" },
       { "class" : "vr", "url":"/Animation/ChristmasTrain", "text" : "View in VR" }
     ]
