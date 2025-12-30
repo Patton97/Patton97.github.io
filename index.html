@@ -1,62 +1,32 @@
 <!DOCTYPE html>
 <html lang = "en-US">
-  <head>  
+  <head>
     <meta charset = "UTF-8">
     <meta name="theme-color"  content="#0E1011"/>
-    <link rel="stylesheet"    type="text/css"     href="/index.css"/>
-    <link rel="shortcut icon" type="image/x-icon" href="/Images/Favicon/favicon.ico"/>  
+    <link rel="stylesheet"    type="text/css"     href="/master.css"/>
+    <link rel="stylesheet"    type="text/css"     href="/nav.css"/>
+    <link rel="stylesheet"    type="text/css"     href="/footer.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/Images/Favicon/favicon.ico"/>
     <link rel="icon"          sizes="192x192"     href="/Images/Favicon/mobilefavicon.png"/>
     <title>Andrew Patton</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <!-- Cater for non-JS environments -->
+    <meta http-equiv="refresh" content="0; url=/portfolio/">
+
+    <!-- JS-based redirect -->
+    <script>
+      window.location.replace("/portfolio/");
+    </script>
+
+    <!-- Prevent indexing of the redirect page -->
+    <meta name="robots" content="noindex">
   </head>
   <body>
-    <nav>
-      <script src="/js/navigation.js"></script>
-    </nav>
-
-    <main>
-      <div class="gallery">
-        <div class="thumbnail">
-          <a href="/Portfolio#CaravanCarnageClub">
-            <img src="/Images/HexGallery/caravancarnageclub.png" class="hex-thumbnail">
-            <p class="hex-description">Caravan Carnage Club</p>
-          </a>
-        </div>
-        <div class="thumbnail">
-          <a href="/Portfolio#CodeCraft">
-            <img src="/Images/HexGallery/codecraft.png">
-            <p class="thumbnail-description">Codecraft</p>
-          </a>
-        </div>
-        <div class="thumbnail">
-          <a href="/Portfolio#Cowmageddon">
-            <img src="/Images/HexGallery/cowmageddon.png" class="hex-thumbnail">
-            <p class="hex-description">Cowmageddon</p>
-          </a>
-        </div>
-        <div class="thumbnail">
-          <a href="/Portfolio#ChristmasTrainVR">
-            <img src="/Images/HexGallery/train.png" class="hex-thumbnail">
-            <p class="hex-description">Christmas Train (VR)</p>
-          </a>
-        </div>
-        <div class="thumbnail">
-          <a href="/Portfolio#Combine">
-            <img src="/Images/HexGallery/combine.png" class="hex-thumbnail">
-            <p class="hex-description">Combine</p>
-          </a>
-        </div>
-        <div class="thumbnail">
-          <a href="/Portfolio#Dengar">
-            <img src="/Images/HexGallery/dengar.png" class="hex-thumbnail">
-            <p class="hex-description">Dengar</p>
-          </a>
-        </div>
-      </div>
-    </main>
-
-    <footer>
-      <script src="/js/footer.js"></script>
-    </footer>
+    
+      <!-- Fallback catering for non-JS environments -->
+    <noscript>
+      <a href="/portfolio/">Continue</a>
+    </noscript>
   </body>
 </html>

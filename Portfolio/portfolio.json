@@ -143,9 +143,9 @@
     "thumbnail" : "/Images/HexGallery/train.png",
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/Patton97/Patton97.github.io/tree/master/Animation/ChristmasTrain", "text" : "View Source" },
-      { "class" : "download", "url":"./Animation/ChristmasTrain/ChristmasTrain.zip", "text" : "Download" },
-      { "class" : "vr", "url":"/Animation/ChristmasTrain", "text" : "View in VR" }
+      { "class" : "github", "url" : "https://github.com/Patton97/Patton97.github.io/tree/master/ChristmasTrain", "text" : "View Source" },
+      { "class" : "download", "url":"./ChristmasTrain/ChristmasTrain.zip", "text" : "Download" },
+      { "class" : "vr", "url":"/ChristmasTrain", "text" : "View in VR" }
     ]
   },
 
