@@ -1,0 +1,27 @@
+footer 
+{
+  position: fixed;
+  left:     0px;
+  bottom:   0px;
+  width:    100vw;
+  padding:  1vh 0 1vh 0;
+     
+  background-color: #0E1011;
+  vertical-align: middle;
+  
+  /*Flex container stline*/
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+footer a
+{
+  /*General styling*/
+  font-size: 1em;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+footer .email   {order: 1;} /*Flex item order*/
+footer .twitter {order: 2;} /*Flex item order*/
