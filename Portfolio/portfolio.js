@@ -1,4 +1,3 @@
-
 function GenerateHeaderHTML(id, title, tools)
 {
   let html = ``
@@ -8,7 +7,7 @@ function GenerateHeaderHTML(id, title, tools)
   html += `  <ul class="tools">`
 
   tools.forEach(tool => {
-    html += `    <li><a href="" class="${tool}"><span class="tooltip"></span></a></li>`
+    html += `    <li><a class="${tool}"><span class="tooltip"></span></a></li>`
   });
 
   html += `  </ul>`
@@ -31,10 +30,12 @@ function GenerateVideoHTML(video)
 
   if(video.scale == null) { video.scale = 100 }
 
-  html += `<video width="${video.scale}%" autoplay controls loop muted>`
-  html += `  <source src="${video.url}" type="video/mp4">`
-  html += `  Your browser does not support the video tag.`
-  html += `</video>`
+  html += `<div class="videoWrapper">`
+  html += `  <video autoplay controls loop muted>`
+  html += `    <source src="${video.url}" type="video/mp4">`
+  html += `    Your browser does not support the video tag.`
+  html += `  </video>`
+  html += `</div>`
   return html
 }
 
@@ -60,31 +61,74 @@ function GenerateProjectHTML(project)
   return html
 }
 
-function GeneratePortfolioHTML(projects)
+function GenerateShowcaseHTML(showcaseTitle, projects)
 {
   let main = document.getElementsByTagName("main")[0]
+
+  let showcaseTitleElement = document.createElement("h1")
+  showcaseTitleElement.textContent = showcaseTitle
+  main.insertBefore(showcaseTitleElement, main.lastChild)
+
+  let showcaseSection = document.createElement("section")
+  showcaseSection.className = "showcase"
+  main.insertBefore(showcaseSection, main.lastChild)
+
+  let showcaseGrid = document.createElement("div")
+  showcaseGrid.className = "showcaseGrid"
+  showcaseSection.appendChild(showcaseGrid)
+
   projects.forEach(project => {
-    let section = document.createElement('section')
-    section.className = "projectCard"
-    section.innerHTML = GenerateProjectHTML(project)
-    main.insertBefore(section, main.lastChild)
+    if (project.showcase != "personal")
+    {
+      return;
+    }
+
+    let showcaseGridCell = document.createElement("div")
+    showcaseGridCell.className = "showcaseGridCell"
+    showcaseGridCell.innerHTML = GenerateProjectHTML(project)
+    showcaseGrid.appendChild(showcaseGridCell)
   });
 }
 
-var json = (function () 
+function GetProjectsForShowcase(projects, showcaseId)
 {
-  var json = null;
+  return projects.filter(project =>
+  {
+    if (showcaseId === null)
+    {
+      console.log("showcaseId is null! returning " + !project.hasOwnProperty("showcase") + " for " + project.title)
+      return !project.hasOwnProperty("showcase")
+    }
+
+    return project.showcase === showcaseId
+  })
+}
+
+function LoadProjectJson(jsonUrl)
+{
+  var json = null
   $.ajax({
       'async': false,
       'global': false,
-      'url': '/Portfolio/portfolio.json',
+      'url': jsonUrl,
       'dataType': "json",
-      'success': function (data) {
-          json = data;
+      'success': function (data)
+      {
+        json = data;
       }
-  });
-  return json;
-})(); 
+  })
+  return json
+}
 
-GeneratePortfolioHTML(json)
-    
+let portfolioJson = LoadProjectJson('/Portfolio/portfolio.json')
+
+let personalShowcaseJson = GetProjectsForShowcase(portfolioJson, "personal")
+GenerateShowcaseHTML("⭐Personal Showcase⭐", personalShowcaseJson)
+
+let professionalShowcaseJson = GetProjectsForShowcase(portfolioJson, "professional")
+GenerateShowcaseHTML("⭐Professional Showcase⭐", professionalShowcaseJson)
+
+let archiveJson = GetProjectsForShowcase(portfolioJson, null)
+console.log("Found " + archiveJson.length + " archive projects!")
+console.log(archiveJson)
+GenerateShowcaseHTML("Archive", archiveJson)
