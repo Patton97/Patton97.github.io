@@ -10,11 +10,8 @@
       { "class" : "ggj", "url":"https://globalgamejam.org/games/2025/racing-under-three-seas-1", "text" : "GGJ Listing" },
       { "class" : "download", "url": "/RacingUnderTheThreeSeas/DesktopBuild/RacingUnderTheThreeSeas.zip", "text" : "Download (Desktop)" }
     ],
-    "video" :
-    {
-      "url": "/RacingUnderTheThreeSeas/trailer_compressed.mp4",
-      "scale" : 75
-    }
+    "video" : { "url": "/RacingUnderTheThreeSeas/trailer_compressed.mp4" },
+    "showcase" : "personal"
   },
   {
     "id" : "Jekyll",
@@ -27,11 +24,8 @@
       { "class" : "ggj", "url":"https://v3.globalgamejam.org/2022/games/jekyll-5", "text" : "GGJ Listing" },
       { "class" : "download", "url": "/Jekyll/DesktopBuild/Jekyll.zip", "text" : "Download (Desktop)" }
     ],
-    "video" :
-    {
-      "url": "/Jekyll/trailer_compressed.mp4",
-      "scale" : 75
-    }
+    "video" : { "url": "/Jekyll/trailer_compressed.mp4" },
+    "showcase" : "personal"
   },
   {
     "id" : "LostInTheThreeSeas",
@@ -59,7 +53,7 @@
       { "class" : "download", "url":"/Downloads/TheBrokenArms.zip", "text" : "Download" },
       { "class" : "website", "url":"https://nu-game-dev-society.github.io/GGJ2020/","text" : "Play in browser" }
     ], 
-    "video" : {"url": "/Videos/thebrokenarms.mp4", "scale" : 75}
+    "video" : { "url": "/Videos/thebrokenarms.mp4" }
   },
   {
     "id" : "Dengar",
@@ -73,9 +67,9 @@
       { "class" : "dengar", "url":"/Dengar", "text" : "Play Now!" },
       { "class" : "website", "url":"https://js13kgames.com","text" : "js13kGames' Website" }
     ],
-    "video" : {"url": "/Videos/dengar.mp4", "scale" : 50}
+    "video" : { "url": "/Videos/dengar.mp4" },
+    "showcase" : "personal"
   },
-
   {
     "id" : "CaravanCarnageClub",
     "title" : "Caravan Carnage Club",
@@ -89,7 +83,7 @@
       { "class" : "website", "url":"https://northumbriaggj.github.io/2019/games/caravan_carnage_club/","text" : "Game Website" },
       { "class" : "ggj", "url":"https://globalgamejam.org/2019/games/caravan-carnage-club","text" : "GGJ Listing" }
     ],
-    "video" : {"url" : "/Videos/caravancarnageclub.mp4", "scale" : 75}
+    "video" : { "url" : "/Videos/caravancarnageclub.mp4" }
   },
 
   {
@@ -103,7 +97,8 @@
       { "class" : "github", "url" : "https://github.com/Patton97/Cowmageddon", "text" : "View Source" },
       { "class" : "download", "url":"/Downloads/cowmageddon.zip", "text" : "Download" }
     ],
-    "video" : {"url" : "/Videos/cowmageddon.mp4", "scale" : 75}
+    "video" : { "url" : "/Videos/cowmageddon.mp4" },
+    "showcase" : "professional"
   },
 
   {
@@ -118,7 +113,7 @@
       { "class" : "download", "url":"/Downloads/HotelNull.zip", "text" : "Download" },
       { "class" : "ludumdare", "url":"https://ldjam.com/events/ludum-dare/45/hotel-null","text" : "LD45 Page" }
     ],
-    "video" : {"url": "/Videos/hotelnull.mp4", "scale" : 75}
+    "video" : { "url": "/Videos/hotelnull.mp4" }
   },
 
   {
@@ -132,7 +127,7 @@
       { "class" : "github", "url" : "https://github.com/Patton97/Codecraft", "text" : "View Source" },
       { "class" : "download", "url":"/Downloads/CodeCraft.zip", "text" : "Download" }
     ],
-    "video" : {"url" : "/Videos/codecraft.mp4", "scale" : 75}
+    "video" : { "url" : "/Videos/codecraft.mp4" }
   },
 
   {
@@ -160,6 +155,6 @@
       { "class" : "github", "url" : "https://github.com/Patton97/Patton97.github.io/tree/master/Animation/ChristmasTrain",  "text" : "View Source" },
       { "class" : "youtube", "url":"https://youtu.be/IpwEOZqjkLU", "text" : "Trailer" }
     ],
-    "video" : {"url": "/Videos/combine.mp4", "scale" : 75}
+    "video" : { "url": "/Videos/combine.mp4" }
   }
 ]
