@@ -10,8 +10,8 @@
   {
     "id" : "RedactedProjectB",
     "title" : "Project B",
-    "description" : "",
-    "tools" : ["unity", "csharp"],
+    "description" : "Worked on the audio-gameplay connection for an upcoming mobile title.",
+    "tools" : ["unity", "fmod", "csharp"],
     "image" : { "url" : "/Images/Misc/Source/nda.png" },
     "showcase" : "professional"
   },

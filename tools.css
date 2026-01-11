@@ -20,18 +20,20 @@
   content:""; 
 
   /*Spritesheet preloads all images to avoid flickering and clean css*/
-  background: url('/Images/Tools/spritesheet.png') 
+  background: url('/Images/Tools/50px/spritesheet.png') 
 }
 .tools .blueprints:before { background-position: 0    0px!important; }
 .tools .cpp:before        { background-position: 0  -50px!important; }
 .tools .csharp:before     { background-position: 0 -100px!important; }
-.tools .java:before       { background-position: 0 -150px!important; }
-.tools .javascript:before { background-position: 0 -200px!important; }
-.tools .mixamo:before     { background-position: 0 -250px!important; }
-.tools .threejs:before    { background-position: 0 -300px!important; }
-.tools .unity:before      { background-position: 0 -350px!important; }
-.tools .unreal:before     { background-position: 0 -400px!important; }
-.tools .vr:before         { background-position: 0 -450px!important; }
+.tools .fmod:before       { background-position: 0 -150px!important; }
+.tools .java:before       { background-position: 0 -200px!important; }
+.tools .javascript:before { background-position: 0 -250px!important; }
+.tools .mixamo:before     { background-position: 0 -300px!important; }
+.tools .threejs:before    { background-position: 0 -350px!important; }
+.tools .unity:before      { background-position: 0 -400px!important; }
+.tools .unreal:before     { background-position: 0 -450px!important; }
+.tools .vr:before         { background-position: 0 -500px!important; }
+.tools .wpf:before        { background-position: 0 -550px!important; }
 
 
 /*Tool tip on tool hover - a literal tooltip for a tool*/
@@ -53,6 +55,7 @@
 .tools .blueprints .tooltip:before { content: "UE4 Blueprints";}
 .tools .cpp .tooltip:before        { content: "C++";}
 .tools .csharp .tooltip:before     { content: "C#";}
+.tools .fmod .tooltip:before       { content: "FMOD ";}
 .tools .java .tooltip:before       { content: "Java";}
 .tools .javascript .tooltip:before { content: "JavaScript";}
 .tools .mixamo .tooltip:before     { content: "Mixamo";}
