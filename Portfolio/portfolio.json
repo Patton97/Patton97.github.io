@@ -22,9 +22,10 @@
     "tools" : ["unity", "csharp"],
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2025/", "text" : "View Source" },
-      { "class" : "ggj", "url":"https://globalgamejam.org/games/2025/racing-under-three-seas-1", "text" : "GGJ Listing" },
-      { "class" : "download", "url": "/RacingUnderTheThreeSeas/DesktopBuild/RacingUnderTheThreeSeas.zip", "text" : "Download (Desktop)" }
+      { "class" : "play", "url":"/RacingUnderTheThreeSeas/WebBuild", "text" : "Play Now!" },
+      { "class" : "download", "url": "/RacingUnderTheThreeSeas/DesktopBuild/RacingUnderTheThreeSeas.zip", "text" : "Download (PC)" },
+      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2025/", "text" : "Repo" },
+      { "class" : "ggj", "url":"https://globalgamejam.org/games/2025/racing-under-three-seas-1", "text" : "GGJ" }
     ],
     "video" : { "url": "/RacingUnderTheThreeSeas/trailer_compressed.mp4" },
     "showcase" : "personal"
@@ -36,9 +37,9 @@
     "tools" : ["unity", "csharp"],
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2022/", "text" : "View Source" },
-      { "class" : "ggj", "url":"https://v3.globalgamejam.org/2022/games/jekyll-5", "text" : "GGJ Listing" },
-      { "class" : "download", "url": "/Jekyll/DesktopBuild/Jekyll.zip", "text" : "Download (Desktop)" }
+      { "class" : "download", "url": "/Jekyll/DesktopBuild/Jekyll.zip", "text" : "Download (PC)" },
+      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2022/", "text" : "Repo" },
+      { "class" : "ggj", "url":"https://v3.globalgamejam.org/2022/games/jekyll-5", "text" : "GGJ" }
     ],
     "video" : { "url": "/Jekyll/trailer_compressed.mp4" },
     "showcase" : "personal"
@@ -50,10 +51,10 @@
     "tools" : ["unity", "csharp"],
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2021/", "text" : "View Source" },
-      { "class" : "ggj", "url":"https://globalgamejam.org/games/2021/LostInTheThreeSeas", "text" : "GGJ Listing" },
-      { "class" : "download", "url": "/LostInTheThreeSeas/Android/LostInTheThreeSeas.apk", "text" : "Download (Android)" },
-      { "class" : "website", "url":"/LostInTheThreeSeas/WebBuild","text" : "Play in browser" }
+      { "class" : "play", "url":"/LostInTheThreeSeas/WebBuild","text" : "Play Now!" },
+      { "class" : "download", "url": "/LostInTheThreeSeas/Android/LostInTheThreeSeas.apk", "text" : "Download (.apk)" },
+      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2021/", "text" : "Repo" },
+      { "class" : "ggj", "url":"https://globalgamejam.org/games/2021/LostInTheThreeSeas", "text" : "GGJ" }
     ]
   },
   {
@@ -64,10 +65,10 @@
     "thumbnail" : "/Images/HexGallery/thebrokenarms.png",
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2020", "text" : "View Source" },
-      { "class" : "ggj", "url":"https://globalgamejam.org/2020/games/broken-arms-1", "text" : "GGJ Listing" },
-      { "class" : "download", "url":"/Downloads/TheBrokenArms.zip", "text" : "Download" },
-      { "class" : "website", "url":"https://nu-game-dev-society.github.io/GGJ2020/","text" : "Play in browser" }
+      { "class" : "play", "url":"https://nu-game-dev-society.github.io/GGJ2020/","text" : "Play Now!" },
+      { "class" : "download", "url":"/Downloads/TheBrokenArms.zip", "text" : "Download (PC)" },
+      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2020", "text" : "Repo" },
+      { "class" : "ggj", "url":"https://globalgamejam.org/2020/games/broken-arms-1", "text" : "GGJ" }
     ], 
     "video" : { "url": "/Videos/thebrokenarms.mp4" }
   },
@@ -79,9 +80,9 @@
     "thumbnail" : "/Images/HexGallery/dengar.png",
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/Patton97/Dengar", "text" : "View Source" },
       { "class" : "dengar", "url":"/Dengar", "text" : "Play Now!" },
-      { "class" : "website", "url":"https://js13kgames.com","text" : "js13kGames' Website" }
+      { "class" : "github", "url" : "https://github.com/Patton97/Dengar", "text" : "Repo" },
+      { "class" : "website", "url":"https://js13kgames.com","text" : "js13k" }
     ],
     "video" : { "url": "/Videos/dengar.mp4" },
     "showcase" : "personal"
@@ -89,15 +90,14 @@
   {
     "id" : "CaravanCarnageClub",
     "title" : "Caravan Carnage Club",
-    "description" : "Started as a 'jam game' for GlobalGameJam, this is by far the most fun project I've worked on to date. Myself and other members of Northumbria's Game Dev Society took the 2019 theme \"What home means to you\" and...well we ran with it. <br><br> Within the 48 hours of the jam, we focused on creating the spiritual successor to Snake that aboslutely nobody asked for. Crash into enemy cars to steal their caravans,  collect powerups to go fast or get drunk, see what hi-score you can get without before time runs out! <br><br> After the jam, we decided the game had been so fun to develop and adopted it into our weekly meetups. Since, pickups have been converted from 2D to 3D, new obstacles were added, and more!",
+    "description" : "The first GGJ game I made! In 2019, the theme was \"What home means to you\" and...well we ran with it. Within the 48 hours of the jam, we focused on creating the spiritual successor to Snake that absolutely nobody asked for. Crash into enemy cars to steal their caravans, collect powerups to go fast or get drunk, see what hi-score you can get without before time runs out! <br><br> After the jam, we decided the game had been so fun to develop and adopted it into our weekly NUGameDev Society meetups. Since, pickups have been converted from 2D to 3D, new obstacles were added, and more!",
     "tools" : ["unity", "csharp"],
     "thumbnail" : "/Images/HexGallery/caravancarnageclub.png",
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/JosephWhi98/GlobalGameAssets", "text" : "View Source" },
-      { "class" : "download", "url":"/Downloads/CaravanCarnageClub.zip", "text" : "Download" },
-      { "class" : "website", "url":"https://northumbriaggj.github.io/2019/games/caravan_carnage_club/","text" : "Game Website" },
-      { "class" : "ggj", "url":"https://globalgamejam.org/2019/games/caravan-carnage-club","text" : "GGJ Listing" }
+      { "class" : "download", "url":"/Downloads/CaravanCarnageClub.zip", "text" : "Download (PC)" },
+      { "class" : "github", "url" : "https://github.com/JosephWhi98/GlobalGameAssets", "text" : "Repo" },
+      { "class" : "ggj", "url":"https://globalgamejam.org/2019/games/caravan-carnage-club","text" : "GGJ" }
     ],
     "video" : { "url" : "/Videos/caravancarnageclub.mp4" }
   },
@@ -110,8 +110,8 @@
     "thumbnail" : "/Images/HexGallery/cowmageddon.png",
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/Patton97/Cowmageddon", "text" : "View Source" },
-      { "class" : "download", "url":"/Downloads/cowmageddon.zip", "text" : "Download" }
+      { "class" : "download", "url":"/Downloads/cowmageddon.zip", "text" : "Download (PC)" },
+      { "class" : "github", "url" : "https://github.com/Patton97/Cowmageddon", "text" : "Repo" }
     ],
     "video" : { "url" : "/Videos/cowmageddon.mp4" }
   },
@@ -124,9 +124,9 @@
     "thumbnail" : "/Images/HexGallery/hotelnull.png",
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/Patton97/LD45", "text" : "View Source" },
-      { "class" : "download", "url":"/Downloads/HotelNull.zip", "text" : "Download" },
-      { "class" : "ludumdare", "url":"https://ldjam.com/events/ludum-dare/45/hotel-null","text" : "LD45 Page" }
+      { "class" : "download", "url":"/Downloads/HotelNull.zip", "text" : "Download (PC)" },
+      { "class" : "github", "url" : "https://github.com/Patton97/LD45", "text" : "Repo" },
+      { "class" : "ludumdare", "url":"https://ldjam.com/events/ludum-dare/45/hotel-null","text" : "LD45" }
     ],
     "video" : { "url": "/Videos/hotelnull.mp4" }
   },
@@ -139,8 +139,8 @@
     "thumbnail" : "/Images/HexGallery/codecraft.png",
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/Patton97/Codecraft", "text" : "View Source" },
-      { "class" : "download", "url":"/Downloads/CodeCraft.zip", "text" : "Download" }
+      { "class" : "github", "url" : "https://github.com/Patton97/Codecraft", "text" : "Repo" },
+      { "class" : "download", "url":"/Downloads/CodeCraft.zip", "text" : "Download (PC)" }
     ],
     "video" : { "url" : "/Videos/codecraft.mp4" }
   },
@@ -153,8 +153,7 @@
     "thumbnail" : "/Images/HexGallery/train.png",
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/Patton97/Patton97.github.io/tree/master/ChristmasTrain", "text" : "View Source" },
-      { "class" : "download", "url":"./ChristmasTrain/ChristmasTrain.zip", "text" : "Download" },
+      { "class" : "github", "url" : "https://github.com/Patton97/Patton97.github.io/tree/master/ChristmasTrain", "text" : "Repo" },
       { "class" : "vr", "url":"/ChristmasTrain", "text" : "View in VR" }
     ]
   },
@@ -167,7 +166,7 @@
     "thumbnail" : "/Images/HexGallery/combine.png",
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/Patton97/Patton97.github.io/tree/master/Animation/ChristmasTrain",  "text" : "View Source" },
+      { "class" : "github", "url" : "https://github.com/Patton97/Patton97.github.io/tree/master/Animation/ChristmasTrain",  "text" : "Repo" },
       { "class" : "youtube", "url":"https://youtu.be/IpwEOZqjkLU", "text" : "Trailer" }
     ],
     "video" : { "url": "/Videos/combine.mp4" }

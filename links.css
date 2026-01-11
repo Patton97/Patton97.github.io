@@ -35,7 +35,7 @@
   margin: 0 5px 0 0;
   content:"";
   /*Spritesheet preloads all images to avoid flickering and clean css*/
-  background: url('/Images/Links/spritesheet.png') 
+  background: url('/Images/Links/50x25px/spritesheet.png') 
 }
 
 .dengar:before   {background-position: 0    0px!important;}
@@ -46,11 +46,12 @@
 .itch:before     {background-position: 0 -125px!important;}
 .linkedin:before {background-position: 0 -150px!important;}
 .ludumdare:before{background-position: 0 -175px!important;}
-.twitter:before  {background-position: 0 -200px!important;}
-.unity:before    {background-position: 0 -225px!important;}
-.vr:before       {background-position: 0 -250px!important;}
-.website:before  {background-position: 0 -275px!important;}
-.youtube:before  {background-position: 0 -300px!important;}
+.play:before     {background-position: 0 -200px!important;}
+.twitter:before  {background-position: 0 -225px!important;}
+.unity:before    {background-position: 0 -250px!important;}
+.vr:before       {background-position: 0 -275px!important;}
+.website:before  {background-position: 0 -300px!important;}
+.youtube:before  {background-position: 0 -325px!important;}
 
 .links li a:hover{color: #464F59;}
 .links li a:hover:before{background-position-x: -25px!important;}
