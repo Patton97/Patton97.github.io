@@ -23,6 +23,17 @@ function GenerateDescriptionHTML(description)
   return html
 }
 
+function GenerateImageHTML(image)
+{
+  let html = ``
+  if(image == null) {return html}
+
+  html += `<div class="videoWrapper">`
+  html += `  <img src="${image.url}" alt="NDA"/>`
+  html += `</div>`
+  return html
+}
+
 function GenerateVideoHTML(video)
 {
   let html = ``
@@ -41,6 +52,11 @@ function GenerateVideoHTML(video)
 
 function GenerateLinksHTML(links)
 {
+  if (!Array.isArray(links) || links.length == 0)
+  {
+    return ``
+  }
+
   let html = ``
   html += `<ul class="links">`
   links.forEach(link =>{
@@ -56,6 +72,7 @@ function GenerateProjectHTML(project)
   html += GenerateHeaderHTML(project.id, project.title, project.tools)
   html += GenerateDescriptionHTML(project.description)
   html += GenerateVideoHTML(project.video)
+  html += GenerateImageHTML(project.image)
   html += GenerateLinksHTML(project.links)
 
   return html
@@ -78,11 +95,6 @@ function GenerateShowcaseHTML(showcaseTitle, projects)
   showcaseSection.appendChild(showcaseGrid)
 
   projects.forEach(project => {
-    if (project.showcase != "personal")
-    {
-      return;
-    }
-
     let showcaseGridCell = document.createElement("div")
     showcaseGridCell.className = "showcaseGridCell"
     showcaseGridCell.innerHTML = GenerateProjectHTML(project)
@@ -96,7 +108,6 @@ function GetProjectsForShowcase(projects, showcaseId)
   {
     if (showcaseId === null)
     {
-      console.log("showcaseId is null! returning " + !project.hasOwnProperty("showcase") + " for " + project.title)
       return !project.hasOwnProperty("showcase")
     }
 
@@ -123,12 +134,19 @@ function LoadProjectJson(jsonUrl)
 let portfolioJson = LoadProjectJson('/Portfolio/portfolio.json')
 
 let personalShowcaseJson = GetProjectsForShowcase(portfolioJson, "personal")
+console.log("Found " + portfolioJson.length + " personal projects!")
+console.log(portfolioJson)
 GenerateShowcaseHTML("⭐Personal Showcase⭐", personalShowcaseJson)
 
 let professionalShowcaseJson = GetProjectsForShowcase(portfolioJson, "professional")
+console.log("Found " + professionalShowcaseJson.length + " professional projects!")
+console.log(professionalShowcaseJson)
+
 GenerateShowcaseHTML("⭐Professional Showcase⭐", professionalShowcaseJson)
 
-let archiveJson = GetProjectsForShowcase(portfolioJson, null)
-console.log("Found " + archiveJson.length + " archive projects!")
-console.log(archiveJson)
-GenerateShowcaseHTML("Archive", archiveJson)
+// TODO: Find a nice way of styling a showcase with more than 1 row of projects
+// TODO: Make this a button, which only loads them if the user actively requests it (save on video download)
+// let archiveJson = GetProjectsForShowcase(portfolioJson, null)
+// console.log("Found " + archiveJson.length + " archive projects!")
+// console.log(archiveJson)
+// GenerateShowcaseHTML("Archive", archiveJson)

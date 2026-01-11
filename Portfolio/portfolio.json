@@ -1,5 +1,21 @@
 [
   {
+    "id" : "RedactedProjectA",
+    "title" : "Project A",
+    "description" : "Spent 5 years developing a proprietary game engine for a highly anticipated AAA title. My programming work primarily involved leading the client's \"Asset Management\" tech initiative; modernising & maintaining an asset browser (à la UE5's Content Browser), and building, from scratch, a bespoke asset reference tracking system.",
+    "tools" : ["wpf", "csharp"],
+    "image" : { "url" : "/Images/Misc/Source/nda.png" },
+    "showcase" : "professional"
+  },
+  {
+    "id" : "RedactedProjectB",
+    "title" : "Project B",
+    "description" : "",
+    "tools" : ["unity", "csharp"],
+    "image" : { "url" : "/Images/Misc/Source/nda.png" },
+    "showcase" : "professional"
+  },
+  {
     "id" : "RacingUnderTheThreeSeas",
     "title" : "Racing under the Three Seas",
     "description" : "The theme for GGJ'25 was 🫧bubble🫧 and we ended up creating a not-quite-mario-kart fish racing game. My primary focus on this one was the player character/controller. This was by far our most polished GGJ game to date, so I'm excited to see what we can achieve for GGJ'26!",
@@ -97,8 +113,7 @@
       { "class" : "github", "url" : "https://github.com/Patton97/Cowmageddon", "text" : "View Source" },
       { "class" : "download", "url":"/Downloads/cowmageddon.zip", "text" : "Download" }
     ],
-    "video" : { "url" : "/Videos/cowmageddon.mp4" },
-    "showcase" : "professional"
+    "video" : { "url" : "/Videos/cowmageddon.mp4" }
   },
 
   {
