@@ -37,6 +37,7 @@
     "tools" : ["unity", "csharp"],
     "links" : 
     [
+      { "class" : "play", "url": "/Jekyll/WebBuild", "text" : "Play Now!" },
       { "class" : "download", "url": "/Jekyll/DesktopBuild/Jekyll.zip", "text" : "Download (PC)" },
       { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2022/", "text" : "Repo" },
       { "class" : "ggj", "url":"https://v3.globalgamejam.org/2022/games/jekyll-5", "text" : "GGJ" }
