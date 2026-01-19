@@ -17,7 +17,7 @@ main
 {
   display: flex;
   flex-direction: column;
-  margin: 1vh 5vw 5vh;
+  margin: 5vh 5vw;
 }
 
 main section

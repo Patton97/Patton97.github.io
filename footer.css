@@ -1,18 +1,22 @@
+main
+{
+  margin-bottom: 25px;
+}
+
 footer 
 {
   position: fixed;
   left:     0px;
   bottom:   0px;
   width:    100vw;
-  padding:  1vh 0 1vh 0;
-     
+  padding:  8px 0 8px 0;
+
   background-color: #0E1011;
   vertical-align: middle;
   
   /*Flex container stline*/
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-around;
 }
 
