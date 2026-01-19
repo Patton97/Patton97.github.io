@@ -82,7 +82,7 @@
   {
     "id" : "Dengar",
     "title" : "Dengar!",
-    "description" : "Entry for js13k2019: The theme was \"back\", and the challenge of js13k is to keep the filesize below 13 kilobytes. The idea for Dengar was to have an 'endless' runner in reverse, where you play as an alien trying to return to Area 51. This was my first time using JavaScript for a Jam and I definitely learned a lot for next year! ",
+    "description" : "The challenge of js13k is to keep the filesize below 13 kilobytes. In 2019, the theme was \"back\", so the idea for Dengar was to have an 'endless' runner in reverse, where you play as an alien trying to return to Area 51.",
     "tools" : ["javascript"],
     "thumbnail" : "/Images/HexGallery/dengar.png",
     "links" : 
