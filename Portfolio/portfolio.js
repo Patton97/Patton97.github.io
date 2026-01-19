@@ -1,17 +1,31 @@
-function GenerateProjectCardHeaderElement(id, title, tools)
+function GenerateProjectCardHeaderElement(id, title, subtitle, tools)
 {
   let headerElement = document.createElement("div");
   headerElement.className = "projectCardHeader";
   headerElement.id = id;
 
-  let headerTextElement = document.createElement("h2");
-  headerTextElement.textContent = title;
-  headerElement.appendChild(headerTextElement);
+  let headerTextContainerElement = document.createElement("div");
+  headerTextContainerElement.className = "projectCardHeaderTextContainer";
+  headerElement.appendChild(headerTextContainerElement);
+
+  let headerTitleElement = document.createElement("h2");
+  headerTitleElement.className = "projectCardHeaderTitle";
+  headerTitleElement.textContent = title;
+  headerTextContainerElement.appendChild(headerTitleElement);
+
+  let headerSubtitleTextElement = document.createElement("p");
+  headerSubtitleTextElement.className = "projectCardHeaderSubtitle";
+  headerSubtitleTextElement.textContent = subtitle;
+  headerTextContainerElement.appendChild(headerSubtitleTextElement);
+
+  let toolsListWrapperElement = document.createElement("div");
+  toolsListWrapperElement.className = "toolsWrapper";
+  headerElement.appendChild(toolsListWrapperElement);
 
   let toolsListElement = document.createElement("ul");
   toolsListElement.className = "tools";
   tools.forEach(tool => toolsListElement.innerHTML += `<li><a class="${tool}"><span class="tooltip"></span></a></li>`);
-  headerElement.appendChild(toolsListElement);
+  toolsListWrapperElement.appendChild(toolsListElement);
 
   return headerElement;
 }
@@ -69,7 +83,7 @@ function CreateProjectCardElement(project)
   let projectCard = document.createElement("div");
   projectCard.className = "projectCard";
 
-  projectCard.appendChild(GenerateProjectCardHeaderElement(project.id, project.title, project.tools));
+  projectCard.appendChild(GenerateProjectCardHeaderElement(project.id, project.title, project.years, project.tools));
   projectCard.appendChild(GenerateDescriptionElement(project.description));
 
   let mediaElement = GenerateMediaElement(project);
