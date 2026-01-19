@@ -69,6 +69,6 @@
 
 @media screen and (orientation: portrait) {
   .projectGroup {
-  grid-template-columns: auto-fit!important;
+  grid-template-columns: auto!important;
 }
 }
