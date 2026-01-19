@@ -8,15 +8,27 @@
     "showcase" : "professional",
     "years" : "(2020-2025)"
   },
+
   {
     "id" : "RedactedProjectB",
     "title" : "Project B",
-    "description" : "Worked on the audio-gameplay connection for an upcoming mobile title.",
+    "description" : "Delivered a project proposal to a AAA client in response to an RFP.",
+    "tools" : ["unity", "csharp"],
+    "image" : { "url" : "/Images/Misc/Source/nda.png" },
+    "showcase" : "professional",
+    "years" : "(2025)"
+  },
+  
+  {
+    "id" : "RedactedProjectC",
+    "title" : "Project C",
+    "description" : "Worked on various areas of an upcoming mobile title, including: audio-gameplay connection, addressables content management, asset configuration, and more!",
     "tools" : ["unity", "fmod", "csharp"],
     "image" : { "url" : "/Images/Misc/Source/nda.png" },
     "showcase" : "professional",
     "years" : "(2025-2026)"
   },
+
   {
     "id" : "RacingUnderTheThreeSeas",
     "title" : "Racing under the Three Seas",
