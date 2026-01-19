@@ -21,7 +21,6 @@
 .projectCardHeader
 {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   gap: 4px;
 }
@@ -41,7 +40,6 @@
 .toolsWrapper
 {
   order: 1;
-  flex-grow: 2;
   align-self: flex-end;
 }
 
