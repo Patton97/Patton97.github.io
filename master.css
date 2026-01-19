@@ -23,45 +23,21 @@ main
 main section
 {
   background-color: #464F59;
-  border-radius: 10px;
-  margin: 10px 0 10px 0;
+  border-radius: 16px;
+  margin: 8px 0 8px 0;
+  padding: 8px;
 }
 
 main section h2
 {
-  font-size: 2.5em;
   margin: 0;
 }
 
 main section p{font-family: "Lato", sans-serif;}
-main section p a
-{
-  color: #fff;
-  text-decoration: none;
-  border-bottom: 1px dotted #fff;
-  padding-bottom: 2px;
-}
-main section p a:hover{border-bottom: 1px solid #fff;}
 
-/*TO-DO, FIX: Inline lists should display as two columns...should*/
-main section p ul
-{
-  columns:         25% 2!important;  
-  -webkit-columns: 25% 2!important; 
-  -moz-columns:    25% 2!important;
-}
-
-video, canvas
+canvas
 {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-}
-
-@media screen and (orientation: portrait) 
-{
-  main
-  {
-    margin: 1vh 5vw 5vh;
-  }
 }

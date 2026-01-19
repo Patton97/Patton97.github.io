@@ -5,7 +5,8 @@
     "description" : "Spent 5 years developing a proprietary game engine for a highly anticipated AAA title. My programming work primarily involved leading the client's \"Asset Management\" tech initiative; modernising & maintaining an asset browser (à la UE5's Content Browser), and building, from scratch, a bespoke asset reference tracking system.",
     "tools" : ["wpf", "csharp"],
     "image" : { "url" : "/Images/Misc/Source/nda.png" },
-    "showcase" : "professional"
+    "showcase" : "professional",
+    "years" : "(2020-2025)"
   },
   {
     "id" : "RedactedProjectB",
@@ -13,7 +14,8 @@
     "description" : "Worked on the audio-gameplay connection for an upcoming mobile title.",
     "tools" : ["unity", "fmod", "csharp"],
     "image" : { "url" : "/Images/Misc/Source/nda.png" },
-    "showcase" : "professional"
+    "showcase" : "professional",
+    "years" : "(2025-2026)"
   },
   {
     "id" : "RacingUnderTheThreeSeas",
@@ -28,7 +30,8 @@
       { "class" : "ggj", "url":"https://globalgamejam.org/games/2025/racing-under-three-seas-1", "text" : "GGJ" }
     ],
     "video" : { "url": "/RacingUnderTheThreeSeas/trailer_compressed.mp4" },
-    "showcase" : "personal"
+    "showcase" : "personal",
+    "years" : "(2025)"
   },
   {
     "id" : "Jekyll",
@@ -43,7 +46,8 @@
       { "class" : "ggj", "url":"https://v3.globalgamejam.org/2022/games/jekyll-5", "text" : "GGJ" }
     ],
     "video" : { "url": "/Jekyll/trailer_compressed.mp4" },
-    "showcase" : "personal"
+    "showcase" : "personal",
+    "years" : "(2022)"
   },
   {
     "id" : "LostInTheThreeSeas",
@@ -56,7 +60,8 @@
       { "class" : "download", "url": "/LostInTheThreeSeas/Android/LostInTheThreeSeas.apk", "text" : "Download (.apk)" },
       { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2021/", "text" : "Repo" },
       { "class" : "ggj", "url":"https://globalgamejam.org/games/2021/LostInTheThreeSeas", "text" : "GGJ" }
-    ]
+    ],
+    "years" : "(2021)"
   },
   {
     "id" : "TheBrokenArms",
@@ -71,7 +76,8 @@
       { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2020", "text" : "Repo" },
       { "class" : "ggj", "url":"https://globalgamejam.org/2020/games/broken-arms-1", "text" : "GGJ" }
     ], 
-    "video" : { "url": "/Videos/thebrokenarms.mp4" }
+    "video" : { "url": "/Videos/thebrokenarms.mp4" },
+    "years" : "(2020)"
   },
   {
     "id" : "Dengar",
@@ -86,7 +92,8 @@
       { "class" : "website", "url":"https://js13kgames.com","text" : "js13k" }
     ],
     "video" : { "url": "/Videos/dengar.mp4" },
-    "showcase" : "personal"
+    "showcase" : "personal",
+    "years" : "(2019)"
   },
   {
     "id" : "CaravanCarnageClub",
@@ -100,7 +107,8 @@
       { "class" : "github", "url" : "https://github.com/JosephWhi98/GlobalGameAssets", "text" : "Repo" },
       { "class" : "ggj", "url":"https://globalgamejam.org/2019/games/caravan-carnage-club","text" : "GGJ" }
     ],
-    "video" : { "url" : "/Videos/caravancarnageclub.mp4" }
+    "video" : { "url" : "/Videos/caravancarnageclub.mp4" },
+    "years" : "(2019)"
   },
 
   {
@@ -114,7 +122,8 @@
       { "class" : "download", "url":"/Downloads/cowmageddon.zip", "text" : "Download (PC)" },
       { "class" : "github", "url" : "https://github.com/Patton97/Cowmageddon", "text" : "Repo" }
     ],
-    "video" : { "url" : "/Videos/cowmageddon.mp4" }
+    "video" : { "url" : "/Videos/cowmageddon.mp4" },
+    "years" : "(2019)"
   },
 
   {
@@ -129,7 +138,8 @@
       { "class" : "github", "url" : "https://github.com/Patton97/LD45", "text" : "Repo" },
       { "class" : "ludumdare", "url":"https://ldjam.com/events/ludum-dare/45/hotel-null","text" : "LD45" }
     ],
-    "video" : { "url": "/Videos/hotelnull.mp4" }
+    "video" : { "url": "/Videos/hotelnull.mp4" },
+    "years" : "(2019)"
   },
 
   {
@@ -143,7 +153,8 @@
       { "class" : "github", "url" : "https://github.com/Patton97/Codecraft", "text" : "Repo" },
       { "class" : "download", "url":"/Downloads/CodeCraft.zip", "text" : "Download (PC)" }
     ],
-    "video" : { "url" : "/Videos/codecraft.mp4" }
+    "video" : { "url" : "/Videos/codecraft.mp4" },
+    "years" : "(2019-2020)"
   },
 
   {
@@ -156,7 +167,8 @@
     [
       { "class" : "github", "url" : "https://github.com/Patton97/Patton97.github.io/tree/master/ChristmasTrain", "text" : "Repo" },
       { "class" : "vr", "url":"/ChristmasTrain", "text" : "View in VR" }
-    ]
+    ],
+    "years" : "(2019)"
   },
 
   {
@@ -167,7 +179,6 @@
     "thumbnail" : "/Images/HexGallery/combine.png",
     "links" : 
     [
-      { "class" : "github", "url" : "https://github.com/Patton97/Patton97.github.io/tree/master/Animation/ChristmasTrain",  "text" : "Repo" },
       { "class" : "youtube", "url":"https://youtu.be/IpwEOZqjkLU", "text" : "Trailer" }
     ],
     "video" : { "url": "/Videos/combine.mp4" }

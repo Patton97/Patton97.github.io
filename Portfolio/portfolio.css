@@ -1,45 +1,47 @@
-.showcaseGrid
-{
-  margin: 0;
-  padding: 0;
+/*
+Fix up styling
+Refactor JS where appropriate
 
+Commit & Push
+
+Then add archive (load 3 then "load more" button?)
+*/
+
+.showcase h1 {
+  margin: 8px;
+  text-align: center;
+}
+
+.projectGroup {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 8px;
-
-  align-items: stretch;
 }
 
-.showcaseGridCell
-{
-  min-width: 0;
-  display: grid;
-  grid-template-rows: auto auto auto auto auto;
-  margin:8px;
+.projectCard {
+  background-color: #24292E;
+  margin: 8px;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
 }
 
-.projectCardHeader{
-  display:grid;
-  grid-template-columns: auto auto;
+.description {
+  flex-grow: 1;
 }
 
-.videoWrapper {
+.mediaWrapper {
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  margin-bottom: 8px;
 }
 
-.videoWrapper video {
+.mediaWrapper video,
+.mediaWrapper img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* or cover */
-  min-width: 0;
-}
-
-@media screen and (orientation: portrait) 
-{
-  .showcaseGrid
-  {
-    flex-direction: column;
-  }
+  object-fit: contain;
+  border-radius: 8px;
 }
