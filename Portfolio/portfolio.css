@@ -42,11 +42,6 @@
   order: 1;
 }
 
-.toolsWrapper .tools
-{
-  float: right;
-}
-
 .description {
   flex-grow: 1;
 }
