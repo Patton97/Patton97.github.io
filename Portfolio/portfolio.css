@@ -1,18 +1,15 @@
-.showcase h1
-{
+.showcase h1 {
   margin: 8px;
   text-align: center;
 }
 
-.projectGroup
-{
+.projectGroup {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 8px;
 }
 
-.projectCard
-{
+.projectCard {
   background-color: #24292E;
   margin: 8px;
   border-radius: 8px;
@@ -51,13 +48,11 @@
   float: right;
 }
 
-.description
-{
+.description {
   flex-grow: 1;
 }
 
-.mediaWrapper
-{
+.mediaWrapper {
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
@@ -65,8 +60,7 @@
 }
 
 .mediaWrapper video,
-.mediaWrapper img
-{
+.mediaWrapper img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -77,12 +71,12 @@
 {
   .showcase h1
   {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .projectCard
   {
-    font-size: 1.05rem;
+    font-size: 1.5rem;
   }
 
   .projectCardHeaderSubtitle
@@ -92,8 +86,7 @@
 
   .description
   {
-    font-size: 1.05rem;
-    line-height: 1.6;
+    font-size: 1.5rem;
   }
 }
 
@@ -101,6 +94,6 @@
 {
   .projectGroup
   {
-    grid-template-columns: auto !important;
+    grid-template-columns: auto!important;
   }
 }
