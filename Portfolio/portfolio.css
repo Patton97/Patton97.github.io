@@ -67,7 +67,6 @@
   border-radius: 8px;
 }
 
-/* MOBILE ONLY */
 @media screen and (max-width: 768px) {
   .showcase h1 {
     font-size: 1.8rem;
@@ -87,6 +86,6 @@
   }
 
   .projectGroup {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: auto!important;
   }
 }
