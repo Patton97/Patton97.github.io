@@ -67,8 +67,26 @@
   border-radius: 8px;
 }
 
-@media screen and (orientation: portrait) {
+/* MOBILE ONLY */
+@media screen and (max-width: 768px) {
+  .showcase h1 {
+    font-size: 1.8rem;
+  }
+
+  .projectCard {
+    font-size: 1.05rem;
+  }
+
+  .projectCardHeaderSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .description {
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
   .projectGroup {
-  grid-template-columns: auto!important;
-}
+    grid-template-columns: 1fr !important;
+  }
 }
