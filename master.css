@@ -20,7 +20,7 @@ main
 {
   display: flex;
   flex-direction: column;
-  margin: 16px;
+  margin: 2vh 2vw;
 }
 
 main section
