@@ -54,14 +54,15 @@
 .tools li a:hover .tooltip {visibility: visible;}
 
 /*There's definitely a better way of doing this*/
-.tools .blueprints .tooltip:before { content: "UE4 Blueprints";}
-.tools .cpp .tooltip:before        { content: "C++";}
-.tools .csharp .tooltip:before     { content: "C#";}
-.tools .fmod .tooltip:before       { content: "FMOD ";}
-.tools .java .tooltip:before       { content: "Java";}
-.tools .javascript .tooltip:before { content: "JavaScript";}
-.tools .mixamo .tooltip:before     { content: "Mixamo";}
-.tools .threejs .tooltip:before    { content: "Three.js";}
-.tools .unity .tooltip:before      { content: "Unity";}
-.tools .unreal .tooltip:before     { content: "Unreal";}
-.tools .vr .tooltip:before         { content: "VR";}
+.tools .blueprints .tooltip:before { content: "UE Blueprints"; }
+.tools .cpp        .tooltip:before { content: "C++"; }
+.tools .csharp     .tooltip:before { content: "C#"; }
+.tools .fmod       .tooltip:before { content: "FMOD "; }
+.tools .java       .tooltip:before { content: "Java"; }
+.tools .javascript .tooltip:before { content: "JavaScript"; }
+.tools .mixamo     .tooltip:before { content: "Mixamo"; }
+.tools .threejs    .tooltip:before { content: "Three.js"; }
+.tools .unity      .tooltip:before { content: "Unity"; }
+.tools .unreal     .tooltip:before { content: "Unreal"; }
+.tools .vr         .tooltip:before { content: "VR"; }
+.tools .wpf        .tooltip:before { content: "WPF"; }
