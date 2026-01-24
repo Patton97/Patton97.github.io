@@ -1,18 +1,13 @@
-main
-{
-  margin-bottom: 25px;
-}
-
 footer 
 {
-  position: fixed;
-  left:     0px;
-  bottom:   0px;
-  width:    100vw;
-  padding:  8px 0 8px 0;
+  position: sticky;
+  bottom:   0;
+  width:    100%;
+  padding:  8px 0;
+
+  box-sizing: border-box;
 
   background-color: #0E1011;
-  vertical-align: middle;
   
   /*Flex container stline*/
   display: flex;
