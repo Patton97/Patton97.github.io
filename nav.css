@@ -20,7 +20,7 @@ nav
   flex-grow: 0;
 }
 
-#home img{width: 3em; height: auto;}
+#home img{width: 2em; height: auto;}
 #home:hover{transform: scale(1.25);}
 
 nav ul
@@ -42,7 +42,6 @@ nav ul
 
 nav li
 {
-  font-size: 1.5em;
   text-align: center;
   border-radius: 10px;
   padding: 0 0 0 1vw;

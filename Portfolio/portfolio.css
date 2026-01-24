@@ -67,21 +67,6 @@
   {
     font-size: 2rem;
   }
-
-  .projectCard
-  {
-    font-size: 1.5rem;
-  }
-
-  .projectCardHeaderSubtitle
-  {
-    font-size: 0.95rem;
-  }
-
-  .description
-  {
-    font-size: 1.5rem;
-  }
 }
 
 @media screen and (orientation: portrait)
