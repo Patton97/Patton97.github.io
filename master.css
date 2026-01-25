@@ -2,6 +2,30 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html, body
+{
+  height: 100%;
+  width: 100%;
+
+  /* prevent phantom horizontal scrolling */
+  scrollbar-gutter: stable;
+  overflow-x: clip;
+}
+
+body
+{
+  background-color: #24292E;
+  color: #FFFFFF;
+  font-family: "Poppins", sans-serif;
+  margin: 0;  
+}
+
 html, body
 {
   background-color: #24292E;
@@ -16,6 +40,11 @@ html, body
 
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+
+  /* these help remove phantom horizontal scrolling*/
+  /* but there's surely a better, "truer" fix to be found*/
+  scrollbar-gutter: stable;
+  overflow-x: clip;
 }
 
 main
