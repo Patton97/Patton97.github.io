@@ -7,6 +7,9 @@
   margin-block-start: 0;
   margin-block-end: 0;
 
+  padding: 0;
+  margin: 0;
+
   /*Flex container styling (This list owns a separate, nested flexbox)*/
   display: flex;
 }

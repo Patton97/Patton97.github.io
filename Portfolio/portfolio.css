@@ -5,13 +5,12 @@
 
 .projectGroup {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 8px;
 }
 
 .projectCard {
   background-color: #24292E;
-  margin: 8px;
   border-radius: 8px;
   padding: 16px;
   display: flex;
@@ -66,13 +65,5 @@
   .showcase h1
   {
     font-size: 2rem;
-  }
-}
-
-@media screen and (orientation: portrait)
-{
-  .projectGroup
-  {
-    grid-template-columns: auto!important;
   }
 }
