@@ -30,9 +30,26 @@
   },
 
   {
+    "id" : "BeanBashers",
+    "title" : "Bean Bashers",
+    "description" : "The theme for GGJ'26 was 🎭mask🎭 and we created a gang-beasts style local multiplayer brawler. Better with friends, this game supports as many gamepads as you can connect to the device, plus 2 players on 1 keyboard!\n\nMy contributions to this project included the local multiplayer manager, many of the attack controllers, the projectile logic, the fan sequence, and more!",
+    "tools" : ["unity", "csharp"],
+    "links" : 
+    [
+      { "class" : "play", "url":"/BeanBashers/WebBuild", "text" : "Play Now!" },
+      { "class" : "download", "url": "/BeanBashers/WebBuild/BeanBashers.zip", "text" : "Download (PC)" },
+      { "class" : "github", "url" : "https://github.com/nu-game-dev-society/GGJ2026/", "text" : "Repo" },
+      { "class" : "ggj", "url":"https://globalgamejam.org/games/2026/bean-bashers-8", "text" : "GGJ" }
+    ],
+    "video" : { "url": "/BeanBashers/Videos/BeanBashers_1_Trimmed_Compressed.mp4" },
+    "showcase" : "personal",
+    "years" : "(2026)"
+  },
+
+  {
     "id" : "RacingUnderTheThreeSeas",
     "title" : "Racing under the Three Seas",
-    "description" : "The theme for GGJ'25 was 🫧bubble🫧 and we ended up creating a not-quite-mario-kart fish racing game. My primary focus on this one was the player character/controller. This was by far our most polished GGJ game to date, so I'm excited to see what we can achieve for GGJ'26!",
+    "description" : "The theme for GGJ'25 was 🫧bubble🫧 and we ended up creating a not-quite-mario-kart fish racing game. This was by far our most polished GGJ game to date, so I'm excited to see what we can achieve for GGJ'26!\n\nMy primary focus on this one was the player character/controller.",
     "tools" : ["unity", "csharp"],
     "links" : 
     [
@@ -58,7 +75,6 @@
       { "class" : "ggj", "url":"https://v3.globalgamejam.org/2022/games/jekyll-5", "text" : "GGJ" }
     ],
     "video" : { "url": "/Jekyll/trailer_compressed.mp4" },
-    "showcase" : "personal",
     "years" : "(2022)"
   },
   {
@@ -94,7 +110,7 @@
   {
     "id" : "Dengar",
     "title" : "Dengar!",
-    "description" : "The challenge of js13k is to keep the filesize below 13 kilobytes. In 2019, the theme was \"back\", so the idea for Dengar was to have an 'endless' runner in reverse, where you play as an alien trying to return to Area 51.",
+    "description" : "The challenge of js13k is to keep the filesize below 13 kilobytes. In 2019, the theme was \"back\", so the idea for Dengar was to have an 'endless' runner in reverse, where you play as an alien trying to return to Area 51.\n\nThis one was a solo project, including all of the art!",
     "tools" : ["javascript"],
     "thumbnail" : "/Images/HexGallery/dengar.png",
     "links" : 
