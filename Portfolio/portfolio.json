@@ -32,7 +32,7 @@
   {
     "id" : "BeanBashers",
     "title" : "Bean Bashers",
-    "description" : "The theme for GGJ'26 was 🎭mask🎭 and we created a gang-beasts style local multiplayer brawler. Better with friends, this game supports as many gamepads as you can connect to the device, plus 2 players on 1 keyboard!\n\nMy contributions to this project included the local multiplayer manager, many of the attack controllers, the projectile logic, the fan sequence, and more!",
+    "description" : "The theme for GGJ'26 was 🎭mask🎭 and we created a gang-beasts-style local multiplayer brawler. Better with friends, this game supports as many gamepads as you can connect to the device, plus 2 players on 1 keyboard!\n\nMy contributions to this project included the local multiplayer manager, many of the attack controllers, the projectile logic, the fan sequence, and more!",
     "tools" : ["unity", "csharp"],
     "links" : 
     [
